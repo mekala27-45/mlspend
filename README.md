@@ -1,6 +1,6 @@
 # mlspend
 
-This build is incomplete against the original brief. Foundation FOCUS validation, complete portfolio ledger coverage, finance exports, full registered method scoring and final release checks remain outstanding. RESULTS.md records each requirement separately. The [working app](https://mlspend.vercel.app) has verified PostgreSQL persistence; [deployment evidence](docs/HOSTING.md) records the tested commit and limits.
+This build is incomplete against the original brief. Foundation FOCUS validation, complete portfolio ledger coverage, finance exports, full registered method scoring and final release checks remain outstanding. RESULTS.md records each requirement separately. The [Next.js site](https://mekala27-45.github.io/mlspend/) is live on GitHub Pages. The [API and companion dashboard](https://mlspend.vercel.app) have verified PostgreSQL persistence; [deployment evidence](docs/HOSTING.md) records the tested commit and limits.
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
@@ -23,6 +23,13 @@ uv run python -m scripts.serve_local
 
 Open the address printed by the local launcher. The dashboard works from committed results. The local estimator writes to a local SQLite log; hosted use requires DATABASE_URL and MLSPEND_SALT. No cloud credentials belong in source control.
 
+## Observed portfolio usage
+
+CI usage measured; build-ledger coverage reported separately. CI covers all public repositories and all run attempts in the committed creation-time window. Storage sizes are point-in-time inventory, not storage-month usage. Absent or unparsed ledgers are not zero usage.
+
+The committed window covers 35 public repositories. The known priced CI subtotal is $32.65. This excludes unpriced jobs and the missing GPU, token and API components. See [the recorded job evidence](results/portfolio-usage.json) and [its source lock](data/portfolio/lock.json).
+
+
 ## Evidence map
 
 | Skill | Evidence |
@@ -38,6 +45,8 @@ Open the address printed by the local launcher. The dashboard works from committ
 | Evaluation and multiple comparisons | packages/evaluation |
 | API and committed persistence | packages/api |
 | Reproducible reporting | packages/render, report/templates |
+| Next.js export and browser SQL | web/app, GitHub Pages browser workflows |
+| Observed public workflow usage | packages/portfolio, results/portfolio-usage.json |
 
 ## Limits
 

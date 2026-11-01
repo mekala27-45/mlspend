@@ -8,9 +8,9 @@ Status: {{ m.status }}.
 
 | Requirement | Status | Evidence |
 |---|---|---|
-| Price book fetched in Actions and locked | Partial | Browser-observed excerpts are locked; Azure evidence fetch passed in Actions. Full provider coverage and source promotion remain. |
+| Price book fetched in Actions and locked | Partial | Azure provider responses were fetched in Actions and promoted to version 2 with raw response digests and preserved history. GitHub and Vercel retain labeled excerpts; full provider coverage remains. |
 | FOCUS simulator and Foundation validation | Not done | {{ m.generation.charge_rows }} candidate charge rows exist; official conformance and the full commitment schema remain. |
-| Usage from every public build | Not done | Portfolio status is {{ m.portfolio.status }}. |
+| Usage from every public build | Partial | {{ m.portfolio.status }}. Repository summaries reconcile to the recorded workflow jobs; GPU, token and API components remain incomplete. |
 | Plan registered before held-out scoring | Done | evaluation/registration.json, plan digest {{ m.plan_digest }}. |
 | Warehouse and reconciliation at four grains | Partial | All {{ m.reconciliation.rows }} source rows reconcile exactly; dbt models and tests pass in Actions. Full FOCUS contracts remain. |
 | Allocation alternatives and owner inference | Partial | Four conserved totals and owner scores exist; the fourth is Shapley-weighted overhead. |
@@ -19,11 +19,11 @@ Status: {{ m.status }}.
 | Forecasts, budgets and scored log | Partial | {{ m.forecasts|length }} team backtests exist; live period close and budget alerts remain. |
 | Incident detection and postmortem | Partial | Held-out event recall {{ m.detector.event_recall|percent }}; full incident narrative remains. |
 | Counterfactual recommendation scoring | Partial | Commitment curve is measured; recommendation cash savings are intentionally not asserted. |
-| Persistence and cold-start measurements | Partial | Hosted estimate persistence and PostgreSQL tests pass. Cold-start distribution measurements remain. |
+| Persistence and cold-start measurements | Partial | Hosted estimate persistence, PostgreSQL tests and the public browser flow pass. Sequential request latency is recorded in results/verification.json; isolated cold-start measurements remain. |
 | Portfolio shadow estimates by output | Not done | No usage was invented. |
 | Finance exports and showback | Partial | Statements rendered; export validation is separate. |
 | All methods scored with uncertainty | Partial | Statistics utilities exist; full registered hypothesis report remains. |
-| Live Pages site and estimator | Not done | Local dashboard exists; public deployment not verified. |
+| Live Pages site and estimator | Partial | Next.js static export is live on GitHub Pages. All routes, mobile widths, themes, recovery and DuckDB queries passed browser tests. Hosted estimator persistence is verified; the forecast-log interface remains. |
 | Documentation and repository workflows | Partial | Source brief, runbook and generated documents exist; full notebook and ADR requirements remain. |
 | Quality gates, reproducibility and release | Partial | Full CI and repeat-build checks pass at the commit recorded in docs/HOSTING.md. No release tag has been created. |
 
@@ -36,7 +36,7 @@ Status: {{ m.status }}.
 
 ## Limitations
 
-The provider rates are transcribed public excerpts, and their digests cover those excerpts. They are not raw HTTP response digests. AWS, model API, storage and network price coverage is absent. Every simulation amount is a counterfactual at the recorded price snapshot.
+The Azure compute book is backed by raw API responses fetched in Actions. GitHub and Vercel prices retain explicitly labeled transcribed excerpts. The prior price book is preserved in data/prices/history. AWS, model API, storage and network price coverage remains absent. Every simulation amount is a counterfactual at the recorded price snapshot.
 
 The simulator includes compute incidents only. It does not yet include the brief's storage duplication, network export, actual spot interruption mechanism or midyear provider price changes. Billed and effective costs currently coincide because purchases and amortized commitments are not yet emitted into billing rows. Commitment optimization uses a stated simulated discount, not a purchasable provider offer.
 

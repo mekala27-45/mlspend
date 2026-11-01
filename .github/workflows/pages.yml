@@ -22,7 +22,7 @@ jobs:
           node-version: '24'
       - name: Install exact frontend versions
         working-directory: web
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Build static routes and browser SQL
         working-directory: web
         run: npm run build

@@ -8,7 +8,7 @@ Expose the cost assumption and its measurable effect. This note is rendered from
 
 ## Inputs
 
-Observed simulated charges and telemetry, the registered plan ab7b94fbe50dedf382af98d5a433fa87fae4cf86c3887552b7aa04ddcb02e3e4, and price book 1c85e2a552086fffb1baeeb98d414dd65da63ccb40021d9f9e438c30a2ce090c. Methods do not receive truth records.
+Observed simulated charges and telemetry, the registered plan ab7b94fbe50dedf382af98d5a433fa87fae4cf86c3887552b7aa04ddcb02e3e4, and price book 7510b0cec4e9292829d5d39fca431812e688a64286610f23ef3a9efd6f44ab85. Methods do not receive truth records.
 
 ## Assumptions and score
 

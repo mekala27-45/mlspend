@@ -74,7 +74,18 @@ def test_full_data_source_totals_and_method_totals():
         rows = [row for row in manifest["allocation"] if row["month"] == month["month"]]
         for method in ("even", "direct", "usage", "shapley"):
             assert sum(row["methods"][method] for row in rows) == month["billed_micro"]
-    assert manifest["portfolio"]["status"] == "not measured"
+    portfolio = manifest["portfolio"]
+    if portfolio["rows"]:
+        assert (
+            sum(row["shadow_cost_micro"] for row in portfolio["rows"])
+            == portfolio["priced_subtotal_micro"]
+        )
+        assert all(
+            row["jobs"] == row["priced_jobs"] + row["unpriced_jobs"] for row in portfolio["rows"]
+        )
+        assert portfolio["evidence"]["report_digest"]
+    else:
+        assert portfolio["status"] == "not measured"
 
 
 def test_hashseed_determinism_for_allocation():

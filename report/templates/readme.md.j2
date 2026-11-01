@@ -1,6 +1,6 @@
 # mlspend
 
-This build is incomplete against the original brief. Foundation FOCUS validation, complete portfolio ledger coverage, finance exports, full registered method scoring and final release checks remain outstanding. RESULTS.md records each requirement separately. The [working app](https://mlspend.vercel.app) has verified PostgreSQL persistence; [deployment evidence](docs/HOSTING.md) records the tested commit and limits.
+This build is incomplete against the original brief. Foundation FOCUS validation, complete portfolio ledger coverage, finance exports, full registered method scoring and final release checks remain outstanding. RESULTS.md records each requirement separately. The [Next.js site](https://mekala27-45.github.io/mlspend/) is live on GitHub Pages. The [API and companion dashboard](https://mlspend.vercel.app) have verified PostgreSQL persistence; [deployment evidence](docs/HOSTING.md) records the tested commit and limits.
 
 {{ m.statement }}
 
@@ -23,6 +23,13 @@ uv run python -m scripts.serve_local
 
 Open the address printed by the local launcher. The dashboard works from committed results. The local estimator writes to a local SQLite log; hosted use requires DATABASE_URL and MLSPEND_SALT. No cloud credentials belong in source control.
 
+## Observed portfolio usage
+
+{{ m.portfolio.status }}. {{ m.portfolio.reason }}
+{% if m.portfolio.rows %}
+The committed window covers {{ m.portfolio.repository_count }} public repositories. The known priced CI subtotal is {{ m.portfolio.priced_subtotal_micro|money }}. This excludes unpriced jobs and the missing GPU, token and API components. See [the recorded job evidence](results/portfolio-usage.json) and [its source lock](data/portfolio/lock.json).
+{% endif %}
+
 ## Evidence map
 
 | Skill | Evidence |
@@ -38,6 +45,8 @@ Open the address printed by the local launcher. The dashboard works from committ
 | Evaluation and multiple comparisons | packages/evaluation |
 | API and committed persistence | packages/api |
 | Reproducible reporting | packages/render, report/templates |
+| Next.js export and browser SQL | web/app, GitHub Pages browser workflows |
+| Observed public workflow usage | packages/portfolio, results/portfolio-usage.json |
 
 ## Limits
 
