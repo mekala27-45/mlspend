@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 Each action is estimated from observed telemetry, then independently rerun against the whole simulated platform. Shared-capacity effects can reduce savings or increase cost.
+
+## Inputs
+
+Validated observed telemetry from the contracted mart, public price rows, registered eligibility settings and independent full-platform intervention reruns.
+
+## Assumptions
+
+Utilization, duplicate-content and timeout signals describe the simulated workload. Whole-node release determines realized cost; cheaper workload rates alone do not guarantee lower total spend.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## Whole-platform counterfactuals
 
@@ -71,6 +86,15 @@ Each action is estimated from observed telemetry, then independently rerun again
 | --- | --- | --- |
 | $51,316.71 | 14.7% | 94.0% |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+Resource-level day-resampling intervals quantify estimate variability. Independent and joint reruns expose capacity externalities and overlap. The quiet-hours notebook demonstrates a boundary where spot adds cost while idle capacity remains.
+
+## Limitations
 
 Joint saving comes from one combined rerun. Incident-removal effects and standalone action savings are not additive; no summed savings claim. The avoidable reference combines registered actions and incident removal; it is not a proof of the global optimum. Resampled estimate intervals are not guaranteed cash-saving intervals. Model switching requires the registered quality floor.
+
+## What a reviewer would push back on
+
+A platform engineer should demand released capacity and an unchanged quality constraint. Action savings are not additive. The combined reference is a specified intervention set, not a proven global optimum or a real saving made.

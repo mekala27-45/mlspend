@@ -45,3 +45,11 @@ def test_boundary_clean_violation_empty(tmp_path):
     target.write_text("from packages.truth import access\n")
     with pytest.raises(ValueError, match="Truth"):
         import_boundary(tmp_path)
+    target.write_text('path = "data/expanded/sealed/owners.json"\n')
+    with pytest.raises(ValueError, match="Sealed"):
+        import_boundary(tmp_path)
+
+
+def test_text_gate_rejects_blank_content():
+    with pytest.raises(ValueError, match="No content"):
+        text_gate({"blank.md": "  \n"})

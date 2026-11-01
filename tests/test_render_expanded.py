@@ -4,7 +4,7 @@ import shutil
 import pytest
 
 from packages.core.io import ROOT
-from packages.render.expanded import render
+from packages.render.expanded import method_note, render
 
 
 def test_generated_claims_match_evidence_and_reject_drift(tmp_path):
@@ -14,6 +14,7 @@ def test_generated_claims_match_evidence_and_reject_drift(tmp_path):
         "results/committed-ledgers.json",
         "data/prices/expanded/book.json",
         "config/completion.json",
+        "config/method-notes.json",
     ):
         target = tmp_path / name
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -33,3 +34,20 @@ def test_generated_claims_match_evidence_and_reject_drift(tmp_path):
     (tmp_path / "results/expanded/manifest.json").write_text(json.dumps(original))
     with pytest.raises(ValueError, match="nonempty"):
         render(tmp_path)
+
+
+def test_method_note_requires_every_section():
+    page = {
+        "title": "Fixture",
+        "intro": "Purpose",
+        "limit": "Limit",
+        "sections": [
+            {"title": "Score", "headers": ["Outcome"], "rows": [["Fixture pass"]], "note": ""}
+        ],
+    }
+    detail = {k: "Present" for k in ("inputs", "assumptions", "sensitivity", "pushback")}
+    assert "## Purpose" in method_note(page, detail)
+    with pytest.raises(ValueError, match="required section"):
+        method_note(page, {**detail, "inputs": ""})
+    with pytest.raises(ValueError, match="required section"):
+        method_note({}, {})

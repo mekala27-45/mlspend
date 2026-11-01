@@ -1,0 +1,38 @@
+{
+  "allocation": {
+    "inputs": "Contracted observed charges, owner evidence from namespace/network, requested and used capacity, locked pool rates and registered team weights.",
+    "assumptions": "The larger of request and usage defines capacity responsibility. Idle is explicit before the shared bill is distributed. Coalitions use a simulated capacity quantile; Shapley is a modeled reference, not observed moral fairness.",
+    "sensitivity": "The scorecard retains all policies on the same fixed total, the largest team-month movement and cluster uncertainty. A zero-total or nonconserving policy fails. The reference depends on the registered capacity quantile; no post-holdout tuning is performed.",
+    "pushback": "A platform engineer can object that bursty workloads and fractional GPUs alter responsibility. A FinOps lead can reject the coalition model. Inspect the alternative bills and use the reference as a discussion input."
+  },
+  "unit": {
+    "inputs": "Reconciled direct costs, owner statements, model versions, output counts, token components and the last observed capacity point.",
+    "assumptions": "Average cost allocates support once. Marginal inference prices extra whole replicas at simulated throughput. Missing denominators remain missing; a cached token is not an additional answer.",
+    "sensitivity": "Headroom and replica-boundary fixtures distinguish zero incremental capacity from one extra replica. The displayed marginal point is local to the last observation, not a measured throughput curve.",
+    "pushback": "A product owner needs average cost for a sustainable unit margin and marginal cost for incremental traffic. Neither quantity proves model quality or latency. Replace simulated throughput with a benchmark before purchasing capacity."
+  },
+  "forecast": {
+    "inputs": "UTC daily direct spend and workload from the observed mart, development-only model selection, earlier calibration residuals and rolling cutoff dates.",
+    "assumptions": "Historical simulated patterns are relevant to the next horizon. Serial dependence weakens exchangeability; nominal coverage is a target rather than a guarantee. Monthly records abstain when calibration is insufficient.",
+    "sensitivity": "The development scorecard compares every registered candidate. Held-out MAE, empirical coverage, team-cluster uncertainty and monthly interval status remain visible. Future-row mutation tests leave earlier forecasts unchanged.",
+    "pushback": "A finance lead should ask whether the horizon is direct or fully loaded spend, whether changes are structural and whether intervals are calibrated on completed horizons. Historical backtests and future real forecast logs remain separate."
+  },
+  "anomalies": {
+    "inputs": "Observed hourly and daily spend by owner, service and SKU, seasonal residuals, and development-only calibration labels. Evaluation alone reads sealed incident intervals.",
+    "assumptions": "Weekly seasonality and enough development history exist. New series without that history abstain. Observation timestamps are not provider billing arrival timestamps.",
+    "sensitivity": "Candidate MAD/CUSUM thresholds must meet the registered development false-alarm budget. Boundary selections and series with no development history are disclosed. Event recall, point precision and point recall have distinct denominators.",
+    "pushback": "Finding an incident window can coexist with many false alarms and missed hours inside it. Synthetic step changes can produce zero-delay boundary results. Inspect the weekend postmortem and budget delay instead of claiming a production response SLA."
+  },
+  "recommendations": {
+    "inputs": "Validated observed telemetry from the contracted mart, public price rows, registered eligibility settings and independent full-platform intervention reruns.",
+    "assumptions": "Utilization, duplicate-content and timeout signals describe the simulated workload. Whole-node release determines realized cost; cheaper workload rates alone do not guarantee lower total spend.",
+    "sensitivity": "Resource-level day-resampling intervals quantify estimate variability. Independent and joint reruns expose capacity externalities and overlap. The quiet-hours notebook demonstrates a boundary where spot adds cost while idle capacity remains.",
+    "pushback": "A platform engineer should demand released capacity and an unchanged quality constraint. Action savings are not additive. The combined reference is a specified intervention set, not a proven global optimum or a real saving made."
+  },
+  "commitments": {
+    "inputs": "Observed pool demand in development hours, locked real reservation or savings-plan offers, registered integer capacities and separately scored holdout demand.",
+    "assumptions": "The commitment pays for its full capacity while excess demand uses on-demand rates. Unused committed capacity remains a cost. The scenario omits real procurement flexibility and negotiated terms.",
+    "sensitivity": "The chosen integer level must be interior to the registered candidate set. The scorecard reports held-out regret at the chosen level and 20 percent less or more; fractional sensitivity levels are not claimed to be purchasable.",
+    "pushback": "The future demand distribution can shift after procurement. Compare the held-out regret and unused capacity, then model the actual contract terms before making a financial commitment."
+  }
+}

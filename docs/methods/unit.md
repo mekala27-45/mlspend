@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 Direct prediction, answer, training and notebook models receive each owner statement in proportion to direct cost. Shared support is allocated once; no denominator is invented for idle notebooks. Marginal inference uses simulated throughput of 18000 requests per node-hour.
+
+## Inputs
+
+Reconciled direct costs, owner statements, model versions, output counts, token components and the last observed capacity point.
+
+## Assumptions
+
+Average cost allocates support once. Marginal inference prices extra whole replicas at simulated throughput. Missing denominators remain missing; a cached token is not an additional answer.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## Inference · USD per 1,000 predictions
 
@@ -2309,6 +2324,15 @@ Direct prediction, answer, training and notebook models receive each owner state
 | search-experiment-98 | 24 | 0 | $27.24 |
 | search-experiment-99 | 24 | 0 | $27.51 |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+Headroom and replica-boundary fixtures distinguish zero incremental capacity from one extra replica. The displayed marginal point is local to the last observation, not a measured throughput curve.
+
+## Limitations
 
 The throughput conversion and model quality scores are simulator assumptions. A zero next-batch cost means the next batch fits the reserved capacity. A zero denominator is not reported as a free output.
+
+## What a reviewer would push back on
+
+A product owner needs average cost for a sustainable unit margin and marginal cost for incremental traffic. Neither quantity proves model quality or latency. Replace simulated throughput with a benchmark before purchasing capacity.

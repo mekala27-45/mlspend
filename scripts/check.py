@@ -26,6 +26,13 @@ def main() -> None:
     text_gate(prose)
     import_boundary(ROOT / "packages")
     PriceBook()
+    PriceBook(ROOT / "data/prices/expanded")
+    expanded_plan = digest(read_json(ROOT / "evaluation/v2/plan.json"))
+    if expanded_plan != read_json(ROOT / "evaluation/v2/registration.json")["plan_digest"]:
+        raise ValueError("Expanded registration drift")
+    study = read_json(ROOT / "results/expanded/manifest.json")
+    if study["registration"]["plan_digest"] != expanded_plan:
+        raise ValueError("Expanded result does not match its registered plan")
     if (
         digest(read_json(ROOT / "evaluation/plan.json"))
         != read_json(ROOT / "evaluation/registration.json")["plan_digest"]

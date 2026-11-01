@@ -1,39 +1,25 @@
-# Hosted verification
+# Hosting and verification
 
-The working API and dashboard are available at https://mlspend.vercel.app. The application uses Vercel's FastAPI runtime and Neon Postgres. This is a working demonstration, not a completed release against the original brief.
+The [dashboard](https://mekala27-45.github.io/mlspend/) is a Next.js static export on GitHub Pages. The [API](https://mlspend.vercel.app/health) runs the port-80 Dockerfile.vercel container. The earlier FastAPI-specific deployment is historical evidence, not the current hosting architecture.
 
-## Verified deployment
+## Production
 
-Production deployment `dpl_B8UooHA3nAdZWujCbN6zCZ6rdKJH` was built from commit `12a4c39513062dabee8ed466c55ebd6ef6726b23`. The public health endpoint is ready with its database connected and the promoted price digest. The project database and hashing salt remain in the configured environment; neither credential is committed.
+Production deployment `dpl_C7BmktvDnWUgmdRLWbZXgtZtzPWm` was built from `913fd26c9ebd30c168b44038557c674317f5635d`. Its health response reports the expanded price digest and generated-observation digest. The runtime login `mlspend_api` can read and append application logs and update the request budget. It cannot migrate the schema. Alembic runs separately with the migration credential. Existing legacy rows were copied without deleting their source tables.
 
-The [build and verification run](https://github.com/mekala27-45/mlspend/actions/runs/41259449264) passed all 47 Python tests, six browser-client tests, strict type checking, lint, the HTTP persistence check, two dbt models with five data tests, and repeated builds with different hash seeds. Its validation artifact contains the machine-readable results. These results apply to that commit.
+The [hosted check](https://github.com/mekala27-45/mlspend/actions/runs/41265362664) passed against the expanded API. It checks health, showback, unit costs, anomalies, an estimate POST and an independent HTTP readback. Core CI also starts the actual container and reads its saved row through an independent PostgreSQL connection. Source and evidence remain inspectable in Actions.
 
-The [hosted persistence run](https://github.com/mekala27-45/mlspend/actions/runs/41258269171) passed on its second attempt after the deployment fix. The first attempt correctly caught a server error. The successful check exercised database health, dashboard HTML, showback, unit costs, anomalies, one estimate POST, and a separate GET of the saved estimate. `results/hosted-validation.json` is the unmodified JSON emitted by that check. A direct Neon read independently found the same estimate ID, payload and result.
+The request header prices serialized process CPU time and the maximum of start/end RSS multiplied by request wall time. It includes process baseline memory during the request and excludes process startup and idle lifetime. It is a shadow meter, not provider billing. Health records an instance identifier and process uptime so a first observation is not automatically called a cold start.
 
-## Failure and regression coverage
+## Browser checks
 
-PostgreSQL treats `window` as a reserved keyword. The original budget query left that column unquoted, so normal requests failed while the health query still passed. The corrected query quotes it in both the INSERT and conflict target. PostgreSQL regression tests now exercise concurrent budget updates and actual API requests, rather than only checking direct log storage.
+[Pages publication](https://github.com/mekala27-45/mlspend/actions/runs/41265362629) passed static build, strict TypeScript and all route/recovery tests. Checks include desktop and 390-pixel layouts, keyboard access in both themes, required disclosure, a real DuckDB-WASM query, GET readiness retry, offline fallback and uncertain write handling.
 
-If a POST response is lost, the client reports that persistence is unknown and does not automatically retry. It only reports an estimate as not submitted when the API readiness check failed before the POST. The submit button is disabled while a request is running.
+The published browser workflow uses Chrome on Windows. It records the current instance, makes no probe for twenty minutes, and then exercises all hosting families, estimate persistence, one future forecast, the response meter and warm requests. A new instance identifier with short uptime is recorded separately from the waiting period; uncontrolled public traffic remains a limitation. Its artifact and evidence branch contain the actual screens and ten-second GIF. A test in a hosted Windows runner is not described as an interaction on Ajay's own laptop.
 
-## Running the checks again
+## Scheduled close
 
-Run `python -m scripts.check_hosted --url https://mlspend.vercel.app` from a checkout with outbound HTTPS access, or dispatch the Verify hosted persistence workflow. Each successful run creates one small test estimate and records its identifier. Do not delete unrelated request logs to clean up a test.
+`.github/workflows/close-period.yml` fetches public usage after a completed month and scores matching forecasts atomically. The `mlspend_close` role is restricted to SELECT and UPDATE of `actual_micro` and `scored_at` on the application log. It cannot rewrite forecast payloads or delete rows. The role has been created and its permissions verified. Credential transfer to an external secret store was blocked by automatic approval review and remains pending specific authorization. GitHub Actions secrets `MLSPEND_CLOSE_DATABASE_URL` and `MLSPEND_CLOSE_SALT` still require configuration; until then the workflow fails clearly without scoring anything. Never paste either value into a chat, issue or source file.
 
-Run the Build and verify workflow to exercise ephemeral PostgreSQL, SQLite, dbt and deterministic builds. The managed Windows session can run the direct storage and JavaScript tests, but its socket restrictions prevent the complete HTTP suite from running locally.
+## Recheck
 
-## Remaining limits
-
-These checks establish HTTP behavior, persistence, and the recorded Chromium browser flows. They do not establish isolated cold-start distributions, actual provider billing, complete FOCUS conformance, full portfolio coverage or completion of the analytical requirements. No release tag is created by these workflows. Consult RESULTS.md before describing the project as complete.
-
-## Pages and browser verification
-
-The Next.js static export is published at https://mekala27-45.github.io/mlspend/. The Pages run https://github.com/mekala27-45/mlspend/actions/runs/41259117796 passed build, strict TypeScript, and four Chromium tests before publishing commit 0e86d616f1c6f538d0218bbf71ab6295456fe8d7. Tests cover every route at 1280 and 390 pixels, theme switching, the first-503 readiness retry, uncertain POST handling, and a real DuckDB-WASM query of the complete monthly table. Browser screenshots and the npm lockfile are preserved in that run. Later promoted data require a new run; these results remain scoped to the named commit.
-
-An owner-browser check of the Vercel estimator submitted 19 requests per day for one day on the T4 rate. The page returned reference b17d05ff-5ab3-457a-a292-3e4a6395aa66 and a shadow estimate of USD 12.624. An independent Neon SELECT found the same identifier, payload and result. This establishes the browser-to-database path for that deployment, without changing authentication settings or creating a share link.
-
-## Promoted verification evidence
-
-[results/verification.json](../results/verification.json) is generated by scripts/promote_verification.py from checksum-verified CI and public-browser artifacts. The [public browser run](https://github.com/mekala27-45/mlspend/actions/runs/41259788323) verifies matching price digests on the deployed frontend and API, a real cross-origin estimate submission, the visible saved reference, and an independent HTTP readback. A direct Neon SELECT also confirmed reference ed653119-bb0f-40f5-b352-50b46bbec488 after the test.
-
-The artifact records the first observed health request separately from twenty sequential health samples, with nearest-rank p50 and p99 including network time. The first observation is not claimed as a cold invocation. These are a small sequential sample, not a concurrency or capacity benchmark.
+Run `uv run python -m scripts.check_hosted --url https://mlspend.vercel.app` from an environment with outbound HTTPS. Run Build and verify for real PostgreSQL, container persistence, notebook execution, strict typing, lint and coverage. Run the full expanded study for two independent hash seeds and LibreOffice formula recalculation. See RESULTS.md for the release boundary and unresolved source gaps.

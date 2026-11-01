@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 Seasonal MAD and positive CUSUM are calibrated on development data with a false-alarm budget. Hourly and daily team, service and SKU series are scored on held-out months.
+
+## Inputs
+
+Observed hourly and daily spend by owner, service and SKU, seasonal residuals, and development-only calibration labels. Evaluation alone reads sealed incident intervals.
+
+## Assumptions
+
+Weekly seasonality and enough development history exist. New series without that history abstain. Observation timestamps are not provider billing arrival timestamps.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## Held-out detection
 
@@ -161,6 +176,15 @@ Seasonal MAD and positive CUSUM are calibrated on development data with a false-
 | hour | search | warehouse | Standard_D4s_v5 | seasonal_mad | 5 | 0.9% | True |
 | day | search | warehouse | Standard_D4s_v5 | seasonal_mad | 3 | 0.0% | False |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+Candidate MAD/CUSUM thresholds must meet the registered development false-alarm budget. Boundary selections and series with no development history are disclosed. Event recall, point precision and point recall have distinct denominators.
+
+## Limitations
 
 Zero-hour detections are boundary results from timestamped synthetic incidents, not evidence of zero production latency. Event recall and point precision answer different questions. Post-development SKUs with no calibration history are unscored.
+
+## What a reviewer would push back on
+
+Finding an incident window can coexist with many false alarms and missed hours inside it. Synthetic step changes can produce zero-delay boundary results. Inspect the weekend postmortem and budget delay instead of claiming a production response SLA.

@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 Seasonal naive, trend-seasonal and gradient boosting compete only on development history. Daily and monthly rolling-origin predictions are evaluated separately; intervals use earlier residuals.
+
+## Inputs
+
+UTC daily direct spend and workload from the observed mart, development-only model selection, earlier calibration residuals and rolling cutoff dates.
+
+## Assumptions
+
+Historical simulated patterns are relevant to the next horizon. Serial dependence weakens exchangeability; nominal coverage is a target rather than a guarantee. Monthly records abstain when calibration is insufficient.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## Daily held-out scorecard
 
@@ -129,6 +144,15 @@ Seasonal naive, trend-seasonal and gradient boosting compete only on development
 | service/vector | 2025-12-31 | $80.24 | $80.43 | $80.43 | 31 | critical |
 | service/warehouse | 2025-12-31 | $133.73 | $134.06 | $134.06 | 31 | critical |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+The development scorecard compares every registered candidate. Held-out MAE, empirical coverage, team-cluster uncertainty and monthly interval status remain visible. Future-row mutation tests leave earlier forecasts unchanged.
+
+## Limitations
 
 Team forecasts use direct spend, while statements include shared allocation. Serial dependence can invalidate nominal conformal coverage. Inadequate monthly calibration produces an unavailable interval. Live future forecasts are kept separate from these synthetic backtests.
+
+## What a reviewer would push back on
+
+A finance lead should ask whether the horizon is direct or fully loaded spend, whether changes are structural and whether intervals are calibrated on completed horizons. Historical backtests and future real forecast logs remain separate.

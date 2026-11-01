@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def text_gate(files: Mapping[str, str], *, check_wording: bool = True) -> None:
-    if not files or not any(files.values()):
+    if not files or not any(value.strip() for value in files.values()):
         raise ValueError("No content was scanned")
     banned = re.compile(r"\b(seamless|cutting-edge|game changer|delve|synergy)\b", re.I)
     secret = re.compile(
@@ -28,6 +28,9 @@ def import_boundary(root: Path) -> None:
         for name in ("allocation", "unit", "forecast", "detect", "optimize")
         for file in (root / name).glob("*.py")
     ]
+    expanded = root / "expansion" / "analysis.py"
+    if expanded.exists():
+        files.append(expanded)
     if not files:
         raise ValueError("No method modules found")
     for file in files:
@@ -43,6 +46,10 @@ def import_boundary(root: Path) -> None:
                 "truth" in alias.name.split(".") for alias in node.names
             ):
                 raise ValueError(f"Truth import in {file.name}")
+            if isinstance(node, ast.Constant) and isinstance(node.value, str):
+                normalized = node.value.replace("\\", "/")
+                if "/sealed/" in normalized or normalized.startswith("sealed/"):
+                    raise ValueError(f"Sealed truth path in {file.name}")
 
 
 def statement_gate(files: Mapping[str, str], statement: str) -> None:

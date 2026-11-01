@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 Capacity is selected on development demand using actual locked public offer rates. Held-out regret is relative to the best registered capacity with hindsight.
+
+## Inputs
+
+Observed pool demand in development hours, locked real reservation or savings-plan offers, registered integer capacities and separately scored holdout demand.
+
+## Assumptions
+
+The commitment pays for its full capacity while excess demand uses on-demand rates. Unused committed capacity remains a cost. The scenario omits real procurement flexibility and negotiated terms.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## Chosen capacity
 
@@ -78,6 +93,15 @@ Capacity is selected on development demand using actual locked public offer rate
 | azure-v100 | 48 | $107.66304 |
 | azure-v100 | 64 | $143.55072 |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+The chosen integer level must be interior to the registered candidate set. The scorecard reports held-out regret at the chosen level and 20 percent less or more; fractional sensitivity levels are not claimed to be purchasable.
+
+## Limitations
 
 Fractional perturbations are analytical sensitivity points, not necessarily purchasable units. No commitment was purchased. Future demand and provider offer availability can change.
+
+## What a reviewer would push back on
+
+The future demand distribution can shift after procurement. Compare the held-out regret and unused capacity, then model the actual contract terms before making a financial commitment.

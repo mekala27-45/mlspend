@@ -2,7 +2,22 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
+## Purpose
+
 The same source total supports five policies. The capacity Shapley calculation enumerates every coalition; its normalized shares allocate the recorded shared bill.
+
+## Inputs
+
+Contracted observed charges, owner evidence from namespace/network, requested and used capacity, locked pool rates and registered team weights.
+
+## Assumptions
+
+The larger of request and usage defines capacity responsibility. Idle is explicit before the shared bill is distributed. Coalitions use a simulated capacity quantile; Shapley is a modeled reference, not observed moral fairness.
+
+## Score on the truth and observed results
+
+All numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.
+
 
 ## One total, five policies
 
@@ -49,6 +64,15 @@ The same source total supports five policies. The capacity Shapley calculation e
 | --- | --- | --- |
 | research | 2025-08 | $2,236.90 |
 
-## Limits and pushback
+
+## Sensitivity and interior checks
+
+The scorecard retains all policies on the same fixed total, the largest team-month movement and cluster uncertainty. A zero-total or nonconserving policy fails. The reference depends on the registered capacity quantile; no post-holdout tuning is performed.
+
+## Limitations
 
 Capacity contribution is a fairness reference under this coalition cost model. It is not an objective fairness label. Namespace and network must agree before an untagged charge is assigned.
+
+## What a reviewer would push back on
+
+A platform engineer can object that bursty workloads and fractional GPUs alter responsibility. A FinOps lead can reject the coalition model. Inspect the alternative bills and use the reference as a discussion input.

@@ -25,6 +25,38 @@ def page(title: str, intro: str, sections: list[dict[str, Any]], limit: str) -> 
     return {"title": title, "intro": intro, "sections": sections, "limit": limit}
 
 
+def method_note(data: dict[str, Any], detail: dict[str, str]) -> str:
+    required = ("inputs", "assumptions", "sensitivity", "pushback")
+    if (
+        not data.get("intro")
+        or not data.get("sections")
+        or not data.get("limit")
+        or any(not detail.get(k, "").strip() for k in required)
+    ):
+        raise ValueError("Method note is missing a required section")
+    return (
+        "# "
+        + data["title"]
+        + "\n\n"
+        + STATEMENT
+        + "\n\n## Purpose\n\n"
+        + data["intro"]
+        + "\n\n## Inputs\n\n"
+        + detail["inputs"]
+        + "\n\n## Assumptions\n\n"
+        + detail["assumptions"]
+        + "\n\n## Score on the truth and observed results\n\nAll numeric tables below are rendered from results/expanded/manifest.json. Unit-economics arithmetic is checked on known fixtures; it is not an empirical model-quality result.\n"
+        + "".join(markdown(s) for s in data["sections"])
+        + "\n\n## Sensitivity and interior checks\n\n"
+        + detail["sensitivity"]
+        + "\n\n## Limitations\n\n"
+        + data["limit"]
+        + "\n\n## What a reviewer would push back on\n\n"
+        + detail["pushback"]
+        + "\n"
+    )
+
+
 def markdown(section: dict[str, Any]) -> str:
     def cell(value: Any) -> str:
         return (
@@ -670,6 +702,7 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         },
     }
     _write_or_check(root / "web/expanded.json", canonical(payload), check)
+    method_notes = read_json(root / "config/method-notes.json")
     for name, p in pages.items():
         content = (
             "# "
@@ -683,11 +716,22 @@ def render(root: Path = ROOT, check: bool = False) -> None:
             + p["limit"]
             + "\n"
         )
+        if name in (
+            "allocation",
+            "unit",
+            "forecast",
+            "anomalies",
+            "recommendations",
+            "commitments",
+        ):
+            content = method_note(p, method_notes.get(name, {}))
         _write_or_check(
             root / ("report/briefing.md" if name == "report" else f"docs/methods/{name}.md"),
             content.encode(),
             check,
         )
+        if name == "anomalies":
+            _write_or_check(root / "docs/methods/detection.md", content.encode(), check)
     sweep = next(r for r in d["events"] if r["id"] == "weekend-sweep")
     budget = next(r for r in m["budgets"] if r["grain"] == "team" and r["key"] == sweep["team"])
     candidates = [
