@@ -19,12 +19,15 @@ def summarize(
 ) -> dict[str, Any]:
     monthly: dict[str, int] = defaultdict(int)
     resources: dict[str, int] = defaultdict(int)
+    hourly: dict[str, int] = defaultdict(int)
     for row in simulate(book, actions, hours, incidents):
         monthly[row["timestamp"][:7]] += row["cost_micro"]
         resources[row["resource"]] += row["cost_micro"]
+        hourly[row["timestamp"]] += row["cost_micro"]
     return {
         "monthly_micro": dict(monthly),
         "resource_micro": dict(resources),
+        "hourly_micro": dict(hourly),
         "total_micro": sum(monthly.values()),
     }
 
@@ -36,16 +39,27 @@ def rerun(destination: Path, hours: int | None = None) -> dict[str, Any]:
     combined = summarize(book, frozenset(ACTIONS), hours)
     incidents = read_json(ROOT / "config/expanded-incidents.json")
     incident_costs = {}
+    incident_hourly = {}
     for incident in incidents:
         without = summarize(
             book, frozenset(), hours, [r for r in incidents if r["id"] != incident["id"]]
         )
         incident_costs[incident["id"]] = baseline["total_micro"] - without["total_micro"]
+        incident_hourly[incident["id"]] = {
+            hour: value - without["hourly_micro"].get(hour, 0)
+            for hour, value in baseline["hourly_micro"].items()
+            if value != without["hourly_micro"].get(hour, 0)
+        }
+    oracle = summarize(
+        book, frozenset(ACTIONS), hours, [r for r in incidents if r["kind"] == "sku_change"]
+    )
     result = {
         "baseline": baseline,
         "actions": actions,
         "combined": combined,
         "incident_avoidable_micro": incident_costs,
+        "incident_hourly_micro": incident_hourly,
+        "oracle_total_micro": oracle["total_micro"],
         "price_digest": book.digest,
         "procedure": "Full deterministic simulation rerun for each action and incident removal; exogenous random draws keyed by seed, hour, owner and purpose",
         "hours": hours or 8760,
@@ -88,12 +102,15 @@ def grade(recommendations: list[dict[str, Any]], truth: dict[str, Any]) -> dict[
         )
     recovered = truth["baseline"]["total_micro"] - truth["combined"]["total_micro"]
     incident_waste = sum(max(0, value) for value in truth["incident_avoidable_micro"].values())
+    avoidable = truth["baseline"]["total_micro"] - truth["oracle_total_micro"]
     return {
         "rows": graded,
         "actions": action_rows,
         "joint_recovered_micro": recovered,
         "incident_avoidable_micro": incident_waste,
         "recovery_share_of_baseline": recovered / truth["baseline"]["total_micro"],
+        "total_avoidable_micro": avoidable,
+        "share_of_total_waste_recovered": recovered / avoidable if avoidable else None,
         "truth_digest": digest(truth),
         "overlap_note": "Joint saving comes from one combined rerun. Incident-removal effects and standalone action savings are not additive; no summed savings claim.",
     }

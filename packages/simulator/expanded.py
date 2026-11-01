@@ -70,6 +70,7 @@ def simulate(
     if hours is not None:
         count = min(count, hours)
     rates = {p.id: p for p in sorted(book.rows, key=lambda p: p.effective_date)}
+    reserved_total = microdollars(rates["azure-t4-reserved-1y"].usd * 8760)
     for hour in range(count):
         timestamp = start + timedelta(hours=hour)
         month_hours = calendar.monthrange(timestamp.year, timestamp.month)[1] * 24
@@ -356,6 +357,7 @@ def simulate(
             pool="reserved-t4",
             contract_id="simulated-t4-contract",
             billed_micro=0,
+            cost_micro=reserved_total // 8760 + int(hour < reserved_total % 8760),
             list_unit_price=str(rates["azure-t4"].usd),
         )
         if hour == 0:
@@ -369,7 +371,7 @@ def simulate(
                 contract_id="simulated-t4-contract",
                 charge_category="Purchase",
                 cost_micro=0,
-                billed_micro=microdollars(rates["azure-t4-reserved-1y"].usd * 8760),
+                billed_micro=reserved_total,
                 list_unit_price=str(rates["azure-t4-reserved-1y"].usd),
             )
 
