@@ -8,6 +8,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+import psutil
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,6 +16,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy import text
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from packages.api.sizing import alternatives
 from packages.api.storage import Store
 from packages.core.contracts import EstimateRequest, ForecastRequest
 from packages.core.io import ROOT, STATEMENT, read_json
@@ -30,6 +32,9 @@ def estimate_workload(request: EstimateRequest, book: PriceBook) -> dict[str, An
     )
     total = selected.usd * replicas * 24 * request.days
     return {
+        "options": alternatives(request, PriceBook(ROOT / "data/prices/expanded"))
+        if request.model_size_class is not None
+        else [],
         "shadow_cost_usd": str(total),
         "currency": "USD",
         "days": request.days,
@@ -65,7 +70,13 @@ def create_app(
         allow_origins=origins,
         allow_methods=["GET", "POST"],
         allow_headers=["Content-Type"],
-        expose_headers=["X-Shadow-Cost-USD", "X-CPU-Seconds", "X-Meter-Basis", "X-Price-Ids"],
+        expose_headers=[
+            "X-Shadow-Cost-USD",
+            "X-CPU-Seconds",
+            "X-Memory-Bytes",
+            "X-Meter-Basis",
+            "X-Price-Ids",
+        ],
     )
     serial = asyncio.Lock()
     samples: list[float] = []
@@ -74,6 +85,7 @@ def create_app(
     async def meter(request: Request, call_next: Any) -> Any:
         async with serial:
             start_cpu, start_wall = time.process_time_ns(), time.perf_counter_ns()
+            start_memory = psutil.Process().memory_info().rss
             if (
                 request.url.path != "/health"
                 and store is not None
@@ -94,7 +106,8 @@ def create_app(
                     )
             cpu_seconds = (time.process_time_ns() - start_cpu) / 1e9
             wall_seconds = (time.perf_counter_ns() - start_wall) / 1e9
-            memory = float(os.environ.get("MLSPEND_MEMORY_GB", "1"))
+            memory_bytes = max(start_memory, psutil.Process().memory_info().rss)
+            memory = memory_bytes / (1024**3)
             cpu = book.get("vercel-cpu", unit="cpu_hour")
             ram = book.get("vercel-memory", unit="gb_hour")
             cost = cpu_seconds / 3600 * float(cpu.usd) + wall_seconds * memory / 3600 * float(
@@ -105,9 +118,10 @@ def create_app(
                 del samples[:5000]
             response.headers["X-Shadow-Cost-USD"] = f"{cost:.12f}"
             response.headers["X-CPU-Seconds"] = f"{cpu_seconds:.9f}"
+            response.headers["X-Memory-Bytes"] = str(memory_bytes)
             response.headers["X-Price-Ids"] = f"{cpu.id},{ram.id}"
             response.headers["X-Meter-Basis"] = (
-                "serialized process CPU plus configured memory over request wall time; excludes cold start and idle instance lifetime"
+                "serialized process CPU and max of start/end process RSS times wall time; includes process baseline, excludes startup and idle lifetime; not provider billing"
             )
             response.headers["X-MLSpend-Statement"] = STATEMENT
             return response

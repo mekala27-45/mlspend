@@ -3,7 +3,7 @@ name = "mlspend"
 version = "0.1.0"
 description = "Measured cost allocation for ML workloads"
 requires-python = ">=3.12"
-dependencies = ["pydantic>=2.12,<3", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlmodel>=0.0.24,<1", "psycopg[binary]>=3.2,<4", "alembic>=1.14,<2", "httpx>=0.28,<1", "jinja2>=3.1,<4", "pyyaml>=6,<7", "duckdb>=2,<3", "dbt-duckdb>=1.9,<2", "openpyxl>=3.1,<4", "structlog>=25,<27", "scikit-learn==1.9.1"]
+dependencies = ["pydantic>=2.12,<3", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlmodel>=0.0.24,<1", "psycopg[binary]>=3.2,<4", "alembic>=1.14,<2", "httpx>=0.28,<1", "jinja2>=3.1,<4", "pyyaml>=6,<7", "duckdb>=2,<3", "dbt-duckdb>=1.9,<2", "openpyxl>=3.1,<4", "structlog>=25,<27", "scikit-learn==1.9.1", "psutil>=7,<8"]
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "pytest-timeout>=2.4,<3", "hypothesis>=6", "ruff>=0.12", "mypy>=1.15", "types-PyYAML", "nbmake>=1.5", "testcontainers[postgres]>=4"]

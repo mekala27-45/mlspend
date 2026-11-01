@@ -1,0 +1,10 @@
+.git
+.venv*
+tmp
+web/node_modules
+data/generated
+data/expanded
+exports
+warehouse/target
+warehouse/logs
+**/__pycache__

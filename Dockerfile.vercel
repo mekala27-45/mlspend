@@ -1,10 +1,11 @@
 FROM python:3.12-slim
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
 WORKDIR /app
-COPY pyproject.toml .
-RUN pip install --no-cache-dir fastapi uvicorn pydantic sqlmodel psycopg[binary] httpx jinja2 pyyaml structlog
-COPY packages packages
-COPY results results
-COPY data/prices data/prices
-COPY config config
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY packages ./packages
+COPY data/prices ./data/prices
+COPY results ./results
+COPY index.py ./
 EXPOSE 80
-CMD ["uvicorn", "packages.api.app:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "index:app", "--host", "0.0.0.0", "--port", "80", "--workers", "1"]
