@@ -1,0 +1,40 @@
+name: Build full expanded study
+on:
+  workflow_dispatch:
+  push:
+    branches: [complete-v2]
+    paths: ['scripts/build_expanded.py', '.github/workflows/expanded-build.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install uv
+      - run: uv sync --group dev
+      - run: uv run python -m scripts.build_expanded
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: expanded-full-study
+          path: |
+            results/expanded/
+            exports/expanded/
+            data/expanded/generation.json
+            data/expanded/quarantine.json
+            data/expanded/sealed/
+      - name: Preserve generated results on evidence branch
+        env:
+          EVIDENCE_BRANCH: evidence/expanded-build-${{ github.run_id }}
+        run: |
+          git switch -c "$EVIDENCE_BRANCH"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add results/expanded/
+          git commit -m "data: record full expanded study and counterfactual scores"
+          git push origin "$EVIDENCE_BRANCH"
