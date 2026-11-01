@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="FOCUS Validations" tests="114" failures="0" errors="0" skipped="38" assertions="None" time="0" timestamp="2026-11-01T02:58:45">
+  <testsuite name="CCT-BillingCurrency-C-000-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-001-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-002-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-003-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-004-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-005-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for BillingCurrency" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-BillingCurrency-C-006-BillingCurrency" time="0">
+    <testcase name="CCT-BillingCurrency-C-006-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-000-ContractCommitment" time="0">
+    <testcase name="CCT-ContractCommitment-D-000-M :: Composite" time="0">
+      <skipped message="Composite check for ContractCommitment" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-001-ContractCommitment" time="0">
+    <testcase name="CCT-ContractCommitment-D-001-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-002-ContractCommitment" time="0">
+    <testcase name="CCT-ContractCommitment-D-002-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-003-BillingCurrency" time="0">
+    <testcase name="CCT-ContractCommitment-D-003-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-004-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitment-D-004-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-005-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitment-D-005-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-006-ContractCommitmentCategory" time="0">
+    <testcase name="CCT-ContractCommitment-D-006-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-007-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitment-D-007-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-008-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitment-D-008-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-009-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitment-D-009-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-010-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitment-D-010-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-011-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitment-D-011-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-012-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitment-D-012-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-013-ContractId" time="0">
+    <testcase name="CCT-ContractCommitment-D-013-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-014-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitment-D-014-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitment-D-015-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitment-D-015-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCategory-C-000-ContractCommitmentCategory" time="0">
+    <testcase name="CCT-ContractCommitmentCategory-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCategory-C-001-ContractCommitmentCategory" time="0">
+    <testcase name="CCT-ContractCommitmentCategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCategory-C-002-ContractCommitmentCategory" time="0">
+    <testcase name="CCT-ContractCommitmentCategory-C-002-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCategory-C-003-ContractCommitmentCategory" time="0">
+    <testcase name="CCT-ContractCommitmentCategory-C-003-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-000-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-001-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-002-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-003-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-004-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-005-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractCommitmentCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-006-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-006-M :: Type" time="0">
+      <skipped message="Type check for ContractCommitmentCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentCost-C-007-ContractCommitmentCost" time="0">
+    <testcase name="CCT-ContractCommitmentCost-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentDescription-C-000-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitmentDescription-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentDescription-C-001-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitmentDescription-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentDescription-C-002-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitmentDescription-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentDescription-C-003-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitmentDescription-C-003-O :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentDescription-C-004-ContractCommitmentDescription" time="0">
+    <testcase name="CCT-ContractCommitmentDescription-C-004-O :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentDescription" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-000-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-001-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-002-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-003-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-004-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-004-C :: Composite" time="0">
+      <skipped message="Composite check for ContractCommitmentId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-005-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-006-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-006-O :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-007-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-007-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-008-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-008-O :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentId-C-009-ContractCommitmentId" time="0">
+    <testcase name="CCT-ContractCommitmentId-C-009-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodEnd-C-000-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodEnd-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodEnd-C-001-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodEnd-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodEnd-C-002-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodEnd-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodEnd-C-003-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodEnd-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodEnd-C-004-ContractCommitmentPeriodEnd" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodEnd-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentPeriodEnd" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodStart-C-000-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodStart-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodStart-C-001-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodStart-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodStart-C-002-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodStart-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodStart-C-003-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodStart-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentPeriodStart-C-004-ContractCommitmentPeriodStart" time="0">
+    <testcase name="CCT-ContractCommitmentPeriodStart-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentPeriodStart" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-000-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-001-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-002-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-003-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-004-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-005-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractCommitmentQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentQuantity-C-006-ContractCommitmentQuantity" time="0">
+    <testcase name="CCT-ContractCommitmentQuantity-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentType-C-000-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitmentType-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentType-C-001-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitmentType-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentType-C-002-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitmentType-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentType-C-003-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitmentType-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentType-C-004-ContractCommitmentType" time="0">
+    <testcase name="CCT-ContractCommitmentType-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ContractCommitmentType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-000-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-001-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-002-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-003-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-003-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-004-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-005-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractCommitmentUnit-C-006-ContractCommitmentUnit" time="0">
+    <testcase name="CCT-ContractCommitmentUnit-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-000-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-001-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-002-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-003-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-004-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-004-C :: Composite" time="0">
+      <skipped message="Composite check for ContractId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-005-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for ContractId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractId-C-006-ContractId" time="0">
+    <testcase name="CCT-ContractId-C-006-O :: Validation" time="0">
+      <skipped message="Validation check for ContractId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodEnd-C-000-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractPeriodEnd-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodEnd-C-001-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractPeriodEnd-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodEnd-C-002-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractPeriodEnd-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodEnd-C-003-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractPeriodEnd-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodEnd-C-004-ContractPeriodEnd" time="0">
+    <testcase name="CCT-ContractPeriodEnd-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ContractPeriodEnd" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodStart-C-000-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractPeriodStart-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodStart-C-001-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractPeriodStart-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodStart-C-002-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractPeriodStart-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodStart-C-003-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractPeriodStart-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CCT-ContractPeriodStart-C-004-ContractPeriodStart" time="0">
+    <testcase name="CCT-ContractPeriodStart-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ContractPeriodStart" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-000-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-000-M :: Composite" time="0">
+      <skipped message="Composite check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-001-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-001-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-002-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-002-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-003-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-003-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-004-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-004-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-005-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-005-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-006-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-006-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-008-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-008-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-009-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-009-M :: Composite" time="0">
+      <skipped message="Composite check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-010-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-010-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-011-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-011-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-012-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-012-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-013-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-013-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-014-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-014-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-015-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-015-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-000-NullHandling" time="0">
+    <testcase name="NullHandling-A-000-M :: Composite" time="0">
+      <skipped message="Composite check for NullHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-001-NullHandling" time="0">
+    <testcase name="NullHandling-A-001-C :: Validation" time="0">
+      <skipped message="Validation check for NullHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-002-NullHandling" time="0">
+    <testcase name="NullHandling-A-002-M :: Validation" time="0">
+      <skipped message="Validation check for NullHandling" />
+    </testcase>
+  </testsuite>
+</testsuites>
