@@ -143,9 +143,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
             AllocatedTags=json.dumps({"Team": observed["team"]}),
             AllocatedMethodDetails=json.dumps(
                 {
-                    "Elements": [
-                        {"AllocatedRatio": observed["allocated_ratio"]}
-                    ],
+                    "Elements": [{"AllocatedRatio": observed["allocated_ratio"]}],
                     "x_OriginId": observed["origin_id"],
                 }
             ),
@@ -258,7 +256,11 @@ def validate_rows(rows: Iterable[dict[str, Any]], dataset: str) -> int:
             if details is not None:
                 allocation = json.loads(details)
                 elements = allocation.get("Elements")
-                if not row.get("AllocatedMethodId") or not isinstance(elements, list) or not elements:
+                if (
+                    not row.get("AllocatedMethodId")
+                    or not isinstance(elements, list)
+                    or not elements
+                ):
                     raise ValueError("Allocation details require method and nonempty Elements")
                 for element in elements:
                     ratio = element.get("AllocatedRatio")

@@ -13,7 +13,9 @@ def main() -> None:
     snapshots = []
     worktree = ROOT / "tmp/rederive-worktree"
     if worktree.exists():
-        raise FileExistsError("Use a fresh checkout; the canonical rederive worktree already exists")
+        raise FileExistsError(
+            "Use a fresh checkout; the canonical rederive worktree already exists"
+        )
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     subprocess.run(
         ["git", "worktree", "add", "--detach", str(worktree), revision], cwd=ROOT, check=True
