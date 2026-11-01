@@ -102,7 +102,7 @@ def grade(recommendations: list[dict[str, Any]], truth: dict[str, Any]) -> dict[
         )
     recovered = truth["baseline"]["total_micro"] - truth["combined"]["total_micro"]
     incident_waste = sum(max(0, value) for value in truth["incident_avoidable_micro"].values())
-    avoidable = truth["baseline"]["total_micro"] - truth["oracle_total_micro"]
+    avoidable = max(0, truth["baseline"]["total_micro"] - truth["oracle_total_micro"])
     return {
         "rows": graded,
         "actions": action_rows,

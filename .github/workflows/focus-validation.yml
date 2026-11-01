@@ -22,6 +22,8 @@ jobs:
         run: |
           python -m venv .focus-validator
           .focus-validator/bin/pip install focus-validator==2.2.1 pyarrow==20.0.0
+          mkdir -p focus_validator/rules
+          curl --fail --location https://raw.githubusercontent.com/finopsfoundation/focus_validator/v2.2.1/focus_validator/rules/currency_codes.csv --output focus_validator/rules/currency_codes.csv
       - name: Record supported versions and validate both datasets
         run: |
           mkdir -p results/focus

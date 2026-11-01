@@ -20,7 +20,11 @@ def test_full_pipeline_smoke_conserves_money_and_exports_formulas(tmp_path):
         == result["generation"]["total_micro"]
     )
     assert len(result["recommendations"]["actions"]) == 7
-    assert result["recommendations"]["joint_recovered_micro"] > 0
+    # Quiet hours cannot release the minimum pool. Spot adds a second bill.
+    action = {r["action"]: r for r in result["recommendations"]["actions"]}
+    assert action["rightsize"]["true_platform_annual_micro"] == 0
+    assert action["spot"]["true_platform_annual_micro"] < 0
+    assert action["switch_model"]["true_platform_annual_micro"] > 0
     book = load_workbook(tmp_path / "exports/allocation.xlsx")
     sheet = book["Allocation"]
     assert sheet["B2"].value == "usage"
