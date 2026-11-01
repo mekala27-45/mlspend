@@ -29,3 +29,11 @@ warehouse/target/
 warehouse/logs/
 warehouse/dbt_packages/
 warehouse/.user.yml
+
+# Rebuildable expanded data and finance artifacts are delivered through Actions.
+data/expanded/
+exports/expanded/
+warehouse-expanded/target/
+warehouse-expanded/logs/
+warehouse-expanded/dbt_packages/
+warehouse-expanded/.user.yml

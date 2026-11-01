@@ -18,17 +18,17 @@ The expanded study is implemented. Release status is determined by the evidence 
 | Contracted warehouse and quarantine | Implemented and full build passed | warehouse-expanded enforced contracts; producer defects quarantined; independent count, effective and billed-cost reconciliation. |
 | Allocation and ownership | Implemented and scored | Five conserved policies, idle disclosure, exact coalition reference, sealed owner scoring. |
 | Unit economics | Implemented | Versioned inference average and marginal, answer components, completed and failed training experiments. |
-| Live container API and metering | Preview verified; production update pending | Vercel port-80 container and restricted PostgreSQL role verified; request CPU/RSS meter excludes startup and idle lifetime. |
+| Live container API and metering | Production verified; browser flow pending | Production port-80 container serves the expanded book with a restricted database role; CI verifies independent PostgreSQL readback. |
 | Forecasts and budgets | Backtests complete; future close verification pending | Daily and monthly team/service forecasts, conformal intervals, budget burn; future records cannot be scored before their period closes. |
-| Detection and postmortem | Scored; narrative verification pending | Seasonal MAD and CUSUM, false-alarm calibration, hourly/daily SKU evaluation, explicit boundary outcomes. |
+| Detection and postmortem | Scored and documented | Generated weekend-sweep postmortem compares detector and daily budget observation timestamps; zero-delay synthetic boundaries are disclosed. |
 | Recommendations and commitment sizing | Implemented and scored | Independent whole-platform reruns for registered actions, uncertainty and combined effects; real offer rates and held-out sensitivity. |
 | Persistence and cold/warm latency | Persistence verified; isolated cold measurement pending | Saved-before-response and independent readback tests; warm measurements exist. First observed response is not called cold. |
 | Portfolio bill and output costs | Known subtotal; missing paid equivalents | CI subtotal and public token/output counts; no invented per-output total when components or denominators are missing. |
 | Finance exports | Generated; formula recalculation pending | FOCUS and allocated Parquet, CSV, Power BI, Tableau and Excel allocation formulas. |
 | Statistical method report | Implemented and scored | Team-cluster intervals, exact paired sign flip and registered BH family; comparisons are inconclusive. |
-| Pages routes and estimator | Expanded browser verification pending | Next.js static site and DuckDB WASM baseline passed; expanded UI requires new browser run. |
-| Documentation and workflows | Completion in progress | Generated methods and statements; ADRs, dead-end notebooks and repository skills are being verified. |
-| Quality gates and release | Final checks pending; no release tag | Coverage gate, strict typing, lint and repeat builds run in Actions. A complete release is not tagged while mandatory checks are unresolved. |
+| Pages routes and estimator | All routes verified; published flow pending | All 12 routes passed desktop/mobile, both-theme keyboard access, SQL and recovery checks. Published Chrome flow runs after Pages deployment. |
+| Documentation and workflows | Implemented and validated | Seven ADRs, fifteen dated decisions, three executed dead-end notebooks, three skills-ref validated skills, generated statements and playbook. |
+| Quality gates and release | Rebuild verification pending; no release tag | Core CI, coverage gate, strict typing, lint, skills and container persistence passed; expanded rebuild inventory defect is fixed and being rerun. |
 
 ## Every dollar has an owner.
 

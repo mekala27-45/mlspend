@@ -60,7 +60,7 @@ test('offline health attempts remain GET and never claim a save',async({page})=>
   await page.route(api+'/**',async route=>{expect(route.request().method()).toBe('GET');gets++;await route.fulfill({status:503,json:{status:'configuration_required'},headers:{'Retry-After':'5'}});});
   await page.goto('estimate/');
   await page.getByRole('button',{name:'Calculate workload cost'}).click();
-  await expect(page.getByText(/Local calculation only/)).toBeVisible();
+  await expect(page.getByText(/Local calculation only/)).toBeVisible({timeout:15000});
   expect(gets).toBe(2);
   await expect(page.getByText(/Saved reference:/)).toHaveCount(0);
 });

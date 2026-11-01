@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node prepare.mjs && next build --webpack",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "dev": "next dev"
   },
   "dependencies": {
     "next": "16.4.3",

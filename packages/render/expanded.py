@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -645,6 +646,12 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         "source_digest": digest(m),
         "pages": pages,
         "guides": guides,
+        "charts": {
+            "incidents": d["events"],
+            "holdout_start": "2025-09-01T00:00:00Z",
+            "holdout_end": "2026-01-01T00:00:00Z",
+            "forecast": {"key": m["forecasts"][0]["key"], "rows": m["forecasts"][0]["rows"]},
+        },
         "allocations": m["allocation"],
         "monthly": [
             {"month": month, "effective_micro": cost}
@@ -677,6 +684,62 @@ def render(root: Path = ROOT, check: bool = False) -> None:
             content.encode(),
             check,
         )
+    sweep = next(r for r in d["events"] if r["id"] == "weekend-sweep")
+    budget = next(r for r in m["budgets"] if r["grain"] == "team" and r["key"] == sweep["team"])
+    candidates = [
+        r
+        for r in budget["rows"]
+        if r["date"] >= sweep["start"][:10]
+        and r["date"] <= sweep["end"][:10]
+        and r["severity"] == "critical"
+    ]
+    budget_observed = (
+        (datetime.fromisoformat(candidates[0]["date"]) + timedelta(days=1)).isoformat() + "+00:00"
+        if candidates
+        else None
+    )
+    budget_delay = (
+        (
+            datetime.fromisoformat(budget_observed) - datetime.fromisoformat(sweep["start"])
+        ).total_seconds()
+        / 3600
+        if budget_observed
+        else None
+    )
+    incident_report = (
+        "# The weekend sweep\n\n"
+        + STATEMENT
+        + "\n\n## Impact\n\nA planted retry amplification increased research training demand. The incident-removal counterfactual isolates its platform-level effect; it is not summed into overlapping action savings.\n"
+    )
+    incident_report += markdown(
+        table(
+            "Observed timeline and counterfactual",
+            [
+                "Start",
+                "End",
+                "First detector alert",
+                "Delay hours",
+                "Burn before detection",
+                "Avoidable cost",
+                "First daily critical budget observation",
+                "Budget observation delay hours",
+            ],
+            [
+                [
+                    sweep["start"],
+                    sweep["end"],
+                    sweep["first_alert"],
+                    sweep["delay_hours"],
+                    money(sweep["burned_before_detection_micro"]),
+                    money(sweep["counterfactual_avoidable_micro"]),
+                    budget_observed,
+                    budget_delay,
+                ]
+            ],
+        )
+    )
+    incident_report += "\n## Cause and detection\n\nThe simulator deliberately increased retrying training work. The method did not read the planted schedule: it consumed the observed cost series and development-calibrated seasonal residuals. Evaluation alone joined alerts to the incident window. The zero-delay result reflects the observation timestamp and synthetic step change; it is not a production response-time guarantee. Daily budget values become observable at the end of the day, and a critical budget flag does not identify a retry cause.\n\n## Corrective experiment\n\nBound retries, checkpoint interrupted work and inspect whole-node release before treating a cheaper rate as savings. The existing counterfactual evaluator measures independent and joint actions. A production remediation was not performed. The optional budget refusal service remains outside this release.\n\n## What would change the conclusion\n\nDelayed billing arrival, unknown incident boundaries, smaller gradual changes and missing provider metadata can worsen detection. The low alert precision alongside high event recall is retained rather than hidden by a favorable incident-only score.\n"
+    _write_or_check(root / "docs/incidents/weekend-sweep.md", incident_report.encode(), check)
     for row in m["allocation"]:
         sections = [
             table(
@@ -815,6 +878,19 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         + pages["portfolio"]["limit"]
         + "\n\nSee RESULTS.md for validation status, source gaps and release gates. The public price snapshot is a scenario input, not a historical invoice.\n\n## License\n\nApache-2.0 for project code. Public price and usage records retain their original provider terms; see DATA_SOURCES.md.\n"
     )
+    pending = [
+        r["requirement"]
+        for r in requirements
+        if "pending" in r["status"].lower() or "progress" in r["status"].lower()
+    ]
+    if pending:
+        readme = readme.replace(
+            "# MLSpend\n\n",
+            "# MLSpend\n\nRelease remains incomplete: "
+            + "; ".join(pending)
+            + ". See RESULTS.md for the exact checks and limits.\n\n",
+            1,
+        )
     _write_or_check(root / "README.md", readme.encode(), check)
 
 

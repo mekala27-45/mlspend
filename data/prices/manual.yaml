@@ -1,0 +1,27 @@
+scope: Reviewed transcriptions of fetched public pages; values promoted by the
+  source workflow, not live quotes
+rows:
+- id: github-linux
+  provider: GitHub
+  unit: minute
+  usd: '0.006'
+  source_url: https://docs.github.com/en/billing/reference/actions-runner-pricing
+  retrieved_date: '2026-10-31'
+  source_digest: 3c85e563d223df7887966823ed916009148df0e3ba08a2f959015e30130f3bae
+  source_kind: retrieval_snapshot
+- id: vercel-cpu
+  provider: Vercel
+  unit: cpu_hour
+  usd: '0.128'
+  source_url: https://vercel.com/docs/functions/usage-and-pricing
+  retrieved_date: '2026-10-31'
+  source_digest: a025757a2633ee7d387d0967510a1af59d7acb93f12b1ea5f442edfbeaab31d8
+  source_kind: retrieval_snapshot
+- id: vercel-memory
+  provider: Vercel
+  unit: gb_hour
+  usd: '0.0106'
+  source_url: https://vercel.com/docs/functions/usage-and-pricing
+  retrieved_date: '2026-10-31'
+  source_digest: 3eb1e1456d018478ddaff99ad44cde7c42a89668aea1d44433298763354aff17
+  source_kind: retrieval_snapshot

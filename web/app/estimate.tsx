@@ -11,7 +11,7 @@ export default function EstimateForm() {
     const base=process.env.NEXT_PUBLIC_API_URL||'';
     let ready=false;
     for(let attempt=0;base&&attempt<2&&!ready;attempt++) {
-      try {const health=await fetch(base+'/health',{signal:AbortSignal.timeout(12000)});ready=health.ok&&(await health.json()).status==='ready';}catch{}
+      try {const health=await fetch(base+'/health',{signal:AbortSignal.timeout(12000)});ready=health.ok&&(await health.json()).status==='ready';if(!ready&&attempt===0){const seconds=Number(health.headers.get('Retry-After')||0);if(Number.isFinite(seconds)&&seconds>0)await new Promise(resolve=>setTimeout(resolve,Math.min(seconds,10)*1000));}}catch{}
     }
     if(!ready) {
       const price=m.prices.find(p=>p.id===payload.price_id)!;

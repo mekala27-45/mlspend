@@ -1,5 +1,7 @@
 # MLSpend
 
+Release remains incomplete: Live container API and metering; Forecasts and budgets; Persistence and cold/warm latency; Finance exports; Pages routes and estimator; Quality gates and release. See RESULTS.md for the exact checks and limits.
+
 [Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.

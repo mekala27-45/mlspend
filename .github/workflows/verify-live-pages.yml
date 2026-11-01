@@ -1,30 +1,63 @@
 name: Verify published browser flow
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: ['web/tests/live.spec.ts', 'web/live.playwright.config.ts', '.github/workflows/verify-live-pages.yml']
+  workflow_run:
+    workflows: ['Build and publish Pages']
+    types: [completed]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: published-live-check
+  cancel-in-progress: false
 jobs:
   browser:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: windows-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: npm ci --no-audit --no-fund
         working-directory: web
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chrome
         working-directory: web
-      - name: Exercise the published frontend and live database path
+      - name: Observe instance, then leave API idle for twenty minutes
+        working-directory: web
+        run: |
+          New-Item -ItemType Directory -Force test-results | Out-Null
+          $health = Invoke-RestMethod https://mlspend.vercel.app/health -TimeoutSec 45
+          @{ checked_at = [DateTime]::UtcNow.ToString('o'); health = $health } | ConvertTo-Json -Depth 10 | Set-Content test-results/idle-before.json
+          Start-Sleep -Seconds 1200
+      - name: Exercise published Chrome on Windows and live database
         working-directory: web
         run: npx playwright test --config live.playwright.config.ts
+      - name: Record ten seconds of actual published screens
+        run: |
+          python -m pip install pillow
+          python scripts/make_demo.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: published-browser-evidence
-          path: web/test-results/live/
+          path: web/test-results/
           if-no-files-found: error
+      - name: Preserve browser evidence and demo
+        env:
+          EVIDENCE_BRANCH: evidence/live-${{ github.run_id }}
+        run: |
+          git switch -c $env:EVIDENCE_BRANCH
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          New-Item -ItemType Directory -Force results/live | Out-Null
+          Copy-Item web/test-results/live/evidence.json results/live/browser.json
+          Copy-Item web/test-results/live/demo.gif docs/demo.gif
+          git add results/live/browser.json docs/demo.gif
+          git commit -m 'test: record published Windows Chrome flow and actual-screen demo'
+          git push origin $env:EVIDENCE_BRANCH

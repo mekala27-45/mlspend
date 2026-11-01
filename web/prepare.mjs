@@ -5,3 +5,5 @@ for (const name of ['duckdb-mvp.wasm', 'duckdb-eh.wasm', 'duckdb-browser-mvp.wor
   await copyFile(resolve('node_modules/@duckdb/duckdb-wasm/dist', name), resolve('public/duckdb', name));
 }
 await copyFile('data.json', 'public/data.json');
+
+await copyFile("expanded.json", "public/expanded.json");
