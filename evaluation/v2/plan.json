@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "study": "Expanded independent simulation replication",
+  "reason": "Version one had already been evaluated and omitted required workload classes. Preserve its registration and results. This amendment uses a new seed, expanded telemetry and separately reported scores.",
+  "seed": 19032,
+  "start": "2025-01-01",
+  "end_exclusive": "2026-01-01",
+  "development_end_exclusive": "2025-09-01",
+  "price_basis": "Locked public snapshot applied to a simulated calendar; never represented as a historical invoice",
+  "teams": ["ads", "assistant", "forecasting", "fraud", "research", "search"],
+  "allocation_method": "usage",
+  "allocation_candidates": ["even", "direct", "usage", "custom", "shapley"],
+  "shapley_capacity_percentile": 0.95,
+  "custom_weights": {"ads": 1, "assistant": 2, "forecasting": 1, "fraud": 2, "research": 1, "search": 2},
+  "forecast": {
+    "candidates": ["seasonal_naive", "trend_seasonal", "gradient_boosting"],
+    "selection_metric": "development rolling-origin mean absolute error",
+    "minimum_history_days": 56,
+    "refit_every_days": 7,
+    "interval_coverage": 0.9,
+    "calibration_days": 56,
+    "gradient_boosting": {"n_estimators": 60, "learning_rate": 0.05, "max_depth": 2, "min_samples_leaf": 7},
+    "monthly_interval": "empirical past rolling 28-day aggregate errors, finite-sample conformal quantile; report actual coverage"
+  },
+  "detector": {
+    "methods": ["seasonal_mad", "positive_cusum"],
+    "threshold_candidates": [3, 5, 7, 9, 12],
+    "false_alarm_budget": 0.02,
+    "seasonal_weeks": 4,
+    "cusum_drift": 0.5,
+    "selection": "smallest threshold meeting development non-incident false-alarm budget; boundary result is a diagnostic failure, not silently expanded"
+  },
+  "recommendations": {
+    "rightsizing_headroom": 1.25,
+    "idle_notebook_timeout_hours": 2,
+    "cold_after_days": 30,
+    "minimum_quality": 0.9,
+    "spot_retry_probability": 0.12,
+    "bootstrap_replicates": 1000,
+    "interval_coverage": 0.9,
+    "grading": "re-run identical exogenous demand with each action; estimate only observed telemetry; evaluator alone reads counterfactuals",
+    "combine": "report single actions separately; total recovery from one joint rerun, never sum overlapping savings"
+  },
+  "commitment": {
+    "candidate_capacity": [0, 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64],
+    "rates": "only source-backed reserved or savings-plan offers; no simulated discount substitute",
+    "regret_perturbations": [0.8, 1, 1.2]
+  },
+  "budgets": {"monthly_multiplier": 1.1, "reference": "last development month", "warning_fraction": 0.8, "critical_fraction": 1.0},
+  "evaluation": {
+    "cluster": "team",
+    "bootstrap_seed": 8032,
+    "bootstrap_replicates": 1000,
+    "confidence": 0.95,
+    "fdr": 0.05,
+    "hypotheses": ["usage allocation versus even allocation absolute difference from capacity Shapley", "selected forecast versus seasonal naive daily absolute error"],
+    "claim_rule": "report intervals, exact paired cluster sign-flip p-values and BH adjustment, including negative or inconclusive outcomes"
+  }
+}
