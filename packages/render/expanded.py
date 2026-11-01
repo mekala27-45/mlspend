@@ -648,6 +648,10 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         "guides": guides,
         "charts": {
             "incidents": d["events"],
+            "units": [
+                r for r in m["units"] if r["month"] == latest and r["service"] == "inference"
+            ],
+            "commitments": m["commitments"],
             "holdout_start": "2025-09-01T00:00:00Z",
             "holdout_end": "2026-01-01T00:00:00Z",
             "forecast": {"key": m["forecasts"][0]["key"], "rows": m["forecasts"][0]["rows"]},
