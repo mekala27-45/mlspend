@@ -51,8 +51,8 @@ class Store:
         window = int(now // 3600)
         with self.engine.begin() as connection:
             result = connection.execute(
-                text("""INSERT INTO mlspend_client_budget (client_hash, window, count) VALUES (:client, :window, 1)
-                ON CONFLICT (client_hash, window) DO UPDATE SET count = mlspend_client_budget.count + 1
+                text("""INSERT INTO mlspend_client_budget (client_hash, "window", count) VALUES (:client, :window, 1)
+                ON CONFLICT (client_hash, "window") DO UPDATE SET count = mlspend_client_budget.count + 1
                 WHERE mlspend_client_budget.count < :cap RETURNING count"""),
                 {"client": hashed, "window": window, "cap": cap},
             ).first()
