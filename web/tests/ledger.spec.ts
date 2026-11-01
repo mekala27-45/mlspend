@@ -3,7 +3,7 @@ const api='https://mlspend.vercel.app';
 
 test('all static routes expose results and the disclosure at desktop and mobile sizes',async({page})=>{
   const failures:string[]=[];
-  page.on('pageerror',error=>failures.push(error.message));
+  page.on('pageerror',error=>failures.push(page.url()+": "+error.message));
   for(const width of [1280,390]) {
     await page.setViewportSize({width,height:900});
     for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']) {
