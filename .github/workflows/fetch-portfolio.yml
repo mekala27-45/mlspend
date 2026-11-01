@@ -1,0 +1,32 @@
+name: Fetch public portfolio usage
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/fetch_portfolio_usage.py', 'packages/portfolio/**', 'requests/portfolio.json', '.github/workflows/fetch-portfolio.yml']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install uv
+      - run: uv sync --group dev
+      - name: Fetch every public repository and run attempt
+        run: uv run python -m scripts.fetch_portfolio_usage
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-evidence
+          path: |
+            results/portfolio-usage.json
+            tmp/portfolio-cache/
+          if-no-files-found: error

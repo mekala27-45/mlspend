@@ -2,6 +2,9 @@ name: Fetch price evidence for review
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/fetch_prices.py', 'requests/prices.json', '.github/workflows/fetch-prices.yml']
 
 permissions:
   contents: read

@@ -45,6 +45,7 @@ jobs:
           uv run mypy packages
           uv run python -m scripts.check
           node --check web/app.js
+          node --test tests/web-client.test.cjs
       - name: Unit and integration tests
         run: uv run pytest --cov=packages --cov-report=json:results/coverage.json --junitxml=results/tests-ci.xml
       - name: HTTP persistence check

@@ -10,6 +10,7 @@ dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "pytest-timeout>=2.4,<3", "hypothesi
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 addopts = "-ra"
 timeout = 120
 markers = ["postgres: needs MLSPEND_TEST_DATABASE_URL", "external: needs live services"]
