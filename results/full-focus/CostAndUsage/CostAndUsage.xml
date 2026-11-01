@@ -1,0 +1,2945 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="FOCUS Validations" tests="764" failures="12" errors="0" skipped="313" assertions="None" time="0" timestamp="2026-11-01T02:54:25">
+  <testsuite name="CAU-AllocatedMethodDetails-C-000-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-001-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-002-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-003-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-004-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-004-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedMethodDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-005-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedMethodDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-006-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedMethodDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetails-C-007-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-AllocatedMethodDetails-C-007-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-000-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-001-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-002-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-002-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-003-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-004-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-004-M :: Composite" time="0">
+      <skipped message="Composite check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-005-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-005-M :: Format" time="0">
+      <skipped message="Format check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-006-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-006-M :: Type" time="0">
+      <skipped message="Type check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-007-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-007-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-008-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-008-O :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-009-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-009-C :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-010-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-010-O :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-011-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-011-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-012-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-012-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-013-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-013-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-014-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-014-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-015-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-015-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-016-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-016-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-017-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-017-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-018-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-018-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-019-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-019-O :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-020-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-020-C :: Presence" time="0">
+      <skipped message="Presence check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-021-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-021-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodDetailsObject-O-022-AllocatedMethodDetailsObject" time="0">
+    <testcase name="CAU-AllocatedMethodDetailsObject-O-022-O :: Validation" time="0">
+      <skipped message="Validation check for AllocatedMethodDetailsObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-000-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-001-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-002-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-003-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedMethodId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-004-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedMethodId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-005-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedMethodId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedMethodId-C-006-AllocatedMethodId" time="0">
+    <testcase name="CAU-AllocatedMethodId-C-006-M :: Type" time="0">
+      <skipped message="Type check for AllocatedMethodId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-000-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-001-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-002-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-003-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-004-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-005-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-006-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-007-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-008-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-008-O :: Type" time="0">
+      <skipped message="Type check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceId-C-009-AllocatedResourceId" time="0">
+    <testcase name="CAU-AllocatedResourceId-C-009-O :: Type" time="0">
+      <skipped message="Type check for AllocatedResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-000-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-001-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-002-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-003-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-004-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-005-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedResourceName-C-006-AllocatedResourceName" time="0">
+    <testcase name="CAU-AllocatedResourceName-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedResourceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-000-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-001-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-001-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-002-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-002-M :: Composite" time="0">
+      <skipped message="Composite check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-003-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-003-C :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-004-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-004-O :: Nullability" time="0">
+      <skipped message="Nullability check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-005-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-005-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-006-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-007-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-008-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-009-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-010-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-010-M :: Composite" time="0">
+      <skipped message="Composite check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-011-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-011-M :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-012-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-012-O :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-013-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-013-C :: Composite" time="0">
+      <skipped message="Composite check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AllocatedTags-C-014-AllocatedTags" time="0">
+    <testcase name="CAU-AllocatedTags-C-014-C :: Validation" time="0">
+      <skipped message="Validation check for AllocatedTags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-AvailabilityZone-C-000-AvailabilityZone" time="0">
+    <testcase name="CAU-AvailabilityZone-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AvailabilityZone-C-001-AvailabilityZone" time="0">
+    <testcase name="CAU-AvailabilityZone-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AvailabilityZone-C-002-AvailabilityZone" time="0">
+    <testcase name="CAU-AvailabilityZone-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-AvailabilityZone-C-003-AvailabilityZone" time="0">
+    <testcase name="CAU-AvailabilityZone-C-003-C :: Nullability" time="0">
+      <skipped message="Nullability check for AvailabilityZone" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-000-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-001-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-002-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-003-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-004-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for BilledCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-005-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-005-C :: Validation" time="0">
+      <skipped message="Validation check for BilledCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-006-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for BilledCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BilledCost-C-007-BilledCost" time="0">
+    <testcase name="CAU-BilledCost-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for BilledCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-000-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-001-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-001-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-002-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-002-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-003-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-004-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for BillingAccountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingAccountId-C-005-BillingAccountId" time="0">
+    <testcase name="CAU-BillingAccountId-C-005-O :: Validation" time="0">
+      <skipped message="Validation check for BillingAccountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingAccountName-C-000-BillingAccountName" time="0">
+    <testcase name="CAU-BillingAccountName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountName-C-001-BillingAccountName" time="0">
+    <testcase name="CAU-BillingAccountName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountName-C-002-BillingAccountName" time="0">
+    <testcase name="CAU-BillingAccountName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountName-C-003-BillingAccountName" time="0">
+    <testcase name="CAU-BillingAccountName-C-003-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-000-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for BillingAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-001-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-002-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-003-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-004-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-005-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingAccountType-C-006-BillingAccountType" time="0">
+    <testcase name="CAU-BillingAccountType-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for BillingAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-000-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-001-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-002-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-003-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-004-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-004-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-005-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for BillingCurrency" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingCurrency-C-006-BillingCurrency" time="0">
+    <testcase name="CAU-BillingCurrency-C-006-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodEnd-C-000-BillingPeriodEnd" time="0">
+    <testcase name="CAU-BillingPeriodEnd-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodEnd-C-001-BillingPeriodEnd" time="0">
+    <testcase name="CAU-BillingPeriodEnd-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodEnd-C-002-BillingPeriodEnd" time="0">
+    <testcase name="CAU-BillingPeriodEnd-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodEnd-C-003-BillingPeriodEnd" time="0">
+    <testcase name="CAU-BillingPeriodEnd-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodEnd-C-004-BillingPeriodEnd" time="0">
+    <testcase name="CAU-BillingPeriodEnd-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for BillingPeriodEnd" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodStart-C-000-BillingPeriodStart" time="0">
+    <testcase name="CAU-BillingPeriodStart-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodStart-C-001-BillingPeriodStart" time="0">
+    <testcase name="CAU-BillingPeriodStart-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodStart-C-002-BillingPeriodStart" time="0">
+    <testcase name="CAU-BillingPeriodStart-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodStart-C-003-BillingPeriodStart" time="0">
+    <testcase name="CAU-BillingPeriodStart-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-BillingPeriodStart-C-004-BillingPeriodStart" time="0">
+    <testcase name="CAU-BillingPeriodStart-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for BillingPeriodStart" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-000-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-001-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-002-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-003-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-004-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-005-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-006-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-007-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-008-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationId-C-009-CapacityReservationId" time="0">
+    <testcase name="CAU-CapacityReservationId-C-009-O :: Validation" time="0">
+      <skipped message="Validation check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-000-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for CapacityReservationStatus" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-001-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-002-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-002-C :: Composite" time="0">
+      <failure name="CAU-CapacityReservationStatus-C-002-C" message="Composite check for CapacityReservationStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-003-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-003-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-004-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-004-C :: Nullability" time="0">
+      <failure name="CAU-CapacityReservationStatus-C-004-C" message="Nullability check for CapacityReservationStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-005-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-005-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-006-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-006-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-007-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-007-C :: Validation" time="0">
+      <skipped message="Validation check for CapacityReservationStatus" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CapacityReservationStatus-C-008-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CapacityReservationStatus-C-008-C :: Validation" time="0">
+      <skipped message="Validation check for CapacityReservationStatus" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargeCategory-C-000-ChargeCategory" time="0">
+    <testcase name="CAU-ChargeCategory-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeCategory-C-001-ChargeCategory" time="0">
+    <testcase name="CAU-ChargeCategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeCategory-C-002-ChargeCategory" time="0">
+    <testcase name="CAU-ChargeCategory-C-002-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeCategory-C-003-ChargeCategory" time="0">
+    <testcase name="CAU-ChargeCategory-C-003-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-000-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-001-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-002-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-002-C :: Composite" time="0">
+      <skipped message="Composite check for ChargeClass" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-003-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-003-C :: Nullability" time="0">
+      <skipped message="Nullability check for ChargeClass" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-004-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for ChargeClass" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargeClass-C-005-ChargeClass" time="0">
+    <testcase name="CAU-ChargeClass-C-005-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeDescription-C-000-ChargeDescription" time="0">
+    <testcase name="CAU-ChargeDescription-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeDescription-C-001-ChargeDescription" time="0">
+    <testcase name="CAU-ChargeDescription-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeDescription-C-002-ChargeDescription" time="0">
+    <testcase name="CAU-ChargeDescription-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeDescription-C-003-ChargeDescription" time="0">
+    <testcase name="CAU-ChargeDescription-C-003-O :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeDescription-C-004-ChargeDescription" time="0">
+    <testcase name="CAU-ChargeDescription-C-004-O :: Validation" time="0">
+      <skipped message="Validation check for ChargeDescription" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargeFrequency-C-000-ChargeFrequency" time="0">
+    <testcase name="CAU-ChargeFrequency-C-000-O :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeFrequency-C-001-ChargeFrequency" time="0">
+    <testcase name="CAU-ChargeFrequency-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeFrequency-C-002-ChargeFrequency" time="0">
+    <testcase name="CAU-ChargeFrequency-C-002-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeFrequency-C-003-ChargeFrequency" time="0">
+    <testcase name="CAU-ChargeFrequency-C-003-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargeFrequency-C-004-ChargeFrequency" time="0">
+    <testcase name="CAU-ChargeFrequency-C-004-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodEnd-C-000-ChargePeriodEnd" time="0">
+    <testcase name="CAU-ChargePeriodEnd-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodEnd-C-001-ChargePeriodEnd" time="0">
+    <testcase name="CAU-ChargePeriodEnd-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodEnd-C-002-ChargePeriodEnd" time="0">
+    <testcase name="CAU-ChargePeriodEnd-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodEnd-C-003-ChargePeriodEnd" time="0">
+    <testcase name="CAU-ChargePeriodEnd-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodEnd-C-004-ChargePeriodEnd" time="0">
+    <testcase name="CAU-ChargePeriodEnd-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ChargePeriodEnd" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodStart-C-000-ChargePeriodStart" time="0">
+    <testcase name="CAU-ChargePeriodStart-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodStart-C-001-ChargePeriodStart" time="0">
+    <testcase name="CAU-ChargePeriodStart-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodStart-C-002-ChargePeriodStart" time="0">
+    <testcase name="CAU-ChargePeriodStart-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodStart-C-003-ChargePeriodStart" time="0">
+    <testcase name="CAU-ChargePeriodStart-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ChargePeriodStart-C-004-ChargePeriodStart" time="0">
+    <testcase name="CAU-ChargePeriodStart-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for ChargePeriodStart" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-000-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-001-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-002-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-002-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-003-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-003-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-004-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountCategory-C-005-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CommitmentDiscountCategory-C-005-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-000-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-001-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-002-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-003-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-004-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-005-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-006-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-006-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-007-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountId-C-008-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CommitmentDiscountId-C-008-O :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-000-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-001-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-002-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-003-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-004-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-005-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-005-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-006-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for CommitmentDiscountName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountName-C-007-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CommitmentDiscountName-C-007-C :: Nullability" time="0">
+      <skipped message="Nullability check for CommitmentDiscountName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-000-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-001-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-002-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-003-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-004-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-005-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-006-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-006-C :: Nullability" time="0">
+      <skipped message="Nullability check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-007-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-007-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-009-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-010-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-010-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-011-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-011-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-012-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-012-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-013-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-013-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-014-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-014-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-015-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-015-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountQuantity-C-016-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CommitmentDiscountQuantity-C-016-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-000-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-000-C :: Composite" time="0">
+      <failure name="CAU-CommitmentDiscountStatus-C-000-C" message="Composite check for CommitmentDiscountStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-001-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-002-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-002-C :: Composite" time="0">
+      <failure name="CAU-CommitmentDiscountStatus-C-002-C" message="Composite check for CommitmentDiscountStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-003-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-003-C :: Nullability" time="0">
+      <failure name="CAU-CommitmentDiscountStatus-C-003-C" message="Nullability check for CommitmentDiscountStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-004-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-004-C :: Nullability" time="0">
+      <failure name="CAU-CommitmentDiscountStatus-C-004-C" message="Nullability check for CommitmentDiscountStatus" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountStatus-C-005-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CommitmentDiscountStatus-C-005-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-000-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-001-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-002-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-003-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-004-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountType-C-005-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CommitmentDiscountType-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-000-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-001-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-002-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-003-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-003-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-004-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-005-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-006-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-007-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for CommitmentDiscountUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-008-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-009-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CommitmentDiscountUnit-C-010-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CommitmentDiscountUnit-C-010-C :: Validation" time="0">
+      <skipped message="Validation check for CommitmentDiscountUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-000-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-001-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-002-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-003-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-004-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-005-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-005-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-006-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-007-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-007-C :: Nullability" time="0">
+      <skipped message="Nullability check for ConsumedQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-008-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-008-C :: Validation" time="0">
+      <skipped message="Validation check for ConsumedQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ConsumedQuantity-C-009-ConsumedQuantity" time="0">
+    <testcase name="CAU-ConsumedQuantity-C-009-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-000-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-001-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-002-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-003-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-003-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-004-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-005-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ConsumedUnit-C-006-ConsumedUnit" time="0">
+    <testcase name="CAU-ConsumedUnit-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractApplied-C-000-ContractApplied" time="0">
+    <testcase name="CAU-ContractApplied-C-000-C :: Composite" time="0">
+      <failure name="CAU-ContractApplied-C-000-C" message="Composite check for ContractApplied" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractApplied-C-001-ContractApplied" time="0">
+    <testcase name="CAU-ContractApplied-C-001-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractApplied-C-002-ContractApplied" time="0">
+    <testcase name="CAU-ContractApplied-C-002-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractApplied" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractApplied-C-003-ContractApplied" time="0">
+    <testcase name="CAU-ContractApplied-C-003-C :: Composite" time="0">
+      <failure name="CAU-ContractApplied-C-003-C" message="Composite check for ContractApplied" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-000-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-000-C :: Composite" time="0">
+      <failure name="CAU-ContractAppliedObject-O-000-C" message="Composite check for ContractAppliedObject" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-001-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-002-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-002-O :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-003-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-003-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-004-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-004-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-005-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-005-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-006-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-006-O :: Format" time="0">
+      <skipped message="Format check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-007-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-007-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-008-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-008-O :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-009-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-009-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-010-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-010-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-011-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-011-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-012-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-012-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-013-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-013-M :: Composite" time="0">
+      <skipped message="Composite check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-014-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-014-M :: Format" time="0">
+      <skipped message="Format check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-015-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-015-M :: Type" time="0">
+      <skipped message="Type check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-016-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-016-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-017-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-017-C :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-018-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-018-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-019-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-019-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-020-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-020-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-021-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-021-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-022-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-022-C :: Composite" time="0">
+      <skipped message="Composite check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-023-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-023-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-024-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-024-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-025-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-025-C :: Composite" time="0">
+      <skipped message="Composite check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-026-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-026-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-027-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-027-O :: Format" time="0">
+      <skipped message="Format check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-028-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-028-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-029-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-029-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-030-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-030-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-031-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-031-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-032-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-032-C :: Composite" time="0">
+      <skipped message="Composite check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-033-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-033-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-034-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-034-C :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-035-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-035-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-036-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-036-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-037-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-037-O :: Format" time="0">
+      <skipped message="Format check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-038-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-038-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-039-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-039-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-040-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-040-O :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-041-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-041-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-042-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-042-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-043-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-043-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-044-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-044-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-045-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-045-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-046-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-046-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-047-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-047-O :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-048-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-048-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-049-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-049-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-050-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-050-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-051-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-051-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-052-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-052-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-053-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-053-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-054-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-054-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-055-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-055-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-056-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-056-O :: Nullability" time="0">
+      <skipped message="Nullability check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-057-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-057-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-058-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-058-M :: Validation" time="0">
+      <skipped message="Validation check for ContractAppliedObject" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-059-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-059-M :: Composite" time="0">
+      <failure name="CAU-ContractAppliedObject-O-059-M" message="Composite check for ContractAppliedObject" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-060-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-060-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-061-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-061-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-062-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-062-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-063-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-063-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-064-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-064-C :: Composite" time="0">
+      <failure name="CAU-ContractAppliedObject-O-064-C" message="Composite check for ContractAppliedObject" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-065-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-065-C :: Nullability" time="0">
+      <failure name="CAU-ContractAppliedObject-O-065-C" message="Nullability check for ContractAppliedObject" type="AssertionError">Failed</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractAppliedObject-O-066-ContractAppliedObject" time="0">
+    <testcase name="CAU-ContractAppliedObject-O-066-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-000-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-001-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-002-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-003-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-004-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-004-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-005-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for ContractedCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-006-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-006-C :: Composite" time="0">
+      <skipped message="Composite check for ContractedCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-007-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for ContractedCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-008-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for ContractedCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedCost-C-011-ContractedCost" time="0">
+    <testcase name="CAU-ContractedCost-C-011-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-000-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-001-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-001-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-002-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-002-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-003-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-004-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-004-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-005-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-006-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-007-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-007-O :: Nullability" time="0">
+      <skipped message="Nullability check for ContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-008-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-008-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-009-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-009-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-010-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-010-M :: Validation" time="0">
+      <skipped message="Validation check for ContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-013-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-013-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-014-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-014-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ContractedUnitPrice-C-015-ContractedUnitPrice" time="0">
+    <testcase name="CAU-ContractedUnitPrice-C-015-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-000-CostAndUsage" time="0">
+    <testcase name="CAU-CostAndUsage-D-000-M :: Composite" time="0">
+      <skipped message="Composite check for CostAndUsage" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-001-CostAndUsage" time="0">
+    <testcase name="CAU-CostAndUsage-D-001-M :: Composite" time="0">
+      <skipped message="Composite check for CostAndUsage" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-002-CostAndUsage" time="0">
+    <testcase name="CAU-CostAndUsage-D-002-M :: Composite" time="0">
+      <skipped message="Composite check for CostAndUsage" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-003-AvailabilityZone" time="0">
+    <testcase name="CAU-CostAndUsage-D-003-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-004-ListUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-004-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-005-BillingAccountName" time="0">
+    <testcase name="CAU-CostAndUsage-D-005-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-006-BilledCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-006-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-007-BillingAccountType" time="0">
+    <testcase name="CAU-CostAndUsage-D-007-C :: Presence" time="0">
+      <skipped message="Presence check for BillingAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-008-ChargeCategory" time="0">
+    <testcase name="CAU-CostAndUsage-D-008-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-009-BillingPeriodStart" time="0">
+    <testcase name="CAU-CostAndUsage-D-009-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-010-BillingPeriodEnd" time="0">
+    <testcase name="CAU-CostAndUsage-D-010-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-011-ConsumedQuantity" time="0">
+    <testcase name="CAU-CostAndUsage-D-011-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-012-CommitmentDiscountName" time="0">
+    <testcase name="CAU-CostAndUsage-D-012-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-013-CommitmentDiscountId" time="0">
+    <testcase name="CAU-CostAndUsage-D-013-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-014-CommitmentDiscountType" time="0">
+    <testcase name="CAU-CostAndUsage-D-014-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-015-CommitmentDiscountUnit" time="0">
+    <testcase name="CAU-CostAndUsage-D-015-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-016-CommitmentDiscountCategory" time="0">
+    <testcase name="CAU-CostAndUsage-D-016-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-017-CommitmentDiscountStatus" time="0">
+    <testcase name="CAU-CostAndUsage-D-017-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-018-CommitmentDiscountQuantity" time="0">
+    <testcase name="CAU-CostAndUsage-D-018-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-019-SubAccountId" time="0">
+    <testcase name="CAU-CostAndUsage-D-019-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-020-CapacityReservationStatus" time="0">
+    <testcase name="CAU-CostAndUsage-D-020-C :: Presence" time="0">
+      <skipped message="Presence check for CapacityReservationStatus" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-021-PublisherName" time="0">
+    <testcase name="CAU-CostAndUsage-D-021-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-022-PricingCategory" time="0">
+    <testcase name="CAU-CostAndUsage-D-022-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-023-InvoiceIssuerName" time="0">
+    <testcase name="CAU-CostAndUsage-D-023-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-024-BillingAccountId" time="0">
+    <testcase name="CAU-CostAndUsage-D-024-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-025-ChargeDescription" time="0">
+    <testcase name="CAU-CostAndUsage-D-025-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-026-ChargeClass" time="0">
+    <testcase name="CAU-CostAndUsage-D-026-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-027-ChargeFrequency" time="0">
+    <testcase name="CAU-CostAndUsage-D-027-O :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-028-ChargePeriodEnd" time="0">
+    <testcase name="CAU-CostAndUsage-D-028-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-029-SubAccountName" time="0">
+    <testcase name="CAU-CostAndUsage-D-029-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-030-ContractedCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-030-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-031-EffectiveCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-031-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-032-ListCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-032-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-033-InvoiceId" time="0">
+    <testcase name="CAU-CostAndUsage-D-033-O :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-034-ContractedUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-034-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-035-BillingCurrency" time="0">
+    <testcase name="CAU-CostAndUsage-D-035-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-036-PricingQuantity" time="0">
+    <testcase name="CAU-CostAndUsage-D-036-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-037-ChargePeriodStart" time="0">
+    <testcase name="CAU-CostAndUsage-D-037-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-038-ProviderName" time="0">
+    <testcase name="CAU-CostAndUsage-D-038-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-039-ResourceType" time="0">
+    <testcase name="CAU-CostAndUsage-D-039-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-040-ServiceCategory" time="0">
+    <testcase name="CAU-CostAndUsage-D-040-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-041-ServiceName" time="0">
+    <testcase name="CAU-CostAndUsage-D-041-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-042-ServiceSubcategory" time="0">
+    <testcase name="CAU-CostAndUsage-D-042-O :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-043-ResourceId" time="0">
+    <testcase name="CAU-CostAndUsage-D-043-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-044-ResourceName" time="0">
+    <testcase name="CAU-CostAndUsage-D-044-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-045-PricingCurrency" time="0">
+    <testcase name="CAU-CostAndUsage-D-045-C :: Presence" time="0">
+      <skipped message="Presence check for PricingCurrency" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-046-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-046-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-047-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-047-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-048-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-048-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-049-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-049-C :: Presence" time="0">
+      <skipped message="Presence check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-050-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-050-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-051-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-051-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-052-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-052-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-053-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-CostAndUsage-D-053-C :: Presence" time="0">
+      <skipped message="Presence check for PricingCurrencyEffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-054-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-054-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-055-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-055-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-056-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-056-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-057-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-CostAndUsage-D-057-C :: Presence" time="0">
+      <skipped message="Presence check for PricingCurrencyListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-058-SkuPriceId" time="0">
+    <testcase name="CAU-CostAndUsage-D-058-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-059-SkuMeter" time="0">
+    <testcase name="CAU-CostAndUsage-D-059-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-060-SkuId" time="0">
+    <testcase name="CAU-CostAndUsage-D-060-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-061-SkuPriceDetails" time="0">
+    <testcase name="CAU-CostAndUsage-D-061-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-062-RegionName" time="0">
+    <testcase name="CAU-CostAndUsage-D-062-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-063-RegionId" time="0">
+    <testcase name="CAU-CostAndUsage-D-063-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-064-Tags" time="0">
+    <testcase name="CAU-CostAndUsage-D-064-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-065-CapacityReservationId" time="0">
+    <testcase name="CAU-CostAndUsage-D-065-C :: Presence" time="0">
+      <skipped message="Presence check for CapacityReservationId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-066-ConsumedUnit" time="0">
+    <testcase name="CAU-CostAndUsage-D-066-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-067-SubAccountType" time="0">
+    <testcase name="CAU-CostAndUsage-D-067-C :: Presence" time="0">
+      <skipped message="Presence check for SubAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-068-PricingUnit" time="0">
+    <testcase name="CAU-CostAndUsage-D-068-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-069-AllocatedMethodDetails" time="0">
+    <testcase name="CAU-CostAndUsage-D-069-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-070-AllocatedMethodId" time="0">
+    <testcase name="CAU-CostAndUsage-D-070-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-071-AllocatedResourceId" time="0">
+    <testcase name="CAU-CostAndUsage-D-071-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-072-AllocatedResourceName" time="0">
+    <testcase name="CAU-CostAndUsage-D-072-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-073-AllocatedTags" time="0">
+    <testcase name="CAU-CostAndUsage-D-073-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-074-ContractApplied" time="0">
+    <testcase name="CAU-CostAndUsage-D-074-C :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-075-HostProviderName" time="0">
+    <testcase name="CAU-CostAndUsage-D-075-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-CostAndUsage-D-076-ServiceProviderName" time="0">
+    <testcase name="CAU-CostAndUsage-D-076-M :: Presence" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-000-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-001-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-002-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-003-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-004-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-004-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-005-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-005-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-006-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-007-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-007-O :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-008-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-008-C :: Composite" time="0">
+      <skipped message="Composite check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-009-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-010-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-010-M :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-011-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-011-C :: Composite" time="0">
+      <skipped message="Composite check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-012-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-012-C :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-EffectiveCost-C-013-EffectiveCost" time="0">
+    <testcase name="CAU-EffectiveCost-C-013-C :: Validation" time="0">
+      <skipped message="Validation check for EffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-000-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-001-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-002-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-003-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-003-M :: Composite" time="0">
+      <skipped message="Composite check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-004-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-005-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-006-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-006-M :: Nullability" time="0">
+      <skipped message="Nullability check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-007-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-008-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-008-C :: Validation" time="0">
+      <skipped message="Validation check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-009-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-HostProviderName-C-010-HostProviderName" time="0">
+    <testcase name="CAU-HostProviderName-C-010-M :: Validation" time="0">
+      <skipped message="Validation check for HostProviderName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-000-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-000-O :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-001-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-002-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-003-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-004-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-005-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-006-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-006-O :: Validation" time="0">
+      <skipped message="Validation check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-007-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-007-C :: Validation" time="0">
+      <skipped message="Validation check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceId-C-008-InvoiceId" time="0">
+    <testcase name="CAU-InvoiceId-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for InvoiceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-InvoiceIssuerName-C-000-InvoiceIssuerName" time="0">
+    <testcase name="CAU-InvoiceIssuerName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceIssuerName-C-001-InvoiceIssuerName" time="0">
+    <testcase name="CAU-InvoiceIssuerName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceIssuerName-C-002-InvoiceIssuerName" time="0">
+    <testcase name="CAU-InvoiceIssuerName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-InvoiceIssuerName-C-003-InvoiceIssuerName" time="0">
+    <testcase name="CAU-InvoiceIssuerName-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-000-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-001-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-002-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-003-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-004-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-004-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-005-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for ListCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-006-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-006-C :: Composite" time="0">
+      <skipped message="Composite check for ListCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-007-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for ListCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-008-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for ListCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListCost-C-011-ListCost" time="0">
+    <testcase name="CAU-ListCost-C-011-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-000-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-001-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-002-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-003-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-004-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-005-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-006-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for ListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-007-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-007-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-008-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-008-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-009-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for ListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-012-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-012-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-013-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-013-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ListUnitPrice-C-014-ListUnitPrice" time="0">
+    <testcase name="CAU-ListUnitPrice-C-014-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-000-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-001-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-002-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-002-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-003-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-003-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-004-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-005-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-005-O :: Nullability" time="0">
+      <skipped message="Nullability check for PricingCategory" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-006-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-006-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-007-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-007-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-008-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-008-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCategory" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-009-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCategory" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-010-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-010-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCategory" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-011-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-011-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCategory" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCategory-C-012-PricingCategory" time="0">
+    <testcase name="CAU-PricingCategory-C-012-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrency-C-000-PricingCurrency" time="0">
+    <testcase name="CAU-PricingCurrency-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for PricingCurrency" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrency-C-001-PricingCurrency" time="0">
+    <testcase name="CAU-PricingCurrency-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrency-C-002-PricingCurrency" time="0">
+    <testcase name="CAU-PricingCurrency-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrency-C-003-PricingCurrency" time="0">
+    <testcase name="CAU-PricingCurrency-C-003-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrency-C-004-PricingCurrency" time="0">
+    <testcase name="CAU-PricingCurrency-C-004-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-000-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-001-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-002-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-003-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-004-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-005-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-006-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-007-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-008-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-008-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-009-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for PricingCurrencyContractedUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-011-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-011-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyContractedUnitPrice-C-012-PricingCurrencyContractedUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyContractedUnitPrice-C-012-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-000-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for PricingCurrencyEffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-001-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-002-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-003-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-004-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-004-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-005-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for PricingCurrencyEffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyEffectiveCost-C-006-PricingCurrencyEffectiveCost" time="0">
+    <testcase name="CAU-PricingCurrencyEffectiveCost-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for PricingCurrencyEffectiveCost" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-000-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for PricingCurrencyListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-001-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-002-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-003-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-004-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-005-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-006-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for PricingCurrencyListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-007-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-007-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-008-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-008-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-009-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for PricingCurrencyListUnitPrice" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-011-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-011-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingCurrencyListUnitPrice-C-012-PricingCurrencyListUnitPrice" time="0">
+    <testcase name="CAU-PricingCurrencyListUnitPrice-C-012-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-000-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-001-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-002-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-003-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-004-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-005-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-006-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for PricingQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-011-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-011-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-012-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-012-C :: Validation" time="0">
+      <skipped message="Validation check for PricingQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingQuantity-C-013-PricingQuantity" time="0">
+    <testcase name="CAU-PricingQuantity-C-013-C :: Validation" time="0">
+      <skipped message="Validation check for PricingQuantity" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-000-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-001-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-002-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-003-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-003-O :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-004-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-005-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-006-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-006-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-007-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-007-C :: Composite" time="0">
+      <skipped message="Composite check for PricingUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-008-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for PricingUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-PricingUnit-C-009-PricingUnit" time="0">
+    <testcase name="CAU-PricingUnit-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for PricingUnit" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ProviderName-C-000-ProviderName" time="0">
+    <testcase name="CAU-ProviderName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ProviderName-C-001-ProviderName" time="0">
+    <testcase name="CAU-ProviderName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ProviderName-C-002-ProviderName" time="0">
+    <testcase name="CAU-ProviderName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ProviderName-C-003-ProviderName" time="0">
+    <testcase name="CAU-ProviderName-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PublisherName-C-000-PublisherName" time="0">
+    <testcase name="CAU-PublisherName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PublisherName-C-001-PublisherName" time="0">
+    <testcase name="CAU-PublisherName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PublisherName-C-002-PublisherName" time="0">
+    <testcase name="CAU-PublisherName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-PublisherName-C-003-PublisherName" time="0">
+    <testcase name="CAU-PublisherName-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-000-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-001-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-002-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-003-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for RegionId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-004-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for RegionId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-RegionId-C-005-RegionId" time="0">
+    <testcase name="CAU-RegionId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for RegionId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-000-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-001-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-002-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-003-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-004-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-RegionName-C-005-RegionName" time="0">
+    <testcase name="CAU-RegionName-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-000-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-001-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-002-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-003-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-004-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-005-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-006-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-006-C :: Composite" time="0">
+      <skipped message="Composite check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-007-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceId-C-008-ResourceId" time="0">
+    <testcase name="CAU-ResourceId-C-008-O :: Validation" time="0">
+      <skipped message="Validation check for ResourceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-000-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-001-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-002-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-003-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for ResourceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-004-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for ResourceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-005-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for ResourceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceName-C-006-ResourceName" time="0">
+    <testcase name="CAU-ResourceName-C-006-C :: Validation" time="0">
+      <skipped message="Validation check for ResourceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-000-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-001-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-002-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-003-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-004-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ResourceType-C-005-ResourceType" time="0">
+    <testcase name="CAU-ResourceType-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceCategory-C-000-ServiceCategory" time="0">
+    <testcase name="CAU-ServiceCategory-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceCategory-C-001-ServiceCategory" time="0">
+    <testcase name="CAU-ServiceCategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceCategory-C-002-ServiceCategory" time="0">
+    <testcase name="CAU-ServiceCategory-C-002-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceCategory-C-003-ServiceCategory" time="0">
+    <testcase name="CAU-ServiceCategory-C-003-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-000-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-001-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-002-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-003-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-004-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-004-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-005-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-005-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-006-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-006-C :: Validation" time="0">
+      <skipped message="Validation check for ServiceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-007-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-007-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-008-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-008-C :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceName-C-009-ServiceName" time="0">
+    <testcase name="CAU-ServiceName-C-009-C :: Validation" time="0">
+      <skipped message="Validation check for ServiceName" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-ServiceProviderName-C-000-ServiceProviderName" time="0">
+    <testcase name="CAU-ServiceProviderName-C-000-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceProviderName-C-001-ServiceProviderName" time="0">
+    <testcase name="CAU-ServiceProviderName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceProviderName-C-002-ServiceProviderName" time="0">
+    <testcase name="CAU-ServiceProviderName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceProviderName-C-003-ServiceProviderName" time="0">
+    <testcase name="CAU-ServiceProviderName-C-003-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceSubcategory-C-000-ServiceSubcategory" time="0">
+    <testcase name="CAU-ServiceSubcategory-C-000-O :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceSubcategory-C-001-ServiceSubcategory" time="0">
+    <testcase name="CAU-ServiceSubcategory-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceSubcategory-C-002-ServiceSubcategory" time="0">
+    <testcase name="CAU-ServiceSubcategory-C-002-M :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceSubcategory-C-003-ServiceSubcategory" time="0">
+    <testcase name="CAU-ServiceSubcategory-C-003-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-ServiceSubcategory-C-004-ServiceSubcategory" time="0">
+    <testcase name="CAU-ServiceSubcategory-C-004-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-000-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-001-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-002-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-003-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-004-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-005-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-006-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-007-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-007-M :: Composite" time="0">
+      <skipped message="Composite check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-008-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-009-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-010-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-010-M :: Validation" time="0">
+      <skipped message="Validation check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-011-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-011-C :: Validation" time="0">
+      <skipped message="Validation check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuId-C-012-SkuId" time="0">
+    <testcase name="CAU-SkuId-C-012-O :: Validation" time="0">
+      <skipped message="Validation check for SkuId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-000-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-001-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-002-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-003-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-004-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-005-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuMeter-C-006-SkuMeter" time="0">
+    <testcase name="CAU-SkuMeter-C-006-O :: Validation" time="0">
+      <skipped message="Validation check for SkuMeter" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-000-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-001-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-001-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-002-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-002-O :: Format" time="0">
+      <skipped message="Format check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-003-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-004-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-005-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-006-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-006-C :: Composite" time="0">
+      <skipped message="Composite check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-007-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-007-M :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-008-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-009-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-009-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-010-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-010-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-011-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-011-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-012-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-012-O :: Composite" time="0">
+      <skipped message="Composite check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-013-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-013-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-014-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-014-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-015-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-015-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-016-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-016-O :: Format" time="0">
+      <skipped message="Format check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-017-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-017-C :: Format" time="0">
+      <skipped message="Format check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-018-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-018-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-019-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-019-M :: Composite" time="0">
+      <skipped message="Composite check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-020-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-020-M :: Format" time="0">
+      <skipped message="Format check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-021-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-021-M :: Type" time="0">
+      <skipped message="Type check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-022-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-022-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceDetails-C-023-SkuPriceDetails" time="0">
+    <testcase name="CAU-SkuPriceDetails-C-023-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceDetails" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-000-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-001-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-002-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-003-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-003-M :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-004-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-005-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-006-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-006-O :: Nullability" time="0">
+      <skipped message="Nullability check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-007-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-007-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-008-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-008-M :: Validation" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-009-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-009-M :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-010-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-010-M :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-011-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-011-O :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-012-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-012-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-013-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-013-M :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-014-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-014-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SkuPriceId-C-015-SkuPriceId" time="0">
+    <testcase name="CAU-SkuPriceId-C-015-C :: Validation" time="0">
+      <skipped message="Validation check for SkuPriceId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-000-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-001-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-002-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-003-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for SubAccountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-004-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-004-C :: Nullability" time="0">
+      <skipped message="Nullability check for SubAccountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SubAccountId-C-005-SubAccountId" time="0">
+    <testcase name="CAU-SubAccountId-C-005-C :: Nullability" time="0">
+      <skipped message="Nullability check for SubAccountId" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-000-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-001-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-002-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-003-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-004-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountName-C-005-SubAccountName" time="0">
+    <testcase name="CAU-SubAccountName-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-000-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-000-C :: Composite" time="0">
+      <skipped message="Composite check for SubAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-001-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-001-M :: Type" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-002-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-002-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-003-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-003-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-004-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-004-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-005-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-005-C :: Nullability" time="0" />
+  </testsuite>
+  <testsuite name="CAU-SubAccountType-C-006-SubAccountType" time="0">
+    <testcase name="CAU-SubAccountType-C-006-M :: Validation" time="0">
+      <skipped message="Validation check for SubAccountType" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-000-Tags" time="0">
+    <testcase name="CAU-Tags-C-000-C :: Composite" time="0" />
+  </testsuite>
+  <testsuite name="CAU-Tags-C-001-Tags" time="0">
+    <testcase name="CAU-Tags-C-001-M :: Format" time="0" />
+  </testsuite>
+  <testsuite name="CAU-Tags-C-002-Tags" time="0">
+    <testcase name="CAU-Tags-C-002-O :: Nullability" time="0">
+      <skipped message="Nullability check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-003-Tags" time="0">
+    <testcase name="CAU-Tags-C-003-C :: Composite" time="0">
+      <skipped message="Composite check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-004-Tags" time="0">
+    <testcase name="CAU-Tags-C-004-M :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-005-Tags" time="0">
+    <testcase name="CAU-Tags-C-005-M :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-006-Tags" time="0">
+    <testcase name="CAU-Tags-C-006-O :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-007-Tags" time="0">
+    <testcase name="CAU-Tags-C-007-O :: Nullability" time="0">
+      <skipped message="Nullability check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-008-Tags" time="0">
+    <testcase name="CAU-Tags-C-008-M :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-009-Tags" time="0">
+    <testcase name="CAU-Tags-C-009-O :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-010-Tags" time="0">
+    <testcase name="CAU-Tags-C-010-C :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-011-Tags" time="0">
+    <testcase name="CAU-Tags-C-011-M :: Composite" time="0">
+      <skipped message="Composite check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-012-Tags" time="0">
+    <testcase name="CAU-Tags-C-012-M :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-013-Tags" time="0">
+    <testcase name="CAU-Tags-C-013-O :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-014-Tags" time="0">
+    <testcase name="CAU-Tags-C-014-M :: Composite" time="0">
+      <skipped message="Composite check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-015-Tags" time="0">
+    <testcase name="CAU-Tags-C-015-C :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-016-Tags" time="0">
+    <testcase name="CAU-Tags-C-016-C :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="CAU-Tags-C-017-Tags" time="0">
+    <testcase name="CAU-Tags-C-017-M :: Validation" time="0">
+      <skipped message="Validation check for Tags" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-000-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-000-M :: Composite" time="0">
+      <skipped message="Composite check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-001-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-001-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-002-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-002-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-003-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-003-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-004-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-004-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-005-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-005-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-006-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-006-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-008-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-008-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-009-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-009-M :: Composite" time="0">
+      <skipped message="Composite check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-010-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-010-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-011-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-011-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-012-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-012-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-013-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-013-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-014-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-014-O :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="ColumnHandling-A-015-ColumnHandling" time="0">
+    <testcase name="ColumnHandling-A-015-M :: Validation" time="0">
+      <skipped message="Validation check for ColumnHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-000-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-000-C :: Composite" time="0">
+      <skipped message="Composite check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-001-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-001-C :: Presence" time="0">
+      <skipped message="Presence check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-002-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-002-C :: Presence" time="0">
+      <skipped message="Presence check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-003-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-003-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-004-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-004-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-005-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-005-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-006-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-006-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-007-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-007-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-008-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-008-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-009-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-009-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-010-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-010-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DataGeneratorCalculatedSplitCostAllocationHandling-A-011-DataGeneratorCalculatedSplitCostAllocationHandling" time="0">
+    <testcase name="DataGeneratorCalculatedSplitCostAllocationHandling-A-011-C :: Validation" time="0">
+      <skipped message="Validation check for DataGeneratorCalculatedSplitCostAllocationHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-000-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-000-C :: Composite" time="0">
+      <skipped message="Composite check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-001-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-001-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-002-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-002-C :: Composite" time="0">
+      <skipped message="Composite check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-003-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-003-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-004-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-004-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-005-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-005-C :: Composite" time="0">
+      <skipped message="Composite check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-006-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-006-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-007-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-007-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-008-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-008-C :: Composite" time="0">
+      <skipped message="Composite check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-009-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-009-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-010-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-010-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-011-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-011-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-012-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-012-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-013-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-013-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-014-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-014-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-015-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-015-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-016-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-016-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-017-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-017-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-018-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-018-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-019-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-019-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="DiscountHandling-A-020-DiscountHandling" time="0">
+    <testcase name="DiscountHandling-A-020-C :: Validation" time="0">
+      <skipped message="Validation check for DiscountHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="InvoiceHandling-A-000-InvoiceHandling" time="0">
+    <testcase name="InvoiceHandling-A-000-M :: Composite" time="0">
+      <skipped message="Composite check for InvoiceHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="InvoiceHandling-A-001-InvoiceHandling" time="0">
+    <testcase name="InvoiceHandling-A-001-M :: Validation" time="0">
+      <skipped message="Validation check for InvoiceHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="InvoiceHandling-A-002-InvoiceHandling" time="0">
+    <testcase name="InvoiceHandling-A-002-M :: Presence" time="0">
+      <skipped message="Presence check for InvoiceHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="InvoiceHandling-A-003-InvoiceHandling" time="0">
+    <testcase name="InvoiceHandling-A-003-O :: Validation" time="0">
+      <skipped message="Validation check for InvoiceHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="InvoiceHandling-A-004-InvoiceHandling" time="0">
+    <testcase name="InvoiceHandling-A-004-M :: Validation" time="0">
+      <skipped message="Validation check for InvoiceHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-000-NullHandling" time="0">
+    <testcase name="NullHandling-A-000-M :: Composite" time="0">
+      <skipped message="Composite check for NullHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-001-NullHandling" time="0">
+    <testcase name="NullHandling-A-001-C :: Validation" time="0">
+      <skipped message="Validation check for NullHandling" />
+    </testcase>
+  </testsuite>
+  <testsuite name="NullHandling-A-002-NullHandling" time="0">
+    <testcase name="NullHandling-A-002-M :: Validation" time="0">
+      <skipped message="Validation check for NullHandling" />
+    </testcase>
+  </testsuite>
+</testsuites>
