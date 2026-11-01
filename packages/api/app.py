@@ -4,6 +4,7 @@ import asyncio
 import math
 import os
 import time
+import uuid
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -55,7 +56,7 @@ def estimate_workload(request: EstimateRequest, book: PriceBook) -> dict[str, An
 def create_app(
     database_url: str | None = None,
     salt: str | None = None,
-    manifest_path: Path = ROOT / "results/manifest.json",
+    manifest_path: Path = ROOT / "results/expanded/manifest.json",
 ) -> FastAPI:
     api = FastAPI(title="mlspend", description=STATEMENT, docs_url=None, redoc_url=None)
     book = PriceBook()
@@ -80,6 +81,8 @@ def create_app(
     )
     serial = asyncio.Lock()
     samples: list[float] = []
+    instance = str(uuid.uuid4())
+    process_start = time.monotonic()
 
     @api.middleware("http")
     async def meter(request: Request, call_next: Any) -> Any:
@@ -129,7 +132,9 @@ def create_app(
     @api.exception_handler(StarletteHTTPException)
     async def http_error(_: Request, exc: StarletteHTTPException) -> JSONResponse:
         return JSONResponse(
-            {"detail": exc.detail, "statement": STATEMENT}, status_code=exc.status_code
+            {"detail": exc.detail, "statement": STATEMENT},
+            status_code=exc.status_code,
+            headers=exc.headers,
         )
 
     @api.exception_handler(RequestValidationError)
@@ -137,7 +142,7 @@ def create_app(
         return JSONResponse({"detail": str(exc), "statement": STATEMENT}, status_code=422)
 
     @api.get("/health")
-    def health() -> dict[str, Any]:
+    def health() -> JSONResponse:
         ordered = sorted(samples)
         database_status = "not configured"
         if store:
@@ -147,20 +152,31 @@ def create_app(
                 database_status = "connected"
             except Exception:
                 database_status = "unavailable"
-        return {
+        ready = database_status == "connected" and bool(manifest)
+        result = {
             "status": "ready"
             if database_status == "connected" and manifest
             else "configuration_required",
             "version": "0.1.0-dev",
+            "instance_id": instance,
+            "process_uptime_seconds": round(time.monotonic() - process_start, 3),
             "database": database_status,
             "price_digest": book.digest,
-            "data_digest": manifest["generation"]["charges_sha256"] if manifest else None,
+            "data_digest": (
+                manifest["generation"].get("observed_sha256")
+                or manifest["generation"].get("charges_sha256")
+            )
+            if manifest
+            else None,
             "meter_median_usd": ordered[len(ordered) // 2] if ordered else None,
             "meter_p99_usd": ordered[min(len(ordered) - 1, math.ceil(len(ordered) * 0.99) - 1)]
             if ordered
             else None,
             "statement": STATEMENT,
         }
+        return JSONResponse(
+            result, status_code=200 if ready else 503, headers={} if ready else {"Retry-After": "5"}
+        )
 
     def results() -> dict[str, Any]:
         if manifest is None:
@@ -171,10 +187,10 @@ def create_app(
     def showback(
         team: str | None = None, month: str | None = None, method: str = "usage"
     ) -> dict[str, Any]:
-        if method not in ("even", "direct", "usage", "shapley"):
+        if method not in ("even", "direct", "usage", "custom", "shapley"):
             raise HTTPException(422, "Unknown allocation method")
         data = results()
-        period = month or data["latest_month"]
+        period = month or max(r["month"] for r in data["allocation"])
         rows = [
             {
                 "team": r["team"],
@@ -195,8 +211,8 @@ def create_app(
         return {
             "rows": [
                 r
-                for r in data["unit_costs"]
-                if r["month"] == (month or data["latest_month"])
+                for r in data.get("units", data.get("unit_costs", []))
+                if r["month"] == (month or max(v["month"] for v in data["allocation"]))
                 and (model is None or r["model"] == model)
             ],
             "statement": STATEMENT,
@@ -204,7 +220,8 @@ def create_app(
 
     @api.get("/v1/anomalies")
     def anomalies() -> dict[str, Any]:
-        return {"results": results()["detector"], "statement": STATEMENT}
+        data = results()
+        return {"results": data.get("detection", data.get("detector")), "statement": STATEMENT}
 
     @api.post("/v1/estimate")
     def estimate(request: EstimateRequest) -> dict[str, Any]:

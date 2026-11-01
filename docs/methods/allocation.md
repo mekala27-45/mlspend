@@ -1,24 +1,54 @@
-# allocation
+# The method changes the statement.
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
-## Purpose
+The same source total supports five policies. The capacity Shapley calculation enumerates every coalition; its normalized shares allocate the recorded shared bill.
 
-Expose the cost assumption and its measurable effect. This note is rendered from the same manifest as the dashboard.
-
-## Inputs
-
-Observed simulated charges and telemetry, the registered plan ab7b94fbe50dedf382af98d5a433fa87fae4cf86c3887552b7aa04ddcb02e3e4, and price book 7510b0cec4e9292829d5d39fca431812e688a64286610f23ef3a9efd6f44ab85. Methods do not receive truth records.
-
-## Assumptions and score
-
-Totals are conserved under every method. Three direct-plus-overhead methods and Shapley-weighted overhead. The exact coalition values are shown separately; the fourth column is not a Shapley allocation of the entire invoice.
+## One total, five policies
 
 
-## Sensitivity and limitations
 
-The full interior and uncertainty report remains incomplete. A deterministic simulation tests a stated scenario; it does not establish performance on another platform.
+| Team | even | direct | usage | custom | shapley |
+| --- | --- | --- | --- | --- | --- |
+| ads | $2,216.11 | $1,208.91 | $1,943.20 | $1,777.56 | $1,112.03 |
+| assistant | $5,434.85 | $5,530.29 | $5,233.49 | $5,873.40 | $5,350.08 |
+| forecasting | $5,823.47 | $6,052.05 | $5,828.02 | $5,384.92 | $5,984.88 |
+| fraud | $2,405.71 | $1,463.47 | $2,366.35 | $2,844.27 | $1,386.27 |
+| research | $8,266.62 | $9,332.13 | $8,657.01 | $7,828.06 | $9,905.91 |
+| search | $6,790.70 | $7,350.61 | $6,909.39 | $7,229.25 | $7,198.29 |
+| unallocated | $232.70 | $232.70 | $232.70 | $232.70 | $232.70 |
 
-## Pushback
 
-The cost model is a choice. Revisit the registered assumptions when pricing, workload mix or reservation policy changes. Preserve prior results rather than rewriting their history.
+## Idle before allocation
+
+
+
+| Pool | Asset cost | Idle cost | Idle share |
+| --- | --- | --- | --- |
+| azure-t4 | $1,782.61 | $387.26 | 21.7% |
+| azure-v100 | $14,625.53 | $1,290.35 | 8.8% |
+| azure-a100 | $11,408.34 | $4,686.48 | 41.1% |
+| reserved-t4 | $230.08 | $230.08 | 100.0% |
+| reserved-a100-3y | $1,014.11 | $1,014.11 | 100.0% |
+
+
+## Ownership inference
+
+
+
+| Population | Correct | Wrong | Unresolved | Precision | Recall |
+| --- | --- | --- | --- | --- | --- |
+| originally untagged observed charge rows | 71002 | 0 | 4418 | 100.0% | 94.1% |
+
+
+## Largest change across policies
+
+
+
+| Team | Month | Range |
+| --- | --- | --- |
+| research | 2025-08 | $2,236.90 |
+
+## Limits and pushback
+
+Capacity contribution is a fairness reference under this coalition cost model. It is not an objective fairness label. Namespace and network must agree before an untagged charge is assigned.

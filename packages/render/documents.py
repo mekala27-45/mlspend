@@ -15,6 +15,14 @@ def render(manifest: dict[str, Any], root: Path = ROOT, check: bool = False) -> 
         or manifest.get("statement") != STATEMENT
     ):
         raise ValueError("Manifest is empty or lacks the required statement")
+    if (root / "results/expanded/manifest.json").exists() and (
+        root / "config/completion.json"
+    ).exists():
+        from packages.render.expanded import render as render_expanded
+
+        _write_or_check(root / "web/data.json", canonical(manifest), check)
+        render_expanded(root, check)
+        return
     environment = Environment(
         loader=FileSystemLoader(root / "report/templates"),
         undefined=StrictUndefined,

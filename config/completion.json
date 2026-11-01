@@ -1,0 +1,20 @@
+[
+  {"requirement":"Public source price book", "status":"Implemented with source gaps", "evidence":"Expanded locked provider book; exact NIM and Databricks paid SKUs unavailable and remain unpriced."},
+  {"requirement":"FOCUS simulator and validation", "status":"Supplemental validation; official limitations", "evidence":"Both datasets, one- and three-year commitments, typed normative checks. Official rule contradictions and dependency cycle retained in validation evidence."},
+  {"requirement":"Every public build and committed ledger", "status":"Measured accessible records", "evidence":"All public Actions attempts in the window and committed ledger inventory. Missing GPU sources explicitly not measured."},
+  {"requirement":"Registered evaluation", "status":"Implemented", "evidence":"evaluation/v2/plan.json registered before this replication; prior version results known and disclosed."},
+  {"requirement":"Contracted warehouse and quarantine", "status":"Implemented and full build passed", "evidence":"warehouse-expanded enforced contracts; producer defects quarantined; independent count, effective and billed-cost reconciliation."},
+  {"requirement":"Allocation and ownership", "status":"Implemented and scored", "evidence":"Five conserved policies, idle disclosure, exact coalition reference, sealed owner scoring."},
+  {"requirement":"Unit economics", "status":"Implemented", "evidence":"Versioned inference average and marginal, answer components, completed and failed training experiments."},
+  {"requirement":"Live container API and metering", "status":"Preview verified; production update pending", "evidence":"Vercel port-80 container and restricted PostgreSQL role verified; request CPU/RSS meter excludes startup and idle lifetime."},
+  {"requirement":"Forecasts and budgets", "status":"Backtests complete; future close verification pending", "evidence":"Daily and monthly team/service forecasts, conformal intervals, budget burn; future records cannot be scored before their period closes."},
+  {"requirement":"Detection and postmortem", "status":"Scored; narrative verification pending", "evidence":"Seasonal MAD and CUSUM, false-alarm calibration, hourly/daily SKU evaluation, explicit boundary outcomes."},
+  {"requirement":"Recommendations and commitment sizing", "status":"Implemented and scored", "evidence":"Independent whole-platform reruns for registered actions, uncertainty and combined effects; real offer rates and held-out sensitivity."},
+  {"requirement":"Persistence and cold/warm latency", "status":"Persistence verified; isolated cold measurement pending", "evidence":"Saved-before-response and independent readback tests; warm measurements exist. First observed response is not called cold."},
+  {"requirement":"Portfolio bill and output costs", "status":"Known subtotal; missing paid equivalents", "evidence":"CI subtotal and public token/output counts; no invented per-output total when components or denominators are missing."},
+  {"requirement":"Finance exports", "status":"Generated; formula recalculation pending", "evidence":"FOCUS and allocated Parquet, CSV, Power BI, Tableau and Excel allocation formulas."},
+  {"requirement":"Statistical method report", "status":"Implemented and scored", "evidence":"Team-cluster intervals, exact paired sign flip and registered BH family; comparisons are inconclusive."},
+  {"requirement":"Pages routes and estimator", "status":"Expanded browser verification pending", "evidence":"Next.js static site and DuckDB WASM baseline passed; expanded UI requires new browser run."},
+  {"requirement":"Documentation and workflows", "status":"Completion in progress", "evidence":"Generated methods and statements; ADRs, dead-end notebooks and repository skills are being verified."},
+  {"requirement":"Quality gates and release", "status":"Final checks pending; no release tag", "evidence":"Coverage gate, strict typing, lint and repeat builds run in Actions. A complete release is not tagged while mandatory checks are unresolved."}
+]

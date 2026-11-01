@@ -131,7 +131,9 @@ def test_bad_requests_and_missing_persistence(client, tmp_path, monkeypatch):
     monkeypatch.delenv("DATABASE_URL", raising=False)
     monkeypatch.delenv("MLSPEND_SALT", raising=False)
     with TestClient(create_app(manifest_path=tmp_path / "absent.json")) as empty:
-        assert empty.get("/health").json()["status"] == "configuration_required"
+        health = empty.get("/health")
+        assert health.json()["status"] == "configuration_required"
+        assert health.status_code == 503 and health.headers["Retry-After"] == "5"
         for path in ("/v1/showback", "/v1/unit-costs", "/v1/anomalies", "/v1/forecasts/x"):
             assert empty.get(path).status_code == 503
         good = {**bad, "price_id": "azure-t4"}

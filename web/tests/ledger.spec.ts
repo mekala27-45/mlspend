@@ -6,7 +6,7 @@ test('all static routes expose results and the disclosure at desktop and mobile 
   page.on('pageerror',error=>failures.push(error.message));
   for(const width of [1280,390]) {
     await page.setViewportSize({width,height:900});
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/']) {
+    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']) {
       await page.goto(route);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('footer')).toContainText('platform costs are simulated');
@@ -52,4 +52,35 @@ test('the browser SQL engine queries the complete shipped monthly table',async({
   await page.getByLabel('SQL',{exact:true}).fill('SELECT COUNT(*) AS months FROM monthly');
   await page.getByRole('button',{name:'Run SQL locally'}).click();
   await expect(page.locator('pre[aria-live]')).toContainText('"months": "12"',{timeout:45000});
+});
+
+
+test('offline health attempts remain GET and never claim a save',async({page})=>{
+  let gets=0;
+  await page.route(api+'/**',async route=>{expect(route.request().method()).toBe('GET');gets++;await route.fulfill({status:503,json:{status:'configuration_required'},headers:{'Retry-After':'5'}});});
+  await page.goto('estimate/');
+  await page.getByRole('button',{name:'Calculate workload cost'}).click();
+  await expect(page.getByText(/Local calculation only/)).toBeVisible();
+  expect(gets).toBe(2);
+  await expect(page.getByText(/Saved reference:/)).toHaveCount(0);
+});
+
+test('keyboard access reaches main and all routes in both themes',async({page})=>{
+  for(const dark of [false,true]){
+    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']){
+      await page.goto(route);
+      if(dark && !(await page.locator('html').getAttribute('class')||'').includes('dark'))await page.getByRole('button',{name:'Use carbon copy'}).click();
+      await page.keyboard.press('Control+Home');
+      await page.locator('.skip').focus();await page.keyboard.press('Enter');
+      await expect(page.locator('#main')).toBeFocused();
+      expect(await page.locator('nav a').count()).toBe(12);
+      const contrast=await page.locator('main').evaluate(el=>{
+        const style=getComputedStyle(el),root=getComputedStyle(document.documentElement);
+        const luminance=(color:string)=>{const c=color.match(/[\d.]+/g)!.slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+        const probe=document.createElement('span');probe.style.color=root.getPropertyValue('--paper');document.body.appendChild(probe);const bg=getComputedStyle(probe).color;probe.remove();
+        const a=luminance(style.color),b=luminance(bg);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+      });
+      expect(contrast).toBeGreaterThanOrEqual(4.5);
+    }
+  }
 });

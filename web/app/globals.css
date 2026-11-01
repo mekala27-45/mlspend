@@ -8,3 +8,4 @@ table,.metric strong,pre,code{font-family:'Recursive Variable',monospace;font-va
 .query{width:100%;min-height:120px;padding:12px;background:var(--card);color:var(--ink);border:1px solid var(--control);font-family:monospace}
 button:disabled{opacity:.6;cursor:wait}
 .page-links{display:flex;gap:16px;margin-top:20px;font-size:12px}
+.source-link{overflow-wrap:anywhere}.table-wrap:focus-visible{outline:3px solid var(--blue);outline-offset:3px}td{overflow-wrap:anywhere}

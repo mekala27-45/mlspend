@@ -1,0 +1,50 @@
+name: Verify expanded browser interface
+on:
+  workflow_dispatch:
+  push:
+    branches: [complete-v2]
+    paths: ['web/**', '.github/workflows/web-checks.yml']
+permissions:
+  contents: read
+concurrency:
+  group: expanded-web-checks
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install exact frontend versions
+        working-directory: web
+        run: npm ci --no-audit --no-fund
+      - name: Build static routes and browser SQL
+        working-directory: web
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /mlspend
+          NEXT_PUBLIC_API_URL: https://mlspend.vercel.app
+      - name: Strict type checking
+        working-directory: web
+        run: npm run typecheck
+      - name: Install browser
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Verify routes, estimator recovery and browser SQL
+        working-directory: web
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: web/test-results/
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build-evidence
+          path: |
+            web/package-lock.json
+            web/out/
