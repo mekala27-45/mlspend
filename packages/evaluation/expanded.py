@@ -61,8 +61,11 @@ def detection(directory: Path, plan: dict[str, Any], truth: dict[str, Any]) -> d
                         else timestamp.date().isoformat() + "T00:00:00+00:00"
                     )
                     series[key] += float(value)
-                first, last = min(series), max(series)
-                point, stop = datetime.fromisoformat(first), datetime.fromisoformat(last)
+                series_first, series_last = min(series), max(series)
+                point, stop = (
+                    datetime.fromisoformat(series_first),
+                    datetime.fromisoformat(series_last),
+                )
                 step = timedelta(hours=1) if grain == "hour" else timedelta(days=1)
                 # Missing hours inside an observed series are zero usage, never compressed time.
                 while point <= stop:
