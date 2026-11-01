@@ -1,0 +1,27 @@
+name: Verify expanded requirements
+on:
+  workflow_dispatch:
+  push:
+    branches: [complete-v2, main]
+    paths: ['packages/focus/**', 'packages/forecast/expanded.py', 'packages/detect/expanded.py', 'packages/expansion/**', 'tests/test_expanded*', 'tests/test_focus.py', '.github/workflows/expanded-checks.yml', 'scripts/build_expanded.py']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install uv
+      - run: uv sync --group dev
+      - run: uv pip install -r requirements-expanded.txt
+      - name: Check expanded methods
+        run: uv run --no-sync pytest tests/test_focus.py tests/test_expanded_forecast.py tests/test_expanded_detector.py -v --junitxml=results/expanded-tests.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: expanded-verification
+          path: results/expanded-tests.xml
