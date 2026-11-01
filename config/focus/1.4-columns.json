@@ -1,0 +1,485 @@
+{
+  "version": "1.4",
+  "source_commit": "f1eeb30a78f7c141ef1237d589355296a2761c1c",
+  "datasets": {
+    "CostAndUsage": {
+      "AllocatedMethodDetails": {
+        "level": "Recommended",
+        "nullable": true,
+        "type": "JSON"
+      },
+      "AllocatedMethodId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "AllocatedResourceId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "AllocatedResourceName": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "AllocatedTags": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "JSON"
+      },
+      "AvailabilityZone": {
+        "level": "Recommended",
+        "nullable": true,
+        "type": "String"
+      },
+      "BilledCost": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "BillingAccountId": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "BillingAccountName": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "BillingAccountType": {
+        "level": "Conditional",
+        "nullable": false,
+        "type": "String"
+      },
+      "BillingCurrency": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "BillingPeriodEnd": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "BillingPeriodStart": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "CapacityReservationId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CapacityReservationStatus": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ChargeCategory": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ChargeClass": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "ChargeDescription": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "ChargeFrequency": {
+        "level": "Recommended",
+        "nullable": false,
+        "type": "String"
+      },
+      "ChargePeriodEnd": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ChargePeriodStart": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "CommitmentDiscountCategory": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentDiscountId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentDiscountName": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentDiscountQuantity": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "CommitmentDiscountStatus": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentDiscountType": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentDiscountUnit": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "CommitmentProgramEligibilityDetails": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "JSON"
+      },
+      "ConsumedQuantity": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "ConsumedUnit": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ContractApplied": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "JSON"
+      },
+      "ContractedCost": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "ContractedUnitPrice": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "EffectiveCost": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "HostProviderName": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "InvoiceDetailId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "InvoiceId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "InvoiceIssuerName": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ListCost": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "ListUnitPrice": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "PricingCategory": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "PricingCurrency": {
+        "level": "Conditional",
+        "nullable": false,
+        "type": "String"
+      },
+      "PricingCurrencyContractedUnitPrice": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "PricingCurrencyEffectiveCost": {
+        "level": "Conditional",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "PricingCurrencyListUnitPrice": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "PricingQuantity": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "PricingUnit": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "RegionId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "RegionName": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ResourceId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ResourceName": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ResourceType": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "ServiceCategory": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ServiceName": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ServiceProviderName": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ServiceSubcategory": {
+        "level": "Recommended",
+        "nullable": false,
+        "type": "String"
+      },
+      "SkuId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "SkuMeter": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "SkuPriceDetails": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "JSON"
+      },
+      "SkuPriceId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "SubAccountId": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "SubAccountName": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "SubAccountType": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "String"
+      },
+      "Tags": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "JSON"
+      }
+    },
+    "ContractCommitment": {
+      "BillingCurrency": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "ContractCommitmentApplicability": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "JSON"
+      },
+      "ContractCommitmentBenefitCategory": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentCategory": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentCost": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "ContractCommitmentCreated": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ContractCommitmentDescription": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "ContractCommitmentDiscountPercentage": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "ContractCommitmentDurationType": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentFulfillmentInterval": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentId": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentLastUpdated": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ContractCommitmentLifecycleStatus": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentModel": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentOfferCategory": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentPaymentInterval": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentPaymentModel": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentPaymentUpfrontPercentage": {
+        "level": "Conditional",
+        "nullable": false,
+        "type": "Decimal"
+      },
+      "ContractCommitmentPeriodEnd": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ContractCommitmentPeriodStart": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ContractCommitmentQuantity": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "ContractCommitmentType": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractCommitmentUnit": {
+        "level": "Mandatory",
+        "nullable": true,
+        "type": "String"
+      },
+      "ContractId": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "ContractPeriodEnd": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "ContractPeriodStart": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "Date/Time"
+      },
+      "InvoiceIssuerName": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      },
+      "PricingCurrency": {
+        "level": "Conditional",
+        "nullable": false,
+        "type": "String"
+      },
+      "PricingCurrencyContractCommitmentCost": {
+        "level": "Conditional",
+        "nullable": true,
+        "type": "Decimal"
+      },
+      "ServiceProviderName": {
+        "level": "Mandatory",
+        "nullable": false,
+        "type": "String"
+      }
+    }
+  }
+}
