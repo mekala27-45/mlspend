@@ -154,10 +154,14 @@ def monthly(
         for origin in range(max(56, index - 84), index - days + 1):
             forecast = horizon(costs[:origin], workload[:origin], start, method, days, config)
             errors.append(abs(sum(costs[origin : origin + days]) - sum(forecast)))
-        radius = conformal_radius(errors, config["interval_coverage"])
         point = sum(horizon(costs[:index], workload[:index], start, method, days, config))
         actual = sum(costs[index : index + days])
-        lower, upper = max(0.0, point - radius), point + radius
+        sufficient = bool(errors) and math.ceil(
+            (len(errors) + 1) * config["interval_coverage"]
+        ) <= len(errors)
+        radius = conformal_radius(errors, config["interval_coverage"]) if sufficient else None
+        lower = max(0.0, point - radius) if radius is not None else None
+        upper = point + radius if radius is not None else None
         rows.append(
             {
                 "period": day.strftime("%Y-%m"),
@@ -167,7 +171,10 @@ def monthly(
                 "lower": lower,
                 "upper": upper,
                 "actual": actual,
-                "covered": lower <= actual <= upper,
+                "covered": lower <= actual <= upper
+                if lower is not None and upper is not None
+                else None,
+                "interval_status": "scored" if sufficient else "insufficient_calibration",
                 "calibration_origins": len(errors),
             }
         )

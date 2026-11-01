@@ -41,7 +41,9 @@ def test_rolling_forecast_and_monthly_cutoffs():
     assert len(result["development_mae"]) == 3
     forecasts = monthly(values, values, date(2025, 1, 1), 90, result["method"], config)
     assert forecasts[0]["data_cutoff"] == "2025-03-31"
-    assert forecasts[0]["lower"] <= forecasts[0]["point"] <= forecasts[0]["upper"]
+    assert forecasts[0]["interval_status"] == "insufficient_calibration"
+    assert forecasts[0]["lower"] is None and forecasts[0]["covered"] is None
+    assert forecasts[1]["lower"] <= forecasts[1]["point"] <= forecasts[1]["upper"]
     changed = values[:90] + [10000.0] * 61
     first = daily(changed, changed, date(2025, 1, 1), 90, config)
     assert first["method"] == result["method"]
