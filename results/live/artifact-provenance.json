@@ -1,0 +1,6 @@
+{
+  "source_run": 41267361547,
+  "artifact": "published-browser-evidence",
+  "test_step": "success",
+  "reason": "Recovered exact uploaded bytes after evidence-branch publication failed."
+}

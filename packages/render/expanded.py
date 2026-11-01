@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from packages.core.io import ROOT, STATEMENT, canonical, digest, read_json
+from packages.evaluation.latency import summarize_latency
 
 
 def money(value: float | int | None, micro: bool = True, places: int = 2) -> str:
@@ -898,6 +899,8 @@ def render(root: Path = ROOT, check: bool = False) -> None:
     live_path = root / "results/live/browser.json"
     if live_path.exists():
         live = read_json(live_path)
+        latency = summarize_latency(live)
+        _write_or_check(root / "results/live/latency-summary.json", canonical(latency), check)
         results += markdown(
             table(
                 "Published Windows Chrome measurement",
@@ -906,8 +909,8 @@ def render(root: Path = ROOT, check: bool = False) -> None:
                     "Idle seconds",
                     "New process observed",
                     "First response ms",
-                    "Warm p50 ms",
-                    "Warm p99 ms",
+                    "Reused-instance p50 ms",
+                    "Reused-instance p99 ms",
                     "Estimate request shadow USD",
                 ],
                 [
@@ -916,12 +919,16 @@ def render(root: Path = ROOT, check: bool = False) -> None:
                         live["idle"]["seconds"],
                         live["idle"]["new_process_observed"],
                         round(live["idle"]["first_response_ms"], 2),
-                        round(live["warm"]["p50_ms"], 2),
-                        round(live["warm"]["p99_ms"], 2),
+                        round(latency["reused_instance_p50_ms"], 2)
+                        if latency["reused_instance_p50_ms"] is not None
+                        else None,
+                        round(latency["reused_instance_p99_ms"], 2)
+                        if latency["reused_instance_p99_ms"] is not None
+                        else None,
                         live["request_meter_usd"],
                     ]
                 ],
-                "Twenty sequential warm health requests, nearest-rank quantiles. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime do. See results/live_check.json for all samples and the exact shipped source digest. The runner is separate from the API and from Ajay's laptop.",
+                f"{latency['sequence_count']} sequential health requests, of which {latency['reused_instance_count']} reached previously observed instances. Quantiles exclude first observations of other instances. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime support the initial startup observation. See results/live/latency-summary.json for the classification and results/live_check.json for raw samples. The runner is separate from the API and from Ajay's laptop.",
             )
         )
         results += (

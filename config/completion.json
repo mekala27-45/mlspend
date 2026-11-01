@@ -7,7 +7,7 @@
   {
     "requirement": "FOCUS simulator and validation",
     "status": "Not done",
-    "evidence": "Full official validation exposed a nonstandard optional allocation unit; the corrected export is rebuilding. Validator 2.2.1 cannot run its 1.4 dependency graph; supplemental normative checks and supported rules remain separate."
+    "evidence": "Allocated unit label corrected and allocated rows added to the official integration fixture, which passed in run 41326226037. Full corrected exports are rebuilding. Official 1.4 rule-cycle limitations remain disclosed."
   },
   {
     "requirement": "Every public build and committed ledger",
@@ -57,7 +57,7 @@
   {
     "requirement": "Persistence and cold/warm latency",
     "status": "Done",
-    "evidence": "Saved-before-response, independent SQL and out-of-process checks passed. After 1207.714 seconds without a probe: new instance, uptime 0.933 seconds, first response 2877.96 ms; warm median 157.33 ms."
+    "evidence": "Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1215.795 seconds: new instance, uptime 1.288 seconds, first response 7389.90 ms. Sixteen reused-instance requests: p50 119.42 ms, p99 251.03 ms; four new-instance observations excluded."
   },
   {
     "requirement": "Portfolio bill and output costs",
@@ -77,7 +77,7 @@
   {
     "requirement": "Pages routes and estimator",
     "status": "Done",
-    "evidence": "Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks; Windows Chrome exercised live persistence and idle recovery. Laptop-specific manual check remains a follow-up, not claimed by the hosted runner."
+    "evidence": "Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked."
   },
   {
     "requirement": "Documentation and workflows",
@@ -87,6 +87,6 @@
   {
     "requirement": "Quality gates and release",
     "status": "Not done",
-    "evidence": "Core CI exceeds 80 percent coverage and passes strict typing/lint/gates; two full hash seeds matched. Detached-worktree rederive is running. Repository topics and v0.1.0 remain unset while mandatory close/validation requirements are open."
+    "evidence": "Core CI: 79 tests, 90.28 percent coverage, strict typing/lint/gates. Full clean detached-worktree rebuild 41267495682 matched both hashes; the corrected export rebuild is running. Topics and v0.1.0 remain unset while monthly-close and validation requirements are open."
   }
 ]

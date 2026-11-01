@@ -70,3 +70,15 @@ The first two full hash-seed runs exposed export-directory state and then floati
 ## 2026-11-01: Complete mart lineage
 
 Recommendation estimates now stream the validated contracted observation mart, with a hard failure when the full build lacks that mart. The smoke test may use its reconciled priced table. Source: warehouse-expanded/models/stg_observed.sql and packages/warehouse/expanded.py, inspected 2026-11-01.
+
+## 2026-11-01: Allocated metadata in the integration fixture
+
+The full-year validator found an underscore in the original usage-share label. Omitting the optional unit then exposed an upstream conditional-presence issue. Use the documented dimensionless component name `Usage Share`, which follows the official format. Add split-charge rows to the quick official fixture so this metadata is exercised before a full rebuild. Do not expand the exception list to suppress the allocation failure.
+
+## 2026-11-01: Classify instances before reporting warm latency
+
+The second live run reached five API instances during its twenty follow-up requests. Preserve all raw samples and exclude first observations of additional instances from reused-process quantiles. A sequence after an idle test is not automatically warm. The deterministic report uses instance IDs, retains all exclusions and keeps network and database costs in the timing scope.
+
+## 2026-11-01: Recover evidence without rerunning a passed test
+
+The Windows browser test and demo capture passed, but its evidence-branch push referred to older workflow files after main advanced. Recover the exact uploaded artifact, verify the source test step passed and base the evidence-only commit on current main. Preserve the source run ID and retain the failed publication history.
