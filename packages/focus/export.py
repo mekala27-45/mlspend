@@ -273,6 +273,41 @@ def validate_rows(rows: Iterable[dict[str, Any]], dataset: str) -> int:
                     not e.get("ContractId") or not e.get("ContractCommitmentId") for e in elements
                 ):
                     raise ValueError("Contract application requires identifiers")
+                for element in elements:
+                    required = {
+                        "ContractId",
+                        "ContractCommitmentId",
+                        "ContractCommitmentAppliedCost",
+                        "ContractCommitmentAppliedQuantity",
+                        "ContractCommitmentAppliedUnit",
+                    }
+                    if not required <= element.keys():
+                        raise ValueError("Contract application is missing a required property")
+                    quantity = element["ContractCommitmentAppliedQuantity"]
+                    unit = element["ContractCommitmentAppliedUnit"]
+                    if (quantity is None) != (unit is None):
+                        raise ValueError("Contract application quantity/unit nullability mismatch")
+                    if quantity is not None and (
+                        not isinstance(quantity, (int, float))
+                        or not Decimal(str(quantity)).is_finite()
+                        or not isinstance(unit, str)
+                        or not unit
+                    ):
+                        raise ValueError("Invalid contract application quantity/unit")
+                    applied = element["ContractCommitmentAppliedCost"]
+                    if applied is None and quantity is None:
+                        raise ValueError("Contract application requires a cost or quantity")
+                    if applied is not None and (
+                        not isinstance(applied, (int, float))
+                        or not Decimal(str(applied)).is_finite()
+                    ):
+                        raise ValueError("Invalid contract application cost")
+            if (
+                row.get("CapacityReservationId") is not None
+                and category == "Usage"
+                and row.get("CapacityReservationStatus") not in {"Used", "Unused"}
+            ):
+                raise ValueError("Capacity reservation usage requires status")
                 if category == "Purchase" or status == "Unused":
                     if any(e["ContractCommitmentId"] != row["ResourceId"] for e in elements):
                         raise ValueError(

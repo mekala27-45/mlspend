@@ -9,6 +9,8 @@ def audit(directory: Path) -> dict:
     # Exact identifiers, never a prefix wildcard. Composite failures propagate
     # from the listed leaves; supplemental checks enforce the normative prose.
     known = {
+        "CAU-CapacityReservationStatus-C-002-C",
+        "CAU-CapacityReservationStatus-C-004-C",
         "CAU-CommitmentDiscountStatus-C-000-C",
         "CAU-CommitmentDiscountStatus-C-002-C",
         "CAU-CommitmentDiscountStatus-C-003-C",
@@ -17,6 +19,7 @@ def audit(directory: Path) -> dict:
         "CAU-ContractApplied-C-003-C",
         "CAU-ContractAppliedObject-O-000-C",
         "CAU-ContractAppliedObject-O-059-M",
+        "CAU-ContractAppliedObject-O-064-C",
         "CAU-ContractAppliedObject-O-065-C",
         "CAU-CostAndUsage-D-000-M",
         "CAU-CostAndUsage-D-002-M",
