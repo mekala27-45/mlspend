@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from statistics import mean, median
 from typing import Any
@@ -22,6 +22,13 @@ SERVICES = {
     "duplicate_storage": "storage",
     "untagged_batch": "training",
 }
+
+
+def overlaps(start: str, end: str, timestamp: str, grain: str) -> bool:
+    """Intersect half-open incident and observation intervals, including partial days."""
+    point = datetime.fromisoformat(timestamp)
+    stop = point + (timedelta(days=1) if grain == "day" else timedelta(hours=1))
+    return datetime.fromisoformat(start) < stop and point < datetime.fromisoformat(end)
 
 
 def detection(directory: Path, plan: dict[str, Any], truth: dict[str, Any]) -> dict[str, Any]:
@@ -54,22 +61,34 @@ def detection(directory: Path, plan: dict[str, Any], truth: dict[str, Any]) -> d
                         else timestamp.date().isoformat() + "T00:00:00+00:00"
                     )
                     series[key] += float(value)
+                first, last = min(series), max(series)
+                point, stop = datetime.fromisoformat(first), datetime.fromisoformat(last)
+                step = timedelta(hours=1) if grain == "hour" else timedelta(days=1)
+                # Missing hours inside an observed series are zero usage, never compressed time.
+                while point <= stop:
+                    series.setdefault(point.isoformat(), 0.0)
+                    point += step
                 times = sorted(series)
                 values = [series[t] for t in times]
                 labels = [
-                    any(
-                        r["start"][:10] <= t[:10] <= r["end"][:10]
-                        if grain == "day"
-                        else r["start"] <= t < r["end"]
-                        for r in related
-                    )
-                    for t in times
+                    any(overlaps(r["start"], r["end"], t, grain) for r in related) for t in times
                 ]
                 normal = [
                     datetime.fromisoformat(t) < cutoff and not label
                     for t, label in zip(times, labels, strict=True)
                 ]
                 scores = residuals(values, season, plan["detector"]["seasonal_weeks"])
+                if not any(n and s is not None for n, s in zip(normal, scores, strict=True)):
+                    scorecards.append(
+                        {
+                            "team": owner,
+                            "service": service,
+                            "sku": sku,
+                            "grain": grain,
+                            "status": "unscored_no_development_history",
+                        }
+                    )
+                    continue
                 selected = select(scores, normal, plan["detector"])
                 hits = alerts(
                     scores,
@@ -151,7 +170,9 @@ def hypotheses(analysis: dict[str, Any], config: dict[str, Any]) -> dict[str, An
     for row in analysis["allocation"]:
         if row["month"] < "2025-09" or row["capacity_shapley_usd"] is None:
             continue
-        reference = row["capacity_shapley_usd"] * 1000000
+        # Compare alternative allocations of the same bill; standalone capacity dollars
+        # are a different counterfactual and cannot be subtracted from fully loaded bills.
+        reference = row["methods"]["shapley"]
         clusters["allocation"][row["team"]].append(
             (abs(row["methods"]["usage"] - reference) - abs(row["methods"]["even"] - reference))
             / 1000000
