@@ -1,0 +1,31 @@
+# {{ name }}
+
+{{ m.statement }}
+
+## Purpose
+
+Expose the cost assumption and its measurable effect. This note is rendered from the same manifest as the dashboard.
+
+## Inputs
+
+Observed simulated charges and telemetry, the registered plan {{ m.plan_digest }}, and price book {{ m.price_digest }}. Methods do not receive truth records.
+
+## Assumptions and score
+
+{% if name == 'allocation' %}Totals are conserved under every method. {{ m.allocation_note }}
+{% elif name == 'detection' %}Hour-of-week history controls the seasonal baseline. Event recall is {{ m.detector.event_recall|percent }} and alert-hour precision is {{ m.detector.point_precision|percent }}.
+{% elif name == 'forecast' %}{% for row in m.forecasts %}{{ row.team }}: {{ row.method }}, empirical held-out coverage {{ row.coverage|percent }}.
+{% endfor %}
+{% elif name == 'unit' %}Average cost allocates overhead; marginal cost assumes the final observed hour and full replica increments. The manifest contains {{ m.unit_costs|length }} endpoint-month measurements.
+{% elif name == 'commitments' %}{% for row in m.commitments %}{{ row.pool }}: selected commitment {{ row.level }} units, held-out utilization {{ row.utilization|percent }}. Discount terms are simulated.
+{% endfor %}
+{% else %}Released capacity is measured separately from cash savings. A cash claim requires a counterfactual node-release measurement.
+{% endif %}
+
+## Sensitivity and limitations
+
+The full interior and uncertainty report remains incomplete. A deterministic simulation tests a stated scenario; it does not establish performance on another platform.
+
+## Pushback
+
+The cost model is a choice. Revisit the registered assumptions when pricing, workload mix or reservation policy changes. Preserve prior results rather than rewriting their history.

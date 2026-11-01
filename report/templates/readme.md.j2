@@ -1,0 +1,50 @@
+# mlspend
+
+This build is incomplete against the original brief. Live GitHub Pages, Vercel and Neon deployment, the Actions price and portfolio fetch, Foundation FOCUS validation, the complete recommendation evaluation, Next.js and dbt execution, and the final release checks remain outstanding. RESULTS.md records each requirement separately.
+
+{{ m.statement }}
+
+The local application builds a simulated calendar into hourly source charges, reconciles the warehouse, compares allocation policies and serves the results through a dashboard and FastAPI. The registered plan and the source prices are committed separately from the derived results.
+
+## Measured locally
+
+The simulation generated {{ m.generation.charge_rows }} charges across {{ m.generation.hours }} hours. Its recorded total is {{ m.generation.total_micro|money }}. The calendar is simulated; the public price snapshot was read later and is applied as a scenario, not a historical invoice.
+
+The largest method change is {{ m.largest_method_move.range_micro|money }} for {{ m.largest_method_move.team }} in {{ m.largest_method_move.month }}. The detector selected a threshold of {{ m.detector.threshold }} and its held-out event recall is {{ m.detector.event_recall|percent }}. These values are rendered from results/manifest.json.
+
+## Run
+
+```sh
+uv sync --group dev
+uv run python -m scripts.register_plan
+uv run python -m scripts.initialize_prices
+uv run python -m scripts.build
+uv run pytest --cov=packages
+uv run python -m scripts.serve_local
+```
+
+Open the address printed by the local launcher. The dashboard works from committed results. The local estimator writes to a local SQLite log; hosted use requires DATABASE_URL and MLSPEND_SALT. No cloud credentials belong in source control.
+
+## Evidence map
+
+| Skill | Evidence |
+|---|---|
+| Allocation and exact Shapley calculation | packages/allocation |
+| Average and marginal unit economics | packages/unit |
+| Price normalization and provenance | packages/prices, data/prices |
+| Deterministic hourly simulation | packages/simulator |
+| Warehouse and independent reconciliation | packages/warehouse, warehouse/models |
+| Forecasting with empirical intervals | packages/forecast |
+| Seasonal residual detection | packages/detect |
+| Commitment optimization | packages/optimize |
+| Evaluation and multiple comparisons | packages/evaluation |
+| API and committed persistence | packages/api |
+| Reproducible reporting | packages/render, report/templates |
+
+## Limits
+
+The allocation column named shapley distributes overhead in proportion to exact coalition values. It is not the Shapley allocation of a complete provider invoice. Current recommendations estimate released capacity value, not demonstrated cash savings. Forecast intervals are empirical and may miss their nominal coverage under serial dependence. The API meter allocates request CPU and configured memory; it excludes cold starts and instance lifetime outside a request. The complete limits and pending checks are in RESULTS.md.
+
+## How this was built
+
+This implementation was created for Ajay Mekala with AI assistance. The repository retains its evaluation plan, source evidence, tests, failed checks and measured limitations. No employment system or private employer data was used.

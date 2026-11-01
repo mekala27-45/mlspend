@@ -1,0 +1,1 @@
+{"checks":[{"grain":"team","groups":8,"matches":true,"tolerance_micro":0},{"grain":"model","groups":25,"matches":true,"tolerance_micro":0},{"grain":"month","groups":12,"matches":true,"tolerance_micro":0},{"grain":"day","groups":365,"matches":true,"tolerance_micro":0}],"engine":"2.0.0","quarantined_rows":0,"rows":140160,"total_micro":124169640000}

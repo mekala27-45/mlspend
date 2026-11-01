@@ -1,0 +1,12 @@
+# {{ row.team }} | {{ row.month }}
+
+{{ m.statement }}
+
+Direct cost: {{ row.direct_micro|money }}.
+
+| Allocation method | USD |
+|---|---:|
+{% for method in ['even', 'direct', 'usage', 'shapley'] %}| {{ method }} | {{ row.methods[method]|money }} |
+{% endfor %}
+
+The method of record is {{ row.method_of_record }}. The fourth method weights overhead using exact coalition values. It does not turn that cost model into a factual measure of fairness.

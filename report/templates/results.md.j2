@@ -1,0 +1,51 @@
+# Results
+
+{{ m.statement }}
+
+Status: {{ m.status }}.
+
+## Required checklist
+
+| Requirement | Status | Evidence |
+|---|---|---|
+| Price book fetched in Actions and locked | Not done | Browser-observed excerpts are locked; Actions has not run. |
+| FOCUS simulator and Foundation validation | Not done | {{ m.generation.charge_rows }} candidate charge rows exist; official conformance and the full commitment schema remain. |
+| Usage from every public build | Not done | Portfolio status is {{ m.portfolio.status }}. |
+| Plan registered before held-out scoring | Done | evaluation/registration.json, plan digest {{ m.plan_digest }}. |
+| Warehouse and reconciliation at four grains | Partial | All {{ m.reconciliation.rows }} source rows reconcile exactly; dbt execution remains. |
+| Allocation alternatives and owner inference | Partial | Four conserved totals and owner scores exist; the fourth is Shapley-weighted overhead. |
+| Average and marginal unit costs | Partial | {{ m.unit_costs|length }} endpoint-month rows; token and experiment components remain. |
+| Live Vercel API with logs and meter | Not done | Local implementation exists in packages/api; no hosted check. |
+| Forecasts, budgets and scored log | Partial | {{ m.forecasts|length }} team backtests exist; live period close and budget alerts remain. |
+| Incident detection and postmortem | Partial | Held-out event recall {{ m.detector.event_recall|percent }}; full incident narrative remains. |
+| Counterfactual recommendation scoring | Partial | Commitment curve is measured; recommendation cash savings are intentionally not asserted. |
+| Persistence and cold-start measurements | Not done | Tests are tracked separately in results/validation.json when run. |
+| Portfolio shadow estimates by output | Not done | No usage was invented. |
+| Finance exports and showback | Partial | Statements rendered; export validation is separate. |
+| All methods scored with uncertainty | Partial | Statistics utilities exist; full registered hypothesis report remains. |
+| Live Pages site and estimator | Not done | Local dashboard exists; public deployment not verified. |
+| Documentation and repository workflows | Partial | Source brief, runbook and generated documents exist; full notebook and ADR requirements remain. |
+| Quality gates, reproducibility and release | Not done | Only executed checks may be claimed. No release tag has been created. |
+
+## Latest statement: {{ m.latest_month }}
+
+| Team | Even | Direct cost | Usage | Shapley-weighted overhead |
+|---|---:|---:|---:|---:|
+{% for row in latest %}| {{ row.team }} | {{ row.methods.even|money }} | {{ row.methods.direct|money }} | {{ row.methods.usage|money }} | {{ row.methods.shapley|money }} |
+{% endfor %}
+
+## Limitations
+
+The provider rates are transcribed public excerpts, and their digests cover those excerpts. They are not raw HTTP response digests. AWS, model API, storage and network price coverage is absent. Every simulation amount is a counterfactual at the recorded price snapshot.
+
+The simulator includes compute incidents only. It does not yet include the brief's storage duplication, network export, actual spot interruption mechanism or midyear provider price changes. Billed and effective costs currently coincide because purchases and amortized commitments are not yet emitted into billing rows. Commitment optimization uses a stated simulated discount, not a purchasable provider offer.
+
+Owner inference requires matching namespace and network metadata. Uncertain resources remain unallocated. Forecasts cover direct team cost, not fully loaded showback. Two forecast candidates are implemented. The detector is a seasonal robust residual detector, without a separate changepoint test. Its development budget limits total alert frequency, not a truth-labeled false positive rate.
+
+Recommendation capacity values must not be presented as actual savings. Counterfactual costs are stored independently, but complete estimated-versus-true recommendation scoring remains. The allocation method comparison uses a capacity model, so it is a sensitivity analysis rather than an objective fairness judgment.
+
+The local web build uses static HTML, CSS and JavaScript to work without downloading a framework. Next.js, Tailwind and DuckDB-WASM are not yet implemented. The DuckDB warehouse runs directly; dbt project files have not yet been executed.
+
+## Stretch
+
+Second monthly price fetch, fractional GPUs, carbon estimates, budget guardrail and readback integration: not done.

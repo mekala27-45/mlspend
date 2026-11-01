@@ -1,0 +1,36 @@
+[project]
+name = "mlspend"
+version = "0.1.0"
+description = "Measured cost allocation for ML workloads"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.12,<3", "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlmodel>=0.0.24,<1", "psycopg[binary]>=3.2,<4", "alembic>=1.14,<2", "httpx>=0.28,<1", "jinja2>=3.1,<4", "pyyaml>=6,<7", "duckdb>=2,<3", "dbt-duckdb>=1.9,<2", "openpyxl>=3.1,<4", "structlog>=25,<27"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "pytest-timeout>=2.4,<3", "hypothesis>=6", "ruff>=0.12", "mypy>=1.15", "types-PyYAML", "nbmake>=1.5", "testcontainers[postgres]>=4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+timeout = 120
+markers = ["postgres: needs MLSPEND_TEST_DATABASE_URL", "external: needs live services"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["packages"]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["packages"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true

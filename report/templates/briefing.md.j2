@@ -1,0 +1,11 @@
+# Cost ownership begins with the allocation rule
+
+{{ m.statement }}
+
+The latest simulated period is {{ m.latest_month }}. The source dataset contains {{ m.generation.charge_rows }} charge rows. Every source amount is reconciled against the warehouse at team, model, month and day grains with no tolerance in the integer money units.
+
+The largest change across allocation methods is {{ m.largest_method_move.range_micro|money }}. An allocation policy changes who pays without changing the total. Idle capacity is therefore reported separately before overhead is distributed.
+
+The FinOps objection is valid: list prices do not equal a negotiated invoice. This report uses recorded price excerpts and labels the scenario. Portfolio usage remains not measured until the authenticated fetch has run.
+
+The platform engineering objection is also valid: releasing a reservation can move cost into idle without reducing the cloud bill. Recommendations report capacity value and leave cash savings unmeasured unless node release is established.

@@ -1,0 +1,15 @@
+.git
+.venv
+.venv-run
+.mypy_cache
+.pytest_cache
+.ruff_cache
+__pycache__
+data/generated
+tests
+tmp
+warehouse
+report
+docs
+.coverage
+Dockerfile.vercel

@@ -1,0 +1,31 @@
+name: Fetch price evidence for review
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install uv
+          uv sync --group dev
+      - name: Fetch selected Azure price rows
+        run: uv run python -m scripts.fetch_prices
+      - name: Preserve raw response evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: price-evidence-review-required
+          path: |
+            results/fetched-prices.json
+            tmp/http-cache/
+          if-no-files-found: error

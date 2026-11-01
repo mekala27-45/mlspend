@@ -1,0 +1,65 @@
+name: Build and verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: mlspend
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ci-only-ephemeral-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      MLSPEND_TEST_DATABASE_URL: postgresql://postgres@127.0.0.1:5432/mlspend
+      PGPASSWORD: ci-only-ephemeral-password
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install uv
+          uv sync --group dev
+      - name: Build data and reports
+        run: uv run python -m scripts.build
+      - name: Static checks
+        run: |
+          uv run ruff check packages scripts tests
+          uv run ruff format --check packages scripts tests
+          uv run mypy packages
+          uv run python -m scripts.check
+          node --check web/app.js
+      - name: Unit and integration tests
+        run: uv run pytest --cov=packages --cov-report=json:results/coverage.json --junitxml=results/tests-ci.xml
+      - name: HTTP persistence check
+        run: uv run python -m scripts.check_persistence
+      - name: dbt models and data tests
+        working-directory: warehouse
+        run: uv run --project .. dbt build --project-dir . --profiles-dir .
+      - name: Repeat builds with different hash seeds
+        run: uv run python -m scripts.check_reproducibility
+      - name: Preserve check evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-evidence
+          path: |
+            results/
+            warehouse/target/run_results.json
+          if-no-files-found: error

@@ -1,0 +1,8 @@
+name: mlspend
+version: '0.1.0'
+config-version: 2
+profile: mlspend
+model-paths: [models]
+models:
+  mlspend:
+    +materialized: table

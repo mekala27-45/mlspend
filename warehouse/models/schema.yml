@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_charges
+    columns:
+      - name: charge_start
+        data_tests: [not_null]
+      - name: effective_micro
+        data_tests: [not_null]
+      - name: price_id
+        data_tests: [not_null]
+  - name: mart_monthly
+    columns:
+      - name: month
+        data_tests: [not_null]
+      - name: team
+        data_tests: [not_null]
