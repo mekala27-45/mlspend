@@ -36,11 +36,11 @@ def method_note(data: dict[str, Any], detail: dict[str, str]) -> str:
         raise ValueError("Method note is missing a required section")
     return (
         "# "
-        + data["title"]
+        + str(data["title"])
         + "\n\n"
         + STATEMENT
         + "\n\n## Purpose\n\n"
-        + data["intro"]
+        + str(data["intro"])
         + "\n\n## Inputs\n\n"
         + detail["inputs"]
         + "\n\n## Assumptions\n\n"
@@ -50,7 +50,7 @@ def method_note(data: dict[str, Any], detail: dict[str, str]) -> str:
         + "\n\n## Sensitivity and interior checks\n\n"
         + detail["sensitivity"]
         + "\n\n## Limitations\n\n"
-        + data["limit"]
+        + str(data["limit"])
         + "\n\n## What a reviewer would push back on\n\n"
         + detail["pushback"]
         + "\n"
