@@ -28,7 +28,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /mlspend
-          NEXT_PUBLIC_API_URL: https://mlspend-mekala27-45s-projects.vercel.app
+          NEXT_PUBLIC_API_URL: https://mlspend.vercel.app
       - name: Strict type checking
         working-directory: web
         run: npm run typecheck
