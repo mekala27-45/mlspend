@@ -28,7 +28,7 @@ jobs:
           .focus-validator/bin/focus-validator --supported-versions > results/focus/versions.txt 2>&1
           cat results/focus/versions.txt
           for dataset in CostAndUsage ContractCommitment; do
-            .focus-validator/bin/focus-validator --data-file "tmp/focus-fixture/$dataset.parquet" --validate-version 1.4 --focus-dataset "$dataset" --applicability-criteria ALL --output-type unittest --output-destination "results/focus/$dataset.xml" > "results/focus/$dataset.log" 2>&1 || { cat "results/focus/$dataset.log"; exit 1; }
+            .focus-validator/bin/focus-validator --data-file "tmp/focus-fixture/$dataset.parquet" --validate-version 1.3.0.1 --focus-dataset "$dataset" --applicability-criteria ALL --output-type unittest --output-destination "results/focus/$dataset.xml" > "results/focus/$dataset.log" 2>&1 || { cat "results/focus/$dataset.log"; exit 1; }
             tail -n 20 "results/focus/$dataset.log"
           done
       - name: Fail on rule violations instead of trusting CLI exit status
