@@ -680,6 +680,11 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         "guides": guides,
         "charts": {
             "incidents": d["events"],
+            "incident_forecasts": [
+                {"key": r["key"], "rows": r["rows"]}
+                for r in m["forecasts"]
+                if r["key"] in {event["team"] for event in d["events"]}
+            ],
             "units": [
                 r for r in m["units"] if r["month"] == latest and r["service"] == "inference"
             ],
@@ -882,7 +887,11 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         )
     )
     results += "\n" + "\n".join("## " + p["title"] + "\n\n" + p["limit"] for p in pages.values())
-    results += "\n" + markdown(pages["report"]["sections"][0])
+    for route, page_data in pages.items():
+        results += "\n## " + route + " / measured results\n\n"
+        results += "\n".join(markdown(section) for section in page_data["sections"])
+    results += "\n## Limits\n\nThe source book uses published list prices, not invoices. Exact NIM and Databricks paid SKUs and some historical GPU telemetry are unavailable, so missing components remain unpriced. The replication plan was registered before this expanded run; earlier study outcomes were already known. The official validator cannot execute its 1.4 rule graph; the supported prior rule set and supplemental 1.4 checks are reported separately. Future forecasts remain pending until their period closes. No release tag is permitted while mandatory checks remain not done.\n"
+    results += "\n## Stretch items\n\nSecond price fetch after a month: not done. Fractional GPU sharing: not done. Carbon estimates: not done. Budget guardrail service: not done. Readback warehouse integration: not done. Further release hardening: not done. These do not count toward the eighteen requirements.\n"
     _write_or_check(root / "RESULTS.md", results.encode(), check)
     readme = (
         "# MLSpend\n\n[Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)\n\n"
@@ -929,7 +938,9 @@ def render(root: Path = ROOT, check: bool = False) -> None:
     pending = [
         r["requirement"]
         for r in requirements
-        if "pending" in r["status"].lower() or "progress" in r["status"].lower()
+        if r["status"].lower() == "not done"
+        or "pending" in r["status"].lower()
+        or "progress" in r["status"].lower()
     ]
     if pending:
         readme = readme.replace(

@@ -24,9 +24,9 @@ Method of record: usage. Direct cost $4,353.53; idle and shared allocation $987.
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| forecasting-training-v2 | training | 741 | $1,075.18 | $1.45 |
-| forecasting-llm-v2 | llm | 133179 | $245.07 | $0.00 |
 | forecasting-inference-v2 | inference | 10049572 | $4,020.57 | $0.00 |
+| forecasting-llm-v2 | llm | 133179 | $245.07 | $0.00 |
+| forecasting-training-v2 | training | 741 | $1,075.18 | $1.45 |
 
 
 ## Direct-spend forecast

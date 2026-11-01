@@ -24,25 +24,25 @@ Method of record: usage. Direct cost $114.59; idle and shared allocation $0.00.
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| forecasting-llm-v2 | llm | 1250 | $1.74 | $0.00 |
-| assistant-llm-v2 | llm | 1004 | $1.01 | $0.00 |
-| ads-training-v2 | training | 6 | $1.02 | $0.17 |
-| ads-llm-v2 | llm | 1905 | $2.50 | $0.00 |
-| research-inference-v2 | inference | 21705 | $10.53 | $0.00 |
-| fraud-inference-v2 | inference | 108067 | $6.72 | $0.00 |
-| search-training-v2 | training | 3 | $5.04 | $1.68 |
-| fraud-llm-v2 | llm | 960 | $1.14 | $0.00 |
-| forecasting-training-v2 | training | 4 | $3.65 | $0.91 |
 | ads-inference-v2 | inference | 85220 | $3.84 | $0.00 |
-| assistant-training-v2 | training | 1 | $1.06 | $1.06 |
+| ads-llm-v2 | llm | 1905 | $2.50 | $0.00 |
+| ads-training-v2 | training | 6 | $1.02 | $0.17 |
 | assistant-inference-v2 | inference | 66870 | $19.93 | $0.00 |
-| search-inference-v2 | inference | 38320 | $16.74 | $0.00 |
-| research-llm-v2 | llm | 632 | $1.25 | $0.00 |
-| fraud-training-v2 | training | 8 | $1.37 | $0.17 |
-| search-llm-v2 | llm | 950 | $1.87 | $0.00 |
-| research-notebook-v2 | notebook | 0 | $3.83 | Not measured |
+| assistant-llm-v2 | llm | 1004 | $1.01 | $0.00 |
+| assistant-training-v2 | training | 1 | $1.06 | $1.06 |
 | forecasting-inference-v2 | inference | 77884 | $25.51 | $0.00 |
+| forecasting-llm-v2 | llm | 1250 | $1.74 | $0.00 |
+| forecasting-training-v2 | training | 4 | $3.65 | $0.91 |
+| fraud-inference-v2 | inference | 108067 | $6.72 | $0.00 |
+| fraud-llm-v2 | llm | 960 | $1.14 | $0.00 |
+| fraud-training-v2 | training | 8 | $1.37 | $0.17 |
+| research-inference-v2 | inference | 21705 | $10.53 | $0.00 |
+| research-llm-v2 | llm | 632 | $1.25 | $0.00 |
+| research-notebook-v2 | notebook | 0 | $3.83 | Not measured |
 | research-training-v2 | training | 5 | $5.85 | $1.17 |
+| search-inference-v2 | inference | 38320 | $16.74 | $0.00 |
+| search-llm-v2 | llm | 950 | $1.87 | $0.00 |
+| search-training-v2 | training | 3 | $5.04 | $1.68 |
 
 
 ## Incidents starting this month

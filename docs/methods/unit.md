@@ -31,12 +31,12 @@ All numeric tables below are rendered from results/expanded/manifest.json. Unit-
 | fraud | fraud-inference-v2 | 10316957 | $0.15 | $0.00 |
 | research | research-inference-v2 | 10338807 | $0.58 | $0.00 |
 | search | search-inference-v2 | 10329638 | $0.53 | $0.00 |
-| unallocated | research-inference-v2 | 130418 | $0.46 | $0.00 |
-| unallocated | search-inference-v2 | 99560 | $0.42 | $0.00 |
-| unallocated | assistant-inference-v2 | 119005 | $0.28 | $0.00 |
 | unallocated | ads-inference-v2 | 104387 | $0.04 | $0.00 |
+| unallocated | assistant-inference-v2 | 119005 | $0.28 | $0.00 |
 | unallocated | forecasting-inference-v2 | 107448 | $0.33 | $0.00 |
 | unallocated | fraud-inference-v2 | 161681 | $0.06 | $0.00 |
+| unallocated | research-inference-v2 | 130418 | $0.46 | $0.00 |
+| unallocated | search-inference-v2 | 99560 | $0.42 | $0.00 |
 
 
 ## Answers and training
@@ -45,29 +45,29 @@ All numeric tables below are rendered from results/expanded/manifest.json. Unit-
 
 | Team | Model | Unit | Completed | Failures | Fully loaded / output |
 | --- | --- | --- | --- | --- | --- |
-| ads | ads-training-v2 | training run | 741 | 0 | $0.50 |
 | ads | ads-llm-v2 | answer | 137863 | 0 | $0.00 |
+| ads | ads-training-v2 | training run | 741 | 0 | $0.50 |
 | assistant | assistant-llm-v2 | answer | 138526 | 0 | $0.00 |
 | assistant | assistant-training-v2 | training run | 735 | 0 | $1.56 |
 | forecasting | forecasting-llm-v2 | answer | 138473 | 0 | $0.00 |
 | forecasting | forecasting-training-v2 | training run | 742 | 372 | $1.61 |
 | fraud | fraud-llm-v2 | answer | 137664 | 0 | $0.00 |
 | fraud | fraud-training-v2 | training run | 740 | 0 | $0.50 |
-| research | research-training-v2 | training run | 740 | 0 | $1.81 |
 | research | research-llm-v2 | answer | 138520 | 0 | $0.00 |
+| research | research-training-v2 | training run | 740 | 0 | $1.81 |
 | search | search-llm-v2 | answer | 136998 | 0 | $0.00 |
 | search | search-training-v2 | training run | 736 | 0 | $1.53 |
 | unallocated | ads-llm-v2 | answer | 1526 | 0 | $0.00 |
-| unallocated | assistant-llm-v2 | answer | 928 | 0 | $0.00 |
 | unallocated | ads-training-v2 | training run | 3 | 0 | $0.27 |
-| unallocated | forecasting-llm-v2 | answer | 1033 | 0 | $0.00 |
-| unallocated | fraud-llm-v2 | answer | 1673 | 0 | $0.00 |
+| unallocated | assistant-llm-v2 | answer | 928 | 0 | $0.00 |
 | unallocated | assistant-training-v2 | training run | 9 | 0 | $1.05 |
+| unallocated | forecasting-llm-v2 | answer | 1033 | 0 | $0.00 |
 | unallocated | forecasting-training-v2 | training run | 2 | 0 | $1.29 |
-| unallocated | search-llm-v2 | answer | 1690 | 0 | $0.00 |
+| unallocated | fraud-llm-v2 | answer | 1673 | 0 | $0.00 |
 | unallocated | fraud-training-v2 | training run | 4 | 0 | $0.26 |
 | unallocated | research-llm-v2 | answer | 701 | 0 | $0.00 |
 | unallocated | research-training-v2 | training run | 4 | 0 | $1.57 |
+| unallocated | search-llm-v2 | answer | 1690 | 0 | $0.00 |
 | unallocated | search-training-v2 | training run | 8 | 0 | $1.29 |
 
 
@@ -117,14 +117,14 @@ All numeric tables below are rendered from results/expanded/manifest.json. Unit-
 | unallocated | fraud-llm-v2 | cached | $0.02 |
 | unallocated | fraud-llm-v2 | input | $0.73 |
 | unallocated | fraud-llm-v2 | output | $1.25 |
-| unallocated | search-llm-v2 | allocated_support | $0.04 |
-| unallocated | search-llm-v2 | cached | $0.01 |
-| unallocated | search-llm-v2 | input | $0.42 |
-| unallocated | search-llm-v2 | output | $1.27 |
 | unallocated | research-llm-v2 | allocated_support | $0.02 |
 | unallocated | research-llm-v2 | cached | $0.02 |
 | unallocated | research-llm-v2 | input | $0.16 |
 | unallocated | research-llm-v2 | output | $0.53 |
+| unallocated | search-llm-v2 | allocated_support | $0.04 |
+| unallocated | search-llm-v2 | cached | $0.01 |
+| unallocated | search-llm-v2 | input | $0.42 |
+| unallocated | search-llm-v2 | output | $1.27 |
 
 
 ## Experiment ledger

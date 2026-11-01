@@ -24,25 +24,25 @@ Method of record: usage. Direct cost $188.28; idle and shared allocation $0.00.
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| assistant-training-v2 | training | 11 | $11.94 | $1.09 |
-| forecasting-training-v2 | training | 5 | $6.34 | $1.27 |
-| assistant-inference-v2 | inference | 45764 | $14.13 | $0.00 |
-| fraud-llm-v2 | llm | 1326 | $1.73 | $0.00 |
 | ads-inference-v2 | inference | 87450 | $4.18 | $0.00 |
-| search-inference-v2 | inference | 57622 | $24.33 | $0.00 |
 | ads-llm-v2 | llm | 1173 | $2.21 | $0.00 |
-| forecasting-llm-v2 | llm | 1143 | $1.20 | $0.00 |
-| assistant-llm-v2 | llm | 763 | $1.60 | $0.00 |
 | ads-training-v2 | training | 8 | $1.66 | $0.21 |
-| research-inference-v2 | inference | 130863 | $60.29 | $0.00 |
+| assistant-inference-v2 | inference | 45764 | $14.13 | $0.00 |
+| assistant-llm-v2 | llm | 763 | $1.60 | $0.00 |
+| assistant-training-v2 | training | 11 | $11.94 | $1.09 |
 | forecasting-inference-v2 | inference | 24040 | $7.85 | $0.00 |
+| forecasting-llm-v2 | llm | 1143 | $1.20 | $0.00 |
+| forecasting-training-v2 | training | 5 | $6.34 | $1.27 |
+| fraud-inference-v2 | inference | 48336 | $3.10 | $0.00 |
+| fraud-llm-v2 | llm | 1326 | $1.73 | $0.00 |
 | fraud-training-v2 | training | 6 | $5.69 | $0.95 |
-| search-llm-v2 | llm | 242 | $1.24 | $0.01 |
-| research-training-v2 | training | 12 | $19.08 | $1.59 |
+| research-inference-v2 | inference | 130863 | $60.29 | $0.00 |
 | research-llm-v2 | llm | 660 | $1.73 | $0.00 |
 | research-notebook-v2 | notebook | 0 | $11.30 | Not measured |
+| research-training-v2 | training | 12 | $19.08 | $1.59 |
+| search-inference-v2 | inference | 57622 | $24.33 | $0.00 |
+| search-llm-v2 | llm | 242 | $1.24 | $0.01 |
 | search-training-v2 | training | 7 | $8.67 | $1.24 |
-| fraud-inference-v2 | inference | 48336 | $3.10 | $0.00 |
 
 
 ## Incidents starting this month

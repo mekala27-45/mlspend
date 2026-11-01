@@ -1,6 +1,20 @@
 'use client';
 import source from '../expanded.json';
+import {useState} from 'react';
 const colors=['var(--ochre)','var(--red)','var(--blue)','var(--control)','var(--purple)'];
+export function DailyIncidentChart(){
+ const [selected,setSelected]=useState(source.charts.incidents[0].id);
+ const event=source.charts.incidents.find(r=>r.id===selected)!;
+ const forecast=source.charts.incident_forecasts.find(r=>r.key===event.team)!;
+ const begin=Date.parse(event.start)-7*86400000,end=Date.parse(event.end)+7*86400000;
+ const rows=forecast.rows.filter(r=>Date.parse(r.date)>=begin&&Date.parse(r.date)<=end);
+ const first=Date.parse(rows[0].date),last=Date.parse(rows[rows.length-1].date)+86400000;
+ const max=Math.max(...rows.flatMap(r=>[r.actual,r.upper]));
+ const x=(t:number)=>55+(t-first)/(last-first)*800,y=(v:number)=>235-v/max*195;
+ const point=(r:typeof rows[number],v:number)=>`${x(Date.parse(r.date))},${y(v)}`;
+ const band=[...rows.map(r=>point(r,r.upper)),...rows.toReversed().map(r=>point(r,r.lower))].join(' ');
+ return <section><h2>Spend around an incident</h2><label htmlFor="incident-selection">Inspect incident</label><select id="incident-selection" value={selected} onChange={e=>setSelected(e.target.value)}>{source.charts.incidents.map(r=><option key={r.id} value={r.id}>{r.id} / {r.team}</option>)}</select><p className="small">{event.team} direct daily spend. Solid: actual; dashed: rolling forecast; blue shading: nominal forecast interval. Red shading marks the incident. The detector operates hourly; this daily forecast band is context, not its alert threshold.</p><div className="chart"><svg role="img" aria-label={'Daily spend and uncertainty around '+event.id} viewBox="0 0 900 280"><rect x={x(Date.parse(event.start))} y="35" width={Math.max(2,x(Date.parse(event.end))-x(Date.parse(event.start)))} height="200" fill="var(--red)" opacity=".14"/><polygon points={band} fill="var(--blue)" opacity=".15"/><polyline points={rows.map(r=>point(r,r.actual)).join(' ')} fill="none" stroke="var(--blue)" strokeWidth="2"/><polyline points={rows.map(r=>point(r,r.point)).join(' ')} fill="none" stroke="var(--red)" strokeWidth="2" strokeDasharray="6 4"/>{event.first_alert&&<line x1={x(Date.parse(event.first_alert))} x2={x(Date.parse(event.first_alert))} y1="35" y2="235" stroke="var(--ochre)" strokeWidth="2"/>}<text x="0" y="32">${max.toFixed(0)}</text><text x="0" y="237">$0</text><text x="55" y="266">{rows[0].date}</text><text x="855" y="266" textAnchor="end">{rows[rows.length-1].date}</text></svg></div><details open><summary>{event.id}: inspect the event</summary><p>Mechanism: {event.kind}. Window: {event.start} to {event.end}. First alert: {event.first_alert??'not detected'}.</p><p>Detection delay: {event.delay_hours??'not measured'} hours. Avoidable cost before detection: ${(event.burned_before_detection_micro/1e6).toFixed(2)}. Total counterfactual avoidable cost: ${(event.counterfactual_avoidable_micro/1e6).toFixed(2)}.</p><p>These are simulated incident effects. The evaluator uses the sealed event window to score alerts; the detector cannot read that window. A zero delay at a planted boundary does not establish zero delay in a real service.</p></details><ChartAudit rows={{event,rows}} sql="Source: detection.events and forecasts for the selected team in results/expanded/manifest.json. Daily direct cost is grouped from the contracted owned mart. The rolling forecast cutoff precedes each forecast date; sealed incident intervals are joined only for evaluation and display."/></section>;
+}
 export function ChartAudit({rows,sql}:{rows:unknown;sql:string}){return <div className="small"><details><summary>Show chart data</summary><pre>{JSON.stringify(rows,null,2)}</pre></details><details><summary>Show query and source</summary><pre>{sql}</pre><p>Chart inputs are rendered from the checked study manifest; SQL documents the matching grain. Browser SQL tables are listed on the Data page.</p></details></div>;}
 export function UnitChart(){
  const rows=source.charts.units,max=Math.max(...rows.flatMap(r=>[r.micro_per_1000_predictions??0,r.marginal_micro_next_1000??0]));

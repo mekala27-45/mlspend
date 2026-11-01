@@ -24,25 +24,25 @@ Method of record: usage. Direct cost $181.38; idle and shared allocation $0.00.
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| research-llm-v1 | llm | 889 | $1.18 | $0.00 |
-| assistant-llm-v1 | llm | 500 | $0.91 | $0.00 |
-| search-training-v1 | training | 4 | $4.32 | $1.08 |
-| fraud-inference-v1 | inference | 94212 | $6.05 | $0.00 |
-| research-training-v1 | training | 5 | $6.33 | $1.27 |
-| assistant-training-v1 | training | 7 | $7.57 | $1.08 |
-| forecasting-training-v1 | training | 13 | $12.18 | $0.94 |
-| search-llm-v1 | llm | 926 | $1.57 | $0.00 |
-| ads-training-v1 | training | 7 | $1.31 | $0.19 |
-| forecasting-inference-v1 | inference | 59100 | $19.55 | $0.00 |
-| search-inference-v1 | inference | 123529 | $53.17 | $0.00 |
 | ads-inference-v1 | inference | 57195 | $2.69 | $0.00 |
 | ads-llm-v1 | llm | 627 | $1.27 | $0.00 |
-| forecasting-llm-v1 | llm | 1200 | $2.22 | $0.00 |
-| research-notebook-v1 | notebook | 0 | $11.26 | Not measured |
-| fraud-training-v1 | training | 8 | $1.31 | $0.16 |
+| ads-training-v1 | training | 7 | $1.31 | $0.19 |
 | assistant-inference-v1 | inference | 29738 | $11.26 | $0.00 |
+| assistant-llm-v1 | llm | 500 | $0.91 | $0.00 |
+| assistant-training-v1 | training | 7 | $7.57 | $1.08 |
+| forecasting-inference-v1 | inference | 59100 | $19.55 | $0.00 |
+| forecasting-llm-v1 | llm | 1200 | $2.22 | $0.00 |
+| forecasting-training-v1 | training | 13 | $12.18 | $0.94 |
+| fraud-inference-v1 | inference | 94212 | $6.05 | $0.00 |
 | fraud-llm-v1 | llm | 496 | $0.63 | $0.00 |
+| fraud-training-v1 | training | 8 | $1.31 | $0.16 |
 | research-inference-v1 | inference | 78589 | $36.60 | $0.00 |
+| research-llm-v1 | llm | 889 | $1.18 | $0.00 |
+| research-notebook-v1 | notebook | 0 | $11.26 | Not measured |
+| research-training-v1 | training | 5 | $6.33 | $1.27 |
+| search-inference-v1 | inference | 123529 | $53.17 | $0.00 |
+| search-llm-v1 | llm | 926 | $1.57 | $0.00 |
+| search-training-v1 | training | 4 | $4.32 | $1.08 |
 
 
 ## Incidents starting this month

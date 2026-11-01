@@ -40,11 +40,11 @@ All numeric tables below are rendered from results/expanded/manifest.json. Unit-
 
 | Pool | Asset cost | Idle cost | Idle share |
 | --- | --- | --- | --- |
+| azure-a100 | $11,408.34 | $4,686.48 | 41.1% |
 | azure-t4 | $1,782.61 | $387.26 | 21.7% |
 | azure-v100 | $14,625.53 | $1,290.35 | 8.8% |
-| azure-a100 | $11,408.34 | $4,686.48 | 41.1% |
-| reserved-t4 | $230.08 | $230.08 | 100.0% |
 | reserved-a100-3y | $1,014.11 | $1,014.11 | 100.0% |
+| reserved-t4 | $230.08 | $230.08 | 100.0% |
 
 
 ## Ownership inference

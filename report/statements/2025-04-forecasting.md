@@ -25,8 +25,8 @@ Method of record: usage. Direct cost $3,764.68; idle and shared allocation $1,06
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
 | forecasting-inference-v1 | inference | 8668847 | $3,638.63 | $0.00 |
-| forecasting-training-v1 | training | 716 | $967.23 | $1.35 |
 | forecasting-llm-v1 | llm | 115620 | $221.65 | $0.00 |
+| forecasting-training-v1 | training | 716 | $967.23 | $1.35 |
 
 
 ## Incidents starting this month
