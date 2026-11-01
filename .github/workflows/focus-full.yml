@@ -44,10 +44,12 @@ jobs:
           name: full-official-focus-validation
           path: results/full-focus/
       - name: Preserve exact validation evidence
+        if: always()
         run: |
           git switch -c "evidence/focus-full-${{ github.run_id }}"
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          find results/full-focus -name '*.parquet' -delete
           git add results/full-focus/
           git commit -m 'test: validate every exported FOCUS row with official supported rules'
           git push origin HEAD
