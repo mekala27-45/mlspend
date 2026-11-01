@@ -26,11 +26,11 @@ def analyze(
     teams = plan["teams"]
     with duckdb.connect(str(directory / "warehouse.duckdb")) as connection:
         connection.execute("SET TimeZone='UTC'")
-        contracted = bool(
-            connection.execute(
-                "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='marts' AND table_name='stg_observed'"
-            ).fetchone()[0]
-        )
+        contract_count = connection.execute(
+            "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='marts' AND table_name='stg_observed'"
+        ).fetchone()
+        assert contract_count is not None
+        contracted = bool(contract_count[0])
         connection.execute(
             "CREATE OR REPLACE VIEW owned AS SELECT *, "
             + owner_sql(teams)

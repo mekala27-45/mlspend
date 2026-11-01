@@ -113,7 +113,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
         row.update(
             CommitmentDiscountCategory="Usage",
             CommitmentDiscountId=contract,
-            CommitmentDiscountName="Simulated one-year capacity reservation",
+            CommitmentDiscountName="Simulated capacity reservation",
             CommitmentDiscountQuantity=str(quantity),
             CommitmentDiscountUnit=unit,
             CommitmentDiscountStatus=None if purchase else ("Unused" if unused else "Used"),
@@ -126,6 +126,8 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
                             "ContractId": contract,
                             "ContractCommitmentId": contract,
                             "ContractCommitmentAppliedCost": float(cost),
+                            "ContractCommitmentAppliedQuantity": float(quantity),
+                            "ContractCommitmentAppliedUnit": unit,
                         }
                     ]
                 }
