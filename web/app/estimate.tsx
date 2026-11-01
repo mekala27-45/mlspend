@@ -22,7 +22,8 @@ export default function EstimateForm() {
     try {
       const response=await fetch(base+'/v1/estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(20000)});
       const body=await response.json();
-      if(!response.ok)throw Error(typeof body.detail==='string'?body.detail:'The API rejected the estimate');
+      if(!response.ok){setNotice(typeof body.detail==='string'?body.detail:'The API rejected the estimate.');return;}
+      if(typeof body.id!=='string')throw Error('The response did not confirm a saved reference');
       setResult({...body,meter:response.headers.get('X-Shadow-Cost-USD')});setNotice('Saved to the database before the response.');
     }catch(error){setNotice((error instanceof Error?error.message:'Request failed')+'. The save status is unknown. The request was not automatically repeated.');}
     finally{setBusy(false);}

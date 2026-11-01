@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "node prepare.mjs && next build --webpack",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "next": "16.4.3",
@@ -15,6 +16,7 @@
     "@fontsource-variable/recursive": "5.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.64.1",
     "typescript": "5.9.3",
     "@types/node": "^24",
     "@types/react": "^19",

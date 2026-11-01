@@ -17,6 +17,8 @@ web/out/
 web/public/
 web/next-env.d.ts
 web/tsconfig.tsbuildinfo
+web/test-results/
+web/playwright-report/
 data/generated/
 *.sqlite*
 *.duckdb*

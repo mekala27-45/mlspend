@@ -32,6 +32,18 @@ jobs:
       - name: Strict type checking
         working-directory: web
         run: npm run typecheck
+      - name: Install browser
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Verify routes, estimator recovery and browser SQL
+        working-directory: web
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: web/test-results/
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         with:
           name: frontend-build-evidence
