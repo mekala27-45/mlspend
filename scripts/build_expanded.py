@@ -18,8 +18,8 @@ from packages.expansion.analysis import analyze
 from packages.expansion.exports import export_all
 from packages.optimize.expanded import recommendations
 from packages.prices.book import PriceBook
-from packages.simulator.expanded import generate, protocol, read_observed
-from packages.warehouse.expanded import ingest
+from packages.simulator.expanded import generate, protocol
+from packages.warehouse.expanded import ingest, read_mart
 
 
 def run(
@@ -53,7 +53,7 @@ def run(
     analysis = analyze(destination, book, plan, forecasts=hours is None)
     print("Estimating observed-data recommendations", flush=True)
     proposals = recommendations(
-        read_observed(destination / "observed.jsonl.gz"),
+        read_mart(destination, require_contract=hours is None),
         book,
         plan["recommendations"],
         plan["evaluation"]["bootstrap_seed"],

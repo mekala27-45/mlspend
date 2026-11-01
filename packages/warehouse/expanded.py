@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 from collections import defaultdict
+from collections.abc import Iterator
 from datetime import datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
@@ -15,6 +16,32 @@ from packages.core.io import canonical, write_json
 from packages.core.money import microdollars
 from packages.prices.book import PriceBook
 from packages.simulator.expanded import read_observed
+
+
+def read_mart(directory: Path, require_contract: bool = True) -> Iterator[dict[str, Any]]:
+    """Stream validated observations from the contracted mart in a stable order."""
+    with duckdb.connect(str(directory / "warehouse.duckdb"), read_only=True) as connection:
+        connection.execute("SET TimeZone='UTC'")
+        exists = connection.execute(
+            "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='marts' AND table_name='stg_observed'"
+        ).fetchone()
+        if require_contract and (exists is None or not exists[0]):
+            raise ValueError("The contracted observed mart has not been built")
+        source = "marts.stg_observed" if exists and exists[0] else "main.priced"
+        cursor = connection.execute("SELECT * FROM " + source + " ORDER BY timestamp, id")
+        columns = [item[0] for item in cursor.description]
+        while batch := cursor.fetchmany(4096):
+            for values in batch:
+                row = {
+                    key: value
+                    for key, value in zip(columns, values, strict=True)
+                    if value is not None
+                }
+                timestamp = row["timestamp"]
+                row["timestamp"] = (
+                    timestamp.isoformat() if isinstance(timestamp, datetime) else timestamp
+                )
+                yield row
 
 
 def violations(row: dict[str, Any], book: PriceBook, seen: set[str]) -> list[str]:
