@@ -143,7 +143,9 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
             AllocatedTags=json.dumps({"Team": observed["team"]}),
             AllocatedMethodDetails=json.dumps(
                 {
-                    "Elements": [{"AllocatedRatio": observed["allocated_ratio"]}],
+                    "Elements": [
+                        {"AllocatedRatio": observed["allocated_ratio"], "UsageUnit": "Usage Share"}
+                    ],
                     "x_OriginId": observed["origin_id"],
                 }
             ),

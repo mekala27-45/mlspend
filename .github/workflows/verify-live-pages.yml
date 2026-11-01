@@ -52,7 +52,8 @@ jobs:
         env:
           EVIDENCE_BRANCH: evidence/live-${{ github.run_id }}
         run: |
-          git switch -c $env:EVIDENCE_BRANCH
+          git fetch origin main
+          git switch -c $env:EVIDENCE_BRANCH origin/main
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           New-Item -ItemType Directory -Force results/live | Out-Null

@@ -1,0 +1,59 @@
+name: Preserve verified browser artifact
+on:
+  push:
+    branches: [complete-v2]
+    paths: ['.github/workflows/preserve-browser-evidence.yml']
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Run whose browser test passed and uploaded its evidence
+        default: '41267361547'
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN: ${{ inputs.run_id || '41267361547' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Recover the completed test artifact
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$SOURCE_RUN/jobs" > /tmp/browser-jobs.json
+          python - <<'PY'
+          import json
+          jobs = json.load(open('/tmp/browser-jobs.json'))['jobs']
+          checks = [s for j in jobs for s in j['steps'] if s['name'] == 'Exercise published Chrome on Windows and live database']
+          assert len(checks) == 1 and checks[0]['conclusion'] == 'success'
+          PY
+          gh run download "$SOURCE_RUN" -n published-browser-evidence -D /tmp/published-browser
+      - name: Preserve evidence against the current main workflows
+        run: |
+          git fetch origin main
+          git switch -c "evidence/browser-recovery-${{ github.run_id }}" origin/main
+          mkdir -p results/live
+          cp /tmp/published-browser/live/evidence.json results/live/browser.json
+          cp /tmp/published-browser/live/evidence.json results/live_check.json
+          cp /tmp/published-browser/live/demo.gif docs/demo.gif
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          source = json.loads(Path('results/live/browser.json').read_text())
+          assert isinstance(source, dict) and source
+          Path('results/live/artifact-provenance.json').write_text(json.dumps({
+              'source_run': int(os.environ['SOURCE_RUN']),
+              'artifact': 'published-browser-evidence',
+              'test_step': 'success',
+              'reason': 'Recovered exact uploaded bytes after evidence-branch publication failed.'
+          }, indent=2) + '\n')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add results/live/ results/live_check.json docs/demo.gif
+          git commit -m 'test: preserve the passed browser artifact and four-screen demo'
+          git push origin HEAD
