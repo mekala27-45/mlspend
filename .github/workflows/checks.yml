@@ -55,6 +55,14 @@ jobs:
           uv run pytest --cov=packages --cov-report=json:results/coverage.json --junitxml=results/tests-ci.xml
       - name: HTTP persistence check
         run: uv run python -m scripts.check_persistence
+      - name: Port-80 container and independent PostgreSQL persistence
+        env:
+          DATABASE_URL: ${{ env.MLSPEND_TEST_DATABASE_URL }}
+          MLSPEND_SALT: ci-container-only-random-salt-not-a-credential
+        run: |
+          docker build -f Dockerfile.vercel -t mlspend-check .
+          docker run -d --name mlspend-check --network host -e DATABASE_URL -e PGPASSWORD -e MLSPEND_SALT mlspend-check
+          uv run python -m scripts.check_container
       - name: dbt models and data tests
         working-directory: warehouse
         run: uv run --project .. dbt build --project-dir . --profiles-dir .
