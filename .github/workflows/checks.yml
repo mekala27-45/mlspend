@@ -48,7 +48,11 @@ jobs:
           node --check web/app.js
           node --test tests/web-client.test.cjs
       - name: Unit and integration tests
-        run: uv run pytest --cov=packages --cov-report=json:results/coverage.json --junitxml=results/tests-ci.xml
+        env:
+          DATABASE_URL: ${{ env.MLSPEND_TEST_DATABASE_URL }}
+        run: |
+          uv run alembic upgrade head
+          uv run pytest --cov=packages --cov-report=json:results/coverage.json --junitxml=results/tests-ci.xml
       - name: HTTP persistence check
         run: uv run python -m scripts.check_persistence
       - name: dbt models and data tests

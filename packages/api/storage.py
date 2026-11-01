@@ -40,11 +40,14 @@ class Store:
             url = url.replace("postgresql://", "postgresql+psycopg://", 1)
         self.engine = create_engine(
             url,
-            connect_args={"check_same_thread": False} if url.startswith("sqlite") else {},
+            connect_args={"check_same_thread": False}
+            if url.startswith("sqlite")
+            else {"options": "-c search_path=mlspend,public"},
             pool_pre_ping=True,
         )
         self.salt = salt.encode()
-        SQLModel.metadata.create_all(self.engine)
+        if url.startswith("sqlite"):
+            SQLModel.metadata.create_all(self.engine)
 
     def permit(self, address: str, now: float, cap: int = 60) -> bool:
         hashed = hmac.new(self.salt, address.encode(), hashlib.sha256).hexdigest()
@@ -90,6 +93,8 @@ class Store:
             return dict(row) if row else None
 
     def close_period(self, period: str, actuals: dict[str, int], now: datetime) -> int:
+        if any(not isinstance(value, int) or value < 0 for value in actuals.values()):
+            raise ValueError("Actuals must be nonnegative integer microdollars")
         year, month = map(int, period.split("-"))
         close = datetime(year + (month == 12), 1 if month == 12 else month + 1, 1, tzinfo=UTC)
         if now < close:
