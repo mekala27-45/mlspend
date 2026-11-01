@@ -10,6 +10,7 @@ from packages.core.io import ROOT, digest, read_json, write_json
 
 def main() -> None:
     runs = []
+    snapshots = []
     for seed in (17, 7919):
         subprocess.run(
             [sys.executable, "-m", "scripts.build_expanded"],
@@ -18,6 +19,8 @@ def main() -> None:
             check=True,
         )
         result = read_json(ROOT / "results/expanded/manifest.json")
+        snapshots.append(result)
+        write_json(ROOT / f"results/expanded/rebuild-{seed}.json", result)
         runs.append(
             {
                 "hash_seed": seed,
@@ -30,6 +33,23 @@ def main() -> None:
         runs[0]["manifest_digest"] != runs[1]["manifest_digest"]
         or runs[0]["observed_sha256"] != runs[1]["observed_sha256"]
     ):
+
+        def differences(a, b, path=""):
+            if isinstance(a, dict) and isinstance(b, dict):
+                return [
+                    p
+                    for key in sorted(a.keys() | b.keys())
+                    for p in differences(a.get(key), b.get(key), path + "." + key)
+                ]
+            if isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
+                return [
+                    p
+                    for i, (left, right) in enumerate(zip(a, b, strict=True))
+                    for p in differences(left, right, path + f"[{i}]")
+                ]
+            return [] if a == b else [path]
+
+        print(json.dumps({"different_paths": differences(*snapshots)[:100]}))
         raise AssertionError("Complete study is not reproducible across hash seeds")
     write_json(
         ROOT / "results/expanded/reproducibility.json",

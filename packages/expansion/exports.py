@@ -200,7 +200,28 @@ def export_all(
         "focus_rows": counts,
         "allocation_rows": len(allocations),
         "unit_rows": len(analysis["units"]),
-        "files": sorted(p.name for p in target.iterdir() if p.is_file()),
+        "files": sorted(
+            [
+                "allocation.csv",
+                "allocation.xlsx",
+                "unit-costs.csv",
+                "training-experiments.csv",
+                "powerbi-measures.dax",
+                "powerbi-import.pq",
+                "tableau-calculations.txt",
+                "README.md",
+                "manifest.json",
+            ]
+            + (
+                [
+                    "CostAndUsage.parquet",
+                    "ContractCommitment.parquet",
+                    "AllocatedCostAndUsage.parquet",
+                ]
+                if focus
+                else []
+            )
+        ),
     }
     write_json(target / "manifest.json", result)
     return result

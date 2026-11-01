@@ -31,6 +31,19 @@ def test_full_pipeline_smoke_conserves_money_and_exports_formulas(tmp_path):
     assert sheet["I6"].value == "=C6+H6"
     assert "SUMIF" in sheet["H6"].value
     assert result["exports"]["focus_rows"]["AllocatedCostAndUsage"] >= result["generation"]["rows"]
+    # A rerun in the same directory must not change scientific export metadata.
+    from packages.expansion.exports import export_all
+    from packages.prices.book import PriceBook
+
+    (tmp_path / "exports/unrelated.txt").write_text("not an output")
+    repeated = export_all(
+        tmp_path / "data",
+        tmp_path / "exports",
+        result,
+        PriceBook(ROOT / "data/prices/expanded"),
+        [r["team"] for r in result["allocation"] if r["team"] != "unallocated"],
+    )
+    assert repeated == result["exports"]
 
 
 def test_rolling_forecast_and_monthly_cutoffs():

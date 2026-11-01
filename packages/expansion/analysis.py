@@ -26,6 +26,7 @@ def analyze(
     teams = plan["teams"]
     with duckdb.connect(str(directory / "warehouse.duckdb")) as connection:
         connection.execute("SET TimeZone='UTC'")
+        connection.execute("SET threads=1")
         contract_count = connection.execute(
             "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='marts' AND table_name='stg_observed'"
         ).fetchone()
@@ -55,7 +56,7 @@ def analyze(
             usage = dict.fromkeys(teams, 0.0)
             overhead = 0
             records = connection.execute(
-                "SELECT owner, kind, SUM(cost_micro), SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? GROUP BY 1,2",
+                "SELECT owner, kind, SUM(cost_micro), SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? GROUP BY 1,2 ORDER BY 1,2",
                 [month],
             ).fetchall()
             for owner, _kind, amount, used in records:
@@ -67,7 +68,7 @@ def analyze(
                         usage[owner] += float(used)
             hourly: dict[tuple[str, str, str], float] = defaultdict(float)
             rows = connection.execute(
-                "SELECT timestamp, pool, owner, SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IN ('azure-t4','azure-a100','azure-v100') AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1,2,3",
+                "SELECT timestamp, pool, owner, SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IN ('azure-t4','azure-a100','azure-v100') AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1,2,3 ORDER BY 1,2,3",
                 [month],
             ).fetchall()
             hours = sorted({str(r[0]) for r in rows})
@@ -135,7 +136,7 @@ def analyze(
                     }
                 )
                 model_rows = connection.execute(
-                    "SELECT model, service, SUM(cost_micro), SUM(requests), SUM(coalesce(completed_runs,0)), SUM(coalesce(failed_runs,0)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND owner=? GROUP BY 1,2",
+                    "SELECT model, service, SUM(cost_micro), SUM(requests), SUM(coalesce(completed_runs,0)), SUM(coalesce(failed_runs,0)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND owner=? GROUP BY 1,2 ORDER BY 1,2",
                     [month, team],
                 ).fetchall()
                 by_model = {
@@ -152,7 +153,7 @@ def analyze(
                         continue
                     denominator = int(runs) if service == "training" else int(requests)
                     last = connection.execute(
-                        "SELECT requested, used, price_id FROM owned WHERE model=? AND owner=? AND strftime(timestamp,'%Y-%m')=? ORDER BY timestamp DESC LIMIT 1",
+                        "SELECT requested, used, price_id FROM owned WHERE model=? AND owner=? AND strftime(timestamp,'%Y-%m')=? ORDER BY timestamp DESC, price_id, id LIMIT 1",
                         [model, team, month],
                     ).fetchone()
                     assert last is not None
@@ -165,7 +166,7 @@ def analyze(
                     components = {
                         kind: int(total)
                         for kind, total in connection.execute(
-                            "SELECT token_kind,SUM(cost_micro) FROM owned WHERE model=? AND owner=? AND strftime(timestamp,'%Y-%m')=? AND service='llm' GROUP BY 1",
+                            "SELECT token_kind,SUM(cost_micro) FROM owned WHERE model=? AND owner=? AND strftime(timestamp,'%Y-%m')=? AND service='llm' GROUP BY 1 ORDER BY 1",
                             [model, team, month],
                         ).fetchall()
                     }
@@ -200,7 +201,7 @@ def analyze(
                     "idle_share": int(amount) / int(asset) if asset else 0,
                 }
                 for pool, amount, asset in connection.execute(
-                    "SELECT pool,COALESCE(SUM(cost_micro) FILTER(WHERE kind='idle'),0),SUM(cost_micro) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IS NOT NULL GROUP BY 1",
+                    "SELECT pool,COALESCE(SUM(cost_micro) FILTER(WHERE kind='idle'),0),SUM(cost_micro) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IS NOT NULL GROUP BY 1 ORDER BY 1",
                     [month],
                 ).fetchall()
             )
