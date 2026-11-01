@@ -1,0 +1,11 @@
+name: mlspend_expanded
+version: '1.0.0'
+config-version: 2
+profile: mlspend_expanded
+model-paths: [models]
+test-paths: [tests]
+models:
+  mlspend_expanded:
+    +materialized: table
+    +contract:
+      enforced: true

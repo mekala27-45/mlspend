@@ -1,0 +1,10 @@
+mlspend_expanded:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('MLSPEND_WAREHOUSE') }}"
+      schema: marts
+      threads: 2
+      settings:
+        TimeZone: UTC

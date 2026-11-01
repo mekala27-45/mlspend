@@ -26,10 +26,16 @@ def analyze(
     teams = plan["teams"]
     with duckdb.connect(str(directory / "warehouse.duckdb")) as connection:
         connection.execute("SET TimeZone='UTC'")
+        contracted = bool(
+            connection.execute(
+                "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='marts' AND table_name='stg_observed'"
+            ).fetchone()[0]
+        )
         connection.execute(
             "CREATE OR REPLACE VIEW owned AS SELECT *, "
             + owner_sql(teams)
-            + " AS owner FROM priced"
+            + " AS owner FROM "
+            + ("marts.stg_observed" if contracted else "priced")
         )
         connection.execute(
             "CREATE OR REPLACE VIEW daily_cost AS SELECT CAST(timestamp AS DATE) AS day, owner, service, SUM(cost_micro)::BIGINT AS cost_micro, SUM(requests)::BIGINT AS requests FROM owned GROUP BY 1,2,3"
@@ -186,9 +192,15 @@ def analyze(
                         }
                     )
             idle.extend(
-                {"month": month, "pool": pool, "idle_micro": int(amount)}
-                for pool, amount in connection.execute(
-                    "SELECT pool,SUM(cost_micro) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND kind='idle' GROUP BY 1",
+                {
+                    "month": month,
+                    "pool": pool,
+                    "idle_micro": int(amount),
+                    "asset_micro": int(asset),
+                    "idle_share": int(amount) / int(asset) if asset else 0,
+                }
+                for pool, amount, asset in connection.execute(
+                    "SELECT pool,COALESCE(SUM(cost_micro) FILTER(WHERE kind='idle'),0),SUM(cost_micro) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IS NOT NULL GROUP BY 1",
                     [month],
                 ).fetchall()
             )
@@ -262,6 +274,17 @@ def analyze(
             ).fetchall()
         ]
     return {
+        "largest_method_move": max(
+            (
+                {
+                    "team": row["team"],
+                    "month": row["month"],
+                    "range_micro": max(row["methods"].values()) - min(row["methods"].values()),
+                }
+                for row in allocations
+            ),
+            key=lambda row: row["range_micro"],
+        ),
         "allocation": allocations,
         "units": units,
         "idle": idle,

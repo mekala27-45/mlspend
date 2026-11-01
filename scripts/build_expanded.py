@@ -4,12 +4,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
 from packages.core.io import ROOT, STATEMENT, digest, write_json
 from packages.evaluation.counterfactual import grade, rerun
 from packages.evaluation.expanded import detection, hypotheses
+from packages.evaluation.ownership import score as ownership_score
 from packages.expansion.analysis import analyze
 from packages.expansion.exports import export_all
 from packages.optimize.expanded import recommendations
@@ -29,6 +33,22 @@ def run(
     generation = generate(destination, hours)
     print("Ingesting, quarantining and reconciling", flush=True)
     reconciliation = ingest(destination, book)
+    if hours is None:
+        subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "dbt.cli.main",
+                "build",
+                "--project-dir",
+                "warehouse-expanded",
+                "--profiles-dir",
+                "warehouse-expanded",
+            ],
+            cwd=ROOT,
+            env={**os.environ, "MLSPEND_WAREHOUSE": str(destination / "warehouse.duckdb")},
+            check=True,
+        )
     print("Allocating capacity and scoring rolling forecasts", flush=True)
     analysis = analyze(destination, book, plan, forecasts=hours is None)
     print("Estimating observed-data recommendations", flush=True)
@@ -57,6 +77,7 @@ def run(
         "mode": "full_year" if hours is None else "development_smoke",
         "generation": generation,
         "reconciliation": reconciliation,
+        "ownership": ownership_score(destination),
         **analysis,
         "recommendations": scores,
         "detection": detector,

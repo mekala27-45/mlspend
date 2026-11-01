@@ -1,0 +1,131 @@
+version: 2
+models:
+  - name: stg_observed
+    columns:
+      - name: cost_micro
+        data_type: BIGINT
+        data_tests: [not_null]
+      - name: id
+        data_type: VARCHAR
+        data_tests: [not_null, unique]
+      - name: kind
+        data_type: VARCHAR
+      - name: minimum_replicas
+        data_type: DOUBLE
+      - name: model
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: namespace
+        data_type: VARCHAR
+      - name: network
+        data_type: VARCHAR
+      - name: pool
+        data_type: VARCHAR
+      - name: price_effective_date
+        data_type: DATE
+      - name: price_id
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: pricing_as_of
+        data_type: DATE
+      - name: pricing_quantity
+        data_type: DOUBLE
+      - name: quality
+        data_type: DOUBLE
+      - name: requested
+        data_type: DOUBLE
+      - name: requests
+        data_type: BIGINT
+      - name: resource
+        data_type: VARCHAR
+      - name: service
+        data_type: VARCHAR
+      - name: sku
+        data_type: VARCHAR
+      - name: team
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: timestamp
+        data_type: TIMESTAMP WITH TIME ZONE
+        data_tests: [not_null]
+      - name: used
+        data_type: DOUBLE
+      - name: completed_runs
+        data_type: BIGINT
+      - name: experiment_id
+        data_type: VARCHAR
+      - name: failed_runs
+        data_type: BIGINT
+      - name: retries
+        data_type: BIGINT
+      - name: run_id
+        data_type: VARCHAR
+      - name: spot_eligible
+        data_type: BOOLEAN
+      - name: training_base_hours
+        data_type: DOUBLE
+      - name: mapping
+        data_type: VARCHAR
+      - name: age_days
+        data_type: BIGINT
+      - name: content_id
+        data_type: VARCHAR
+      - name: duplicate
+        data_type: BOOLEAN
+      - name: last_access_age_days
+        data_type: BIGINT
+      - name: stored_gb
+        data_type: DOUBLE
+      - name: egress_gb
+        data_type: DOUBLE
+      - name: alternative_quality
+        data_type: DOUBLE
+      - name: quality_basis
+        data_type: VARCHAR
+      - name: token_kind
+        data_type: VARCHAR
+      - name: tokens
+        data_type: BIGINT
+      - name: idle_hours
+        data_type: BIGINT
+      - name: allocated_units
+        data_type: DOUBLE
+      - name: asset_units
+        data_type: BIGINT
+      - name: billed_micro
+        data_type: BIGINT
+      - name: contract_id
+        data_type: VARCHAR
+      - name: list_unit_price
+        data_type: VARCHAR
+      - name: charge_category
+        data_type: VARCHAR
+      - name: unit_rate
+        data_type: DECIMAL(38,12)
+        data_tests: [not_null]
+  - name: mart_cost_daily
+    columns:
+      - name: day
+        data_type: DATE
+        data_tests: [not_null]
+      - name: team
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: model
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: service
+        data_type: VARCHAR
+        data_tests: [not_null]
+      - name: effective_micro
+        data_type: BIGINT
+        data_tests: [not_null]
+      - name: billed_micro
+        data_type: BIGINT
+        data_tests: [not_null]
+      - name: requests
+        data_type: BIGINT
+        data_tests: [not_null]
+      - name: charge_rows
+        data_type: BIGINT
+        data_tests: [not_null]
