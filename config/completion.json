@@ -1,92 +1,92 @@
 [
   {
     "requirement": "Public source price book",
-    "status": "Implemented with source gaps",
-    "evidence": "Expanded locked provider book; exact NIM and Databricks paid SKUs unavailable and remain unpriced."
+    "status": "Done",
+    "evidence": "Public-source fetch 41259427895; 79 locked rows and URL/date/digest for every manual entry; unavailable paid equivalents remain unpriced."
   },
   {
     "requirement": "FOCUS simulator and validation",
-    "status": "Supplemental validation; official limitations",
-    "evidence": "Both datasets, one- and three-year commitments, typed normative checks. Official rule contradictions and dependency cycle retained in validation evidence."
+    "status": "Not done",
+    "evidence": "Full official validation exposed a nonstandard optional allocation unit; the corrected export is rebuilding. Validator 2.2.1 cannot run its 1.4 dependency graph; supplemental normative checks and supported rules remain separate."
   },
   {
     "requirement": "Every public build and committed ledger",
-    "status": "Measured accessible records",
-    "evidence": "All public Actions attempts in the window and committed ledger inventory. Missing GPU sources explicitly not measured."
+    "status": "Done",
+    "evidence": "Locked public Actions inventory plus 303 committed ledger rows; all missing paid equivalents are explicitly unpriced, never zero."
   },
   {
     "requirement": "Registered evaluation",
-    "status": "Implemented",
-    "evidence": "evaluation/v2/plan.json registered before this replication; prior version results known and disclosed."
+    "status": "Done",
+    "evidence": "evaluation/v2/registration.json pins the plan before this replication scored its holdout; prior version outcomes were already known and disclosed."
   },
   {
     "requirement": "Contracted warehouse and quarantine",
-    "status": "Implemented and full build passed",
-    "evidence": "warehouse-expanded enforced contracts; producer defects quarantined; independent count, effective and billed-cost reconciliation."
+    "status": "Done",
+    "evidence": "589850 source charges; enforced dbt contracts; ten producer defects quarantined; count, billed and effective cost differences are zero at team/model/month/day grains."
   },
   {
     "requirement": "Allocation and ownership",
-    "status": "Implemented and scored",
-    "evidence": "Five conserved policies, idle disclosure, exact coalition reference, sealed owner scoring."
+    "status": "Done",
+    "evidence": "Five conserved policies, explicit idle, exact coalition reference, owner precision 1.0 and recall 0.941421; largest team-month movement is published."
   },
   {
     "requirement": "Unit economics",
-    "status": "Implemented",
-    "evidence": "Versioned inference average and marginal, answer components, completed and failed training experiments."
+    "status": "Done",
+    "evidence": "Versioned average and marginal inference costs, answer cost components and completed/failed training experiment costs in the checked manifest."
   },
   {
     "requirement": "Live container API and metering",
-    "status": "Production verified; browser flow pending",
-    "evidence": "Production port-80 container serves the expanded book with a restricted database role; CI verifies independent PostgreSQL readback."
+    "status": "Done",
+    "evidence": "Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01."
   },
   {
     "requirement": "Forecasts and budgets",
-    "status": "Backtests complete; future close verification pending",
-    "evidence": "Daily and monthly team/service forecasts, conformal intervals, budget burn; future records cannot be scored before their period closes."
+    "status": "Not done",
+    "evidence": "Daily/monthly backtests and budget alerts pass; the December 2026 forecast is saved but cannot be scored yet. Monthly-close GitHub secrets require specific authorization."
   },
   {
     "requirement": "Detection and postmortem",
-    "status": "Scored and documented",
-    "evidence": "Generated weekend-sweep postmortem compares detector and daily budget observation timestamps; zero-delay synthetic boundaries are disclosed."
+    "status": "Done",
+    "evidence": "Seven held-out events scored; event recall 1.0, point precision 0.417413 and recall 0.255605; weekend-sweep postmortem distinguishes hourly alerts from daily budget observation."
   },
   {
     "requirement": "Recommendations and commitment sizing",
-    "status": "Implemented and scored",
-    "evidence": "Independent whole-platform reruns for registered actions, uncertainty and combined effects; real offer rates and held-out sensitivity."
+    "status": "Done",
+    "evidence": "Seven individual whole-platform counterfactuals, the joint action and three commitment pools have held-out estimates, truth and sensitivity results."
   },
   {
     "requirement": "Persistence and cold/warm latency",
-    "status": "Persistence verified; isolated cold measurement pending",
-    "evidence": "Saved-before-response and independent readback tests; warm measurements exist. First observed response is not called cold."
+    "status": "Done",
+    "evidence": "Saved-before-response, independent SQL and out-of-process checks passed. After 1207.714 seconds without a probe: new instance, uptime 0.933 seconds, first response 2877.96 ms; warm median 157.33 ms."
   },
   {
     "requirement": "Portfolio bill and output costs",
-    "status": "Known subtotal; missing paid equivalents",
-    "evidence": "CI subtotal and public token/output counts; no invented per-output total when components or denominators are missing."
+    "status": "Done",
+    "evidence": "Per-build CI shadow subtotal and public token/output ledger components published with sources; missing GPU/SKU/denominator components explicitly prevent full output-cost totals."
   },
   {
     "requirement": "Finance exports",
-    "status": "Generated; formula recalculation pending",
-    "evidence": "FOCUS and allocated Parquet, CSV, Power BI, Tableau and Excel allocation formulas."
+    "status": "Done",
+    "evidence": "84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding."
   },
   {
     "requirement": "Statistical method report",
-    "status": "Implemented and scored",
-    "evidence": "Team-cluster intervals, exact paired sign flip and registered BH family; comparisons are inconclusive."
+    "status": "Done",
+    "evidence": "Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant."
   },
   {
     "requirement": "Pages routes and estimator",
-    "status": "All routes verified; published flow pending",
-    "evidence": "All 12 routes passed desktop/mobile, both-theme keyboard access, SQL and recovery checks. Published Chrome flow runs after Pages deployment."
+    "status": "Done",
+    "evidence": "Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks; Windows Chrome exercised live persistence and idle recovery. Laptop-specific manual check remains a follow-up, not claimed by the hosted runner."
   },
   {
     "requirement": "Documentation and workflows",
-    "status": "Implemented and validated",
-    "evidence": "Seven ADRs, fifteen dated decisions, three executed dead-end notebooks, three skills-ref validated skills, generated statements and playbook."
+    "status": "Done",
+    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; seventeen dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
   },
   {
     "requirement": "Quality gates and release",
-    "status": "Rebuild verification pending; no release tag",
-    "evidence": "Core CI, coverage gate, strict typing, lint, skills and container persistence passed; expanded rebuild inventory defect is fixed and being rerun."
+    "status": "Not done",
+    "evidence": "Core CI exceeds 80 percent coverage and passes strict typing/lint/gates; two full hash seeds matched. Detached-worktree rederive is running. Repository topics and v0.1.0 remain unset while mandatory close/validation requirements are open."
   }
 ]

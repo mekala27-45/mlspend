@@ -24,10 +24,10 @@ Method of record: usage. Direct cost $6,374.87; idle and shared allocation $1,89
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| research-inference-v2 | inference | 9456206 | $5,759.44 | $0.00 |
-| research-llm-v2 | llm | 125366 | $240.31 | $0.00 |
+| research-inference-v2 | inference | 9456206 | $5,759.44 | $0.000609 |
+| research-llm-v2 | llm | 125366 | $240.31 | $0.001917 |
 | research-notebook-v2 | notebook | 0 | $1,004.37 | Not measured |
-| research-training-v2 | training | 736 | $1,261.40 | $1.71 |
+| research-training-v2 | training | 736 | $1,261.40 | $1.713865 |
 
 
 ## Incidents starting this month

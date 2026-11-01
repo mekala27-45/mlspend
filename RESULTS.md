@@ -11,24 +11,24 @@ The expanded study is implemented. Release status is determined by the evidence 
 
 | Requirement | Status | Evidence or limit |
 | --- | --- | --- |
-| Public source price book | Implemented with source gaps | Expanded locked provider book; exact NIM and Databricks paid SKUs unavailable and remain unpriced. |
-| FOCUS simulator and validation | Supplemental validation; official limitations | Both datasets, one- and three-year commitments, typed normative checks. Official rule contradictions and dependency cycle retained in validation evidence. |
-| Every public build and committed ledger | Measured accessible records | All public Actions attempts in the window and committed ledger inventory. Missing GPU sources explicitly not measured. |
-| Registered evaluation | Implemented | evaluation/v2/plan.json registered before this replication; prior version results known and disclosed. |
-| Contracted warehouse and quarantine | Implemented and full build passed | warehouse-expanded enforced contracts; producer defects quarantined; independent count, effective and billed-cost reconciliation. |
-| Allocation and ownership | Implemented and scored | Five conserved policies, idle disclosure, exact coalition reference, sealed owner scoring. |
-| Unit economics | Implemented | Versioned inference average and marginal, answer components, completed and failed training experiments. |
-| Live container API and metering | Production verified; browser flow pending | Production port-80 container serves the expanded book with a restricted database role; CI verifies independent PostgreSQL readback. |
-| Forecasts and budgets | Backtests complete; future close verification pending | Daily and monthly team/service forecasts, conformal intervals, budget burn; future records cannot be scored before their period closes. |
-| Detection and postmortem | Scored and documented | Generated weekend-sweep postmortem compares detector and daily budget observation timestamps; zero-delay synthetic boundaries are disclosed. |
-| Recommendations and commitment sizing | Implemented and scored | Independent whole-platform reruns for registered actions, uncertainty and combined effects; real offer rates and held-out sensitivity. |
-| Persistence and cold/warm latency | Persistence verified; isolated cold measurement pending | Saved-before-response and independent readback tests; warm measurements exist. First observed response is not called cold. |
-| Portfolio bill and output costs | Known subtotal; missing paid equivalents | CI subtotal and public token/output counts; no invented per-output total when components or denominators are missing. |
-| Finance exports | Generated; formula recalculation pending | FOCUS and allocated Parquet, CSV, Power BI, Tableau and Excel allocation formulas. |
-| Statistical method report | Implemented and scored | Team-cluster intervals, exact paired sign flip and registered BH family; comparisons are inconclusive. |
-| Pages routes and estimator | All routes verified; published flow pending | All 12 routes passed desktop/mobile, both-theme keyboard access, SQL and recovery checks. Published Chrome flow runs after Pages deployment. |
-| Documentation and workflows | Implemented and validated | Seven ADRs, fifteen dated decisions, three executed dead-end notebooks, three skills-ref validated skills, generated statements and playbook. |
-| Quality gates and release | Rebuild verification pending; no release tag | Core CI, coverage gate, strict typing, lint, skills and container persistence passed; expanded rebuild inventory defect is fixed and being rerun. |
+| 1. Public source price book | Done | Public-source fetch 41259427895; 79 locked rows and URL/date/digest for every manual entry; unavailable paid equivalents remain unpriced. |
+| 2. FOCUS simulator and validation | Not done | Full official validation exposed a nonstandard optional allocation unit; the corrected export is rebuilding. Validator 2.2.1 cannot run its 1.4 dependency graph; supplemental normative checks and supported rules remain separate. |
+| 3. Every public build and committed ledger | Done | Locked public Actions inventory plus 303 committed ledger rows; all missing paid equivalents are explicitly unpriced, never zero. |
+| 4. Registered evaluation | Done | evaluation/v2/registration.json pins the plan before this replication scored its holdout; prior version outcomes were already known and disclosed. |
+| 5. Contracted warehouse and quarantine | Done | 589850 source charges; enforced dbt contracts; ten producer defects quarantined; count, billed and effective cost differences are zero at team/model/month/day grains. |
+| 6. Allocation and ownership | Done | Five conserved policies, explicit idle, exact coalition reference, owner precision 1.0 and recall 0.941421; largest team-month movement is published. |
+| 7. Unit economics | Done | Versioned average and marginal inference costs, answer cost components and completed/failed training experiment costs in the checked manifest. |
+| 8. Live container API and metering | Done | Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01. |
+| 9. Forecasts and budgets | Not done | Daily/monthly backtests and budget alerts pass; the December 2026 forecast is saved but cannot be scored yet. Monthly-close GitHub secrets require specific authorization. |
+| 10. Detection and postmortem | Done | Seven held-out events scored; event recall 1.0, point precision 0.417413 and recall 0.255605; weekend-sweep postmortem distinguishes hourly alerts from daily budget observation. |
+| 11. Recommendations and commitment sizing | Done | Seven individual whole-platform counterfactuals, the joint action and three commitment pools have held-out estimates, truth and sensitivity results. |
+| 12. Persistence and cold/warm latency | Done | Saved-before-response, independent SQL and out-of-process checks passed. After 1207.714 seconds without a probe: new instance, uptime 0.933 seconds, first response 2877.96 ms; warm median 157.33 ms. |
+| 13. Portfolio bill and output costs | Done | Per-build CI shadow subtotal and public token/output ledger components published with sources; missing GPU/SKU/denominator components explicitly prevent full output-cost totals. |
+| 14. Finance exports | Done | 84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding. |
+| 15. Statistical method report | Done | Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant. |
+| 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks; Windows Chrome exercised live persistence and idle recovery. Laptop-specific manual check remains a follow-up, not claimed by the hosted runner. |
+| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; seventeen dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
+| 18. Quality gates and release | Not done | Core CI exceeds 80 percent coverage and passes strict typing/lint/gates; two full hash seeds matched. Detached-worktree rederive is running. Repository topics and v0.1.0 remain unset while mandatory close/validation requirements are open. |
 
 ## Every dollar has an owner.
 
@@ -3167,3 +3167,18 @@ The source book uses published list prices, not invoices. Exact NIM and Databric
 ## Stretch items
 
 Second price fetch after a month: not done. Fractional GPU sharing: not done. Carbon estimates: not done. Budget guardrail service: not done. Readback warehouse integration: not done. Further release hardening: not done. These do not count toward the eighteen requirements.
+
+
+## Published Windows Chrome measurement
+
+Twenty sequential warm health requests, nearest-rank quantiles. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime do. See results/live_check.json for all samples and the exact shipped source digest. The runner is separate from the API and from Ajay's laptop.
+
+| Checked UTC | Idle seconds | New process observed | First response ms | Warm p50 ms | Warm p99 ms | Estimate request shadow USD |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-01T02:52:09.336Z | 1207.714 | True | 2877.96 | 157.33 | 194.21 | 0.000000315798 |
+
+Forecast record: `2373fd9d-5a03-4acf-b863-77d8e0f7ff7e`, target `2026-12`, cutoff `2026-11-01`. This is an explicitly labeled demonstration scenario and remains pending actuals. Independent SQL readback is in results/live/independent-readback.json.
+
+## Delivered files and verification
+
+See [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS diagnostics](https://github.com/mekala27-45/mlspend/actions/workflows/focus-full.yml) and [the deployment runbook](docs/HOSTING.md).

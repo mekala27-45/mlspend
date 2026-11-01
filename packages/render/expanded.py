@@ -9,8 +9,8 @@ from typing import Any
 from packages.core.io import ROOT, STATEMENT, canonical, digest, read_json
 
 
-def money(value: float | int | None, micro: bool = True) -> str:
-    return "Not measured" if value is None else f"${value / (1000000 if micro else 1):,.2f}"
+def money(value: float | int | None, micro: bool = True, places: int = 2) -> str:
+    return "Not measured" if value is None else f"${value / (1000000 if micro else 1):,.{places}f}"
 
 
 def percent(value: float | None) -> str:
@@ -815,7 +815,7 @@ def render(root: Path = ROOT, check: bool = False) -> None:
                             r["service"],
                             r["outputs"],
                             money(r["fully_loaded_micro"]),
-                            money(r["cost_micro_per_output"]),
+                            money(r["cost_micro_per_output"], places=6),
                         ]
                         for r in team_units
                     ],
@@ -883,7 +883,10 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         table(
             "Required checklist",
             ["Requirement", "Status", "Evidence or limit"],
-            [[r["requirement"], r["status"], r["evidence"]] for r in requirements],
+            [
+                [f"{i}. {r['requirement']}", r["status"], r["evidence"]]
+                for i, r in enumerate(requirements, 1)
+            ],
         )
     )
     results += "\n" + "\n".join("## " + p["title"] + "\n\n" + p["limit"] for p in pages.values())
@@ -892,6 +895,45 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         results += "\n".join(markdown(section) for section in page_data["sections"])
     results += "\n## Limits\n\nThe source book uses published list prices, not invoices. Exact NIM and Databricks paid SKUs and some historical GPU telemetry are unavailable, so missing components remain unpriced. The replication plan was registered before this expanded run; earlier study outcomes were already known. The official validator cannot execute its 1.4 rule graph; the supported prior rule set and supplemental 1.4 checks are reported separately. Future forecasts remain pending until their period closes. No release tag is permitted while mandatory checks remain not done.\n"
     results += "\n## Stretch items\n\nSecond price fetch after a month: not done. Fractional GPU sharing: not done. Carbon estimates: not done. Budget guardrail service: not done. Readback warehouse integration: not done. Further release hardening: not done. These do not count toward the eighteen requirements.\n"
+    live_path = root / "results/live/browser.json"
+    if live_path.exists():
+        live = read_json(live_path)
+        results += markdown(
+            table(
+                "Published Windows Chrome measurement",
+                [
+                    "Checked UTC",
+                    "Idle seconds",
+                    "New process observed",
+                    "First response ms",
+                    "Warm p50 ms",
+                    "Warm p99 ms",
+                    "Estimate request shadow USD",
+                ],
+                [
+                    [
+                        live["checked_at"],
+                        live["idle"]["seconds"],
+                        live["idle"]["new_process_observed"],
+                        round(live["idle"]["first_response_ms"], 2),
+                        round(live["warm"]["p50_ms"], 2),
+                        round(live["warm"]["p99_ms"], 2),
+                        live["request_meter_usd"],
+                    ]
+                ],
+                "Twenty sequential warm health requests, nearest-rank quantiles. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime do. See results/live_check.json for all samples and the exact shipped source digest. The runner is separate from the API and from Ajay's laptop.",
+            )
+        )
+        results += (
+            "\nForecast record: `"
+            + live["forecast_id"]
+            + "`, target `"
+            + live["forecast"]["period"]
+            + "`, cutoff `"
+            + live["forecast"]["cutoff"]
+            + "`. This is an explicitly labeled demonstration scenario and remains pending actuals. Independent SQL readback is in results/live/independent-readback.json.\n"
+        )
+    results += "\n## Delivered files and verification\n\nSee [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS diagnostics](https://github.com/mekala27-45/mlspend/actions/workflows/focus-full.yml) and [the deployment runbook](docs/HOSTING.md).\n"
     _write_or_check(root / "RESULTS.md", results.encode(), check)
     readme = (
         "# MLSpend\n\n[Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)\n\n"
@@ -905,26 +947,61 @@ def render(root: Path = ROOT, check: bool = False) -> None:
             "Skills and evidence",
             ["Skill", "Inspectable evidence"],
             [
+                ["Cost allocation and showback", "packages/allocation; report/statements"],
                 [
-                    "Deterministic simulation and counterfactuals",
-                    "packages/simulator; packages/evaluation; evaluation/v2",
+                    "Kubernetes-style workload, idle and shared cost",
+                    "warehouse-expanded/models; packages/expansion/analysis.py",
                 ],
                 [
-                    "FOCUS and exact reconciliation",
-                    "packages/focus; packages/warehouse; warehouse-expanded",
+                    "Fairness in shared cost",
+                    "packages/allocation/shapley.py; docs/methods/allocation.md",
                 ],
-                ["Allocation and Shapley capacity", "packages/allocation; packages/expansion"],
-                ["Unit economics and commitments", "packages/optimize; exports/expanded"],
-                ["Forecasting and detection", "packages/forecast; packages/detect"],
                 [
-                    "Public-source measurement",
-                    "scripts/fetch_committed_ledgers.py; results/committed-ledgers.json",
+                    "Inference, answer and training unit economics",
+                    "packages/unit; packages/optimize; web/app/charts.tsx",
                 ],
-                ["API, migrations and persistence", "packages/api; migrations; Dockerfile.vercel"],
                 [
-                    "Reproducible reporting and browser UI",
-                    "packages/render; web/app; .github/workflows",
+                    "FOCUS billing and allocated exports",
+                    "packages/focus; scripts/validate_full_focus.py",
                 ],
+                [
+                    "Public price data engineering",
+                    "packages/prices; data/prices/expanded/lock.json",
+                ],
+                ["dbt and DuckDB warehousing", "warehouse-expanded; packages/warehouse"],
+                [
+                    "Contracts, quarantine and reconciliation",
+                    "packages/warehouse/expanded.py; tests/test_expanded_pipeline.py",
+                ],
+                ["Forecasting with intervals", "packages/forecast; evaluation/v2/plan.json"],
+                [
+                    "Budgets and burn alerts",
+                    "packages/expansion/analysis.py; web/app/forecast-form.tsx",
+                ],
+                [
+                    "Anomaly detection and incident response",
+                    "packages/detect; docs/incidents/weekend-sweep.md",
+                ],
+                ["Rightsizing and commitments", "packages/optimize; docs/methods/commitments.md"],
+                ["Evaluation against sealed truth", "packages/evaluation; packages/truth"],
+                [
+                    "Clustered bootstrap and multiple testing",
+                    "packages/evaluation/expanded.py; report/briefing.md",
+                ],
+                [
+                    "APIs, migrations and persistent logs",
+                    "packages/api; migrations; tests/test_api.py",
+                ],
+                [
+                    "BI and finance exports",
+                    "packages/expansion/exports.py; scripts/verify_workbook.py",
+                ],
+                [
+                    "GitHub API and CI analytics",
+                    "scripts/fetch_portfolio_usage.py; packages/portfolio",
+                ],
+                ["Agent-assisted engineering", "AGENTS.md; .claude/skills; docs/SPEC.md"],
+                ["Technical communication", "report/briefing.md; docs/methods; docs/DECISIONS.md"],
             ],
         )
     )

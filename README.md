@@ -1,6 +1,6 @@
 # MLSpend
 
-Release remains incomplete: Live container API and metering; Forecasts and budgets; Persistence and cold/warm latency; Finance exports; Pages routes and estimator; Quality gates and release. See RESULTS.md for the exact checks and limits.
+Release remains incomplete: FOCUS simulator and validation; Forecasts and budgets; Quality gates and release. See RESULTS.md for the exact checks and limits.
 
 [Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)
 
@@ -37,14 +37,25 @@ For the Next.js site, run `npm ci` and `npm run dev` inside `web`. Hosted persis
 
 | Skill | Inspectable evidence |
 | --- | --- |
-| Deterministic simulation and counterfactuals | packages/simulator; packages/evaluation; evaluation/v2 |
-| FOCUS and exact reconciliation | packages/focus; packages/warehouse; warehouse-expanded |
-| Allocation and Shapley capacity | packages/allocation; packages/expansion |
-| Unit economics and commitments | packages/optimize; exports/expanded |
-| Forecasting and detection | packages/forecast; packages/detect |
-| Public-source measurement | scripts/fetch_committed_ledgers.py; results/committed-ledgers.json |
-| API, migrations and persistence | packages/api; migrations; Dockerfile.vercel |
-| Reproducible reporting and browser UI | packages/render; web/app; .github/workflows |
+| Cost allocation and showback | packages/allocation; report/statements |
+| Kubernetes-style workload, idle and shared cost | warehouse-expanded/models; packages/expansion/analysis.py |
+| Fairness in shared cost | packages/allocation/shapley.py; docs/methods/allocation.md |
+| Inference, answer and training unit economics | packages/unit; packages/optimize; web/app/charts.tsx |
+| FOCUS billing and allocated exports | packages/focus; scripts/validate_full_focus.py |
+| Public price data engineering | packages/prices; data/prices/expanded/lock.json |
+| dbt and DuckDB warehousing | warehouse-expanded; packages/warehouse |
+| Contracts, quarantine and reconciliation | packages/warehouse/expanded.py; tests/test_expanded_pipeline.py |
+| Forecasting with intervals | packages/forecast; evaluation/v2/plan.json |
+| Budgets and burn alerts | packages/expansion/analysis.py; web/app/forecast-form.tsx |
+| Anomaly detection and incident response | packages/detect; docs/incidents/weekend-sweep.md |
+| Rightsizing and commitments | packages/optimize; docs/methods/commitments.md |
+| Evaluation against sealed truth | packages/evaluation; packages/truth |
+| Clustered bootstrap and multiple testing | packages/evaluation/expanded.py; report/briefing.md |
+| APIs, migrations and persistent logs | packages/api; migrations; tests/test_api.py |
+| BI and finance exports | packages/expansion/exports.py; scripts/verify_workbook.py |
+| GitHub API and CI analytics | scripts/fetch_portfolio_usage.py; packages/portfolio |
+| Agent-assisted engineering | AGENTS.md; .claude/skills; docs/SPEC.md |
+| Technical communication | report/briefing.md; docs/methods; docs/DECISIONS.md |
 
 ## Interpretation
 

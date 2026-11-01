@@ -24,9 +24,9 @@ Method of record: usage. Direct cost $3,800.58; idle and shared allocation $1,18
 
 | Model | Service | Outputs | Fully loaded | Cost / output |
 | --- | --- | --- | --- | --- |
-| assistant-inference-v2 | inference | 9499454 | $3,659.57 | $0.00 |
-| assistant-llm-v2 | llm | 126141 | $248.35 | $0.00 |
-| assistant-training-v2 | training | 734 | $1,080.83 | $1.47 |
+| assistant-inference-v2 | inference | 9499454 | $3,659.57 | $0.000385 |
+| assistant-llm-v2 | llm | 126141 | $248.35 | $0.001969 |
+| assistant-training-v2 | training | 734 | $1,080.83 | $1.472515 |
 
 
 ## Incidents starting this month
