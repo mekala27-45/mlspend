@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-01T00:52:17.745383+00:00",
+  "base_url": "https://mlspend.vercel.app",
+  "status": "passed",
+  "checks": [
+    "database health",
+    "dashboard HTML",
+    "showback",
+    "unit-costs",
+    "anomalies",
+    "estimate POST and independent GET"
+  ],
+  "estimate_id": "05f9f2eb-d095-4451-93dd-80b094f41d67",
+  "estimate_payload": {
+    "price_id": "azure-t4",
+    "requests_per_day": 17,
+    "seconds_per_request": "0.1",
+    "capacity_per_replica": 1,
+    "minimum_replicas": 1,
+    "days": 1
+  },
+  "shadow_cost_usd": "12.624",
+  "request_meter_usd": "0.000000514424",
+  "data_digest": "14afd5b4e11ccfbaabd588acba0899bbb0a9a6227eae66fd001b25bff02bb577",
+  "price_digest": "1c85e2a552086fffb1baeeb98d414dd65da63ccb40021d9f9e438c30a2ce090c",
+  "limits": "HTTP checks only; browser rendering and provider billing are not verified here."
+}

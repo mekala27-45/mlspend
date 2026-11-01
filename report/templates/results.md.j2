@@ -8,24 +8,24 @@ Status: {{ m.status }}.
 
 | Requirement | Status | Evidence |
 |---|---|---|
-| Price book fetched in Actions and locked | Not done | Browser-observed excerpts are locked; Actions has not run. |
+| Price book fetched in Actions and locked | Partial | Browser-observed excerpts are locked; Azure evidence fetch passed in Actions. Full provider coverage and source promotion remain. |
 | FOCUS simulator and Foundation validation | Not done | {{ m.generation.charge_rows }} candidate charge rows exist; official conformance and the full commitment schema remain. |
 | Usage from every public build | Not done | Portfolio status is {{ m.portfolio.status }}. |
 | Plan registered before held-out scoring | Done | evaluation/registration.json, plan digest {{ m.plan_digest }}. |
-| Warehouse and reconciliation at four grains | Partial | All {{ m.reconciliation.rows }} source rows reconcile exactly; dbt execution remains. |
+| Warehouse and reconciliation at four grains | Partial | All {{ m.reconciliation.rows }} source rows reconcile exactly; dbt models and tests pass in Actions. Full FOCUS contracts remain. |
 | Allocation alternatives and owner inference | Partial | Four conserved totals and owner scores exist; the fourth is Shapley-weighted overhead. |
 | Average and marginal unit costs | Partial | {{ m.unit_costs|length }} endpoint-month rows; token and experiment components remain. |
-| Live Vercel API with logs and meter | Not done | Local implementation exists in packages/api; no hosted check. |
+| Live Vercel API with logs and meter | Partial | Hosted endpoints and Neon estimate readback pass; see results/hosted-validation.json and docs/HOSTING.md. Full meter calibration remains. |
 | Forecasts, budgets and scored log | Partial | {{ m.forecasts|length }} team backtests exist; live period close and budget alerts remain. |
 | Incident detection and postmortem | Partial | Held-out event recall {{ m.detector.event_recall|percent }}; full incident narrative remains. |
 | Counterfactual recommendation scoring | Partial | Commitment curve is measured; recommendation cash savings are intentionally not asserted. |
-| Persistence and cold-start measurements | Not done | Tests are tracked separately in results/validation.json when run. |
+| Persistence and cold-start measurements | Partial | Hosted estimate persistence and PostgreSQL tests pass. Cold-start distribution measurements remain. |
 | Portfolio shadow estimates by output | Not done | No usage was invented. |
 | Finance exports and showback | Partial | Statements rendered; export validation is separate. |
 | All methods scored with uncertainty | Partial | Statistics utilities exist; full registered hypothesis report remains. |
 | Live Pages site and estimator | Not done | Local dashboard exists; public deployment not verified. |
 | Documentation and repository workflows | Partial | Source brief, runbook and generated documents exist; full notebook and ADR requirements remain. |
-| Quality gates, reproducibility and release | Not done | Only executed checks may be claimed. No release tag has been created. |
+| Quality gates, reproducibility and release | Partial | Full CI and repeat-build checks pass at the commit recorded in docs/HOSTING.md. No release tag has been created. |
 
 ## Latest statement: {{ m.latest_month }}
 
@@ -44,7 +44,7 @@ Owner inference requires matching namespace and network metadata. Uncertain reso
 
 Recommendation capacity values must not be presented as actual savings. Counterfactual costs are stored independently, but complete estimated-versus-true recommendation scoring remains. The allocation method comparison uses a capacity model, so it is a sensitivity analysis rather than an objective fairness judgment.
 
-The local web build uses static HTML, CSS and JavaScript to work without downloading a framework. Next.js, Tailwind and DuckDB-WASM are not yet implemented. The DuckDB warehouse runs directly; dbt project files have not yet been executed.
+The deployed API serves the static HTML, CSS and JavaScript dashboard. Frontend framework and browser SQL checks are tracked separately from the API deployment. The DuckDB warehouse and dbt models have run in Actions; that does not establish full FOCUS conformance.
 
 ## Stretch
 

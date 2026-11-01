@@ -1,6 +1,6 @@
 # mlspend
 
-This build is incomplete against the original brief. Live GitHub Pages, Vercel and Neon deployment, the Actions price and portfolio fetch, Foundation FOCUS validation, the complete recommendation evaluation, Next.js and dbt execution, and the final release checks remain outstanding. RESULTS.md records each requirement separately.
+This build is incomplete against the original brief. Foundation FOCUS validation, complete portfolio ledger coverage, finance exports, full registered method scoring and final release checks remain outstanding. RESULTS.md records each requirement separately. The [working app](https://mlspend.vercel.app) has verified PostgreSQL persistence; [deployment evidence](docs/HOSTING.md) records the tested commit and limits.
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
@@ -16,8 +16,6 @@ The largest method change is $471.88 for ads in 2025-10. The detector selected a
 
 ```sh
 uv sync --group dev
-uv run python -m scripts.register_plan
-uv run python -m scripts.initialize_prices
 uv run python -m scripts.build
 uv run pytest --cov=packages
 uv run python -m scripts.serve_local

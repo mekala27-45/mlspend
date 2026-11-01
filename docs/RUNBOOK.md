@@ -1,6 +1,6 @@
 # Running mlspend
 
-The project is a working local prototype. See RESULTS.md for requirements that still need implementation or external verification. A successful local build does not establish a successful deployment.
+The project is a working hosted prototype. See RESULTS.md for incomplete requirements and HOSTING.md for deployment evidence tied to a specific commit. A successful build alone does not establish working persistence.
 
 ## Local build
 
@@ -22,9 +22,9 @@ Do not initialize or edit the registered plan or price lock to make a failed che
 
 ## Hosted configuration
 
-The repository includes a container definition for the API. It has not been deployed or verified. Configure DATABASE_URL, MLSPEND_SALT and MLSPEND_CORS_ORIGINS on the intended host. Use a separate test database for MLSPEND_TEST_DATABASE_URL. Never commit a database connection string or salt.
+Vercel uses the FastAPI entry point in index.py, which also serves the dashboard. Configure DATABASE_URL, MLSPEND_SALT and MLSPEND_CORS_ORIGINS on the intended host. The live project uses Neon. Use a separate test database for MLSPEND_TEST_DATABASE_URL. Never commit a database connection string or salt.
 
-The static dashboard currently uses its local API when served on localhost. Hosted estimator wiring, the requested Next.js implementation, database migrations and deployment automation still need completion before public release.
+The static dashboard uses the local API during development and the same origin on Vercel. A separately hosted dashboard must set its API URL explicitly. The estimator checks readiness, submits once, and reports uncertain persistence if the response is lost. Run the Verify hosted persistence workflow after a deployment; it saves one test estimate and reads it back through an independent HTTP request.
 
 ## Data and persistence checks
 
@@ -36,10 +36,10 @@ Use `uv run python -m scripts.close_period --help` for period closing. Closing r
 
 ## Release policy
 
-The prepared GitHub Actions workflows run the full suite with an ephemeral PostgreSQL service and preserve test evidence. A separate manual workflow fetches Azure price evidence for review without promoting or changing the price lock. These workflows have not run. There is no automatic production deployment or release step.
+GitHub Actions has run the full suite with an ephemeral PostgreSQL service and preserved test evidence. A separate workflow fetches Azure price evidence for review without promoting or changing the price lock. Production deployment is an explicit action; passing CI does not create a release tag.
 
 Run the complete suite in an environment with network and local socket access, including the PostgreSQL integration check. Validate the requested external data sources, full analytical requirements and all user-facing flows. Compare full build digests across independent runs. Do not publish a v0.1.0 release until the mandatory checklist is complete.
 
 ## Execution constraints recorded during development
 
-The managed laptop session denied outbound DNS and local socket connections. Python's Windows asyncio runner also stalled while creating its socket pair, so HTTP transport tests could not complete there. The API tests remain in the suite with a timeout; they were not converted to passing stubs. Neon and Vercel plugins were enabled, but authenticated account tools were not exposed. The intended GitHub repository returned 404 and the browser was still on GitHub's sign-in page.
+The managed laptop session denied outbound DNS and local socket connections. Python's Windows asyncio runner stalled while creating its socket pair, so HTTP transport tests could not complete there. Those tests pass in GitHub Actions, including PostgreSQL request-budget and persistence checks. The connected GitHub, Neon and Vercel tools now provide the deployment access used in HOSTING.md.
