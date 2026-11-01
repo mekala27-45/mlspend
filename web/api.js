@@ -17,7 +17,25 @@
     }
     return false;
   }
-  const api = {baseURL, probe};
+  async function createEstimate(base, data, request = fetch) {
+    if (!await probe(base, request)) return {state: 'unavailable'};
+    // A timed-out POST may already have committed. Never retry it automatically.
+    try {
+      const response = await request(base + '/v1/estimate', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+        signal: AbortSignal.timeout(15000)
+      });
+      const result = await response.json();
+      if (!response.ok) return {state: 'rejected', message: result.detail || 'Request failed'};
+      if (!result.id) return {state: 'unknown'};
+      return {state: 'saved', result, requestCost: response.headers.get('X-Shadow-Cost-USD')};
+    } catch (_) {
+      return {state: 'unknown'};
+    }
+  }
+  const api = {baseURL, probe, createEstimate};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.MLSpendAPI = api;
 })(typeof window !== 'undefined' ? window : globalThis);

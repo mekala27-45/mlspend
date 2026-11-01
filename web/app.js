@@ -32,6 +32,39 @@ if(route==='estimate'){content=heading('Workload estimator','Price the capacity 
 if(route==='data'){content=heading('Data / provenance','Follow the number back.','The source window, price snapshot, transformation and verification status travel with the result.')+`<div class="notice">${esc(M.generation.price_basis)}. FOCUS status: ${esc(M.generation.focus_status)}.</div>`+section('The price book','Each entry retains a source URL, date, unit and excerpt digest.',table(['Source','SKU','Region','Unit','List price / USD'],M.prices.map(p=>[p.provider,p.sku,p.region,p.unit,p.usd])))+`<div class="small">${[...new Set(M.prices.map(p=>p.source_url))].map(url=>`<p><a class="source" href="${esc(url)}" target="_blank" rel="noreferrer">${esc(url.split('?')[0])}</a></p>`).join('')}</div>`+section('Independent reconciliation','Source JSON totals against the warehouse at each grain.',table(['Grain','Groups','Tolerance / microdollars','Result'],M.reconciliation.checks.map(r=>[r.grain,num(r.groups),r.tolerance_micro,r.matches?'PASS':'FAIL'])))+`<details><summary>Inspect the complete manifest</summary><pre>${esc(JSON.stringify({price_digest:M.price_digest,plan_digest:M.plan_digest,generation:M.generation},null,2))}</pre></details>`+pushback('The local digest covers retrieved source excerpts. Raw HTTP evidence, the official FOCUS validator and full price-provider coverage still require the Actions pipeline.');}
 if(route==='report'){content=heading('Briefing / decision record','Cost ownership is a set of choices.','A short reading guide for a platform lead or FinOps reviewer.')+`<article class="report"><h2>Start with what is measured</h2><p>The simulated platform has ${num(M.generation.charge_rows)} charge rows across ${num(M.generation.hours)} hours. Its total cost is ${money(M.generation.total_micro)} under the recorded source prices. The warehouse conserves every integer microdollar.</p><h2>Then inspect who pays</h2><p>The largest change between methods is ${money(M.largest_method_move.range_micro)} for ${esc(M.largest_method_move.team)} in ${esc(M.largest_method_move.month)}. An allocation choice changes ownership, while the bill total stays fixed.</p><h2>Do not overstate the evidence</h2><p>This is a local working implementation. Hosted deployment, complete FOCUS conformance, authenticated portfolio usage and full recommendation evaluation remain outstanding. The detailed checklist in RESULTS.md identifies each missing requirement.</p><h2>How this was built</h2><p>Created for Ajay Mekala with AI assistance. Source prices, the registered plan, method assumptions and tests remain inspectable. No private employer data was used.</p><button type="button" id="print">Print this briefing</button></article>`+pushback('A portfolio demonstration should show its limits as clearly as its results. None of these simulated figures should be described as production savings or real business impact.');}
 main.innerHTML=content;document.title=routes.find(r=>r[0]===route)[1]+' | mlspend';document.getElementById('print')?.addEventListener('click',()=>window.print());document.getElementById('estimate-form')?.addEventListener('submit',submitEstimate);}
-async function submitEstimate(event){event.preventDefault();const form=event.currentTarget;const data=Object.fromEntries(new FormData(form));for(const key of ['requests_per_day','capacity_per_replica','minimum_replicas','days'])data[key]=Number(data[key]);const output=document.getElementById('estimate-result');output.innerHTML='<p>Calculating and checking the API log...</p>';const base=MLSpendAPI.baseURL(location,window.MLSPEND_API_URL);try{if(!await MLSpendAPI.probe(base))throw Error('API is unavailable or not configured');const response=await fetch(base+'/v1/estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:AbortSignal.timeout(7000)});const result=await response.json();if(!response.ok){output.innerHTML='<div class="notice">'+esc(result.detail??'Request failed')+'</div>';return;}output.innerHTML=`<div class="metrics">${metric('Shadow estimate',money(Number(result.shadow_cost_usd)*1e6),result.days+' days')}${metric('Reserved replicas',result.replicas,'Constant demand assumption')}${metric('Request meter',response.headers.get('X-Shadow-Cost-USD')??'Not measured','USD, measured request shadow cost')}</div><p class="small">Logged before response. Reference: ${esc(result.id)}</p>`;}catch(error){const p=M.prices.find(p=>p.id===data.price_id);const replicas=Math.max(data.minimum_replicas,Math.ceil(data.requests_per_day*Number(data.seconds_per_request)/(86400*data.capacity_per_replica)));const total=Number(p.usd)*replicas*24*data.days;output.innerHTML=`<div class="notice">Local calculation only. The API log is unavailable and this estimate was not saved.</div><div class="metrics">${metric('Local shadow estimate',money(total*1e6),data.days+' days')}${metric('Replicas',replicas,p.sku)}${metric('Persistence','Not logged','API unavailable')}</div>`;}}
+async function submitEstimate(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  if (button.disabled) return;
+  button.disabled = true;
+  const data = Object.fromEntries(new FormData(form));
+  for (const key of ['requests_per_day', 'capacity_per_replica', 'minimum_replicas', 'days']) data[key] = Number(data[key]);
+  const output = document.getElementById('estimate-result');
+  output.innerHTML = '<p>Calculating and checking the API log...</p>';
+  try {
+    const base = MLSpendAPI.baseURL(location, window.MLSPEND_API_URL);
+    const attempt = await MLSpendAPI.createEstimate(base, data);
+    if (attempt.state === 'rejected') {
+      output.innerHTML = '<div class="notice">' + esc(attempt.message) + '</div>';
+      return;
+    }
+    if (attempt.state === 'saved') {
+      const result = attempt.result;
+      output.innerHTML = `<div class="metrics">${metric('Shadow estimate', money(Number(result.shadow_cost_usd) * 1e6), result.days + ' days')}${metric('Reserved replicas', result.replicas, 'Constant demand assumption')}${metric('Request meter', attempt.requestCost ?? 'Not measured', 'USD, measured request shadow cost')}</div><p class="small">Logged before response. Reference: ${esc(result.id)}</p>`;
+      return;
+    }
+    const price = M.prices.find(p => p.id === data.price_id);
+    const replicas = Math.max(data.minimum_replicas, Math.ceil(data.requests_per_day * Number(data.seconds_per_request) / (86400 * data.capacity_per_replica)));
+    const total = Number(price.usd) * replicas * 24 * data.days;
+    const uncertain = attempt.state === 'unknown';
+    const message = uncertain
+      ? 'The API response was lost. This estimate may have been saved; its status could not be confirmed. The local calculation is shown below.'
+      : 'Local calculation only. The API was unavailable, so this estimate was not submitted or saved.';
+    output.innerHTML = `<div class="notice">${esc(message)}</div><div class="metrics">${metric('Local shadow estimate', money(total * 1e6), data.days + ' days')}${metric('Replicas', replicas, price.sku)}${metric('Persistence', uncertain ? 'Unknown' : 'Not submitted', uncertain ? 'No automatic retry' : 'API unavailable')}</div>`;
+  } finally {
+    button.disabled = false;
+  }
+}
 fetch('data.json').then(r=>{if(!r.ok)throw Error('Result manifest unavailable');return r.json()}).then(data=>{M=data;document.getElementById('period').textContent='SIMULATED WINDOW '+M.generation.start.slice(0,10)+' / '+M.generation.end_exclusive.slice(0,10);document.getElementById('disclosure').textContent=M.statement;render()}).catch(error=>{main.innerHTML=heading('Data unavailable','The ledger could not be loaded.',error.message)});
 window.addEventListener('hashchange',render);

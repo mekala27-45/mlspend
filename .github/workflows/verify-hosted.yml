@@ -1,0 +1,29 @@
+name: Verify hosted persistence
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/check_hosted.py', '.github/workflows/verify-hosted.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check live API and save one test estimate
+        run: python -m scripts.check_hosted
+      - name: Preserve hosted verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hosted-validation
+          path: results/hosted-validation.json
+          if-no-files-found: warn
