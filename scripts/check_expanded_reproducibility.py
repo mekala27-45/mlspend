@@ -11,19 +11,29 @@ from packages.core.io import ROOT, digest, read_json, write_json
 def main() -> None:
     runs = []
     snapshots = []
+    worktree = ROOT / "tmp/rederive-worktree"
+    if worktree.exists():
+        raise FileExistsError("Use a fresh checkout; the canonical rederive worktree already exists")
+    revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    subprocess.run(
+        ["git", "worktree", "add", "--detach", str(worktree), revision], cwd=ROOT, check=True
+    )
     for seed in (17, 7919):
+        run_root = ROOT if seed == 17 else worktree
         subprocess.run(
             [sys.executable, "-m", "scripts.build_expanded"],
-            cwd=ROOT,
+            cwd=run_root,
             env={**os.environ, "PYTHONHASHSEED": str(seed)},
             check=True,
         )
-        result = read_json(ROOT / "results/expanded/manifest.json")
+        result = read_json(run_root / "results/expanded/manifest.json")
         snapshots.append(result)
         write_json(ROOT / f"results/expanded/rebuild-{seed}.json", result)
         runs.append(
             {
                 "hash_seed": seed,
+                "checkout": "primary" if seed == 17 else "detached-worktree",
+                "revision": revision,
                 "manifest_digest": digest(result),
                 "observed_sha256": result["generation"]["observed_sha256"],
                 "plan_digest": result["registration"]["plan_digest"],

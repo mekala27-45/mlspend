@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [complete-v2]
-    paths: ['scripts/build_expanded.py', '.github/workflows/expanded-build.yml', 'packages/evaluation/expanded.py', 'packages/expansion/**', 'packages/focus/**']
+    paths: ['scripts/build_expanded.py', 'scripts/check_expanded_reproducibility.py', '.github/workflows/expanded-build.yml', 'packages/evaluation/expanded.py', 'packages/expansion/**', 'packages/focus/**']
 permissions:
   contents: write
 jobs:
