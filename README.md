@@ -45,6 +45,8 @@ The committed window covers 35 public repositories. The known priced CI subtotal
 | Evaluation and multiple comparisons | packages/evaluation |
 | API and committed persistence | packages/api |
 | Reproducible reporting | packages/render, report/templates |
+| Next.js export and browser SQL | web/app, GitHub Pages browser workflows |
+| Observed public workflow usage | packages/portfolio, results/portfolio-usage.json |
 
 ## Limits
 

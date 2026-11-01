@@ -19,7 +19,7 @@ Status: {{ m.status }}.
 | Forecasts, budgets and scored log | Partial | {{ m.forecasts|length }} team backtests exist; live period close and budget alerts remain. |
 | Incident detection and postmortem | Partial | Held-out event recall {{ m.detector.event_recall|percent }}; full incident narrative remains. |
 | Counterfactual recommendation scoring | Partial | Commitment curve is measured; recommendation cash savings are intentionally not asserted. |
-| Persistence and cold-start measurements | Partial | Hosted estimate persistence and PostgreSQL tests pass. Cold-start distribution measurements remain. |
+| Persistence and cold-start measurements | Partial | Hosted estimate persistence, PostgreSQL tests and the public browser flow pass. Sequential request latency is recorded in results/verification.json; isolated cold-start measurements remain. |
 | Portfolio shadow estimates by output | Not done | No usage was invented. |
 | Finance exports and showback | Partial | Statements rendered; export validation is separate. |
 | All methods scored with uncertainty | Partial | Statistics utilities exist; full registered hypothesis report remains. |
