@@ -25,6 +25,7 @@ def analyze(
 ) -> dict[str, Any]:
     teams = plan["teams"]
     with duckdb.connect(str(directory / "warehouse.duckdb")) as connection:
+        connection.execute("SET TimeZone='UTC'")
         connection.execute(
             "CREATE OR REPLACE VIEW owned AS SELECT *, "
             + owner_sql(teams)
@@ -148,6 +149,7 @@ def analyze(
                         "SELECT requested, used, price_id FROM owned WHERE model=? AND owner=? AND strftime(timestamp,'%Y-%m')=? ORDER BY timestamp DESC LIMIT 1",
                         [model, team, month],
                     ).fetchone()
+                    assert last is not None
                     marginal = None
                     if service == "inference":
                         additional = max(
@@ -247,6 +249,7 @@ def analyze(
         coverage = connection.execute(
             "SELECT SUM(cost_micro) FILTER(WHERE team<>'unallocated'), SUM(cost_micro) FILTER(WHERE owner<>'unallocated'), SUM(cost_micro) FROM owned WHERE kind='workload'"
         ).fetchone()
+        assert coverage is not None
         experiments = [
             {
                 "experiment_id": key,

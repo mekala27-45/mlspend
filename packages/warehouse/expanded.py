@@ -141,8 +141,10 @@ def ingest(directory: Path, book: PriceBook) -> dict[str, Any]:
         connection.execute(
             "CREATE OR REPLACE VIEW priced AS SELECT o.*, p.usd::DECIMAL(38,12) AS unit_rate FROM observed o JOIN prices p ON o.price_id=p.id AND o.price_effective_date=p.effective_date AND p.effective_date <= o.pricing_as_of"
         )
-        count = connection.execute("SELECT COUNT(*) FROM observed").fetchone()[0]
-        priced_count = connection.execute("SELECT COUNT(*) FROM priced").fetchone()[0]
+        observed_count = connection.execute("SELECT COUNT(*) FROM observed").fetchone()
+        joined_count = connection.execute("SELECT COUNT(*) FROM priced").fetchone()
+        assert observed_count is not None and joined_count is not None
+        count, priced_count = observed_count[0], joined_count[0]
         if count != priced_count or not count:
             raise AssertionError("Effective-date join lost or duplicated charges")
         for grain, expression in {

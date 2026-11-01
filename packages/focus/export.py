@@ -275,8 +275,11 @@ def parquet(rows: Iterable[dict[str, Any]], path: Path, dataset: str) -> int:
         target = "DECIMAL(38,12)" if kind == "Decimal" else "VARCHAR"
         expressions.append(f'CAST("{name}" AS {target}) AS "{name}"')
     with duckdb.connect() as connection:
+        types = ",".join("'" + name + "':'VARCHAR'" for name in sorted(columns))
         connection.execute(
-            "CREATE TABLE source AS SELECT * FROM read_json_auto(?, maximum_object_size=16777216, union_by_name=true)",
+            "CREATE TABLE source AS SELECT * FROM read_json(?, columns={"
+            + types
+            + "}, maximum_object_size=16777216)",
             [str(jsonl)],
         )
         sql = "SELECT " + ",".join(expressions) + " FROM source"
