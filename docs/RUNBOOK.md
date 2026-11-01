@@ -22,13 +22,13 @@ Do not initialize or edit the registered plan or price lock to make a failed che
 
 ## Hosted configuration
 
-Vercel uses the FastAPI entry point in index.py, which also serves the dashboard. Configure DATABASE_URL, MLSPEND_SALT and MLSPEND_CORS_ORIGINS on the intended host. The live project uses Neon. Use a separate test database for MLSPEND_TEST_DATABASE_URL. Never commit a database connection string or salt.
+Vercel uses Dockerfile.vercel to serve packages.api.app on port 80. GitHub Pages hosts the separate Next.js dashboard. Configure DATABASE_URL, MLSPEND_SALT and MLSPEND_CORS_ORIGINS on the intended host. The live project uses Neon. Use a separate test database for MLSPEND_TEST_DATABASE_URL. Never commit a database connection string or salt.
 
-The static dashboard uses the local API during development and the same origin on Vercel. A separately hosted dashboard must set its API URL explicitly. The estimator checks readiness, submits once, and reports uncertain persistence if the response is lost. Run the Verify hosted persistence workflow after a deployment; it saves one test estimate and reads it back through an independent HTTP request.
+The static dashboard uses the local API during development and the configured Vercel API URL from Pages. A separately hosted dashboard must set its API URL explicitly. The estimator checks readiness, submits once, and reports uncertain persistence if the response is lost. Run the Verify hosted persistence workflow after a deployment; it saves one test estimate and reads it back through an independent HTTP request.
 
 ## Data and persistence checks
 
-The simulator produces 16 charge rows per hour. The warehouse compares raw-source billed and effective totals at team, model, month and day grains. All grouping uses UTC. Quarantined rows fail the build instead of being silently dropped.
+The expanded simulator produces variable workload, shared-capacity and commitment records. The warehouse compares raw-source billed and effective totals at team, model, month and day grains. All grouping uses UTC. Quarantined rows fail the build instead of being silently dropped.
 
 Run `uv run python -m scripts.check_persistence` to exercise a real local HTTP server and read the committed forecast from a separate Python process. This requires local socket access. A sandbox that blocks sockets cannot run this check. The database-only test in tests/test_sources.py separately proves cross-process SQLite visibility, but does not replace the HTTP or hosted PostgreSQL checks.
 

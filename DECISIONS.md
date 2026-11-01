@@ -61,3 +61,12 @@ Generate the dashboard, team statements and public numeric claims from the same 
 ## 2026-11-01: Release boundary
 
 A future forecast can be logged now but cannot truthfully have an observed future-period score. Keep period-close pending until actuals are complete. Do not tag a complete release while a mandatory check is unresolved.
+
+
+## 2026-11-01: Stable database reductions
+
+The first two full hash-seed runs exposed export-directory state and then floating-point aggregation order as drift sources. Use an explicit delivered-file inventory and ordered reductions over timestamp/id. No analytical threshold changed. Source: scripts/check_expanded_reproducibility.py and Actions runs 41263501602 and 41264845248, inspected 2026-11-01.
+
+## 2026-11-01: Complete mart lineage
+
+Recommendation estimates now stream the validated contracted observation mart, with a hard failure when the full build lacks that mart. The smoke test may use its reconciled priced table. Source: warehouse-expanded/models/stg_observed.sql and packages/warehouse/expanded.py, inspected 2026-11-01.

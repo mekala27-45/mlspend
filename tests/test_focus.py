@@ -73,3 +73,17 @@ def test_contract_extension_constraints():
     )
     with pytest.raises(ValueError, match="Conflicting"):
         validate_rows([row], "ContractCommitment")
+
+
+def test_commitment_resource_link_cannot_be_bypassed():
+    from packages.core.io import ROOT
+    from packages.simulator.expanded import simulate
+
+    book = PriceBook(ROOT / "data/prices/expanded")
+    records = [cost_row(r, book) for r in simulate(book, hours=1) if r.get("contract_id")]
+    assert len(records) == 4
+    for row in records:
+        assert validate_rows([row], "CostAndUsage") == 1
+        row["ResourceId"] = "unrelated-workload"
+        with pytest.raises(ValueError, match="must identify contract"):
+            validate_rows([row], "CostAndUsage")
