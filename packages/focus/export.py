@@ -302,17 +302,17 @@ def validate_rows(rows: Iterable[dict[str, Any]], dataset: str) -> int:
                         or not Decimal(str(applied)).is_finite()
                     ):
                         raise ValueError("Invalid contract application cost")
+                if category == "Purchase" or status == "Unused":
+                    if any(e["ContractCommitmentId"] != row["ResourceId"] for e in elements):
+                        raise ValueError(
+                            "Commitment purchase or unused resource must identify contract"
+                        )
             if (
                 row.get("CapacityReservationId") is not None
                 and category == "Usage"
                 and row.get("CapacityReservationStatus") not in {"Used", "Unused"}
             ):
                 raise ValueError("Capacity reservation usage requires status")
-                if category == "Purchase" or status == "Unused":
-                    if any(e["ContractCommitmentId"] != row["ResourceId"] for e in elements):
-                        raise ValueError(
-                            "Commitment purchase or unused resource must identify contract"
-                        )
             if row["ChargePeriodStart"] >= row["ChargePeriodEnd"]:
                 raise ValueError("Charge period must be positive")
             for field in ("ListCost", "ContractedCost"):

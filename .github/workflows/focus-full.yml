@@ -1,0 +1,50 @@
+name: Validate every exported FOCUS row
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful full expanded study run
+        required: true
+  workflow_run:
+    workflows: ['Build full expanded study']
+    types: [completed]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  validate:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      STUDY_RUN: ${{ inputs.run_id || github.event.workflow_run.id }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install uv
+          uv sync --frozen --group dev
+          gh run download "$STUDY_RUN" -n expanded-full-study -D tmp/full-study
+          python -m venv .focus-validator
+          .focus-validator/bin/pip install focus-validator==2.2.1 pyarrow==20.0.0
+          mkdir -p focus_validator/rules
+          curl --fail --location https://raw.githubusercontent.com/finopsfoundation/focus_validator/v2.2.1/focus_validator/rules/currency_codes.csv --output focus_validator/rules/currency_codes.csv
+      - run: uv run python -m scripts.validate_full_focus
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-official-focus-validation
+          path: results/full-focus/
+      - name: Preserve exact validation evidence
+        run: |
+          git switch -c "evidence/focus-full-${{ github.run_id }}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add results/full-focus/
+          git commit -m 'test: validate every exported FOCUS row with official supported rules'
+          git push origin HEAD
