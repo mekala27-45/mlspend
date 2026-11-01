@@ -27,7 +27,7 @@ The expanded study is implemented. Release status is determined by the evidence 
 | 14. Finance exports | Done | 84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding. |
 | 15. Statistical method report | Done | Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant. |
 | 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked. |
-| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
+| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty-one dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
 | 18. Quality gates and release | Not done | 81 tests, 90.37 percent coverage, strict typing/lint/gates; corrected full detached-worktree rebuild 41326225853 matched both hashes and recalculated Excel. Eight repository topics and the dashboard homepage are configured. The v0.1.0 tag remains pending until the forecast-close requirement is complete. |
 
 ## Every dollar has an owner.

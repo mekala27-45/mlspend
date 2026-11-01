@@ -82,7 +82,7 @@
   {
     "requirement": "Documentation and workflows",
     "status": "Done",
-    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
+    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty-one dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
   },
   {
     "requirement": "Quality gates and release",

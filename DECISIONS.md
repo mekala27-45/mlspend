@@ -82,3 +82,7 @@ The second live run reached five API instances during its twenty follow-up reque
 ## 2026-11-01: Recover evidence without rerunning a passed test
 
 The Windows browser test and demo capture passed, but its evidence-branch push referred to older workflow files after main advanced. Recover the exact uploaded artifact, verify the source test step passed and base the evidence-only commit on current main. Preserve the source run ID and retain the failed publication history.
+
+## 2026-11-01: Direct connection for the monthly close
+
+The first configured close run collected October public usage, then Neon's pooled endpoint rejected the startup schema option. Keep the storage schema selection and replace only the close secret's endpoint with its direct connection. The database role and grants remain restricted. Preserve the failed attempt alongside the rerun rather than describing configuration as a completed score.
