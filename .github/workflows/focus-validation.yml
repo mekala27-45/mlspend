@@ -1,0 +1,57 @@
+name: Validate FOCUS against official rules
+on:
+  workflow_dispatch:
+  push:
+    branches: [complete-v2, main]
+    paths: ['packages/focus/**', 'scripts/focus_fixture.py', '.github/workflows/focus-validation.yml']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install uv
+      - run: uv sync --group dev
+      - run: uv run python -m scripts.focus_fixture
+      - name: Install official validator in an isolated environment
+        run: |
+          python -m venv .focus-validator
+          .focus-validator/bin/pip install focus-validator==2.2.1
+      - name: Record supported versions and validate both datasets
+        run: |
+          mkdir -p results/focus
+          .focus-validator/bin/focus-validator --supported-versions > results/focus/versions.txt 2>&1
+          cat results/focus/versions.txt
+          for dataset in CostAndUsage ContractCommitment; do
+            .focus-validator/bin/focus-validator --data-file "tmp/focus-fixture/$dataset.parquet" --validate-version 1.4 --focus-dataset "$dataset" --applicability-criteria ALL --output-type unittest --output-destination "results/focus/$dataset.xml" > "results/focus/$dataset.log" 2>&1
+            tail -n 20 "results/focus/$dataset.log"
+          done
+      - name: Fail on rule violations instead of trusting CLI exit status
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports = list(Path('results/focus').glob('*.xml'))
+          assert len(reports) == 2, 'Both official validation reports are required'
+          failures = []
+          for report in reports:
+              root = ET.parse(report).getroot()
+              for node in root.iter():
+                  if node.tag in ('failure', 'error'):
+                      failures.append((report.name, node.attrib, node.text))
+          for failure in failures:
+              print(failure)
+          assert not failures, f'{len(failures)} official rules failed'
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-focus-validation
+          path: |
+            results/focus/
+            tmp/focus-fixture/
