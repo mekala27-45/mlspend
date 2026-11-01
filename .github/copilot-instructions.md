@@ -1,1 +1,1 @@
-Read AGENTS.md before changing this repository. Preserve its source, truth, money and release boundaries.
+Read [AGENTS.md](../AGENTS.md) before editing this repository. It is the single maintained source for setup, tests, gates, protected evidence and release rules. Follow its distinction between simulated platform costs, measured portfolio usage and shadow prices.

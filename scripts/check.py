@@ -11,8 +11,8 @@ def main() -> None:
     names = [
         name
         for name in tracked
-        if name.endswith((".py", ".md", ".js", ".html", ".css", ".yml"))
-        and name not in ("docs/BUILD_BRIEF.md",)
+        if name.endswith((".py", ".md", ".js", ".html", ".css", ".yml", ".tsx", ".ts"))
+        and name not in ("docs/BUILD_BRIEF.md", "docs/SPEC.md")
     ]
     contents = {name: (ROOT / name).read_text(encoding="utf-8") for name in names}
     text_gate(contents, check_wording=False)
@@ -20,7 +20,8 @@ def main() -> None:
     prose = {
         name: value
         for name, value in contents.items()
-        if name not in ("packages/core/gates.py", "tests/test_core.py")
+        if name
+        not in ("packages/core/gates.py", "tests/test_core.py", "tests/test_gates_expanded.py")
     }
     text_gate(prose)
     import_boundary(ROOT / "packages")

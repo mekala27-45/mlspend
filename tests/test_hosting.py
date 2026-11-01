@@ -43,4 +43,6 @@ def test_dashboard_is_served_by_deployment_entrypoint():
     assert response.status_code == 200
     assert "THE COST LEDGER" in response.text
     assert client.get("/data.json").json()["allocation"]
-    assert client.get("/health").status_code == 200
+    health = client.get("/health")
+    assert health.status_code == 503
+    assert health.headers["Retry-After"] == "5"

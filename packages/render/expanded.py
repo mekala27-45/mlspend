@@ -630,11 +630,21 @@ def render(root: Path = ROOT, check: bool = False) -> None:
         ],
         "Review the limitations beside each method. A recommendation is an experiment to validate, not authorization to change an unrelated production system.",
     )
+    guide_paths = [
+        "AGENTS.md",
+        ".claude/skills/add-a-price-source/SKILL.md",
+        ".claude/skills/add-a-cost-rule/SKILL.md",
+        ".claude/skills/explain-a-bill/SKILL.md",
+    ]
+    guides = [
+        {"path": p, "content": (root / p).read_text()} for p in guide_paths if (root / p).exists()
+    ]
     payload = {
         "statement": STATEMENT,
         "latest_month": latest,
         "source_digest": digest(m),
         "pages": pages,
+        "guides": guides,
         "allocations": m["allocation"],
         "monthly": [
             {"month": month, "effective_micro": cost}

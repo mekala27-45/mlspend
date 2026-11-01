@@ -1,11 +1,63 @@
-# Decisions
+# Implementation decisions
 
-## 2026-11-01: promote observed source evidence
+These are decisions and corrections made during the build. Dates are the actual implementation date; no history is backdated. The authoritative prompt is docs/SPEC.md.
 
-Promoted the Azure Retail Prices API responses from Actions run 41258072383 through scripts/promote_prices.py. Version 2 retains the original book and lock in data/prices/history, verifies each normalized row against its cached response, and records the artifact digest. Consumption rates used by the simulator are unchanged. Reservation totals are normalized over their stated terms and are separate from on-demand estimator choices. GitHub and Vercel remain explicitly labeled public excerpts. This does not establish coverage for AWS, storage, network or model tokens. Source: https://prices.azure.com/api/retail/prices, fetched 2026-11-01 UTC.
+## 2026-11-01: Integer money
 
-Promoted the October public Actions usage from run 41258444649 through scripts/promote_portfolio.py. Repository summaries reconcile to individual jobs and unpriced jobs remain visible. Creation-time filtering and per-job minute rounding are explicit. Current artifact and repository sizes are inventory observations, not storage-month usage. GPU and token ledgers remain separate requirements. Source: https://docs.github.com/en/rest/actions/workflow-jobs, retrieved 2026-11-01 UTC.
+Keep money as integer microdollars internally and Decimal at price boundaries. Stable largest remainders conserve every statement. Model support is allocated once within each owner, including unallocated.
 
-## 2026-11-01: static frontend and live API
+## 2026-11-01: UTC periods
 
-GitHub Pages hosts the Next.js static export; FastAPI on Vercel persists estimates in Neon. Browser SQL uses self-hosted DuckDB-WASM assets and committed result tables. The npm dependency lock came from the successful Pages build and subsequent builds use npm ci. The reference API keeps its companion static dashboard for direct request verification. An uncertain POST response is reported as unknown and is never automatically retried.
+DuckDB inherited the laptop time zone in an early reconciliation. Set UTC explicitly before grouping timestamps; independent Python aggregates retain UTC period boundaries.
+
+## 2026-11-01: Freeze external evidence
+
+Fetch source records in Actions, preserve raw response hashes and repository commit IDs, and promote exact blobs. Never serialize an already-promoted scientific manifest through another language merely to copy it.
+
+## 2026-11-01: Independent replication
+
+Version-one results were already known. Register an expanded independent replication with a new seed and preserve the older evidence instead of claiming a blind first study.
+
+## 2026-11-01: Reversal: capacity value is not cash
+
+The initial recommendation report valued released reservations. Whole-platform reruns showed that minimum shared capacity can retain the bill or make a spot move cost more. Replace cash claims with measured counterfactual differences; preserve the quiet-hour dead end in a notebook.
+
+## 2026-11-01: Reversal: monthly interval construction
+
+A daily interval cannot simply be reused for a monthly sum. Calibrate monthly-horizon residuals using complete earlier horizons and abstain when there are too few origins. Do not tune on held-out coverage.
+
+## 2026-11-01: Shapley comparison population
+
+An early allocation comparison mixed standalone capacity value with a fully loaded statement. Compare method allocations against the normalized Shapley allocation of the same shared bill. Document that this remains a model-based fairness reference.
+
+## 2026-11-01: Contract completeness correction
+
+After the first expanded run, the exporter was found to include only the shorter commitment. Add a separate longer-term unused commitment, full upfront billed cost and only the in-calendar amortization. This is a late completeness correction, not a claim that the initial implementation already contained it. The registered selection rules remain unchanged.
+
+## 2026-11-01: Official validator failures
+
+Keep the unmodified official XML. The newest rules contain an active dependency cycle; older status predicates and JSON null tests contradict their prose. Bound reviewed exceptions by exact rule IDs, reject new failures and enforce the normative constraints independently. Do not claim official certification.
+
+## 2026-11-01: Container entrypoint reversal
+
+The first container entrypoint imported a companion static app whose web assets were excluded. Point the container directly at packages.api.app:app. The Pages site is deployed independently.
+
+## 2026-11-01: Scoped database role
+
+A role created through the provider convenience API inherited elevated membership. Create a plain SQL login with explicit grants instead. Move application tables into their own schema; do not run schema creation from the request process. Retain old tables during migration for a non-destructive cutover.
+
+## 2026-11-01: Honest API failure states
+
+A missing database returns HTTP 503 with Retry-After. Browser readiness uses GET twice. An uncertain POST is never retried automatically or called unsaved; a confirmed local fallback is visibly not persisted.
+
+## 2026-11-01: No invented portfolio units
+
+Committed model tokens and output counts are measured. Unknown exact paid endpoints and absent GPU ledgers remain unknown; unrelated CI jobs are not divided into a claimed per-refresh or per-answer total.
+
+## 2026-11-01: Canonical reporting
+
+Generate the dashboard, team statements and public numeric claims from the same expanded manifest. Preserve the exact underlying integers in the browser SQL tables instead of parsing rounded display money.
+
+## 2026-11-01: Release boundary
+
+A future forecast can be logged now but cannot truthfully have an observed future-period score. Keep period-close pending until actuals are complete. Do not tag a complete release while a mandatory check is unresolved.

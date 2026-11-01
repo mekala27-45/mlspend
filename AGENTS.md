@@ -9,3 +9,13 @@ Do not edit locked prices, source locks, evaluation registration or generated re
 The simulator writes truth separately. Only evaluation may load truth. Method modules must use observed telemetry only. Run the import boundary test after changing methods.
 
 Before release, run the local build twice and compare digests, then run the external checks. A skipped check is not a pass. Do not tag a complete release while any mandatory requirement in RESULTS.md is not done.
+
+The expanded implementation is registered in evaluation/v2/plan.json. Run `uv run python -m scripts.build_expanded` for the contracted full-year study and `uv run python -m packages.render.expanded` for its public claims. Run `uv run python -m scripts.check_expanded_reproducibility` for independent process rebuilds with different hash seeds. The earlier study remains preserved for provenance.
+
+Use `.claude/skills/add-a-price-source`, `add-a-cost-rule` and `explain-a-bill` for their named tasks. Validate all three with skills-ref. Run notebooks with `uv run pytest --nbmake notebooks`. The playbook renders these repository instructions.
+
+Protect uv.lock, web/package-lock.json, all source locks and price books, evaluation registrations, sealed truth and results promoted from Actions. Use dependency tooling, explicit source promotion or deterministic rendering to change them. Never silently alter a source artifact or a threshold after looking at holdout results.
+
+Run `uv run python -m scripts.check_diff` on staged or committed changes before publication. It checks added text for credentials and private identifiers. The pre-push hook runs the same check. Review the full renderer, registration, statement, price-lock, vocabulary, palette and method-boundary gates in CI. Missing input to a gate fails closed.
+
+Use the migration credential for `uv run alembic upgrade head`; the runtime role must not create tables. Period-close needs explicit complete actuals and a separate writer credential. Never log or commit database URLs with passwords. An unavailable future actual remains pending rather than becoming zero.
