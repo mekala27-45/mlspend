@@ -144,7 +144,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
             AllocatedMethodDetails=json.dumps(
                 {
                     "Elements": [
-                        {"AllocatedRatio": observed["allocated_ratio"], "UsageUnit": "usage_share"}
+                        {"AllocatedRatio": observed["allocated_ratio"]}
                     ],
                     "x_OriginId": observed["origin_id"],
                 }
@@ -254,6 +254,23 @@ def validate_rows(rows: Iterable[dict[str, Any]], dataset: str) -> int:
                 raise ValueError("Applicability scope has no inclusions")
         else:
             category, status = row["ChargeCategory"], row["CommitmentDiscountStatus"]
+            details = row.get("AllocatedMethodDetails")
+            if details is not None:
+                allocation = json.loads(details)
+                elements = allocation.get("Elements")
+                if not row.get("AllocatedMethodId") or not isinstance(elements, list) or not elements:
+                    raise ValueError("Allocation details require method and nonempty Elements")
+                for element in elements:
+                    ratio = element.get("AllocatedRatio")
+                    if (
+                        isinstance(ratio, bool)
+                        or not isinstance(ratio, (int, float))
+                        or not Decimal(str(ratio)).is_finite()
+                        or not 0 <= ratio <= 1
+                    ):
+                        raise ValueError("Allocation ratio must be finite and between zero and one")
+                    if "UsageQuantity" in element and not element.get("UsageUnit"):
+                        raise ValueError("Allocation usage quantity requires a unit")
             if category != "Usage" or status == "Unused":
                 if row["ConsumedQuantity"] is not None or row["ConsumedUnit"] is not None:
                     raise ValueError("Purchase or unused commitment cannot report consumption")

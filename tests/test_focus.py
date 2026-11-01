@@ -87,3 +87,19 @@ def test_commitment_resource_link_cannot_be_bypassed():
         row["ResourceId"] = "unrelated-workload"
         with pytest.raises(ValueError, match="must identify contract"):
             validate_rows([row], "CostAndUsage")
+
+
+def test_allocation_object_optional_unit_and_invalid_ratio():
+    row = sample()
+    row["AllocatedMethodId"] = "usage"
+    row["AllocatedMethodDetails"] = json.dumps({"Elements": [{"AllocatedRatio": 0.25}]})
+    assert validate_rows([row], "CostAndUsage") == 1
+    for ratio in (-0.1, 1.1, True, "0.25"):
+        row["AllocatedMethodDetails"] = json.dumps({"Elements": [{"AllocatedRatio": ratio}]})
+        with pytest.raises(ValueError, match="Allocation ratio"):
+            validate_rows([row], "CostAndUsage")
+    row["AllocatedMethodDetails"] = json.dumps(
+        {"Elements": [{"AllocatedRatio": 0.25, "UsageQuantity": 1}]}
+    )
+    with pytest.raises(ValueError, match="requires a unit"):
+        validate_rows([row], "CostAndUsage")
