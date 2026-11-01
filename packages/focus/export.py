@@ -126,8 +126,6 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
                             "ContractId": contract,
                             "ContractCommitmentId": contract,
                             "ContractCommitmentAppliedCost": float(cost),
-                            "ContractCommitmentAppliedQuantity": float(quantity),
-                            "ContractCommitmentAppliedUnit": unit,
                         }
                     ]
                 }
@@ -154,11 +152,13 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
 
 
 def contract_row(
-    identifier: str, price_id: str, book: PriceBook, capacity: int = 1
+    identifier: str, price_id: str, book: PriceBook, capacity: int = 1, years: int = 1
 ) -> dict[str, Any]:
-    reserved = book.get(price_id + "-reserved-1y")
+    if years not in {1, 3}:
+        raise ValueError("Supported contract terms are one and three years")
+    reserved = book.get(price_id + f"-reserved-{years}y")
     ondemand = book.get(price_id)
-    cost = reserved.usd * 8760 * capacity
+    cost = reserved.usd * 8760 * years * capacity
     row: dict[str, Any] = {
         key: None
         for key, spec in SCHEMA["ContractCommitment"].items()
@@ -171,16 +171,16 @@ def contract_row(
         ContractId=identifier,
         ContractCommitmentId=identifier,
         ContractPeriodStart="2025-01-01T00:00:00Z",
-        ContractPeriodEnd="2026-01-01T00:00:00Z",
+        ContractPeriodEnd=f"{2025 + years}-01-01T00:00:00Z",
         ContractCommitmentPeriodStart="2025-01-01T00:00:00Z",
-        ContractCommitmentPeriodEnd="2026-01-01T00:00:00Z",
+        ContractCommitmentPeriodEnd=f"{2025 + years}-01-01T00:00:00Z",
         ContractCommitmentCreated="2025-01-01T00:00:00Z",
         ContractCommitmentLastUpdated="2025-01-01T00:00:00Z",
         ContractCommitmentCategory="Usage",
         ContractCommitmentType="Reserved Instance",
         ContractCommitmentDescription="Simulated contract at a locked public offer; no purchase was made",
         ContractCommitmentCost=str(cost),
-        ContractCommitmentQuantity=str(8760 * capacity),
+        ContractCommitmentQuantity=str(8760 * years * capacity),
         ContractCommitmentUnit="Hours",
         ContractCommitmentApplicability=json.dumps(
             {
@@ -193,7 +193,7 @@ def contract_row(
         ),
         ContractCommitmentBenefitCategory="Discount",
         ContractCommitmentDiscountPercentage=str(1 - reserved.usd / ondemand.usd),
-        ContractCommitmentDurationType="1 Year",
+        ContractCommitmentDurationType=f"{years} Year" + ("s" if years > 1 else ""),
         ContractCommitmentFulfillmentInterval="Hourly",
         ContractCommitmentLifecycleStatus="Active",
         ContractCommitmentModel="Continuous",

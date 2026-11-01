@@ -71,6 +71,7 @@ def simulate(
         count = min(count, hours)
     rates = {p.id: p for p in sorted(book.rows, key=lambda p: p.effective_date)}
     reserved_total = microdollars(rates["azure-t4-reserved-1y"].usd * 8760)
+    three_year_total = microdollars(rates["azure-a100-reserved-3y"].usd * 26280)
     for hour in range(count):
         timestamp = start + timedelta(hours=hour)
         month_hours = calendar.monthrange(timestamp.year, timestamp.month)[1] * 24
@@ -373,6 +374,35 @@ def simulate(
                 cost_micro=0,
                 billed_micro=reserved_total,
                 list_unit_price=str(rates["azure-t4-reserved-1y"].usd),
+            )
+        # The second contract extends beyond the study. Only this year's amortization
+        # is effective cost; the remaining prepaid balance is not expensed early.
+        yield row(
+            "shared",
+            "capacity",
+            "simulated-a100-contract-3y",
+            "azure-a100-reserved-3y",
+            1,
+            "idle",
+            pool="reserved-a100-3y",
+            contract_id="simulated-a100-contract-3y",
+            billed_micro=0,
+            cost_micro=three_year_total // 26280 + int(hour < three_year_total % 26280),
+            list_unit_price=str(rates["azure-a100"].usd),
+        )
+        if hour == 0:
+            yield row(
+                "shared",
+                "capacity",
+                "simulated-a100-contract-3y",
+                "azure-a100-reserved-3y",
+                26280,
+                "purchase",
+                contract_id="simulated-a100-contract-3y",
+                charge_category="Purchase",
+                cost_micro=0,
+                billed_micro=three_year_total,
+                list_unit_price=str(rates["azure-a100-reserved-3y"].usd),
             )
 
 

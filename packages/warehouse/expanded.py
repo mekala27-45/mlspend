@@ -94,7 +94,7 @@ def ingest(directory: Path, book: PriceBook) -> dict[str, Any]:
     seen: set[str] = set()
     # Aggregate the original Python records before loading them through SQL.
     independent: dict[str, dict[str, list[int]]] = {
-        grain: defaultdict(lambda: [0, 0]) for grain in ("team", "model", "month", "day")
+        grain: defaultdict(lambda: [0, 0, 0]) for grain in ("team", "model", "month", "day")
     }
     sample = None
     with accepted_path.open("wb") as stream:
@@ -117,6 +117,7 @@ def ingest(directory: Path, book: PriceBook) -> dict[str, Any]:
             }.items():
                 independent[grain][key][0] += 1
                 independent[grain][key][1] += row["cost_micro"]
+                independent[grain][key][2] += row.get("billed_micro", row["cost_micro"])
         if sample is None:
             raise ValueError("No source rows")
         for row in injected_defects(sample):
@@ -154,9 +155,9 @@ def ingest(directory: Path, book: PriceBook) -> dict[str, Any]:
             "day": "strftime(timestamp, '%Y-%m-%d')",
         }.items():
             actual = {
-                str(key): [int(number), int(amount)]
-                for key, number, amount in connection.execute(
-                    f"SELECT {expression}, COUNT(*), SUM(cost_micro) FROM priced GROUP BY 1"
+                str(key): [int(number), int(amount), int(billed)]
+                for key, number, amount, billed in connection.execute(
+                    f"SELECT {expression}, COUNT(*), SUM(cost_micro), SUM(COALESCE(billed_micro,cost_micro)) FROM priced GROUP BY 1"
                 ).fetchall()
             }
             expected = dict(independent[grain])
@@ -168,6 +169,7 @@ def ingest(directory: Path, book: PriceBook) -> dict[str, Any]:
                     "groups": len(actual),
                     "count_difference": 0,
                     "cost_difference_micro": 0,
+                    "billed_difference_micro": 0,
                     "tolerance_micro": 1,
                 }
             )

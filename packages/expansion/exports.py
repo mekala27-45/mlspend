@@ -179,7 +179,10 @@ def export_all(
             "CostAndUsage",
         )
         counts["ContractCommitment"] = parquet(
-            [contract_row("simulated-t4-contract", "azure-t4", book)],
+            [
+                contract_row("simulated-t4-contract", "azure-t4", book),
+                contract_row("simulated-a100-contract-3y", "azure-a100", book, years=3),
+            ],
             target / "ContractCommitment.parquet",
             "ContractCommitment",
         )
