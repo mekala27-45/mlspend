@@ -24,7 +24,7 @@ The statement, theme switch and incident chart were also inspected in Ajay's lap
 
 ## Scheduled close
 
-`.github/workflows/close-period.yml` fetches public usage after a completed month and scores matching forecasts atomically. The `mlspend_close` role is restricted to SELECT and UPDATE of `actual_micro` and `scored_at` on the application log. It cannot rewrite forecast payloads or delete rows. The role has been created and its permissions verified. Credential transfer to an external secret store was blocked by automatic approval review and remains pending specific authorization. GitHub Actions secrets `MLSPEND_CLOSE_DATABASE_URL` and `MLSPEND_CLOSE_SALT` still require configuration; until then the workflow fails clearly without scoring anything. Never paste either value into a chat, issue or source file.
+`.github/workflows/close-period.yml` fetches public usage after a completed month and scores matching forecasts atomically. The `mlspend_close` role is restricted to SELECT and UPDATE of `actual_micro` and `scored_at` on the application log. It cannot rewrite forecast payloads or delete rows. The role has been created and its permissions verified. GitHub Actions secrets `MLSPEND_CLOSE_DATABASE_URL` and `MLSPEND_CLOSE_SALT` were configured on November 1, 2026 after specific authorization. They use the scoped close role and a separate random salt; no credential is stored in source. The scheduled job runs at 06:17 UTC on the second of each month. The December 2026 scenario remains unscored until complete December actuals can be fetched in January 2027. Never paste either value into a chat, issue or source file.
 
 ## Recheck
 

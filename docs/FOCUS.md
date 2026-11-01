@@ -9,3 +9,9 @@ The integration therefore runs the newest usable prior ruleset, 1.3.0.1, in a se
 Every full export must be validated, including allocated charges. A two-hour development fixture checks integration quickly; it is not evidence that the full-year exports passed. Dataset-level validation status belongs in the generated manifest.
 
 The allocation method `mlspend-usage-v2` uses each team's monthly usage weight divided by the total weight, with equal shares only when the total is zero. Its `UsageUnit` label is `Usage Share`, a dimensionless component of that documented method. It is not a physical CPU or GPU unit. The optional `UsageQuantity` is omitted; `AllocatedRatio` carries the normalized share. The label follows the official formatter's space-separated count-name syntax. The fast official fixture includes allocated rows so allocation metadata is checked before a full-year rebuild.
+
+## Full-year evidence
+
+[Run 41327002636](https://github.com/mekala27-45/mlspend/actions/runs/41327002636) completed successfully on November 1, 2026. It checked all 589,850 source rows, all 852,660 allocated rows and both commitments. Each cost export ran 764 official checks; the commitment dataset ran 114 with no failures. The same twelve documented upstream contradictions remain in each cost report, with zero unreviewed failures. Raw XML and summaries are preserved under `results/full-focus/`. This result complements the supplemental 1.4 contracts and does not imply official 1.4 certification.
+
+Cross-file totals match exactly at USD 348535.007258 effective cost and USD 372415.671738 billed cost. Every origin allocation ratio sums to one within absolute tolerance 1e-12. [Corrected full build 41326225853](https://github.com/mekala27-45/mlspend/actions/runs/41326225853) also reproduced the same manifest in both independent hash-seed runs and passed LibreOffice recalculation.

@@ -940,7 +940,7 @@ def render(root: Path = ROOT, check: bool = False) -> None:
             + live["forecast"]["cutoff"]
             + "`. This is an explicitly labeled demonstration scenario and remains pending actuals. Independent SQL readback is in results/live/independent-readback.json.\n"
         )
-    results += "\n## Delivered files and verification\n\nSee [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS diagnostics](https://github.com/mekala27-45/mlspend/actions/workflows/focus-full.yml) and [the deployment runbook](docs/HOSTING.md).\n"
+    results += "\n## Delivered files and verification\n\nSee [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS reports](results/full-focus/summary.json), [conservation checks](results/full-focus/conservation.json), [independent rebuild proof](results/expanded/reproducibility.json), [validation interpretation](docs/FOCUS.md) and [the deployment runbook](docs/HOSTING.md).\n"
     _write_or_check(root / "RESULTS.md", results.encode(), check)
     readme = (
         "# MLSpend\n\n[Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)\n\n"

@@ -1,6 +1,6 @@
 # MLSpend
 
-Release remains incomplete: FOCUS simulator and validation; Forecasts and budgets; Quality gates and release. See RESULTS.md for the exact checks and limits.
+Release remains incomplete: Forecasts and budgets; Quality gates and release. See RESULTS.md for the exact checks and limits.
 
 [Live dashboard](https://mekala27-45.github.io/mlspend/) · [API health](https://mlspend.vercel.app/health) · [Verification and limits](RESULTS.md)
 

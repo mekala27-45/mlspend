@@ -1,0 +1,72 @@
+[
+  {
+    "export": "CostAndUsage",
+    "rows": 589850,
+    "official_validator": "2.2.1",
+    "compatibility_rules": "1.3.0.1",
+    "status": "partial official validation; supplemental normative checks required",
+    "reports": [
+      {
+        "dataset": "CostAndUsage",
+        "testcases": 764,
+        "official_failures": [
+          "CAU-CapacityReservationStatus-C-002-C",
+          "CAU-CapacityReservationStatus-C-004-C",
+          "CAU-CommitmentDiscountStatus-C-000-C",
+          "CAU-CommitmentDiscountStatus-C-002-C",
+          "CAU-CommitmentDiscountStatus-C-003-C",
+          "CAU-CommitmentDiscountStatus-C-004-C",
+          "CAU-ContractApplied-C-000-C",
+          "CAU-ContractApplied-C-003-C",
+          "CAU-ContractAppliedObject-O-000-C",
+          "CAU-ContractAppliedObject-O-059-M",
+          "CAU-ContractAppliedObject-O-064-C",
+          "CAU-ContractAppliedObject-O-065-C"
+        ],
+        "unreviewed_failures": []
+      },
+      {
+        "dataset": "ContractCommitment",
+        "testcases": 114,
+        "official_failures": [],
+        "unreviewed_failures": []
+      }
+    ],
+    "limitations": "1.4 active rule dependency cycle; older commitment-status predicates contradict normative prose and JSON wildcard null condition misclassifies non-null quantity. No official certification claimed."
+  },
+  {
+    "export": "AllocatedCostAndUsage",
+    "rows": 852660,
+    "official_validator": "2.2.1",
+    "compatibility_rules": "1.3.0.1",
+    "status": "partial official validation; supplemental normative checks required",
+    "reports": [
+      {
+        "dataset": "CostAndUsage",
+        "testcases": 764,
+        "official_failures": [
+          "CAU-CapacityReservationStatus-C-002-C",
+          "CAU-CapacityReservationStatus-C-004-C",
+          "CAU-CommitmentDiscountStatus-C-000-C",
+          "CAU-CommitmentDiscountStatus-C-002-C",
+          "CAU-CommitmentDiscountStatus-C-003-C",
+          "CAU-CommitmentDiscountStatus-C-004-C",
+          "CAU-ContractApplied-C-000-C",
+          "CAU-ContractApplied-C-003-C",
+          "CAU-ContractAppliedObject-O-000-C",
+          "CAU-ContractAppliedObject-O-059-M",
+          "CAU-ContractAppliedObject-O-064-C",
+          "CAU-ContractAppliedObject-O-065-C"
+        ],
+        "unreviewed_failures": []
+      },
+      {
+        "dataset": "ContractCommitment",
+        "testcases": 114,
+        "official_failures": [],
+        "unreviewed_failures": []
+      }
+    ],
+    "limitations": "1.4 active rule dependency cycle; older commitment-status predicates contradict normative prose and JSON wildcard null condition misclassifies non-null quantity. No official certification claimed."
+  }
+]

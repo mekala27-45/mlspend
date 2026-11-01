@@ -6,8 +6,8 @@
   },
   {
     "requirement": "FOCUS simulator and validation",
-    "status": "Not done",
-    "evidence": "Allocated unit label corrected and allocated rows added to the official integration fixture, which passed in run 41326226037. Full corrected exports are rebuilding. Official 1.4 rule-cycle limitations remain disclosed."
+    "status": "Done",
+    "evidence": "Full run 41327002636 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed."
   },
   {
     "requirement": "Every public build and committed ledger",
@@ -42,7 +42,7 @@
   {
     "requirement": "Forecasts and budgets",
     "status": "Not done",
-    "evidence": "Daily/monthly backtests and budget alerts pass; the December 2026 forecast is saved but cannot be scored yet. Monthly-close GitHub secrets require specific authorization."
+    "evidence": "Daily/monthly backtests and budget alerts pass. The scoped monthly-close GitHub Actions secrets are configured. The saved December 2026 scenario must remain pending until complete December actuals are available in January 2027."
   },
   {
     "requirement": "Detection and postmortem",
@@ -82,11 +82,11 @@
   {
     "requirement": "Documentation and workflows",
     "status": "Done",
-    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; seventeen dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
+    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
   },
   {
     "requirement": "Quality gates and release",
     "status": "Not done",
-    "evidence": "Core CI: 79 tests, 90.28 percent coverage, strict typing/lint/gates. Full clean detached-worktree rebuild 41267495682 matched both hashes; the corrected export rebuild is running. Topics and v0.1.0 remain unset while monthly-close and validation requirements are open."
+    "evidence": "81 tests, 90.37 percent coverage, strict typing/lint/gates; corrected full detached-worktree rebuild 41326225853 matched both hashes and recalculated Excel. Eight repository topics and the dashboard homepage are configured. The v0.1.0 tag remains pending until the forecast-close requirement is complete."
   }
 ]

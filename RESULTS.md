@@ -12,14 +12,14 @@ The expanded study is implemented. Release status is determined by the evidence 
 | Requirement | Status | Evidence or limit |
 | --- | --- | --- |
 | 1. Public source price book | Done | Public-source fetch 41259427895; 79 locked rows and URL/date/digest for every manual entry; unavailable paid equivalents remain unpriced. |
-| 2. FOCUS simulator and validation | Not done | Allocated unit label corrected and allocated rows added to the official integration fixture, which passed in run 41326226037. Full corrected exports are rebuilding. Official 1.4 rule-cycle limitations remain disclosed. |
+| 2. FOCUS simulator and validation | Done | Full run 41327002636 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed. |
 | 3. Every public build and committed ledger | Done | Locked public Actions inventory plus 303 committed ledger rows; all missing paid equivalents are explicitly unpriced, never zero. |
 | 4. Registered evaluation | Done | evaluation/v2/registration.json pins the plan before this replication scored its holdout; prior version outcomes were already known and disclosed. |
 | 5. Contracted warehouse and quarantine | Done | 589850 source charges; enforced dbt contracts; ten producer defects quarantined; count, billed and effective cost differences are zero at team/model/month/day grains. |
 | 6. Allocation and ownership | Done | Five conserved policies, explicit idle, exact coalition reference, owner precision 1.0 and recall 0.941421; largest team-month movement is published. |
 | 7. Unit economics | Done | Versioned average and marginal inference costs, answer cost components and completed/failed training experiment costs in the checked manifest. |
 | 8. Live container API and metering | Done | Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01. |
-| 9. Forecasts and budgets | Not done | Daily/monthly backtests and budget alerts pass; the December 2026 forecast is saved but cannot be scored yet. Monthly-close GitHub secrets require specific authorization. |
+| 9. Forecasts and budgets | Not done | Daily/monthly backtests and budget alerts pass. The scoped monthly-close GitHub Actions secrets are configured. The saved December 2026 scenario must remain pending until complete December actuals are available in January 2027. |
 | 10. Detection and postmortem | Done | Seven held-out events scored; event recall 1.0, point precision 0.417413 and recall 0.255605; weekend-sweep postmortem distinguishes hourly alerts from daily budget observation. |
 | 11. Recommendations and commitment sizing | Done | Seven individual whole-platform counterfactuals, the joint action and three commitment pools have held-out estimates, truth and sensitivity results. |
 | 12. Persistence and cold/warm latency | Done | Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1215.795 seconds: new instance, uptime 1.288 seconds, first response 7389.90 ms. Sixteen reused-instance requests: p50 119.42 ms, p99 251.03 ms; four new-instance observations excluded. |
@@ -27,8 +27,8 @@ The expanded study is implemented. Release status is determined by the evidence 
 | 14. Finance exports | Done | 84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding. |
 | 15. Statistical method report | Done | Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant. |
 | 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked. |
-| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; seventeen dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
-| 18. Quality gates and release | Not done | Core CI: 79 tests, 90.28 percent coverage, strict typing/lint/gates. Full clean detached-worktree rebuild 41267495682 matched both hashes; the corrected export rebuild is running. Topics and v0.1.0 remain unset while monthly-close and validation requirements are open. |
+| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
+| 18. Quality gates and release | Not done | 81 tests, 90.37 percent coverage, strict typing/lint/gates; corrected full detached-worktree rebuild 41326225853 matched both hashes and recalculated Excel. Eight repository topics and the dashboard homepage are configured. The v0.1.0 tag remains pending until the forecast-close requirement is complete. |
 
 ## Every dollar has an owner.
 
@@ -3181,4 +3181,4 @@ Forecast record: `d1db176e-326c-44a4-8fdc-afa328a2fe70`, target `2026-12`, cutof
 
 ## Delivered files and verification
 
-See [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS diagnostics](https://github.com/mekala27-45/mlspend/actions/workflows/focus-full.yml) and [the deployment runbook](docs/HOSTING.md).
+See [the file inventory](docs/FILE_TREE.md), [full study and finance artifacts](https://github.com/mekala27-45/mlspend/actions/workflows/expanded-build.yml), [browser evidence](https://github.com/mekala27-45/mlspend/actions/workflows/verify-live-pages.yml), [full FOCUS reports](results/full-focus/summary.json), [conservation checks](results/full-focus/conservation.json), [independent rebuild proof](results/expanded/reproducibility.json), [validation interpretation](docs/FOCUS.md) and [the deployment runbook](docs/HOSTING.md).

@@ -1,6 +1,6 @@
 # Delivered file inventory
 
-Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports and large data remain reproducible Actions artifacts, not repository binaries. This inventory lists repository files; working environments and caches are excluded.
+Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full FOCUS evidence promoted from run 41327002636 in this documentation update. Large datasets and finance binaries remain reproducible Actions artifacts. Working environments and caches are excluded.
 
 ## .claude
 
@@ -9,6 +9,33 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `.claude/skills/add-a-cost-rule/SKILL.md` |
 | `.claude/skills/add-a-price-source/SKILL.md` |
 | `.claude/skills/explain-a-bill/SKILL.md` |
+
+## Root files
+
+| File |
+| --- |
+| `.dockerignore` |
+| `.env.example` |
+| `.gitignore` |
+| `.vercelignore` |
+| `AGENTS.md` |
+| `ARCHITECTURE.md` |
+| `CLAUDE.md` |
+| `CONTRIBUTING.md` |
+| `DATA_SOURCES.md` |
+| `DECISIONS.md` |
+| `Dockerfile.vercel` |
+| `LICENSE` |
+| `Makefile` |
+| `README.md` |
+| `RESULTS.md` |
+| `alembic.ini` |
+| `index.py` |
+| `pyproject.toml` |
+| `requirements-expanded.txt` |
+| `requirements.txt` |
+| `uv.lock` |
+| `vercel.json` |
 
 ## .githooks
 
@@ -33,6 +60,7 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `.github/workflows/focus-validation.yml` |
 | `.github/workflows/lock-dependencies.yml` |
 | `.github/workflows/pages.yml` |
+| `.github/workflows/preserve-browser-evidence.yml` |
 | `.github/workflows/verify-hosted.yml` |
 | `.github/workflows/verify-live-pages.yml` |
 | `.github/workflows/web-checks.yml` |
@@ -76,6 +104,7 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | --- |
 | `docs/BUILD_BRIEF.md` |
 | `docs/DECISIONS.md` |
+| `docs/FILE_TREE.md` |
 | `docs/FOCUS.md` |
 | `docs/HOSTING.md` |
 | `docs/RUNBOOK.md` |
@@ -150,6 +179,7 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `packages/evaluation/__init__.py` |
 | `packages/evaluation/counterfactual.py` |
 | `packages/evaluation/expanded.py` |
+| `packages/evaluation/latency.py` |
 | `packages/evaluation/ownership.py` |
 | `packages/evaluation/score.py` |
 | `packages/evaluation/statistics.py` |
@@ -298,9 +328,24 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `results/expanded/reproducibility.json` |
 | `results/expanded/summary.json` |
 | `results/expanded/workbook-verification.json` |
+| `results/full-focus/AllocatedCostAndUsage/ContractCommitment.log` |
+| `results/full-focus/AllocatedCostAndUsage/ContractCommitment.xml` |
+| `results/full-focus/AllocatedCostAndUsage/CostAndUsage.log` |
+| `results/full-focus/AllocatedCostAndUsage/CostAndUsage.xml` |
+| `results/full-focus/AllocatedCostAndUsage/summary.json` |
+| `results/full-focus/CostAndUsage/ContractCommitment.log` |
+| `results/full-focus/CostAndUsage/ContractCommitment.xml` |
+| `results/full-focus/CostAndUsage/CostAndUsage.log` |
+| `results/full-focus/CostAndUsage/CostAndUsage.xml` |
+| `results/full-focus/CostAndUsage/summary.json` |
+| `results/full-focus/conservation.json` |
+| `results/full-focus/summary.json` |
 | `results/hosted-validation.json` |
+| `results/live/archive/browser-first.json` |
+| `results/live/artifact-provenance.json` |
 | `results/live/browser.json` |
 | `results/live/independent-readback.json` |
+| `results/live/latency-summary.json` |
 | `results/live_check.json` |
 | `results/manifest.json` |
 | `results/portfolio-usage.json` |
@@ -309,33 +354,6 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `results/reproducibility.json` |
 | `results/validation.json` |
 | `results/verification.json` |
-
-## Root
-
-| File |
-| --- |
-| `.dockerignore` |
-| `.env.example` |
-| `.gitignore` |
-| `.vercelignore` |
-| `AGENTS.md` |
-| `ARCHITECTURE.md` |
-| `CLAUDE.md` |
-| `CONTRIBUTING.md` |
-| `DATA_SOURCES.md` |
-| `DECISIONS.md` |
-| `Dockerfile.vercel` |
-| `LICENSE` |
-| `Makefile` |
-| `README.md` |
-| `RESULTS.md` |
-| `alembic.ini` |
-| `index.py` |
-| `pyproject.toml` |
-| `requirements-expanded.txt` |
-| `requirements.txt` |
-| `uv.lock` |
-| `vercel.json` |
 
 ## scripts
 
@@ -386,6 +404,7 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `tests/test_focus.py` |
 | `tests/test_gates_expanded.py` |
 | `tests/test_hosting.py` |
+| `tests/test_latency.py` |
 | `tests/test_methods.py` |
 | `tests/test_pipeline.py` |
 | `tests/test_portfolio.py` |
@@ -394,16 +413,6 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `tests/test_sizing.py` |
 | `tests/test_sources.py` |
 | `tests/web-client.test.cjs` |
-
-## warehouse
-
-| File |
-| --- |
-| `warehouse/dbt_project.yml` |
-| `warehouse/models/mart_monthly.sql` |
-| `warehouse/models/schema.yml` |
-| `warehouse/models/stg_charges.sql` |
-| `warehouse/profiles.yml` |
 
 ## warehouse-expanded
 
@@ -415,6 +424,16 @@ Source snapshot: `a30c0fa8ae18a254982a49db284bead6b4d2ac94`. Generated exports a
 | `warehouse-expanded/models/stg_observed.sql` |
 | `warehouse-expanded/profiles.yml` |
 | `warehouse-expanded/tests/source_reconciliation.sql` |
+
+## warehouse
+
+| File |
+| --- |
+| `warehouse/dbt_project.yml` |
+| `warehouse/models/mart_monthly.sql` |
+| `warehouse/models/schema.yml` |
+| `warehouse/models/stg_charges.sql` |
+| `warehouse/profiles.yml` |
 
 ## web
 
