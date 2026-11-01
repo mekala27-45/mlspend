@@ -69,6 +69,7 @@ test('keyboard access reaches main and all routes in both themes',async({page})=
   for(const dark of [false,true]){
     for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']){
       await page.goto(route);
+      await expect(page.locator('html')).toHaveAttribute('data-theme-ready','true');
       if(dark && !(await page.locator('html').getAttribute('class')||'').includes('dark'))await page.getByRole('button',{name:'Use carbon copy'}).click();
       await page.keyboard.press('Control+Home');
       await page.locator('.skip').focus();await page.keyboard.press('Enter');
