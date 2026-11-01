@@ -14,6 +14,7 @@ from packages.core.io import ROOT, read_json
 from packages.prices.book import PriceBook
 
 SCHEMA = read_json(ROOT / "config/focus/1.4-columns.json")["datasets"]
+UNITS = {"hour": "Hours", "gb_month": "GB-Months", "gb": "GB", "million_tokens": "1000000 Tokens"}
 
 
 def utc(value: datetime) -> str:
@@ -35,6 +36,9 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
     cost = Decimal(observed["cost_micro"]) / 1000000
     quantity = Decimal(str(observed["pricing_quantity"]))
     list_price = Decimal(str(observed.get("list_unit_price", price.usd)))
+    unit = UNITS.get(price.unit, price.unit)
+    purchase = observed.get("charge_category") == "Purchase"
+    unused = bool(observed.get("contract_id")) and observed["kind"] == "idle"
     row: dict[str, Any] = {
         key: None
         for key, spec in SCHEMA["CostAndUsage"].items()
@@ -51,11 +55,11 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
         ChargeCategory=observed.get("charge_category", "Usage"),
         ChargeClass=None,
         ChargeDescription=f"Simulated {observed['service']} usage",
-        ChargeFrequency="Usage-Based",
+        ChargeFrequency="One-Time" if purchase else "Usage-Based",
         ChargePeriodStart=utc(timestamp),
         ChargePeriodEnd=utc(timestamp + timedelta(hours=1)),
-        ConsumedQuantity=str(quantity),
-        ConsumedUnit=price.unit,
+        ConsumedQuantity=None if purchase or unused else str(quantity),
+        ConsumedUnit=None if purchase or unused else unit,
         ContractedCost=str(list_price * quantity),
         ContractedUnitPrice=str(list_price),
         EffectiveCost=str(cost),
@@ -70,7 +74,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
         PricingCurrencyListUnitPrice=str(list_price),
         PricingCurrencyEffectiveCost=str(cost),
         PricingQuantity=str(quantity),
-        PricingUnit=price.unit,
+        PricingUnit=unit,
         RegionId=price.region,
         RegionName=price.region,
         ResourceId=observed["resource"],
@@ -93,6 +97,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
         }.get(observed["service"], "Compute")
         + ")",
         SkuId=price.sku,
+        SkuMeter=price.service + " Usage",
         SkuPriceId=price.id,
         SubAccountId=observed["team"],
         SubAccountName=observed["team"],
@@ -110,8 +115,8 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
             CommitmentDiscountId=contract,
             CommitmentDiscountName="Simulated one-year capacity reservation",
             CommitmentDiscountQuantity=str(quantity),
-            CommitmentDiscountUnit=price.unit,
-            CommitmentDiscountStatus="Unused" if observed["kind"] == "idle" else "Used",
+            CommitmentDiscountUnit=unit,
+            CommitmentDiscountStatus=None if purchase else ("Unused" if unused else "Used"),
             CommitmentDiscountType="Reserved Instance",
             PricingCategory="Committed",
             ContractApplied=json.dumps(
@@ -122,12 +127,14 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
                             "ContractCommitmentId": contract,
                             "ContractCommitmentAppliedCost": float(cost),
                             "ContractCommitmentAppliedQuantity": float(quantity),
-                            "ContractCommitmentAppliedUnit": price.unit,
+                            "ContractCommitmentAppliedUnit": unit,
                         }
                     ]
                 }
             ),
         )
+        if purchase or unused:
+            row["ResourceId"] = contract
     if observed.get("allocated_ratio") is not None:
         row.update(
             AllocatedMethodId="mlspend-usage-v2",
@@ -174,7 +181,7 @@ def contract_row(
         ContractCommitmentDescription="Simulated contract at a locked public offer; no purchase was made",
         ContractCommitmentCost=str(cost),
         ContractCommitmentQuantity=str(8760 * capacity),
-        ContractCommitmentUnit="hour",
+        ContractCommitmentUnit="Hours",
         ContractCommitmentApplicability=json.dumps(
             {
                 "InclusionOperator": "And",
@@ -244,6 +251,31 @@ def validate_rows(rows: Iterable[dict[str, Any]], dataset: str) -> int:
             ):
                 raise ValueError("Applicability scope has no inclusions")
         else:
+            category, status = row["ChargeCategory"], row["CommitmentDiscountStatus"]
+            if category != "Usage" or status == "Unused":
+                if row["ConsumedQuantity"] is not None or row["ConsumedUnit"] is not None:
+                    raise ValueError("Purchase or unused commitment cannot report consumption")
+            if row["CommitmentDiscountId"] is None and status is not None:
+                raise ValueError("Discount status without a discount identifier")
+            if (
+                row["CommitmentDiscountId"]
+                and category == "Usage"
+                and status not in {"Used", "Unused"}
+            ):
+                raise ValueError("Usage discount requires used or unused status")
+            if category == "Purchase" and row["ChargeFrequency"] == "Usage-Based":
+                raise ValueError("Purchase cannot have usage-based frequency")
+            if row["ContractApplied"] is not None:
+                elements = json.loads(row["ContractApplied"])["Elements"]
+                if not elements or any(
+                    not e.get("ContractId") or not e.get("ContractCommitmentId") for e in elements
+                ):
+                    raise ValueError("Contract application requires identifiers")
+                if category == "Purchase" or status == "Unused":
+                    if any(e["ContractCommitmentId"] != row["ResourceId"] for e in elements):
+                        raise ValueError(
+                            "Commitment purchase or unused resource must identify contract"
+                        )
             if row["ChargePeriodStart"] >= row["ChargePeriodEnd"]:
                 raise ValueError("Charge period must be positive")
             for field in ("ListCost", "ContractedCost"):

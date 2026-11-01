@@ -1,5 +1,7 @@
 """Small development-only files for the official validator integration check."""
 
+import duckdb
+
 from packages.core.io import ROOT
 from packages.focus.export import contract_row, cost_row, parquet
 from packages.prices.book import PriceBook
@@ -19,6 +21,11 @@ def main() -> None:
         target / "ContractCommitment.parquet",
         "ContractCommitment",
     )
+    # FOCUS 1.3 used ProviderName/PublisherName; preserve a separate compatibility view.
+    with duckdb.connect() as connection:
+        connection.sql(
+            f"SELECT *, ServiceProviderName AS ProviderName, HostProviderName AS PublisherName FROM read_parquet('{target.as_posix()}/CostAndUsage.parquet')"
+        ).write_parquet(str(target / "CostAndUsage-1.3.parquet"))
 
 
 if __name__ == "__main__":
