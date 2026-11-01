@@ -63,7 +63,24 @@ def main() -> None:
                 f"https://api.github.com/repos/{name}/actions/runs/{run['id']}/jobs?filter=all",
                 "jobs",
             )
-            repo_jobs.extend(price_job(name, job, book) for job in rows)
+            for job in rows:
+                try:
+                    repo_jobs.append(price_job(name, job, book))
+                except ValueError as error:
+                    repo_jobs.append(
+                        {
+                            "repository": name,
+                            "job_id": job["id"],
+                            "source_url": job["html_url"],
+                            "started_at": job.get("started_at"),
+                            "completed_at": job.get("completed_at"),
+                            "minutes": None,
+                            "cost_micro": None,
+                            "price_id": None,
+                            "status": "quarantined",
+                            "reason": str(error),
+                        }
+                    )
         if len({r["job_id"] for r in repo_jobs}) != len(repo_jobs):
             raise ValueError("Duplicate job evidence")
         jobs.extend(repo_jobs)

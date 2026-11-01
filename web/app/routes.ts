@@ -1,0 +1,1 @@
+export const routes=[['statement','The statement'],['allocation','Who spent it'],['unit','One prediction'],['anomalies','Caught in hours'],['forecast','What comes next'],['recommendations','What to change'],['commitments','How much to commit'],['portfolio','Portfolio cost'],['estimate','Price a workload'],['data','Source records'],['report','The briefing']] as const;

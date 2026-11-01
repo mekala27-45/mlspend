@@ -1,0 +1,56 @@
+name: Build and publish Pages
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['web/**', '.github/workflows/pages.yml']
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install exact frontend versions
+        working-directory: web
+        run: npm install --no-audit --no-fund
+      - name: Build static routes and browser SQL
+        working-directory: web
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /mlspend
+          NEXT_PUBLIC_API_URL: https://mlspend-mekala27-45s-projects.vercel.app
+      - name: Strict type checking
+        working-directory: web
+        run: npm run typecheck
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build-evidence
+          path: |
+            web/package-lock.json
+            web/out/
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish static site
+        id: deployment
+        uses: actions/deploy-pages@v4

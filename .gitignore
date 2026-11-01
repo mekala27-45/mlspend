@@ -14,6 +14,9 @@ htmlcov/
 node_modules/
 .next/
 web/out/
+web/public/
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
 data/generated/
 *.sqlite*
 *.duckdb*
