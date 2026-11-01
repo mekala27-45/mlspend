@@ -25,3 +25,9 @@ Run the Build and verify workflow to exercise ephemeral PostgreSQL, SQLite, dbt 
 ## Remaining limits
 
 These checks establish HTTP behavior and persistence. They do not establish browser rendering, measured cold-start distributions, actual provider billing, complete FOCUS conformance, full portfolio coverage or completion of the analytical requirements. No release tag is created by these workflows. Consult RESULTS.md before describing the project as complete.
+
+## Pages and browser verification
+
+The Next.js static export is published at https://mekala27-45.github.io/mlspend/. The Pages run https://github.com/mekala27-45/mlspend/actions/runs/41259117796 passed build, strict TypeScript, and four Chromium tests before publishing commit 0e86d616f1c6f538d0218bbf71ab6295456fe8d7. Tests cover every route at 1280 and 390 pixels, theme switching, the first-503 readiness retry, uncertain POST handling, and a real DuckDB-WASM query of the complete monthly table. Browser screenshots and the npm lockfile are preserved in that run. Later promoted data require a new run; these results remain scoped to the named commit.
+
+An owner-browser check of the Vercel estimator submitted 19 requests per day for one day on the T4 rate. The page returned reference b17d05ff-5ab3-457a-a292-3e4a6395aa66 and a shadow estimate of USD 12.624. An independent Neon SELECT found the same identifier, payload and result. This establishes the browser-to-database path for that deployment, without changing authentication settings or creating a share link.

@@ -2,15 +2,15 @@
 
 mlspend is a portfolio demonstration. Its platform costs are simulated with known truth. Its portfolio costs are shadow estimates of public project usage at published list prices; nobody paid these amounts. No figure is a quote, an invoice or financial advice.
 
-Status: local implementation; mandatory external and analytical requirements remain.
+Status: deployed working demonstration; mandatory analytical requirements remain.
 
 ## Required checklist
 
 | Requirement | Status | Evidence |
 |---|---|---|
-| Price book fetched in Actions and locked | Partial | Browser-observed excerpts are locked; Azure evidence fetch passed in Actions. Full provider coverage and source promotion remain. |
+| Price book fetched in Actions and locked | Partial | Azure provider responses were fetched in Actions and promoted to version 2 with raw response digests and preserved history. GitHub and Vercel retain labeled excerpts; full provider coverage remains. |
 | FOCUS simulator and Foundation validation | Not done | 140160 candidate charge rows exist; official conformance and the full commitment schema remain. |
-| Usage from every public build | Not done | Portfolio status is not measured. |
+| Usage from every public build | Partial | CI usage measured; build-ledger coverage reported separately. Repository summaries reconcile to the recorded workflow jobs; GPU, token and API components remain incomplete. |
 | Plan registered before held-out scoring | Done | evaluation/registration.json, plan digest ab7b94fbe50dedf382af98d5a433fa87fae4cf86c3887552b7aa04ddcb02e3e4. |
 | Warehouse and reconciliation at four grains | Partial | All 140160 source rows reconcile exactly; dbt models and tests pass in Actions. Full FOCUS contracts remain. |
 | Allocation alternatives and owner inference | Partial | Four conserved totals and owner scores exist; the fourth is Shapley-weighted overhead. |
@@ -23,7 +23,7 @@ Status: local implementation; mandatory external and analytical requirements rem
 | Portfolio shadow estimates by output | Not done | No usage was invented. |
 | Finance exports and showback | Partial | Statements rendered; export validation is separate. |
 | All methods scored with uncertainty | Partial | Statistics utilities exist; full registered hypothesis report remains. |
-| Live Pages site and estimator | Not done | Local dashboard exists; public deployment not verified. |
+| Live Pages site and estimator | Partial | Next.js static export is live on GitHub Pages. All routes, mobile widths, themes, recovery and DuckDB queries passed browser tests. Hosted estimator persistence is verified; the forecast-log interface remains. |
 | Documentation and repository workflows | Partial | Source brief, runbook and generated documents exist; full notebook and ADR requirements remain. |
 | Quality gates, reproducibility and release | Partial | Full CI and repeat-build checks pass at the commit recorded in docs/HOSTING.md. No release tag has been created. |
 
@@ -42,7 +42,7 @@ Status: local implementation; mandatory external and analytical requirements rem
 
 ## Limitations
 
-The provider rates are transcribed public excerpts, and their digests cover those excerpts. They are not raw HTTP response digests. AWS, model API, storage and network price coverage is absent. Every simulation amount is a counterfactual at the recorded price snapshot.
+The Azure compute book is backed by raw API responses fetched in Actions. GitHub and Vercel prices retain explicitly labeled transcribed excerpts. The prior price book is preserved in data/prices/history. AWS, model API, storage and network price coverage remains absent. Every simulation amount is a counterfactual at the recorded price snapshot.
 
 The simulator includes compute incidents only. It does not yet include the brief's storage duplication, network export, actual spot interruption mechanism or midyear provider price changes. Billed and effective costs currently coincide because purchases and amortized commitments are not yet emitted into billing rows. Commitment optimization uses a stated simulated discount, not a purchasable provider offer.
 

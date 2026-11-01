@@ -238,10 +238,23 @@ def run() -> dict[str, Any]:
         }
         for r in allocations
     ]
+    portfolio = {
+        "status": "not measured",
+        "rows": [],
+        "reason": "Actions fetch has not run; absence is not zero usage",
+    }
+    portfolio_path = ROOT / "results/portfolio-usage.json"
+    if portfolio_path.exists():
+        report = read_json(portfolio_path)
+        lock = read_json(ROOT / "data/portfolio/lock.json")
+        if digest(report) != lock["report_digest"]:
+            raise ValueError("Portfolio evidence changed after promotion")
+        portfolio = {key: value for key, value in report.items() if key not in ("jobs", "visited")}
+        portfolio["evidence"] = lock
     manifest = {
         "version": "0.1.0-dev",
         "statement": STATEMENT,
-        "status": "local implementation; mandatory external and analytical requirements remain",
+        "status": "deployed working demonstration; mandatory analytical requirements remain",
         "generation": generation,
         "price_digest": book.digest,
         "plan_digest": digest(plan),
@@ -262,11 +275,7 @@ def run() -> dict[str, Any]:
         "recommendations": recommendations,
         "commitments": commitments,
         "reconciliation": reconciliation,
-        "portfolio": {
-            "status": "not measured",
-            "rows": [],
-            "reason": "Actions fetch has not run; absence is not zero usage",
-        },
+        "portfolio": portfolio,
         "prices": [row.model_dump(mode="json") for row in book.rows],
         "daily": [
             {"day": day, "team": team, "cost_micro": cost}

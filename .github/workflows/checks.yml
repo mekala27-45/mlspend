@@ -44,6 +44,7 @@ jobs:
           uv run ruff format --check packages scripts tests
           uv run mypy packages
           uv run python -m scripts.check
+          node scripts/validate_palette.js --config config/palette.json > results/palette-validation.json
           node --check web/app.js
           node --test tests/web-client.test.cjs
       - name: Unit and integration tests
