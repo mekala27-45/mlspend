@@ -59,7 +59,7 @@ def create_app(
     manifest_path: Path = ROOT / "results/expanded/manifest.json",
 ) -> FastAPI:
     api = FastAPI(title="mlspend", description=STATEMENT, docs_url=None, redoc_url=None)
-    book = PriceBook()
+    book = PriceBook(ROOT / "data/prices/expanded")
     manifest: dict[str, Any] | None = read_json(manifest_path) if manifest_path.exists() else None
     url = database_url or os.environ.get("DATABASE_URL")
     selected_salt = salt or os.environ.get("MLSPEND_SALT")

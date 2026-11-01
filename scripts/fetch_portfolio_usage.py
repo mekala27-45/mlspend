@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from datetime import UTC, datetime, timedelta
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
@@ -36,14 +37,18 @@ def fetch_runs(
     return rows
 
 
-def main() -> None:
-    request = read_json(ROOT / "requests/portfolio.json")
+def main(
+    request_path: Path = ROOT / "requests/portfolio.json",
+    output_path: Path = ROOT / "results/portfolio-usage.json",
+    cache_path: Path = ROOT / "tmp/portfolio-cache",
+) -> None:
+    request = read_json(request_path)
     headers = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         raise ValueError("Run this fetch in Actions with its scoped GitHub token")
     headers["Authorization"] = "Bearer " + token
-    client = SourceClient(ROOT / "tmp/portfolio-cache", headers)
+    client = SourceClient(cache_path, headers)
     repos = client.github_pages(
         f"https://api.github.com/users/{request['owner']}/repos?type=owner&sort=full_name"
     )
@@ -150,7 +155,7 @@ def main() -> None:
         "priced_subtotal_micro": sum(r["shadow_cost_micro"] for r in summaries),
         "reason": "CI covers all public repositories and all run attempts in the committed creation-time window. Storage sizes are point-in-time inventory, not storage-month usage. Absent or unparsed ledgers are not zero usage.",
     }
-    write_json(ROOT / "results/portfolio-usage.json", report)
+    write_json(output_path, report)
     print({"repositories": len(repos), "jobs": len(jobs), "evidence_digest": digest(report)})
 
 
