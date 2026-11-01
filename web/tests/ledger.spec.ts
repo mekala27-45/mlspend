@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-const api='https://mlspend-mekala27-45s-projects.vercel.app';
+const api='https://mlspend.vercel.app';
 
 test('all static routes expose results and the disclosure at desktop and mobile sizes',async({page})=>{
   const failures:string[]=[];

@@ -25,5 +25,5 @@ export default function Query() {
     } catch(error) {setOutput(error instanceof Error?error.message:'Query failed');}
     finally {await connection?.close();await db?.terminate();setBusy(false);}
   }
-  return <section><h2>Query the shipped results</h2><p className="small">DuckDB runs in your browser. Tables: monthly and allocation. The platform figures are simulated.</p><label>SQL<textarea className="query" value={query} onChange={e=>setQuery(e.target.value)}/></label><button disabled={busy} onClick={run}>Run SQL locally</button><pre aria-live="polite">{output}</pre></section>;
+  return <section><h2>Query the shipped results</h2><p className="small">DuckDB runs in your browser. Tables: monthly and allocation. The platform figures are simulated.</p><label htmlFor="local-sql">SQL</label><textarea id="local-sql" className="query" value={query} onChange={e=>setQuery(e.target.value)}/><button disabled={busy} onClick={run}>Run SQL locally</button><pre aria-live="polite">{output}</pre></section>;
 }
