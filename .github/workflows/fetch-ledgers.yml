@@ -1,0 +1,38 @@
+name: Fetch committed portfolio ledgers
+on:
+  workflow_dispatch:
+  push:
+    branches: [complete-v2, main]
+    paths: ['scripts/fetch_committed_ledgers.py', '.github/workflows/fetch-ledgers.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install uv
+      - run: uv sync --group dev
+      - run: uv run python -m scripts.fetch_committed_ledgers
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: committed-ledger-evidence
+          path: |
+            results/committed-ledgers.json
+            data/portfolio/ledgers/
+            tmp/ledger-cache/
+      - name: Preserve ledger evidence
+        run: |
+          git switch -c evidence/ledgers-${{ github.run_id }}
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add results/committed-ledgers.json data/portfolio/ledgers/
+          git commit -m "data: capture every committed portfolio ledger record"
+          git push origin HEAD
