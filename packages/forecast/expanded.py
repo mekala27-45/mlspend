@@ -74,7 +74,7 @@ def daily(
     }
     selected = min(losses, key=lambda name: (losses[name], name))
     errors: list[float] = []
-    rows = []
+    rows: list[dict[str, Any]] = []
     for i, point in predictions[selected]:
         if i >= development_days:
             radius = conformal_radius(

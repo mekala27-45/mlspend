@@ -35,7 +35,7 @@ def cost_row(observed: dict[str, Any], book: PriceBook) -> dict[str, Any]:
     cost = Decimal(observed["cost_micro"]) / 1000000
     quantity = Decimal(str(observed["pricing_quantity"]))
     list_price = Decimal(str(observed.get("list_unit_price", price.usd)))
-    row = {
+    row: dict[str, Any] = {
         key: None
         for key, spec in SCHEMA["CostAndUsage"].items()
         if spec["nullable"] or spec["level"] == "Mandatory"
@@ -152,7 +152,7 @@ def contract_row(
     reserved = book.get(price_id + "-reserved-1y")
     ondemand = book.get(price_id)
     cost = reserved.usd * 8760 * capacity
-    row = {
+    row: dict[str, Any] = {
         key: None
         for key, spec in SCHEMA["ContractCommitment"].items()
         if spec["nullable"] or spec["level"] == "Mandatory"

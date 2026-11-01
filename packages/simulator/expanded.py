@@ -36,7 +36,7 @@ def noise(seed: int, hour: int, team: str, purpose: str) -> float:
 
 
 def protocol() -> dict[str, Any]:
-    plan = read_json(ROOT / "evaluation/v2/plan.json")
+    plan: dict[str, Any] = read_json(ROOT / "evaluation/v2/plan.json")
     if digest(plan) != read_json(ROOT / "evaluation/v2/registration.json")["plan_digest"]:
         raise ValueError("Amended protocol drift")
     return plan
