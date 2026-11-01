@@ -56,7 +56,7 @@ def analyze(
             usage = dict.fromkeys(teams, 0.0)
             overhead = 0
             records = connection.execute(
-                "SELECT owner, kind, SUM(cost_micro), SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? GROUP BY 1,2 ORDER BY 1,2",
+                "SELECT owner, kind, SUM(cost_micro), SUM(greatest(requested,used) ORDER BY timestamp, id) FROM owned WHERE strftime(timestamp,'%Y-%m')=? GROUP BY 1,2 ORDER BY 1,2",
                 [month],
             ).fetchall()
             for owner, _kind, amount, used in records:
@@ -68,7 +68,7 @@ def analyze(
                         usage[owner] += float(used)
             hourly: dict[tuple[str, str, str], float] = defaultdict(float)
             rows = connection.execute(
-                "SELECT timestamp, pool, owner, SUM(greatest(requested,used)) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IN ('azure-t4','azure-a100','azure-v100') AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1,2,3 ORDER BY 1,2,3",
+                "SELECT timestamp, pool, owner, SUM(greatest(requested,used) ORDER BY timestamp, id) FROM owned WHERE strftime(timestamp,'%Y-%m')=? AND pool IN ('azure-t4','azure-a100','azure-v100') AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1,2,3 ORDER BY 1,2,3",
                 [month],
             ).fetchall()
             hours = sorted({str(r[0]) for r in rows})
@@ -236,7 +236,7 @@ def analyze(
                 )
         for pool in ("azure-t4", "azure-a100", "azure-v100"):
             values = connection.execute(
-                "SELECT timestamp,SUM(greatest(requested,used)) FROM owned WHERE pool=? AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1 ORDER BY 1",
+                "SELECT timestamp,SUM(greatest(requested,used) ORDER BY timestamp, id) FROM owned WHERE pool=? AND kind='workload' AND NOT ends_with(price_id,'-spot') GROUP BY 1 ORDER BY 1",
                 [pool],
             ).fetchall()
             if len(values) <= dev_days * 24:
