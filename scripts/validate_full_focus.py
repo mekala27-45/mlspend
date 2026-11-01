@@ -20,7 +20,7 @@ def main() -> None:
         target.mkdir(parents=True, exist_ok=True)
         with duckdb.connect() as connection:
             connection.read_parquet(str(source / (name + ".parquet"))).create_view("input")
-            count = connection.execute("SELECT count(*) FROM input").fetchone()[0]
+            count = connection.execute("SELECT count(*) FROM input").fetchall()[0][0]
             assert count > 500000
             compat = target / "compatible.parquet"
             connection.sql(

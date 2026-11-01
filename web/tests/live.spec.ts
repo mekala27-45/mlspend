@@ -43,7 +43,7 @@ test('published Chrome flow compares hosting, persists a forecast and exposes me
   await expect(page.getByText('Future forecast saved.',{exact:false})).toBeVisible();
   const forecastReadback=await request.get(api+'/v1/forecasts/'+forecast.id);expect(forecastReadback.ok()).toBe(true);
   await page.screenshot({path:'test-results/live/forecast.png'});
-  for(const route of ['allocation','anomalies']){await page.goto(site+route+'/');await expect(page.locator('h1')).toBeVisible();await page.screenshot({path:'test-results/live/'+route+'.png'});}
+  for(const route of ['statement','allocation','anomalies','portfolio']){await page.goto(route==='statement'?site:site+route+'/');await expect(page.locator('h1')).toBeVisible();await page.screenshot({path:'test-results/live/'+route+'.png'});}
   const samples=[];
   for(let i=0;i<20;i++){const t=performance.now();const h=await request.get(api+'/health');expect(h.ok()).toBe(true);samples.push({ms:performance.now()-t,...await h.json()});}
   const ordered=samples.map(r=>r.ms).sort((a,b)=>a-b);

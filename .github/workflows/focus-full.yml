@@ -1,5 +1,8 @@
 name: Validate every exported FOCUS row
 on:
+  push:
+    branches: [complete-v2]
+    paths: ['scripts/validate_full_focus.py', '.github/workflows/focus-full.yml']
   workflow_dispatch:
     inputs:
       run_id:
@@ -13,16 +16,16 @@ permissions:
   actions: read
 jobs:
   validate:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
       GH_TOKEN: ${{ github.token }}
-      STUDY_RUN: ${{ inputs.run_id || github.event.workflow_run.id }}
+      STUDY_RUN: ${{ inputs.run_id || github.event.workflow_run.id || '41265515100' }}
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: main
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

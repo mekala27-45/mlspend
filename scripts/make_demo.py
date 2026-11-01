@@ -9,7 +9,7 @@ def main() -> None:
     source = Path("web/test-results/live")
     frames = [
         Image.open(source / (name + ".png")).convert("RGB")
-        for name in ("allocation", "anomalies", "forecast", "estimate")
+        for name in ("statement", "allocation", "anomalies", "portfolio")
     ]
     frames[0].save(
         source / "demo.gif",
