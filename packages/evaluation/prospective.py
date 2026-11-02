@@ -26,7 +26,11 @@ def registered_inputs() -> tuple[dict[str, Any], list[dict[str, Any]], str]:
     history = read_json(FOLDER / "history.json")
     registration = read_json(FOLDER / "registration.json")
     plan_digest = digest(plan)
-    if plan_digest != registration["plan_digest"] or digest(history) != plan["history_digest"]:
+    if (
+        plan_digest != registration["plan_digest"]
+        or digest(history) != plan["history_digest"]
+        or digest(history) != registration["history_digest"]
+    ):
         raise ValueError("Prospective registration drift")
     if any(r["month"] >= plan["period"] for r in history):
         raise ValueError("Future observations in forecast history")

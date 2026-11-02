@@ -187,3 +187,33 @@ def test_issue_then_close_pipeline_requires_persistence_before_outcomes(tmp_path
     assert result["idempotent_replay_updates"] == 0
     assert result["calendar_records_unchanged"] is True
     assert [r["score"]["covered"] for r in result["rows"]] == [True, False]
+
+
+def test_registered_observations_cannot_drift_or_include_the_target(tmp_path, monkeypatch):
+    from packages.core.io import digest, write_json
+    from packages.evaluation import prospective
+
+    monkeypatch.setattr(prospective, "FOLDER", tmp_path)
+    history = [{"month": "2025-12", "team": "ads", "cost_micro": 100}]
+    plan = {"period": "2026-01", "history_digest": digest(history)}
+    write_json(tmp_path / "plan.json", plan)
+    write_json(tmp_path / "history.json", history)
+    write_json(
+        tmp_path / "registration.json",
+        {"plan_digest": digest(plan), "history_digest": digest(history)},
+    )
+    assert prospective.registered_inputs()[0] == plan
+    history[0]["cost_micro"] = 101
+    write_json(tmp_path / "history.json", history)
+    with pytest.raises(ValueError, match="registration drift"):
+        prospective.registered_inputs()
+    history[0]["month"] = "2026-01"
+    plan["history_digest"] = digest(history)
+    write_json(tmp_path / "history.json", history)
+    write_json(tmp_path / "plan.json", plan)
+    write_json(
+        tmp_path / "registration.json",
+        {"plan_digest": digest(plan), "history_digest": digest(history)},
+    )
+    with pytest.raises(ValueError, match="Future observations"):
+        prospective.registered_inputs()

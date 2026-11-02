@@ -4,7 +4,7 @@ The [dashboard](https://mekala27-45.github.io/mlspend/) is a Next.js static expo
 
 ## Production
 
-Production deployment `dpl_C7BmktvDnWUgmdRLWbZXgtZtzPWm` was built from `913fd26c9ebd30c168b44038557c674317f5635d`. Its health response reports the expanded price digest and generated-observation digest. The runtime login `mlspend_api` can read and append application logs and update the request budget. It cannot migrate the schema. Alembic runs separately with the migration credential. Existing legacy rows were copied without deleting their source tables.
+The explicit simulation clock was deployed as `dpl_CEx77f8Mjnp1w1VXZJD9kiqh1jEN` from tested commit `f32fb3af116057ef2fb7be33d9c6937eb3267a63`. Its health response reports the expanded price digest and generated-observation digest. The runtime login `mlspend_api` can read and append application logs and update the request budget. It cannot migrate the schema. Alembic runs separately with the migration credential. Existing legacy rows were copied without deleting their source tables.
 
 The [hosted check](https://github.com/mekala27-45/mlspend/actions/runs/41265362664) passed against the expanded API. It checks health, showback, unit costs, anomalies, an estimate POST and an independent HTTP readback. Core CI also starts the actual container and reads its saved row through an independent PostgreSQL connection. Independent Neon SQL readback of the latest browser estimate and forecast is preserved in `results/live/independent-readback.json`. That read used the owner connection through a separate client; the API continues using its restricted runtime role.
 
@@ -29,3 +29,7 @@ The statement, theme switch and incident chart were also inspected in Ajay's lap
 ## Recheck
 
 Run `uv run python -m scripts.check_hosted --url https://mlspend.vercel.app` from an environment with outbound HTTPS. Run Build and verify for real PostgreSQL, container persistence, notebook execution, strict typing, lint and coverage. Run the full expanded study for two independent hash seeds and LibreOffice formula recalculation. See RESULTS.md for the release boundary and unresolved source gaps.
+
+## Prospective simulation
+
+[Run 41475604592](https://github.com/mekala27-45/mlspend/actions/runs/41475604592) passed issuance, independent SQL readback, outcome generation, close, HTTP score readback and idempotency. The exact artifacts are in `results/prospective/`; their numeric results are rendered in RESULTS.md and the forecast page. The API stores these as `simulation_forecast` records with a registered plan digest and simulation ID. The real calendar close never selects them. See [the sequence and limitations](PROSPECTIVE.md).

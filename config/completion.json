@@ -41,8 +41,8 @@
   },
   {
     "requirement": "Forecasts and budgets",
-    "status": "Not done",
-    "evidence": "Daily/monthly backtests and budget alerts pass. The scoped monthly-close GitHub Actions secrets are configured. The saved December 2026 scenario must remain pending until complete December actuals are available in January 2027."
+    "status": "Done",
+    "evidence": "Registered prospective simulation 41475604592 saved and independently read six live API forecasts before generating outcomes. All six were scored; repeated close updated zero records and both calendar forecasts were preserved. The real December forecasts remain pending."
   },
   {
     "requirement": "Detection and postmortem",
@@ -82,11 +82,11 @@
   {
     "requirement": "Documentation and workflows",
     "status": "Done",
-    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty-one dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
+    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty-two dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
   },
   {
     "requirement": "Quality gates and release",
     "status": "Not done",
-    "evidence": "81 tests, 90.37 percent coverage, strict typing/lint/gates; corrected full detached-worktree rebuild 41326225853 matched both hashes and recalculated Excel. Eight repository topics and the dashboard homepage are configured. The v0.1.0 tag remains pending until the forecast-close requirement is complete."
+    "evidence": "The API change passed 86 tests, 89.37 percent coverage, strict typing, lint, container persistence and repeat builds in run 41474461618. Full candidate rederive, refreshed browser evidence and the final v0.1.0 tag are pending."
   }
 ]

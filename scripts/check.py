@@ -2,6 +2,7 @@ import subprocess
 
 from packages.core.gates import import_boundary, statement_gate, text_gate
 from packages.core.io import ROOT, STATEMENT, digest, read_json
+from packages.evaluation.prospective import registered_inputs
 from packages.prices.book import PriceBook
 from packages.render.documents import render
 
@@ -25,6 +26,7 @@ def main() -> None:
     }
     text_gate(prose)
     import_boundary(ROOT / "packages")
+    registered_inputs()
     PriceBook()
     PriceBook(ROOT / "data/prices/expanded")
     expanded_plan = digest(read_json(ROOT / "evaluation/v2/plan.json"))

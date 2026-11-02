@@ -158,7 +158,7 @@ def create_app(
             "status": "ready"
             if database_status == "connected" and manifest
             else "configuration_required",
-            "version": "0.1.0-dev",
+            "version": "0.1.0",
             "forecast_clocks": ["calendar", "simulation"],
             "instance_id": instance,
             "process_uptime_seconds": round(time.monotonic() - process_start, 3),

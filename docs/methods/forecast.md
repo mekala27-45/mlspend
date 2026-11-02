@@ -145,6 +145,35 @@ All numeric tables below are rendered from results/expanded/manifest.json. Unit-
 | service/warehouse | 2025-12-31 | $133.73 | $134.06 | $134.06 | 31 | critical |
 
 
+## Prospective simulated month: 2026-01
+
+Separate registered simulation. Forecasts were saved before outcomes were generated. A single simulated month does not establish production accuracy. Source: results/prospective/close.json.
+
+| Team | Forecast USD | Interval USD | Simulated actual USD | Absolute error USD | Covered |
+| --- | --- | --- | --- | --- | --- |
+| ads | 2754.37333 | 1390.635891 to 4118.110769 | 1782.500086 | 971.873244 | True |
+| assistant | 5016.153943 | 4792.85427 to 5239.453616 | 6078.170624 | 1062.016681 | False |
+| forecasting | 5488.253824 | 4983.7639 to 5992.743748 | 7169.045001 | 1680.791177 | False |
+| fraud | 2233.508861 | 1962.006684 to 2505.011038 | 2793.00458 | 559.495719 | False |
+| research | 8517.767993 | 7823.778914 to 9211.757072 | 8321.983586 | 195.784407 | True |
+| search | 7582.090179 | 6594.64455 to 8569.535808 | 6203.944277 | 1378.145902 | False |
+
+
+## Prospective close verification
+
+Recording timestamps use actual UTC; the simulated calendar is separate. Real December forecasts remain pending.
+
+| Check | Result |
+| --- | --- |
+| Forecasts independently read before outcomes | 6 |
+| Records scored and independently verified | 6 |
+| Observed interval coverage | 2/6 |
+| Updates on a repeated close | 0 |
+| Calendar forecasts preserved | 2 |
+| Simulation ID | prospective-41475604592-1 |
+| Workflow run | 41475604592 |
+
+
 ## Sensitivity and interior checks
 
 The development scorecard compares every registered candidate. Held-out MAE, empirical coverage, team-cluster uncertainty and monthly interval status remain visible. Future-row mutation tests leave earlier forecasts unchanged.

@@ -86,3 +86,7 @@ The Windows browser test and demo capture passed, but its evidence-branch push r
 ## 2026-11-01: Direct connection for the monthly close
 
 The first configured close run collected October public usage, then Neon's pooled endpoint rejected the startup schema option. Keep the storage schema selection and replace only the close secret's endpoint with its direct connection. The database role and grants remain restricted. Preserve the failed attempt alongside the rerun rather than describing configuration as a completed score.
+
+## 2026-11-02: Verify a separate future simulated month
+
+The specification allows a future simulated month as well as a real portfolio month. Register a supplemental scenario, persist its forecasts before generating outcomes, and close only its explicitly labeled simulation records. Keep real recording timestamps and the simulation calendar separate. Preserve calendar forecasts and the original study; retain poor interval coverage rather than tuning after the outcomes. Source: evaluation/prospective and docs/PROSPECTIVE.md.

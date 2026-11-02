@@ -673,10 +673,75 @@ def render(root: Path = ROOT, check: bool = False) -> None:
     guides = [
         {"path": p, "content": (root / p).read_text()} for p in guide_paths if (root / p).exists()
     ]
+    prospective_path = root / "results/prospective/close.json"
+    prospective_digest = None
+    if prospective_path.exists():
+        proof = read_json(prospective_path)
+        issued = read_json(root / "results/prospective/issued.json")
+        registration = read_json(root / "evaluation/prospective/registration.json")
+        if (
+            proof["status"] != "pass"
+            or proof["clock"] != "simulation"
+            or proof["plan_digest"] != registration["plan_digest"]
+            or proof["plan_digest"] != digest(read_json(root / "evaluation/prospective/plan.json"))
+            or proof["issued_digest"] != digest(issued)
+            or proof["total_scored"] != len(issued["records"])
+            or proof["idempotent_replay_updates"] != 0
+            or not proof["calendar_records_unchanged"]
+        ):
+            raise ValueError("Prospective close evidence failed its report gate")
+        prospective_digest = digest(proof)
+        pages["forecast"]["sections"].extend(
+            [
+                table(
+                    "Prospective simulated month: " + proof["period"],
+                    [
+                        "Team",
+                        "Forecast USD",
+                        "Interval USD",
+                        "Simulated actual USD",
+                        "Absolute error USD",
+                        "Covered",
+                    ],
+                    [
+                        [
+                            r["team"],
+                            r["forecast"]["point_usd"],
+                            r["forecast"]["lower_usd"] + " to " + r["forecast"]["upper_usd"],
+                            r["score"]["actual_usd"],
+                            r["score"]["absolute_error_usd"],
+                            str(r["score"]["covered"]),
+                        ]
+                        for r in proof["rows"]
+                    ],
+                    "Separate registered simulation. Forecasts were saved before outcomes were generated. A single simulated month does not establish production accuracy. Source: results/prospective/close.json.",
+                ),
+                table(
+                    "Prospective close verification",
+                    ["Check", "Result"],
+                    [
+                        ["Forecasts independently read before outcomes", len(issued["records"])],
+                        ["Records scored and independently verified", proof["total_scored"]],
+                        [
+                            "Observed interval coverage",
+                            str(sum(r["score"]["covered"] for r in proof["rows"]))
+                            + "/"
+                            + str(len(proof["rows"])),
+                        ],
+                        ["Updates on a repeated close", proof["idempotent_replay_updates"]],
+                        ["Calendar forecasts preserved", proof["calendar_record_count"]],
+                        ["Simulation ID", proof["simulation_id"]],
+                        ["Workflow run", proof["run_id"]],
+                    ],
+                    "Recording timestamps use actual UTC; the simulated calendar is separate. Real December forecasts remain pending.",
+                ),
+            ]
+        )
     payload = {
         "statement": STATEMENT,
         "latest_month": latest,
         "source_digest": digest(m),
+        "prospective_digest": prospective_digest,
         "pages": pages,
         "guides": guides,
         "charts": {

@@ -1,6 +1,6 @@
 # Delivered file inventory
 
-Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full FOCUS evidence promoted from run 41327002636 in this documentation update. Large datasets and finance binaries remain reproducible Actions artifacts. Working environments and caches are excluded.
+Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective evidence promoted from run 41475604592 and the associated report update. Large datasets and finance binaries remain reproducible Actions artifacts. Working environments and caches are excluded.
 
 ## .claude
 
@@ -61,6 +61,7 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `.github/workflows/lock-dependencies.yml` |
 | `.github/workflows/pages.yml` |
 | `.github/workflows/preserve-browser-evidence.yml` |
+| `.github/workflows/prospective-close.yml` |
 | `.github/workflows/verify-hosted.yml` |
 | `.github/workflows/verify-live-pages.yml` |
 | `.github/workflows/web-checks.yml` |
@@ -107,6 +108,7 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `docs/FILE_TREE.md` |
 | `docs/FOCUS.md` |
 | `docs/HOSTING.md` |
+| `docs/PROSPECTIVE.md` |
 | `docs/RUNBOOK.md` |
 | `docs/SPEC.md` |
 | `docs/adr/001-focus-schema.md` |
@@ -136,6 +138,9 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | File |
 | --- |
 | `evaluation/plan.json` |
+| `evaluation/prospective/history.json` |
+| `evaluation/prospective/plan.json` |
+| `evaluation/prospective/registration.json` |
 | `evaluation/registration.json` |
 | `evaluation/v2/plan.json` |
 | `evaluation/v2/registration.json` |
@@ -181,6 +186,7 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `packages/evaluation/expanded.py` |
 | `packages/evaluation/latency.py` |
 | `packages/evaluation/ownership.py` |
+| `packages/evaluation/prospective.py` |
 | `packages/evaluation/score.py` |
 | `packages/evaluation/statistics.py` |
 | `packages/expansion/__init__.py` |
@@ -191,6 +197,8 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `packages/forecast/__init__.py` |
 | `packages/forecast/expanded.py` |
 | `packages/forecast/models.py` |
+| `packages/forecast/prospective.py` |
+| `packages/forecast/scoring.py` |
 | `packages/optimize/__init__.py` |
 | `packages/optimize/commitments.py` |
 | `packages/optimize/expanded.py` |
@@ -208,6 +216,7 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `packages/simulator/generate.py` |
 | `packages/truth/__init__.py` |
 | `packages/truth/access.py` |
+| `packages/truth/prospective.py` |
 | `packages/unit/__init__.py` |
 | `packages/unit/economics.py` |
 | `packages/warehouse/__init__.py` |
@@ -349,6 +358,9 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `results/live_check.json` |
 | `results/manifest.json` |
 | `results/portfolio-usage.json` |
+| `results/prospective/close.json` |
+| `results/prospective/issued.json` |
+| `results/prospective/outcomes.json` |
 | `results/provenance.json` |
 | `results/reconcile.json` |
 | `results/reproducibility.json` |
@@ -409,6 +421,7 @@ Base source snapshot: `98fda8a2c2211412c13354685773ac7ab789266d`, plus the full 
 | `tests/test_pipeline.py` |
 | `tests/test_portfolio.py` |
 | `tests/test_postgres_routes.py` |
+| `tests/test_prospective.py` |
 | `tests/test_render_expanded.py` |
 | `tests/test_sizing.py` |
 | `tests/test_sources.py` |

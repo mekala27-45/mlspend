@@ -19,7 +19,7 @@ The expanded study is implemented. Release status is determined by the evidence 
 | 6. Allocation and ownership | Done | Five conserved policies, explicit idle, exact coalition reference, owner precision 1.0 and recall 0.941421; largest team-month movement is published. |
 | 7. Unit economics | Done | Versioned average and marginal inference costs, answer cost components and completed/failed training experiment costs in the checked manifest. |
 | 8. Live container API and metering | Done | Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01. |
-| 9. Forecasts and budgets | Not done | Daily/monthly backtests and budget alerts pass. The scoped monthly-close GitHub Actions secrets are configured. The saved December 2026 scenario must remain pending until complete December actuals are available in January 2027. |
+| 9. Forecasts and budgets | Done | Registered prospective simulation 41475604592 saved and independently read six live API forecasts before generating outcomes. All six were scored; repeated close updated zero records and both calendar forecasts were preserved. The real December forecasts remain pending. |
 | 10. Detection and postmortem | Done | Seven held-out events scored; event recall 1.0, point precision 0.417413 and recall 0.255605; weekend-sweep postmortem distinguishes hourly alerts from daily budget observation. |
 | 11. Recommendations and commitment sizing | Done | Seven individual whole-platform counterfactuals, the joint action and three commitment pools have held-out estimates, truth and sensitivity results. |
 | 12. Persistence and cold/warm latency | Done | Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1215.795 seconds: new instance, uptime 1.288 seconds, first response 7389.90 ms. Sixteen reused-instance requests: p50 119.42 ms, p99 251.03 ms; four new-instance observations excluded. |
@@ -27,8 +27,8 @@ The expanded study is implemented. Release status is determined by the evidence 
 | 14. Finance exports | Done | 84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding. |
 | 15. Statistical method report | Done | Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant. |
 | 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked. |
-| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty-one dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
-| 18. Quality gates and release | Not done | 81 tests, 90.37 percent coverage, strict typing/lint/gates; corrected full detached-worktree rebuild 41326225853 matched both hashes and recalculated Excel. Eight repository topics and the dashboard homepage are configured. The v0.1.0 tag remains pending until the forecast-close requirement is complete. |
+| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty-two dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
+| 18. Quality gates and release | Not done | The API change passed 86 tests, 89.37 percent coverage, strict typing, lint, container persistence and repeat builds in run 41474461618. Full candidate rederive, refreshed browser evidence and the final v0.1.0 tag are pending. |
 
 ## Every dollar has an owner.
 
@@ -2762,6 +2762,37 @@ USD effective cost. Purchase cash and amortized consumption are reconciled separ
 | service/training | 2025-12-31 | $4,034.88 | $4,057.78 | $4,057.78 | 31 | critical |
 | service/vector | 2025-12-31 | $80.24 | $80.43 | $80.43 | 31 | critical |
 | service/warehouse | 2025-12-31 | $133.73 | $134.06 | $134.06 | 31 | critical |
+
+
+
+## Prospective simulated month: 2026-01
+
+Separate registered simulation. Forecasts were saved before outcomes were generated. A single simulated month does not establish production accuracy. Source: results/prospective/close.json.
+
+| Team | Forecast USD | Interval USD | Simulated actual USD | Absolute error USD | Covered |
+| --- | --- | --- | --- | --- | --- |
+| ads | 2754.37333 | 1390.635891 to 4118.110769 | 1782.500086 | 971.873244 | True |
+| assistant | 5016.153943 | 4792.85427 to 5239.453616 | 6078.170624 | 1062.016681 | False |
+| forecasting | 5488.253824 | 4983.7639 to 5992.743748 | 7169.045001 | 1680.791177 | False |
+| fraud | 2233.508861 | 1962.006684 to 2505.011038 | 2793.00458 | 559.495719 | False |
+| research | 8517.767993 | 7823.778914 to 9211.757072 | 8321.983586 | 195.784407 | True |
+| search | 7582.090179 | 6594.64455 to 8569.535808 | 6203.944277 | 1378.145902 | False |
+
+
+
+## Prospective close verification
+
+Recording timestamps use actual UTC; the simulated calendar is separate. Real December forecasts remain pending.
+
+| Check | Result |
+| --- | --- |
+| Forecasts independently read before outcomes | 6 |
+| Records scored and independently verified | 6 |
+| Observed interval coverage | 2/6 |
+| Updates on a repeated close | 0 |
+| Calendar forecasts preserved | 2 |
+| Simulation ID | prospective-41475604592-1 |
+| Workflow run | 41475604592 |
 
 ## recommendations / measured results
 
