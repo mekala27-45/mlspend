@@ -49,6 +49,9 @@ class ForecastRequest(StrictModel):
     lower_usd: Decimal = Field(ge=0)
     upper_usd: Decimal = Field(ge=0)
     data_cutoff: date
+    clock: Literal["calendar", "simulation"] = "calendar"
+    simulation_id: str | None = Field(default=None, pattern=r"^[a-zA-Z0-9][a-zA-Z0-9_-]{7,95}$")
+    plan_digest: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
 
     @model_validator(mode="after")
     def ordered_interval(self) -> ForecastRequest:
@@ -56,4 +59,11 @@ class ForecastRequest(StrictModel):
             raise ValueError("The point must lie inside the interval")
         if self.data_cutoff >= date.fromisoformat(self.period + "-01"):
             raise ValueError("Forecast inputs must end before the forecast period")
+        if self.clock == "simulation":
+            if self.book != "platform" or not self.simulation_id or not self.plan_digest:
+                raise ValueError(
+                    "Simulation forecasts require platform book, simulation ID and plan digest"
+                )
+        elif self.simulation_id is not None or self.plan_digest is not None:
+            raise ValueError("Calendar forecasts cannot carry simulation metadata")
         return self

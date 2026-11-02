@@ -21,6 +21,7 @@ from packages.api.sizing import alternatives
 from packages.api.storage import Store
 from packages.core.contracts import EstimateRequest, ForecastRequest
 from packages.core.io import ROOT, STATEMENT, read_json
+from packages.forecast.scoring import score_forecast
 from packages.prices.book import PriceBook
 
 
@@ -158,6 +159,7 @@ def create_app(
             if database_status == "connected" and manifest
             else "configuration_required",
             "version": "0.1.0-dev",
+            "forecast_clocks": ["calendar", "simulation"],
             "instance_id": instance,
             "process_uptime_seconds": round(time.monotonic() - process_start, 3),
             "database": database_status,
@@ -247,9 +249,12 @@ def create_app(
     def forecast(request: ForecastRequest) -> dict[str, Any]:
         if store is None:
             raise HTTPException(503, "Persistent forecast log is not configured")
-        if request.data_cutoff > date.today():
+        if request.clock == "calendar" and request.data_cutoff > date.today():
             raise HTTPException(422, "The data cutoff cannot be in the future")
-        if date.fromisoformat(request.period + "-01") <= date.today():
+        if (
+            request.clock == "calendar"
+            and date.fromisoformat(request.period + "-01") <= date.today()
+        ):
             raise HTTPException(
                 422, "Only future periods may be logged; simulated backtests are kept separately"
             )
@@ -259,10 +264,16 @@ def create_app(
             "upper_usd": str(request.upper_usd),
             "currency": "USD",
             "period": request.period,
+            "clock": request.clock,
+            "simulation_id": request.simulation_id,
+            "plan_digest": request.plan_digest,
             "statement": STATEMENT,
         }
         identifier = store.append(
-            "forecast", request.model_dump(mode="json"), result, request.period
+            "simulation_forecast" if request.clock == "simulation" else "forecast",
+            request.model_dump(mode="json"),
+            result,
+            request.period,
         )
         return {"id": identifier, **result}
 
@@ -271,9 +282,9 @@ def create_app(
         if store is None:
             raise HTTPException(503, "Forecast log is not configured")
         row = store.get(identifier)
-        if row is None or row["kind"] != "forecast":
+        if row is None or row["kind"] not in ("forecast", "simulation_forecast"):
             raise HTTPException(404, "Forecast not found")
-        return {"forecast": row, "statement": STATEMENT}
+        return {"forecast": row, "score": score_forecast(row), "statement": STATEMENT}
 
     return api
 

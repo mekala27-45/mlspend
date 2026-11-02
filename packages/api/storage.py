@@ -124,3 +124,50 @@ class Store:
                 )
                 updated += 1
         return updated
+
+    def close_simulation(
+        self, period: str, simulation_id: str, actuals: dict[str, int], simulated_now: datetime
+    ) -> int:
+        """Advance only an explicitly labeled simulation; preserve real recording time."""
+        if any(type(value) is not int or value < 0 for value in actuals.values()):
+            raise ValueError("Actuals must be nonnegative integer microdollars")
+        year, month = map(int, period.split("-"))
+        end = datetime(year + (month == 12), 1 if month == 12 else month + 1, 1, tzinfo=UTC)
+        if simulated_now < end:
+            raise ValueError("Simulation period has not closed")
+        updated = 0
+        with self.engine.begin() as connection:
+            candidates = (
+                connection.execute(
+                    text(
+                        "SELECT * FROM mlspend_request_log WHERE period=:period AND kind='simulation_forecast'"
+                    ),
+                    {"period": period},
+                )
+                .mappings()
+                .all()
+            )
+            rows = [
+                r
+                for r in candidates
+                if json.loads(r["payload"]).get("simulation_id") == simulation_id
+            ]
+            if not rows:
+                raise ValueError("No forecasts in the specified simulation")
+            for row in rows:
+                payload = json.loads(row["payload"])
+                if payload.get("clock") != "simulation" or payload.get("book") != "platform":
+                    raise ValueError("Invalid simulation identity")
+                key = f"platform:{payload['team']}"
+                if key not in actuals:
+                    raise ValueError(f"Missing actual for {key}; close is atomic")
+                if row["scored_at"] is not None and row["actual_micro"] != actuals[key]:
+                    raise ValueError("A scored simulation cannot be revised")
+                saved = connection.execute(
+                    text(
+                        "UPDATE mlspend_request_log SET actual_micro=:actual, scored_at=:now WHERE id=:id AND scored_at IS NULL RETURNING id"
+                    ),
+                    {"actual": actuals[key], "now": datetime.now(UTC).isoformat(), "id": row["id"]},
+                ).first()
+                updated += saved is not None
+        return updated
