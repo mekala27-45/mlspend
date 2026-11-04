@@ -1,0 +1,44 @@
+name: Publish verified release
+on:
+  workflow_run:
+    workflows: ['Build and verify']
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: release-v0.1.0
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CHECKED_SHA: ${{ github.event.workflow_run.head_sha }}
+      CHECK_RUN_ID: ${{ github.event.workflow_run.id }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Verify complete evidence, unchanged runtime and this commit's CI
+        run: python scripts/release_gate.py --checked-sha "$CHECKED_SHA" --run-id "$CHECK_RUN_ID"
+      - name: Publish the checked commit without replacing a tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          existing="$(git ls-remote origin refs/tags/v0.1.0 | cut -f1)"
+          if [ -n "$existing" ]; then
+            test "$existing" = "$CHECKED_SHA"
+            gh release view v0.1.0 --json url,isDraft
+          else
+            test "$(gh api repos/$GITHUB_REPOSITORY/git/ref/heads/main --jq .object.sha)" = "$CHECKED_SHA"
+            gh release create v0.1.0 --target "$CHECKED_SHA" --title 'MLSpend v0.1.0' --notes-file docs/RELEASE.md --latest
+          fi
+          test "$(git ls-remote origin refs/tags/v0.1.0 | cut -f1)" = "$CHECKED_SHA"

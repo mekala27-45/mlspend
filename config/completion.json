@@ -7,7 +7,7 @@
   {
     "requirement": "FOCUS simulator and validation",
     "status": "Done",
-    "evidence": "Full run 41327002636 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed."
+    "evidence": "Full run 41480417577 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed."
   },
   {
     "requirement": "Every public build and committed ledger",
@@ -37,7 +37,7 @@
   {
     "requirement": "Live container API and metering",
     "status": "Done",
-    "evidence": "Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01."
+    "evidence": "Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Windows Chrome POST passed November 3 and independent SQL readback passed November 4, 2026."
   },
   {
     "requirement": "Forecasts and budgets",
@@ -57,7 +57,7 @@
   {
     "requirement": "Persistence and cold/warm latency",
     "status": "Done",
-    "evidence": "Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1215.795 seconds: new instance, uptime 1.288 seconds, first response 7389.90 ms. Sixteen reused-instance requests: p50 119.42 ms, p99 251.03 ms; four new-instance observations excluded."
+    "evidence": "Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1208.362 seconds: new instance, uptime 0.966 seconds, first response 3774.87 ms. Nineteen reused-instance requests: p50 100.41 ms, p99 217.43 ms; one first observation excluded."
   },
   {
     "requirement": "Portfolio bill and output costs",
@@ -77,16 +77,16 @@
   {
     "requirement": "Pages routes and estimator",
     "status": "Done",
-    "evidence": "Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked."
+    "evidence": "Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks in run 41739841264. Published Windows Chrome persistence, 20-minute idle check and actual-screen demo passed in run 41740056384."
   },
   {
     "requirement": "Documentation and workflows",
     "status": "Done",
-    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty-two dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
+    "evidence": "RESULTS.md contains numeric tables and limits; README skills matrix; twenty-three dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills."
   },
   {
     "requirement": "Quality gates and release",
-    "status": "Not done",
-    "evidence": "The API change passed 86 tests, 89.37 percent coverage, strict typing, lint, container persistence and repeat builds in run 41474461618. Full candidate rederive, refreshed browser evidence and the final v0.1.0 tag are pending."
+    "status": "Done",
+    "evidence": "The verified runtime passed 87 tests with 89.77 percent coverage, strict typing, lint, palette, skills and persistence. Full rederive 41477467691 had no drift. Publication of v0.1.0 is gated on the release commit's CI, exact evidence digests and unchanged runtime; source terms, Apache-2.0, topics and commit history are included."
   }
 ]

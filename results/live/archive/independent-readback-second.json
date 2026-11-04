@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-01T16:27:56.278Z",
+  "source": "Independent Neon SQL connection; no API readback used",
+  "database": "mlspend",
+  "schema": "mlspend",
+  "reader_role": "mlspend_owner",
+  "rows": [
+    {
+      "reader_role": "mlspend_owner",
+      "id": "ff0756e7-eb90-42de-a8ce-f439710c1cfb",
+      "kind": "estimate",
+      "period": null,
+      "created_at": "2026-11-01T03:20:56.549691+00:00",
+      "actual_micro": null,
+      "scored_at": null
+    },
+    {
+      "reader_role": "mlspend_owner",
+      "id": "d1db176e-326c-44a4-8fdc-afa328a2fe70",
+      "kind": "forecast",
+      "period": "2026-12",
+      "created_at": "2026-11-01T03:20:57.733258+00:00",
+      "actual_micro": null,
+      "scored_at": null
+    }
+  ]
+}

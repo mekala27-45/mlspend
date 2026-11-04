@@ -1,6 +1,6 @@
 # Delivered file inventory
 
-Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective evidence promoted from run 41475604592 and the associated report update. Large datasets and finance binaries remain reproducible Actions artifacts. Working environments and caches are excluded.
+Base source: `de15f32947ea2d389a63e9b5123bff36c61fc829`, plus verified release evidence and publication checks. Large datasets and finance binaries are reproducible artifacts of full study run 41477467691. Working environments and caches are excluded.
 
 ## .claude
 
@@ -62,6 +62,7 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `.github/workflows/pages.yml` |
 | `.github/workflows/preserve-browser-evidence.yml` |
 | `.github/workflows/prospective-close.yml` |
+| `.github/workflows/release.yml` |
 | `.github/workflows/verify-hosted.yml` |
 | `.github/workflows/verify-live-pages.yml` |
 | `.github/workflows/web-checks.yml` |
@@ -76,6 +77,7 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `config/incidents.json` |
 | `config/method-notes.json` |
 | `config/palette.json` |
+| `config/release.json` |
 | `config/simulator.json` |
 
 ## data
@@ -109,6 +111,7 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `docs/FOCUS.md` |
 | `docs/HOSTING.md` |
 | `docs/PROSPECTIVE.md` |
+| `docs/RELEASE.md` |
 | `docs/RUNBOOK.md` |
 | `docs/SPEC.md` |
 | `docs/adr/001-focus-schema.md` |
@@ -351,6 +354,8 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `results/full-focus/summary.json` |
 | `results/hosted-validation.json` |
 | `results/live/archive/browser-first.json` |
+| `results/live/archive/browser-second.json` |
+| `results/live/archive/independent-readback-second.json` |
 | `results/live/artifact-provenance.json` |
 | `results/live/browser.json` |
 | `results/live/independent-readback.json` |
@@ -396,6 +401,7 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `scripts/record_local_validation.py` |
 | `scripts/register_expansion.py` |
 | `scripts/register_plan.py` |
+| `scripts/release_gate.py` |
 | `scripts/scheduled_close.py` |
 | `scripts/serve_frontend_test.py` |
 | `scripts/serve_local.py` |
@@ -422,6 +428,7 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `tests/test_portfolio.py` |
 | `tests/test_postgres_routes.py` |
 | `tests/test_prospective.py` |
+| `tests/test_release.py` |
 | `tests/test_render_expanded.py` |
 | `tests/test_sizing.py` |
 | `tests/test_sources.py` |
@@ -479,3 +486,4 @@ Base snapshot: `23e481dc283ba7cdf027a55efc39fc13e95b6e13`, plus the prospective 
 | `web/tests/ledger.spec.ts` |
 | `web/tests/live.spec.ts` |
 | `web/tsconfig.json` |
+

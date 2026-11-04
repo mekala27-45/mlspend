@@ -1,0 +1,48 @@
+{
+  "version": "v0.1.0",
+  "verified_source": "de15f32947ea2d389a63e9b5123bff36c61fc829",
+  "manifest_digest": "e94c3792c1e849139f708a986d157c305bfa2de043bb1e46176a90ec1cd2d42d",
+  "workflows": [
+    {
+      "id": 41739841297,
+      "name": "Build and verify",
+      "source": "de15f32947ea2d389a63e9b5123bff36c61fc829"
+    },
+    {
+      "id": 41739841264,
+      "name": "Build and publish Pages",
+      "source": "de15f32947ea2d389a63e9b5123bff36c61fc829"
+    },
+    {
+      "id": 41740056384,
+      "name": "Verify published browser flow",
+      "source": "de15f32947ea2d389a63e9b5123bff36c61fc829"
+    },
+    {
+      "id": 41477467691,
+      "name": "Build full expanded study",
+      "source": "de15f32947ea2d389a63e9b5123bff36c61fc829"
+    },
+    {
+      "id": 41480417577,
+      "name": "Validate every exported FOCUS row",
+      "source": "f32fb3af116057ef2fb7be33d9c6937eb3267a63"
+    },
+    {
+      "id": 41475604592,
+      "name": "Issue and close a registered simulated month",
+      "source": "23e481dc283ba7cdf027a55efc39fc13e95b6e13"
+    }
+  ],
+  "evidence_sha256": {
+    "results/expanded/reproducibility.json": "58b647af1fc4d56ba805d1ba3a7841d3bb84a566a3458241ea6e694336297672",
+    "results/expanded/workbook-verification.json": "5ac5eac4015a0e1e07b8f1a856774530e90589a28c6e89619088f2f2b72b607a",
+    "results/full-focus/summary.json": "c4eb0893bd336ec2d5287ee22d31f86b186d360b7d83f8d297b74cf2e47867f6",
+    "results/full-focus/conservation.json": "709ebcbfc3fa84621d1611ff67fcde12141ef64f3dc2c166d0cf29eff752cb1f",
+    "results/live/browser.json": "c99fd142694d6bf6fabe10781bbb4a2f688fd98ba60db4e4170c9ffed094a1dc",
+    "results/live/independent-readback.json": "e6433af98d607e68cd5680ecc413cec73b490c8c153735a91e1848a56d5b2fe4",
+    "results/prospective/issued.json": "147ccaf1cf472c7b2806c2c644e4e12fdaf0cfc5795482e0714dbf973695d98b",
+    "results/prospective/outcomes.json": "ef4887f4cd3dfc915480bafbfae74a5db7808f916d288967a266c158963f2a8b",
+    "results/prospective/close.json": "673b2fcb2908ac21ea360830ef77f370c05a95e0c3f2b876d2ab88aae86f7abe"
+  }
+}

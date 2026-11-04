@@ -12,23 +12,23 @@ The expanded study is implemented. Release status is determined by the evidence 
 | Requirement | Status | Evidence or limit |
 | --- | --- | --- |
 | 1. Public source price book | Done | Public-source fetch 41259427895; 79 locked rows and URL/date/digest for every manual entry; unavailable paid equivalents remain unpriced. |
-| 2. FOCUS simulator and validation | Done | Full run 41327002636 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed. |
+| 2. FOCUS simulator and validation | Done | Full run 41480417577 audited all 589850 source and 852660 allocated rows plus both commitments using official validator 2.2.1 supported rules. No unreviewed failures; supplemental FOCUS 1.4 contracts passed; allocation money conserves exactly and origin ratios sum to one within 1e-12. Official 1.4 certification is not claimed. |
 | 3. Every public build and committed ledger | Done | Locked public Actions inventory plus 303 committed ledger rows; all missing paid equivalents are explicitly unpriced, never zero. |
 | 4. Registered evaluation | Done | evaluation/v2/registration.json pins the plan before this replication scored its holdout; prior version outcomes were already known and disclosed. |
 | 5. Contracted warehouse and quarantine | Done | 589850 source charges; enforced dbt contracts; ten producer defects quarantined; count, billed and effective cost differences are zero at team/model/month/day grains. |
 | 6. Allocation and ownership | Done | Five conserved policies, explicit idle, exact coalition reference, owner precision 1.0 and recall 0.941421; largest team-month movement is published. |
 | 7. Unit economics | Done | Versioned average and marginal inference costs, answer cost components and completed/failed training experiment costs in the checked manifest. |
-| 8. Live container API and metering | Done | Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Chrome POST and independent SQL readback passed on 2026-11-01. |
+| 8. Live container API and metering | Done | Vercel port-80 container, restricted PostgreSQL role and measured response headers; published Windows Chrome POST passed November 3 and independent SQL readback passed November 4, 2026. |
 | 9. Forecasts and budgets | Done | Registered prospective simulation 41475604592 saved and independently read six live API forecasts before generating outcomes. All six were scored; repeated close updated zero records and both calendar forecasts were preserved. The real December forecasts remain pending. |
 | 10. Detection and postmortem | Done | Seven held-out events scored; event recall 1.0, point precision 0.417413 and recall 0.255605; weekend-sweep postmortem distinguishes hourly alerts from daily budget observation. |
 | 11. Recommendations and commitment sizing | Done | Seven individual whole-platform counterfactuals, the joint action and three commitment pools have held-out estimates, truth and sensitivity results. |
-| 12. Persistence and cold/warm latency | Done | Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1215.795 seconds: new instance, uptime 1.288 seconds, first response 7389.90 ms. Sixteen reused-instance requests: p50 119.42 ms, p99 251.03 ms; four new-instance observations excluded. |
+| 12. Persistence and cold/warm latency | Done | Saved-before-response, independent SQL and out-of-process checks passed. Latest idle interval 1208.362 seconds: new instance, uptime 0.966 seconds, first response 3774.87 ms. Nineteen reused-instance requests: p50 100.41 ms, p99 217.43 ms; one first observation excluded. |
 | 13. Portfolio bill and output costs | Done | Per-build CI shadow subtotal and public token/output ledger components published with sources; missing GPU/SKU/denominator components explicitly prevent full output-cost totals. |
 | 14. Finance exports | Done | 84 monthly statements; required method-note sections; both FOCUS exports, CSV, Power BI and Tableau; LibreOffice recalculation passed all four Excel allocation policies below one microdollar row rounding. |
 | 15. Statistical method report | Done | Methods read contracted marts; clustered bootstrap, paired sign-flip and registered BH family are published; neither primary comparison is significant. |
-| 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks. Published Windows Chrome persistence and idle test passed; its artifact was recovered in run 41326226000. Laptop statement, theme and incident interactions were also checked. |
-| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty-two dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
-| 18. Quality gates and release | Not done | The API change passed 86 tests, 89.37 percent coverage, strict typing, lint, container persistence and repeat builds in run 41474461618. Full candidate rederive, refreshed browser evidence and the final v0.1.0 tag are pending. |
+| 16. Pages routes and estimator | Done | Twelve Pages routes passed desktop/mobile, both-theme keyboard, SQL and recovery checks in run 41739841264. Published Windows Chrome persistence, 20-minute idle check and actual-screen demo passed in run 41740056384. |
+| 17. Documentation and workflows | Done | RESULTS.md contains numeric tables and limits; README skills matrix; twenty-three dated decisions including reversals; seven ADRs, three executed notebooks and three validated repository skills. |
+| 18. Quality gates and release | Done | The verified runtime passed 87 tests with 89.77 percent coverage, strict typing, lint, palette, skills and persistence. Full rederive 41477467691 had no drift. Publication of v0.1.0 is gated on the release commit's CI, exact evidence digests and unchanged runtime; source terms, Apache-2.0, topics and commit history are included. |
 
 ## Every dollar has an owner.
 
@@ -70,7 +70,7 @@ Review the limitations beside each method. A recommendation is an experiment to 
 
 
 
-## The monthly statement · 2025-12
+## The monthly statement � 2025-12
 
 USD effective cost. Purchase cash and amortized consumption are reconciled separately.
 
@@ -161,7 +161,7 @@ USD effective cost. Purchase cash and amortized consumption are reconciled separ
 
 
 
-## Inference · USD per 1,000 predictions
+## Inference � USD per 1,000 predictions
 
 
 
@@ -2739,7 +2739,7 @@ USD effective cost. Purchase cash and amortized consumption are reconciled separ
 
 
 
-## Budget burn · latest observation
+## Budget burn � latest observation
 
 
 
@@ -3043,7 +3043,7 @@ Job minutes round up individually. Public Linux runner usage is priced at the pr
 
 
 
-| Grain | Groups | Cost difference µUSD | Billed difference µUSD | Count difference |
+| Grain | Groups | Cost difference �USD | Billed difference �USD | Count difference |
 | --- | --- | --- | --- | --- |
 | team | 8 | 0 | 0 | 0 |
 | model | 102 | 0 | 0 | 0 |
@@ -3202,13 +3202,13 @@ Second price fetch after a month: not done. Fractional GPU sharing: not done. Ca
 
 ## Published Windows Chrome measurement
 
-20 sequential health requests, of which 16 reached previously observed instances. Quantiles exclude first observations of other instances. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime support the initial startup observation. See results/live/latency-summary.json for the classification and results/live_check.json for raw samples. The runner is separate from the API and from Ajay's laptop.
+20 sequential health requests, of which 19 reached previously observed instances. Quantiles exclude first observations of other instances. Includes network and database time. The idle interval alone does not prove a cold start; the independent instance ID and short uptime support the initial startup observation. See results/live/latency-summary.json for the classification and results/live_check.json for raw samples. The runner is separate from the API and from Ajay's laptop.
 
 | Checked UTC | Idle seconds | New process observed | First response ms | Reused-instance p50 ms | Reused-instance p99 ms | Estimate request shadow USD |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-01T03:21:02.737Z | 1215.795 | True | 7389.9 | 119.42 | 251.03 | 0.000000507492 |
+| 2026-11-03T23:55:18.216Z | 1208.362 | True | 3774.87 | 100.41 | 217.43 | 0.000000390839 |
 
-Forecast record: `d1db176e-326c-44a4-8fdc-afa328a2fe70`, target `2026-12`, cutoff `2026-11-01`. This is an explicitly labeled demonstration scenario and remains pending actuals. Independent SQL readback is in results/live/independent-readback.json.
+Forecast record: `b3865893-111b-4bcd-a3bf-0123fa2833cf`, target `2026-12`, cutoff `2026-11-03`. This is an explicitly labeled demonstration scenario and remains pending actuals. Independent SQL readback is in results/live/independent-readback.json.
 
 ## Delivered files and verification
 
