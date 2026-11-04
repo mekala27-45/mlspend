@@ -94,3 +94,5 @@ The specification allows a future simulated month as well as a real portfolio mo
 ## 2026-11-04: Release only the verified code and preserved evidence
 
 The final live browser run passed and its saved IDs were independently read from PostgreSQL. Archive the earlier observations before promoting the new evidence. Publish v0.1.0 from a successful main-branch CI result only after checking evidence digests, workflow identities, the unchanged runtime source and current branch head. The release job cannot replace an existing tag. Keep the weak prospective interval coverage and pending real forecasts in the release notes.
+
+Release verification caught CRLF conversion in three local evidence copies. Restore the original saved blobs and pin their exact hashes. Disable Git line-ending conversion for results so byte-level provenance is portable across Windows and Linux; the data values and outcome scores remain unchanged.

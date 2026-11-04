@@ -15,6 +15,7 @@ Base source: `de15f32947ea2d389a63e9b5123bff36c61fc829`, plus verified release e
 | File |
 | --- |
 | `.dockerignore` |
+| `.gitattributes` |
 | `.env.example` |
 | `.gitignore` |
 | `.vercelignore` |

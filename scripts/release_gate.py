@@ -114,6 +114,7 @@ def main() -> None:
         "scripts/release_gate.py",
         "tests/test_release.py",
         ".github/workflows/checks.yml",
+        ".gitattributes",
     }
     changes = command("git", "diff", "--name-only", config["verified_source"], "HEAD").splitlines()
     require(
