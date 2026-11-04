@@ -15,7 +15,7 @@ from packages.core.io import ROOT, write_json
 
 def main() -> None:
     started = time.perf_counter()
-    base = "http://127.0.0.1"
+    base = os.environ.get("MLSPEND_CONTAINER_URL", "http://127.0.0.1")
     with httpx.Client(timeout=10, trust_env=False) as client:
         for _ in range(150):
             try:

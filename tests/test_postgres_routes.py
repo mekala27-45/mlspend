@@ -7,6 +7,9 @@ from fastapi.testclient import TestClient
 
 from packages.api.app import create_app
 from packages.api.storage import Store
+from packages.core.io import ROOT
+from packages.prices.book import PriceBook
+from packages.stretch.guardrail import BudgetRequest, Guardrail, TrainingRequest
 
 pytestmark = pytest.mark.postgres
 SALT = "test-only-postgres-salt-not-a-credential"
@@ -51,3 +54,44 @@ def test_postgres_dashboard_and_estimate_routes(postgres_url):
         assert response.status_code == 200
         identifier = response.json()["id"]
         assert client.get("/v1/estimates/" + identifier).json()["estimate"]["id"] == identifier
+
+
+def test_postgres_training_admission_conserves_budget(postgres_url):
+    from decimal import Decimal
+
+    store = Store(postgres_url, SALT)
+    guard = Guardrail(store.engine)
+    budget = guard.create_budget(BudgetRequest(limit_usd=Decimal("1")))
+    book = PriceBook(ROOT / "data/prices/expanded")
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(
+            pool.map(
+                lambda _: guard.admit(
+                    budget["id"], TrainingRequest(request_id=uuid4(), hours=Decimal("1")), book
+                ),
+                range(20),
+            )
+        )
+    assert sum(r["reserved_micro"] for r in results) <= 1000000
+    assert any(r["accepted"] for r in results)
+    assert any(not r["accepted"] for r in results)
+    assert all(r["remaining_after_micro"] >= 0 for r in results)
+
+
+def test_postgres_training_http_decision_is_saved(postgres_url):
+    with TestClient(create_app(postgres_url, SALT + str(uuid4()))) as client:
+        budget = client.post("/v1/simulation/budgets", json={"limit_usd": "1"})
+        assert budget.status_code == 200
+        path = "/v1/simulation/budgets/" + budget.json()["id"] + "/admissions"
+        payload = {"request_id": str(uuid4()), "hours": "1", "price_id": "azure-t4"}
+        accepted = client.post(path, json=payload)
+        assert accepted.status_code == 200
+        assert accepted.json()["accepted"]
+        replay = client.post(path, json=payload)
+        assert replay.json()["replayed"]
+        assert replay.json()["remaining_after_micro"] == accepted.json()["remaining_after_micro"]
+        refused = client.post(
+            path, json={**payload, "request_id": str(uuid4()), "hours": "48", "attempts": 3}
+        )
+        assert refused.status_code == 409
+        assert not refused.json()["accepted"]

@@ -1,12 +1,29 @@
 import {test,expect} from '@playwright/test';
 const api='https://mlspend.vercel.app';
 
+test('training admission recovers an uncertain request with the same identity',async({page})=>{
+  const identities:string[]=[];
+  await page.route(api+'/v1/simulation/**',async route=>{
+    if(route.request().url().endsWith('/budgets')){await route.fulfill({json:{id:'fixture-budget'}});return;}
+    identities.push(route.request().postDataJSON().request_id);
+    if(identities.length===1){await route.abort();return;}
+    await route.fulfill({json:{accepted:true,reason:'Within remaining forecast budget',remaining_after_micro:99000000,forecast_micro:1000000,replayed:true}});
+  });
+  await page.goto('extensions/');
+  await page.getByRole('button',{name:'Create simulation budget'}).click();
+  await page.getByRole('button',{name:'Check and reserve forecast cost'}).click();
+  await expect(page.getByText(/Admission status is unknown/)).toBeVisible();
+  await page.getByRole('button',{name:'Recover admission decision'}).click();
+  await expect(page.getByText('Accepted for simulation')).toBeVisible();
+  expect(identities.length).toBe(2);expect(identities[0]).toBe(identities[1]);
+});
+
 test('all static routes expose results and the disclosure at desktop and mobile sizes',async({page})=>{
   const failures:string[]=[];
   page.on('pageerror',error=>failures.push(page.url()+": "+error.message));
   for(const width of [1280,390]) {
     await page.setViewportSize({width,height:900});
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']) {
+    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']) {
       await page.goto(route);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('footer')).toContainText('platform costs are simulated');
@@ -65,16 +82,16 @@ test('offline health attempts remain GET and never claim a save',async({page})=>
   await expect(page.getByText(/Saved reference:/)).toHaveCount(0);
 });
 
-test('keyboard access reaches main and all routes in both themes',async({page})=>{
-  for(const dark of [false,true]){
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']){
+for(const dark of [false,true]){
+  for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']){
+    test(`keyboard and contrast: ${route||'home'} in ${dark?'dark':'light'} theme`,async({page})=>{
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('data-theme-ready','true');
       if(dark && !(await page.locator('html').getAttribute('class')||'').includes('dark'))await page.getByRole('button',{name:'Use carbon copy'}).click();
       await page.keyboard.press('Control+Home');
       await page.locator('.skip').focus();await page.keyboard.press('Enter');
       await expect(page.locator('#main')).toBeFocused();
-      expect(await page.locator('nav a').count()).toBe(12);
+      expect(await page.locator('nav a').count()).toBe(14);
       const contrast=await page.locator('main').evaluate(el=>{
         const style=getComputedStyle(el),root=getComputedStyle(document.documentElement);
         const luminance=(color:string)=>{const c=color.match(/[\d.]+/g)!.slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
@@ -82,6 +99,6 @@ test('keyboard access reaches main and all routes in both themes',async({page})=
         const a=luminance(style.color),b=luminance(bg);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
       });
       expect(contrast).toBeGreaterThanOrEqual(4.5);
-    }
+    });
   }
-});
+}

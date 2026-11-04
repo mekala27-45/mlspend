@@ -23,6 +23,7 @@ from packages.core.contracts import EstimateRequest, ForecastRequest
 from packages.core.io import ROOT, STATEMENT, read_json
 from packages.forecast.scoring import score_forecast
 from packages.prices.book import PriceBook
+from packages.stretch.guardrail import BudgetRequest, Guardrail, TrainingRequest
 
 
 def estimate_workload(request: EstimateRequest, book: PriceBook) -> dict[str, Any]:
@@ -285,6 +286,26 @@ def create_app(
         if row is None or row["kind"] not in ("forecast", "simulation_forecast"):
             raise HTTPException(404, "Forecast not found")
         return {"forecast": row, "score": score_forecast(row), "statement": STATEMENT}
+
+    @api.post("/v1/simulation/budgets")
+    def training_budget(request: BudgetRequest) -> dict[str, Any]:
+        if store is None:
+            raise HTTPException(503, "Persistent simulation budget store is not configured")
+        return {**Guardrail(store.engine).create_budget(request), "statement": STATEMENT}
+
+    @api.post("/v1/simulation/budgets/{identifier}/admissions")
+    def training_admission(identifier: uuid.UUID, request: TrainingRequest) -> JSONResponse:
+        if store is None:
+            raise HTTPException(503, "Persistent simulation budget store is not configured")
+        try:
+            result = Guardrail(store.engine).admit(str(identifier), request, book)
+        except KeyError as error:
+            raise HTTPException(404, "Simulation budget not found") from error
+        except ValueError as error:
+            raise HTTPException(409, str(error)) from error
+        return JSONResponse(
+            {**result, "statement": STATEMENT}, status_code=200 if result["accepted"] else 409
+        )
 
     return api
 

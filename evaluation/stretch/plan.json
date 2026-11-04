@@ -1,0 +1,44 @@
+{
+  "version": "stretch-v1",
+  "registered_date": "2026-11-04",
+  "baseline_release": "0a1c83a9faf28a14146ba4e18e90f0c9118b8426",
+  "previous_results_known": true,
+  "purpose": "Optional engineering extension; no new confirmatory statistical claim.",
+  "price_observation": {
+    "baseline_date": "2026-11-01",
+    "not_before": "2026-12-01",
+    "comparison": "Freeze usage and compare matched price identities; missing or changed units are unpriced, never zero.",
+    "promotion": "A candidate is preserved separately and reviewed before becoming a new locked price book."
+  },
+  "gpu_sharing": {
+    "seed": 20261104,
+    "hours": 168,
+    "teams": ["ads", "assistant", "forecasting", "fraud", "research", "search"],
+    "price_id": "azure-t4",
+    "fraction_denominator": 8,
+    "schedulers": ["dedicated per job", "first fit decreasing"],
+    "allocation": ["even", "direct", "usage", "custom", "shapley"],
+    "assumptions": ["Identical work and service quality across scenarios", "No sharing overhead", "One-hour jobs", "Capacity may scale down each hour"],
+    "checks": ["Every job assigned once", "No GPU over capacity", "Cost conserved in every policy", "Empty demand costs zero", "Shapley reconciles", "Deterministic across hash seeds"]
+  },
+  "carbon": {
+    "basis": "GPU-only operational electricity estimate; not measured energy and not total lifecycle carbon",
+    "region_proxy": "EPA eGRID2023 SRVC for the modeled eastus region; provider facility location is not verified",
+    "power": "NVIDIA T4 70W nameplate; full nameplate for allocated device hours",
+    "pue": "1.2",
+    "pue_sensitivity": ["1.0", "1.6"],
+    "unknowns": ["CPU", "memory", "storage", "network", "embodied emissions", "provider token endpoints", "unmapped regions"],
+    "cost_to_energy_conversion": false
+  },
+  "guardrail": {
+    "mode": "Public isolated simulation budgets; decision and reservation only, no training execution",
+    "forecast": "Locked hourly GPU rate times requested GPU count, duration and attempts, rounded upward to integer microdollars",
+    "policy": "Refuse above remaining budget; exact equality allowed; fail closed on unknown input; idempotency payload must match",
+    "checks": ["Concurrent requests cannot overspend", "Repeated request does not reserve twice", "Planted weekend sweep is refused", "Persisted decision before response"]
+  },
+  "readback": {
+    "contract": "CSV tables, dictionary, catalog and SHA-256 warehouse lock; no private database connection",
+    "checks": ["Locked bytes match", "Unknown table refused", "Write and external access refused", "Readback total agrees"]
+  },
+  "release": {"baseline_tag_immutable": true, "requirements": ["CI", "container non-root", "read-only filesystem smoke", "pinned Actions", "documented outstanding future observation"]}
+}

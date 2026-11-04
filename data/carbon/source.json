@@ -1,0 +1,18 @@
+{
+  "retrieved_date": "2026-11-04",
+  "grid": {
+    "source_url": "https://www.epa.gov/egrid/summary-data",
+    "dataset": "eGRID2023, revision 2, June 12 2025",
+    "subregion": "SRVC",
+    "co2e_lb_per_mwh": "596.326",
+    "mapping": "eastus modeled with the Virginia/Carolina regional proxy; actual provider facility is not known"
+  },
+  "device": {
+    "source_url": "https://www.nvidia.com/en-us/data-center/tesla-t4/",
+    "model": "NVIDIA T4",
+    "nameplate_watts": "70",
+    "basis": "Nameplate power assumption, not measured GPU or host energy"
+  },
+  "kg_per_lb": "0.45359237",
+  "statement": "GPU-only operational estimate. CPU, memory, networking, storage, embodied emissions and managed model energy are unknown."
+}

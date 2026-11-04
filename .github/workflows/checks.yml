@@ -28,10 +28,11 @@ jobs:
       MLSPEND_TEST_DATABASE_URL: postgresql://postgres@127.0.0.1:5432/mlspend
       PGPASSWORD: ci-only-ephemeral-password
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12'
       - name: Install dependencies
@@ -47,6 +48,7 @@ jobs:
           uv run mypy packages
           uv run python -m scripts.check
           uv run python -m scripts.check_diff
+          uv run python -m scripts.build_stretch --check
           node scripts/validate_palette.js --config config/palette.json > results/palette-validation.json
           node --check web/app.js
           node --test tests/web-client.test.cjs
@@ -69,9 +71,12 @@ jobs:
         env:
           DATABASE_URL: ${{ env.MLSPEND_TEST_DATABASE_URL }}
           MLSPEND_SALT: ci-container-only-random-salt-not-a-credential
+          MLSPEND_CONTAINER_URL: http://127.0.0.1:8080
         run: |
           docker build -f Dockerfile.vercel -t mlspend-check .
-          docker run -d --name mlspend-check --network host -e DATABASE_URL -e PGPASSWORD -e MLSPEND_SALT mlspend-check
+          docker run -d --name mlspend-check -p 8080:80 --add-host host.docker.internal:host-gateway --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m --cap-drop ALL --security-opt no-new-privileges --sysctl net.ipv4.ip_unprivileged_port_start=0 -e DATABASE_URL=postgresql://postgres@host.docker.internal:5432/mlspend -e PGPASSWORD -e MLSPEND_SALT mlspend-check
+          test "$(docker exec mlspend-check id -u)" = "10001"
+          if docker exec mlspend-check touch /app/should-not-write; then exit 1; fi
           uv run python -m scripts.check_container
       - name: dbt models and data tests
         working-directory: warehouse
@@ -80,7 +85,7 @@ jobs:
         run: uv run python -m scripts.check_reproducibility
       - name: Preserve check evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: validation-evidence
           path: |

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import argparse
 from collections import defaultdict
 from decimal import Decimal
+from pathlib import Path
 from typing import Any
 
 from packages.core.contracts import Price
@@ -11,8 +13,32 @@ from packages.core.io import ROOT, digest, read_json, write_json
 from packages.prices.book import PriceBook
 
 
-def promote() -> None:
-    directory = ROOT / "data/prices/expanded"
+def reviewed_page_rows(
+    raw: list[dict[str, Any]], source: dict[str, Any], prior: PriceBook
+) -> list[Price]:
+    rows = [Price.model_validate(row) for row in raw]
+    if len({row.id for row in rows}) != len(rows):
+        raise ValueError("Duplicate reviewed page rate")
+    for row in rows:
+        if row.provider not in {"GitHub", "Vercel"} or prior.get(row.id).provider != row.provider:
+            raise ValueError("Reviewed page rows must identify an existing GitHub or Vercel rate")
+        page = source["pages"][row.provider.lower()]
+        if (
+            str(row.retrieved_date) != source["retrieved_at"][:10]
+            or row.source_digest != page["sha256"]
+            or row.source_url != page["url"]
+            or row.source_kind != "retrieval_snapshot"
+        ):
+            raise ValueError("Reviewed page rate does not identify the captured provider evidence")
+    return rows
+
+
+def promote(
+    directory: Path, version: str, run_url: str, reviewed_pages: Path | None = None
+) -> None:
+    directory = directory.resolve()
+    if not directory.is_relative_to((ROOT / "data/prices").resolve()):
+        raise ValueError("New books must be versioned under data/prices")
     if (directory / "lock.json").exists():
         raise ValueError("Expanded book is already locked; create a new version")
     source = read_json(directory / "candidate.json")
@@ -195,14 +221,22 @@ def promote() -> None:
             )
 
     prior = PriceBook()
-    rows.extend(p.model_dump(mode="json") for p in prior.rows if p.provider in {"GitHub", "Vercel"})
+    reviewed = (
+        reviewed_page_rows(read_json(reviewed_pages), source, prior) if reviewed_pages else []
+    )
+    replacements = {row.id: row for row in reviewed}
+    rows.extend(
+        replacements.get(p.id, p).model_dump(mode="json")
+        for p in prior.rows
+        if p.provider in {"GitHub", "Vercel"}
+    )
     keys = [(r["id"], r["effective_date"]) for r in rows]
     if len(keys) != len(set(keys)):
         raise ValueError(
             f"Ambiguous effective-dated source prices: {[key for key in set(keys) if keys.count(key) > 1]}"
         )
     book = {
-        "version": "expanded-1",
+        "version": version,
         "rows": sorted(rows, key=lambda r: (r["id"], r["effective_date"])),
         "provenance": "Reviewed Actions provider responses and Standard short-context provider pricing table. Prior GitHub and Vercel excerpt rows retain their original evidence. GB-month storage and paid marginal egress tiers exclude free allowances; full tier schedule retained in candidate.",
     }
@@ -210,11 +244,12 @@ def promote() -> None:
     write_json(
         directory / "lock.json",
         {
-            "version": "expanded-1",
+            "version": version,
             "book_digest": digest(book),
             "candidate_digest": digest(source),
             "prior_book_digest": prior.digest,
-            "run_url": "https://github.com/mekala27-45/mlspend/actions/runs/41259427895",
+            "reviewed_pages_digest": digest([row.model_dump(mode="json") for row in reviewed]),
+            "run_url": run_url,
             "review": "Checked Azure meter, region, tier and term; combined AWS upfront plus recurring dimensions per offer; checked OpenAI Standard short-context table order against the published page.",
         },
     )
@@ -222,4 +257,16 @@ def promote() -> None:
 
 
 if __name__ == "__main__":
-    promote()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--version", required=True)
+    parser.add_argument(
+        "--run-url", required=True, help="Evidence run containing the reviewed candidate"
+    )
+    parser.add_argument(
+        "--reviewed-pages",
+        type=Path,
+        help="Reviewed GitHub/Vercel Price rows tied to candidate page hashes",
+    )
+    args = parser.parse_args()
+    promote(args.directory, args.version, args.run_url, args.reviewed_pages)
