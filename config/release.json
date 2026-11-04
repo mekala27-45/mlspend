@@ -44,5 +44,17 @@
     "results/prospective/issued.json": "147ccaf1cf472c7b2806c2c644e4e12fdaf0cfc5795482e0714dbf973695d98b",
     "results/prospective/outcomes.json": "ef4887f4cd3dfc915480bafbfae74a5db7808f916d288967a266c158963f2a8b",
     "results/prospective/close.json": "673b2fcb2908ac21ea360830ef77f370c05a95e0c3f2b876d2ab88aae86f7abe"
-  }
+  },
+  "artifacts": [
+    {
+      "id": 13158727570,
+      "name": "mlspend-full-study.zip",
+      "sha256": "b998bf9086e6fd4a7005ad2036699a2da3031a82b5d34923046356e5ae5f7e6c"
+    },
+    {
+      "id": 13281961696,
+      "name": "mlspend-browser-evidence.zip",
+      "sha256": "5828b640d33b3c358893185fc97e57177698d02c59744c5ab5d6ad73732b207f"
+    }
+  ]
 }

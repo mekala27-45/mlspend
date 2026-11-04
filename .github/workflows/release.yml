@@ -29,6 +29,21 @@ jobs:
           python-version: '3.12'
       - name: Verify complete evidence, unchanged runtime and this commit's CI
         run: python scripts/release_gate.py --checked-sha "$CHECKED_SHA" --run-id "$CHECK_RUN_ID"
+      - name: Preserve verified study and browser archives as release assets
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          destination = pathlib.Path("release-assets")
+          destination.mkdir()
+          for artifact in json.loads(pathlib.Path("config/release.json").read_text())["artifacts"]:
+              path = destination / artifact["name"]
+              with path.open("wb") as stream:
+                  subprocess.run(["gh", "api", f"repos/mekala27-45/mlspend/actions/artifacts/{artifact['id']}/zip"], stdout=stream, check=True)
+              with path.open("rb") as stream:
+                  actual = hashlib.file_digest(stream, "sha256").hexdigest()
+              if actual != artifact["sha256"]:
+                  raise ValueError("Downloaded artifact digest differs")
+          PY
       - name: Publish the checked commit without replacing a tag
         shell: bash
         run: |
@@ -39,6 +54,7 @@ jobs:
             gh release view v0.1.0 --json url,isDraft
           else
             test "$(gh api repos/$GITHUB_REPOSITORY/git/ref/heads/main --jq .object.sha)" = "$CHECKED_SHA"
-            gh release create v0.1.0 --target "$CHECKED_SHA" --title 'MLSpend v0.1.0' --notes-file docs/RELEASE.md --latest
+            gh release create v0.1.0 release-assets/*.zip --target "$CHECKED_SHA" --title 'MLSpend v0.1.0' --notes-file docs/RELEASE.md --latest
           fi
           test "$(git ls-remote origin refs/tags/v0.1.0 | cut -f1)" = "$CHECKED_SHA"
+          gh release view v0.1.0 --json url,assets,isDraft
