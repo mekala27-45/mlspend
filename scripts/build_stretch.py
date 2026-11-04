@@ -14,6 +14,7 @@ from packages.prices.book import PriceBook
 from packages.stretch.carbon import gpu_carbon, unknown_carbon
 from packages.stretch.catalog import export_tables
 from packages.stretch.sharing import run_study
+from scripts.compare_price_history import comparison_for
 
 
 def derive(root: Path) -> dict[str, Any]:
@@ -39,13 +40,21 @@ def derive(root: Path) -> dict[str, Any]:
                 for pue in plan["carbon"]["pue_sensitivity"]
             ],
         }
+    history = {"status": "pending future observation", **plan["price_observation"]}
+    comparison_path = root / "results/stretch/price-comparison.json"
+    if comparison_path.exists():
+        saved = read_json(comparison_path)
+        verified = comparison_for(root, root / saved["after_book"])
+        if saved != verified:
+            raise ValueError("Price comparison differs from locked prices or frozen usage")
+        history.update(verified)
     return {
         "plan_digest": registration["plan_digest"],
         "price_digest": book.digest,
         "carbon_source_digest": digest(source),
         "sharing": sharing,
         "carbon": carbon,
-        "price_history": {"status": "pending future observation", **plan["price_observation"]},
+        "price_history": history,
         "baseline_carbon": unknown_carbon(
             "The released baseline does not include measured energy or verified complete device power models"
         ),
@@ -76,7 +85,7 @@ def web_data(result: dict[str, Any]) -> dict[str, Any]:
         for method, teams in methods.items()
         for team, amount in teams.items()
     ]
-    return {
+    output = {
         "source_digest": digest(result),
         "pages": {
             "extensions": {
@@ -121,6 +130,45 @@ def web_data(result: dict[str, Any]) -> dict[str, Any]:
         },
         "statement": STATEMENT,
     }
+    history = result["price_history"]
+    if history["status"] == "observed comparison":
+        page = output["pages"]["price-history"]
+        portfolio = history["portfolio"]
+        page["limit"] = (
+            portfolio["scope"] + " These are list-price counterfactuals, not paid invoice changes."
+        )
+        page["sections"] = [
+            {
+                "title": "The same portfolio quantities at two prices",
+                "headers": ["Scope", "Before cost", "After cost", "Change"],
+                "rows": [
+                    [
+                        f"{portfolio['matched_rows']} matched rows; {portfolio['unpriced_rows']} unpriced",
+                        f"${Decimal(portfolio['before_subtotal_micro']) / 1000000:,.2f}",
+                        f"${Decimal(portfolio['after_subtotal_micro']) / 1000000:,.2f}",
+                        f"${Decimal(portfolio['after_subtotal_micro'] - portfolio['before_subtotal_micro']) / 1000000:,.2f}",
+                    ]
+                ],
+                "note": portfolio["scope"],
+            },
+            {
+                "title": "Observed rates",
+                "headers": ["Price", "Unit", "Before USD", "After USD", "Change USD", "Status"],
+                "rows": [
+                    [
+                        r["price_id"],
+                        r.get("unit", "Unknown"),
+                        r["before_usd"],
+                        r["after_usd"],
+                        r["change_usd"],
+                        r["status"],
+                    ]
+                    for r in history["prices"]
+                ],
+                "note": "Only identical provider, SKU, region, term and unit identities with fresh evidence are comparable.",
+            },
+        ]
+    return output
 
 
 def main() -> None:

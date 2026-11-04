@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import argparse
 from collections import defaultdict
 from decimal import Decimal
+from pathlib import Path
 from typing import Any
 
 from packages.core.contracts import Price
@@ -11,8 +13,10 @@ from packages.core.io import ROOT, digest, read_json, write_json
 from packages.prices.book import PriceBook
 
 
-def promote() -> None:
-    directory = ROOT / "data/prices/expanded"
+def promote(directory: Path, version: str, run_url: str) -> None:
+    directory = directory.resolve()
+    if not directory.is_relative_to((ROOT / "data/prices").resolve()):
+        raise ValueError("New books must be versioned under data/prices")
     if (directory / "lock.json").exists():
         raise ValueError("Expanded book is already locked; create a new version")
     source = read_json(directory / "candidate.json")
@@ -202,7 +206,7 @@ def promote() -> None:
             f"Ambiguous effective-dated source prices: {[key for key in set(keys) if keys.count(key) > 1]}"
         )
     book = {
-        "version": "expanded-1",
+        "version": version,
         "rows": sorted(rows, key=lambda r: (r["id"], r["effective_date"])),
         "provenance": "Reviewed Actions provider responses and Standard short-context provider pricing table. Prior GitHub and Vercel excerpt rows retain their original evidence. GB-month storage and paid marginal egress tiers exclude free allowances; full tier schedule retained in candidate.",
     }
@@ -210,11 +214,11 @@ def promote() -> None:
     write_json(
         directory / "lock.json",
         {
-            "version": "expanded-1",
+            "version": version,
             "book_digest": digest(book),
             "candidate_digest": digest(source),
             "prior_book_digest": prior.digest,
-            "run_url": "https://github.com/mekala27-45/mlspend/actions/runs/41259427895",
+            "run_url": run_url,
             "review": "Checked Azure meter, region, tier and term; combined AWS upfront plus recurring dimensions per offer; checked OpenAI Standard short-context table order against the published page.",
         },
     )
@@ -222,4 +226,11 @@ def promote() -> None:
 
 
 if __name__ == "__main__":
-    promote()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--directory", type=Path, required=True)
+    parser.add_argument("--version", required=True)
+    parser.add_argument(
+        "--run-url", required=True, help="Evidence run containing the reviewed candidate"
+    )
+    args = parser.parse_args()
+    promote(args.directory, args.version, args.run_url)

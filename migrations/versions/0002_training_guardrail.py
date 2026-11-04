@@ -15,6 +15,9 @@ def upgrade() -> None:
     op.execute(
         "CREATE TABLE IF NOT EXISTS mlspend.mlspend_training_admission (budget_id TEXT NOT NULL REFERENCES mlspend.mlspend_training_budget(id), request_id TEXT NOT NULL, request_digest TEXT NOT NULL, result TEXT NOT NULL, created_at TEXT NOT NULL, PRIMARY KEY (budget_id,request_id))"
     )
+    op.execute(
+        "DO $$ BEGIN IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname='mlspend_api') THEN GRANT SELECT,INSERT,UPDATE ON mlspend.mlspend_training_budget TO mlspend_api; GRANT SELECT,INSERT ON mlspend.mlspend_training_admission TO mlspend_api; END IF; END $$"
+    )
 
 
 def downgrade() -> None:

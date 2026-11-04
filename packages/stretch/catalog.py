@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import re
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +17,15 @@ def export_tables(root: Path, manifest: dict[str, Any], study: dict[str, Any]) -
     destination = root / "exports/readback"
     destination.mkdir(parents=True, exist_ok=True)
     tables: dict[str, tuple[list[str], list[list[Any]], list[str]]] = {
+        "showback": (
+            ["month", "team", "method", "cost_usd"],
+            [
+                [r["month"], r["team"], method, str(Decimal(amount) / 1000000)]
+                for r in manifest["allocation"]
+                for method, amount in sorted(r["methods"].items())
+            ],
+            ["month", "team", "method"],
+        ),
         "allocation": (
             ["month", "team", "method", "cost_micro"],
             [
@@ -69,6 +79,66 @@ def export_tables(root: Path, manifest: dict[str, Any], study: dict[str, Any]) -
         "query_example": "SELECT SUM(cost_micro) AS total_micro FROM mlspend.allocation WHERE method = 'usage'",
     }
     write_json(destination / "catalog.json", catalog)
+    entry = next(t for t in entries if t["table"] == "showback")
+    consumer = {
+        "warehouse": "mlspend",
+        "as_of": max(r["month"] for r in manifest["allocation"]),
+        "covers": "Simulated ML platform showback, calendar year 2025, five allocation policies; not paid invoices.",
+        "tables": [
+            {
+                "warehouse": "mlspend",
+                "name": "showback",
+                "path": entry["path"],
+                "grain": entry["grain"],
+                "grain_unique": True,
+                "rows": entry["rows"],
+                "source_step": "MLSpend released allocation manifest",
+                "description": "One row per team, month and allocation policy. Select exactly one method before summing dollars.",
+                "columns": [
+                    {
+                        "name": "month",
+                        "type": "VARCHAR",
+                        "role": "time",
+                        "unit": "none",
+                        "definition": "Simulated calendar month in YYYY-MM form",
+                    },
+                    {
+                        "name": "team",
+                        "type": "VARCHAR",
+                        "role": "label",
+                        "unit": "none",
+                        "definition": "Allocated team, including the explicit unallocated owner",
+                    },
+                    {
+                        "name": "method",
+                        "type": "VARCHAR",
+                        "role": "label",
+                        "unit": "none",
+                        "definition": "Allocation policy. Policies are alternatives and must never be added together.",
+                    },
+                    {
+                        "name": "cost_usd",
+                        "type": "DOUBLE",
+                        "role": "measure",
+                        "unit": "dollars",
+                        "definition": "Effective simulated platform cost in USD under this policy, converted exactly from integer microdollars",
+                    },
+                ],
+            }
+        ],
+        "metrics": [
+            {
+                "warehouse": "mlspend",
+                "name": "platform_usage_cost",
+                "definition": "Annual simulated platform cost under the usage allocation policy; all teams including unallocated",
+                "sql": "SELECT SUM(cost_usd) AS value FROM showback WHERE method = 'usage'",
+                "table": "showback",
+                "citation": {"file": "exports/readback/consumer-catalog.json", "line": 1},
+                "parses": True,
+            }
+        ],
+    }
+    write_json(destination / "consumer-catalog.json", consumer)
     write_json(
         destination / "tables.lock.json",
         {

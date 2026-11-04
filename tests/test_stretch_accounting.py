@@ -1,12 +1,15 @@
+from datetime import date
 from decimal import Decimal
+from pathlib import Path
 
 import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
-from packages.core.io import ROOT, read_json
+from packages.core.io import ROOT, digest, read_json, write_json
+from packages.prices.book import PriceBook
 from packages.stretch.carbon import gpu_carbon, unknown_carbon
-from packages.stretch.prices import reprice_usage
+from packages.stretch.prices import compare_prices, reprice_usage
 from packages.stretch.sharing import allocate_pool, pack, run_study
 
 
@@ -79,3 +82,29 @@ def test_price_change_holds_quantity_fixed_and_leaves_unknown() -> None:
     assert result["after_subtotal_micro"] == 7500000
     assert result["unpriced_rows"] == 1
     assert result["rows"][1]["after_micro"] is None
+
+
+def test_price_comparison_refuses_stale_and_incompatible_snapshots(tmp_path: Path) -> None:
+    row = PriceBook(ROOT / "data/prices/expanded").get("azure-t4").model_dump(mode="json")
+
+    def book(name, **changes):
+        raw = {"rows": [{**row, **changes}]}
+        path = tmp_path / name
+        write_json(path / "book.json", raw)
+        write_json(path / "lock.json", {"book_digest": digest(raw)})
+        return PriceBook(path)
+
+    old = book("before")
+    stale = compare_prices(
+        old, book("stale", usd="9", retrieved_date="2026-11-04"), date(2026, 12, 1)
+    )[0]
+    assert stale["after_usd"] is None
+    wrong = compare_prices(
+        old, book("wrong", unit="minute", retrieved_date="2026-12-01"), date(2026, 12, 1)
+    )[0]
+    assert "not comparable" in wrong["status"]
+    new = compare_prices(
+        old, book("after", usd="9", retrieved_date="2026-12-01"), date(2026, 12, 1)
+    )[0]
+    assert new["status"] == "matched"
+    assert Decimal(new["change_usd"]) == Decimal(9) - Decimal(row["usd"])

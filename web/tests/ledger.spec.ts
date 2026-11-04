@@ -91,7 +91,7 @@ test('keyboard access reaches main and all routes in both themes',async({page})=
       await page.keyboard.press('Control+Home');
       await page.locator('.skip').focus();await page.keyboard.press('Enter');
       await expect(page.locator('#main')).toBeFocused();
-      expect(await page.locator('nav a').count()).toBe(12);
+      expect(await page.locator('nav a').count()).toBe(14);
       const contrast=await page.locator('main').evaluate(el=>{
         const style=getComputedStyle(el),root=getComputedStyle(document.documentElement);
         const luminance=(color:string)=>{const c=color.match(/[\d.]+/g)!.slice(0,3).map(Number).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
