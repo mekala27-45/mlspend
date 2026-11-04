@@ -13,7 +13,29 @@ from packages.core.io import ROOT, digest, read_json, write_json
 from packages.prices.book import PriceBook
 
 
-def promote(directory: Path, version: str, run_url: str) -> None:
+def reviewed_page_rows(
+    raw: list[dict[str, Any]], source: dict[str, Any], prior: PriceBook
+) -> list[Price]:
+    rows = [Price.model_validate(row) for row in raw]
+    if len({row.id for row in rows}) != len(rows):
+        raise ValueError("Duplicate reviewed page rate")
+    for row in rows:
+        if row.provider not in {"GitHub", "Vercel"} or prior.get(row.id).provider != row.provider:
+            raise ValueError("Reviewed page rows must identify an existing GitHub or Vercel rate")
+        page = source["pages"][row.provider.lower()]
+        if (
+            str(row.retrieved_date) != source["retrieved_at"][:10]
+            or row.source_digest != page["sha256"]
+            or row.source_url != page["url"]
+            or row.source_kind != "retrieval_snapshot"
+        ):
+            raise ValueError("Reviewed page rate does not identify the captured provider evidence")
+    return rows
+
+
+def promote(
+    directory: Path, version: str, run_url: str, reviewed_pages: Path | None = None
+) -> None:
     directory = directory.resolve()
     if not directory.is_relative_to((ROOT / "data/prices").resolve()):
         raise ValueError("New books must be versioned under data/prices")
@@ -199,7 +221,15 @@ def promote(directory: Path, version: str, run_url: str) -> None:
             )
 
     prior = PriceBook()
-    rows.extend(p.model_dump(mode="json") for p in prior.rows if p.provider in {"GitHub", "Vercel"})
+    reviewed = (
+        reviewed_page_rows(read_json(reviewed_pages), source, prior) if reviewed_pages else []
+    )
+    replacements = {row.id: row for row in reviewed}
+    rows.extend(
+        replacements.get(p.id, p).model_dump(mode="json")
+        for p in prior.rows
+        if p.provider in {"GitHub", "Vercel"}
+    )
     keys = [(r["id"], r["effective_date"]) for r in rows]
     if len(keys) != len(set(keys)):
         raise ValueError(
@@ -218,6 +248,7 @@ def promote(directory: Path, version: str, run_url: str) -> None:
             "book_digest": digest(book),
             "candidate_digest": digest(source),
             "prior_book_digest": prior.digest,
+            "reviewed_pages_digest": digest([row.model_dump(mode="json") for row in reviewed]),
             "run_url": run_url,
             "review": "Checked Azure meter, region, tier and term; combined AWS upfront plus recurring dimensions per offer; checked OpenAI Standard short-context table order against the published page.",
         },
@@ -232,5 +263,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--run-url", required=True, help="Evidence run containing the reviewed candidate"
     )
+    parser.add_argument(
+        "--reviewed-pages",
+        type=Path,
+        help="Reviewed GitHub/Vercel Price rows tied to candidate page hashes",
+    )
     args = parser.parse_args()
-    promote(args.directory, args.version, args.run_url)
+    promote(args.directory, args.version, args.run_url, args.reviewed_pages)

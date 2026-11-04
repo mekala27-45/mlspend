@@ -11,6 +11,7 @@ from packages.prices.book import PriceBook
 from packages.stretch.carbon import gpu_carbon, unknown_carbon
 from packages.stretch.prices import compare_prices, reprice_usage
 from packages.stretch.sharing import allocate_pool, pack, run_study
+from scripts.promote_expanded_prices import reviewed_page_rows
 
 
 @given(st.lists(st.integers(min_value=1, max_value=8), min_size=0, max_size=20))
@@ -108,3 +109,26 @@ def test_price_comparison_refuses_stale_and_incompatible_snapshots(tmp_path: Pat
     )[0]
     assert new["status"] == "matched"
     assert Decimal(new["change_usd"]) == Decimal(9) - Decimal(row["usd"])
+
+
+def test_reviewed_page_rate_must_identify_its_captured_evidence() -> None:
+    prior = PriceBook()
+    rate = prior.get("github-linux").model_dump(mode="json")
+    source = {
+        "retrieved_at": "2026-12-01T14:00:00Z",
+        "pages": {"github": {"sha256": "a" * 64, "url": rate["source_url"]}},
+    }
+    fresh = {
+        **rate,
+        "retrieved_date": "2026-12-01",
+        "source_digest": "a" * 64,
+        "source_kind": "retrieval_snapshot",
+    }
+    assert reviewed_page_rows([fresh], source, prior)[0].id == rate["id"]
+    for changed in (
+        {"source_digest": "b" * 64},
+        {"retrieved_date": "2026-11-01"},
+        {"source_url": "https://example.com"},
+    ):
+        with pytest.raises(ValueError, match="captured provider evidence"):
+            reviewed_page_rows([{**fresh, **changed}], source, prior)

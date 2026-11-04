@@ -96,3 +96,9 @@ The specification allows a future simulated month as well as a real portfolio mo
 The final live browser run passed and its saved IDs were independently read from PostgreSQL. Archive the earlier observations before promoting the new evidence. Publish v0.1.0 from a successful main-branch CI result only after checking evidence digests, workflow identities, the unchanged runtime source and current branch head. The release job cannot replace an existing tag. Keep the weak prospective interval coverage and pending real forecasts in the release notes.
 
 Release verification caught CRLF conversion in three local evidence copies. Restore the original saved blobs and pin their exact hashes. Disable Git line-ending conversion for results so byte-level provenance is portable across Windows and Linux; the data values and outcome scores remain unchanged.
+
+## 2026-11-04: Separate optional engineering evidence from the released study
+
+Register fractional sharing and its assumptions before generation. Allocate modeled GPU electricity from capacity-hours using a published regional proxy; leave other energy unknown. Budget admission reserves only an isolated simulation balance and records immutable decisions under a database row lock. It cannot launch jobs. Keep the month-later comparison pending until its real observation date, and reprice frozen usage only against matching, fresh locked rates.
+
+Publish a public showback export for Readback with a separate generated consumer lock. Its registered warehouse evaluation remains the default, while guarded SQL and numeric readback exercise the optional source. Harden the MLSpend container without altering the immutable baseline tag. Preserve live admission, consumer integration and browser evidence with explicit source commits; do not claim the future price observation has happened.
