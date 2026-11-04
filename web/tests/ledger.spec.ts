@@ -82,9 +82,9 @@ test('offline health attempts remain GET and never claim a save',async({page})=>
   await expect(page.getByText(/Saved reference:/)).toHaveCount(0);
 });
 
-test('keyboard access reaches main and all routes in both themes',async({page})=>{
-  for(const dark of [false,true]){
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']){
+for(const dark of [false,true]){
+  for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']){
+    test(`keyboard and contrast: ${route||'home'} in ${dark?'dark':'light'} theme`,async({page})=>{
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('data-theme-ready','true');
       if(dark && !(await page.locator('html').getAttribute('class')||'').includes('dark'))await page.getByRole('button',{name:'Use carbon copy'}).click();
@@ -99,6 +99,6 @@ test('keyboard access reaches main and all routes in both themes',async({page})=
         const a=luminance(style.color),b=luminance(bg);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
       });
       expect(contrast).toBeGreaterThanOrEqual(4.5);
-    }
+    });
   }
-});
+}
