@@ -2,7 +2,7 @@ name: Verify expanded browser interface
 on:
   workflow_dispatch:
   push:
-    branches: [complete-v2]
+    branches: [complete-v2, stretch-v0.2]
     paths: ['web/**', '.github/workflows/web-checks.yml']
 permissions:
   contents: read

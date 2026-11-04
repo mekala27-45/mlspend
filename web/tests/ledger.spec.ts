@@ -1,12 +1,29 @@
 import {test,expect} from '@playwright/test';
 const api='https://mlspend.vercel.app';
 
+test('training admission recovers an uncertain request with the same identity',async({page})=>{
+  const identities:string[]=[];
+  await page.route(api+'/v1/simulation/**',async route=>{
+    if(route.request().url().endsWith('/budgets')){await route.fulfill({json:{id:'fixture-budget'}});return;}
+    identities.push(route.request().postDataJSON().request_id);
+    if(identities.length===1){await route.abort();return;}
+    await route.fulfill({json:{accepted:true,reason:'Within remaining forecast budget',remaining_after_micro:99000000,forecast_micro:1000000,replayed:true}});
+  });
+  await page.goto('extensions/');
+  await page.getByRole('button',{name:'Create simulation budget'}).click();
+  await page.getByRole('button',{name:'Check and reserve forecast cost'}).click();
+  await expect(page.getByText(/Admission status is unknown/)).toBeVisible();
+  await page.getByRole('button',{name:'Recover admission decision'}).click();
+  await expect(page.getByText('Accepted for simulation')).toBeVisible();
+  expect(identities.length).toBe(2);expect(identities[0]).toBe(identities[1]);
+});
+
 test('all static routes expose results and the disclosure at desktop and mobile sizes',async({page})=>{
   const failures:string[]=[];
   page.on('pageerror',error=>failures.push(page.url()+": "+error.message));
   for(const width of [1280,390]) {
     await page.setViewportSize({width,height:900});
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']) {
+    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']) {
       await page.goto(route);
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('footer')).toContainText('platform costs are simulated');
@@ -67,7 +84,7 @@ test('offline health attempts remain GET and never claim a save',async({page})=>
 
 test('keyboard access reaches main and all routes in both themes',async({page})=>{
   for(const dark of [false,true]){
-    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/']){
+    for(const route of ['', 'allocation/', 'unit/', 'anomalies/', 'forecast/', 'recommendations/', 'commitments/', 'portfolio/', 'estimate/', 'data/', 'report/', 'playbook/', 'extensions/', 'price-history/']){
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('data-theme-ready','true');
       if(dark && !(await page.locator('html').getAttribute('class')||'').includes('dark'))await page.getByRole('button',{name:'Use carbon copy'}).click();
